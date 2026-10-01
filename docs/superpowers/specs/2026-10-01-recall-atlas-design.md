@@ -28,7 +28,7 @@ Auth → dashboard → World Flags with placement sweep, difficulty ladder, FSRS
 Mobile layout, email/push reminders, social features/leaderboards, user-created courses, per-user FSRS parameter optimization, World Map and US Presidents courses.
 
 ## 3. Tech stack
-- **Next.js 15** (App Router, TypeScript), **Tailwind CSS**
+- **Next.js 16** (App Router, TypeScript), **Tailwind CSS**
 - **Supabase**: Auth (Google + email magic link), Postgres with RLS
 - **ts-fsrs** for spaced-repetition scheduling
 - **Vitest** (engine + integration), **Playwright** (e2e)
@@ -89,7 +89,7 @@ answers        id, user_id, item_id, prompt_type, context (study|placement|exam)
                question_id UNIQUE, created_at          -- append-only
 confusions     PK(user_id, course_id, asked_item_id, answered_item_id), count, last_at
 sessions       id, user_id, course_id, kind (study|placement|exam),
-               queue jsonb, position, started_at, completed_at
+               state jsonb (engine StudySession or QueueSession), started_at, completed_at
 exam_attempts  id, user_id, course_id, session_id, score, total, passed,
                missed_item_ids, finished_at
 ```
@@ -123,17 +123,26 @@ Mastery is tracked per **item × prompt type** (World Flags: 2 prompts per item 
 - **Reviews** are always asked at Recall format. Correct → *Good*; correct only via typo tolerance → *Hard*; wrong → *Again* (lapse).
 - **Lapse:** phase → `learning`, rung → 2. Re-graduation resumes FSRS from its post-lapse state.
 
-### 6.4 Session builder
-Default size N = 20 (user choice 10 / 20 / 40). Fill in order:
-1. Due reviews (`phase=review`, `due ≤ now`), lowest retrievability first.
-2. Learning prompts, lowest rung first.
-3. New items from the current group (group order, then item order), max 5 per session, only while fewer than 15 prompts are in `learning`.
+### 6.4 Session builder (dynamic picker)
+A study session is **N graded answers** (default 20; user choice 10 / 20 / 40). Intro cards and contrast drills don't count toward N. Rather than pre-building a queue, the engine picks the **next** entry after every answer. Learning prompts therefore repeat within a session until they graduate, which provides the rapid in-session repetition the ladder needs.
 
-Interleave so the same item never appears consecutively. Re-queued misses may extend a session by at most 10 questions. If nothing is due/learning/new: show "All caught up" with **Practice ahead** (soonest-due prompts) and, if unlocked, **Take exam**.
+**Cooldown:** the last 3 distinct items served are ineligible, so the same item never appears back to back and a miss returns roughly 3–5 questions later.
+
+Pick order for the next entry:
+1. A pending contrast drill (§6.5), if any.
+2. Due reviews (`phase=review`, `due ≤ now`) not on cooldown, lowest retrievability first.
+3. Learning prompts not on cooldown: last answer missed first, then least recently asked, then lowest rung.
+4. Introduce the next new item (group order, then item order) if fewer than 5 items have been introduced this session, fewer than 15 prompts are in `learning`, and enough answers remain in the session to ask each of its prompts.
+5. Relaxed: any learning prompt whose item isn't the very last one served.
+6. Nothing eligible → the session ends early.
+
+A natural "working set" of about 4 items forms: new items are introduced only when everything in learning is on cooldown. If a session ends with nothing due, learning or new, the UI shows "All caught up" with **Practice ahead** (review prompts treated as due, lowest retrievability first) and, if unlocked, **Take exam**.
+
+Placement and exam sessions are fixed, pre-built queues (`{ queue, position }`).
 
 ### 6.5 Confusion tracking
 - Any wrong answer that resolves to another item (MC choice, flag click, or typed text matching another item's name/alias) increments `confusions(asked, answered)`.
-- When a pair's count reaches **2**, a **ContrastDrill** for that pair is injected as the next re-queued question: both flags side by side with labels, then a 2-choice "Which one is X?". Drills are logged but do not move the ladder.
+- When a pair's count reaches **2** (and on every later confusion), a **ContrastDrill** for that pair is queued as the very next entry: both flags side by side with labels, then a 2-choice "Which one is X?". Drills are logged but do not move the ladder.
 - Course home shows the user's top confusion pairs.
 
 ### 6.6 Placement sweep
