@@ -3772,7 +3772,7 @@ Create `app/actions/course.ts`:
 'use server';
 
 import { getCourse } from '@/lib/content/registry';
-import { StaleSessionError } from '@/lib/db/store';
+import { SessionConflictError, StaleSessionError } from '@/lib/db/store';
 import { createServiceContext } from '@/lib/server/context';
 import type { ServiceContext } from '@/lib/study/context';
 import { abandonExam, startExam, submitExamAnswer } from '@/lib/study/exam-service';
@@ -3795,7 +3795,9 @@ async function run<T>(slug: string, fn: (ctx: ServiceContext) => Promise<T>): Pr
     return { ok: true, data: await fn(createServiceContext(userId, course)) };
   } catch (error) {
     if (error instanceof ServiceError) return { ok: false, error: error.code };
-    if (error instanceof StaleSessionError) return { ok: false, error: 'stale_session' };
+    if (error instanceof StaleSessionError || error instanceof SessionConflictError) {
+      return { ok: false, error: 'stale_session' };
+    }
     throw error;
   }
 }
@@ -3986,4 +3988,7 @@ Skip this step if there's nothing to commit.
   - On Vercel, set the four env vars.
   - Add the production URL to Supabase redirect URLs.
   - Confirm `content/flags` is traced into the serverless bundle (`outputFileTracingIncludes`).
+- **Exam result recovery:** if the final exam response is lost, show `CourseOverview.lastExamAttempt` rather than calling `startExamAction` again, which would start a fresh exam after a pass.
+- **Contrast drill UI:** `pair[].flag` and `choices[].flag` are identical strings. Hide the labelled pair once the "Which one is X?" step begins.
+- **Resuming ignores new options:** `startStudy` resumes an active session even if called with different mode/size. If the UI offers "Practice ahead" while a session is active, end the active one first (`endStudyAction`).
 - **Concurrency:** one active session per course is enforced by a DB unique index and `sessions.version`. Two tabs on the same course will see `stale_*` errors in the older tab, which is expected.
