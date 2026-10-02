@@ -69,30 +69,34 @@ supabase/migrations/     schema + RLS
 
 ## 5. Data model
 
-### Content (seeded, read-only to users)
-```
-courses   id, slug, title, description, item_noun, group_label
-items     id, course_id, key, name, aliases text[], group, group_order, item_order,
-          attrs jsonb, lookalikes text[]
-```
-`content/countries.json` is the single source for country data; it generates items for both World Flags and World Map (separate item rows per course). Prompt types per course are defined in code (`lib/content`), e.g. World Flags: `flag_to_name`, `name_to_flag`.
+### Content (in code, not in the database)
+Course content lives in the repo: `content/countries.json` plus course definitions in `lib/content` (`getCourse(slug)`). User tables reference content by `course_slug` and `item_key` text, so there are no content tables to seed or keep in sync. *(Changed during Plan 2: the original design had seeded `courses`/`items` tables.)* Flag SVGs live in `content/flags/` (not `public/`). They are scrubbed of identifying ids at build time and sent to the browser as data URIs, so no URL or markup names the answer.
 
 ### Per-user state
 ```
-enrollments    user_id, course_id, status (placement|learning|exam_ready|passed),
-               placement_completed_at, passed_at, created_at
-prompt_states  PK(user_id, item_id, prompt_type)
-               phase (new|learning|review), rung (0–3), rung_streak,
-               due, stability, difficulty, reps, lapses, last_review, fsrs_state
-answers        id, user_id, item_id, prompt_type, context (study|placement|exam),
-               format, rung, given_text, given_item_id, correct, response_ms,
-               question_id UNIQUE, created_at          -- append-only
-confusions     PK(user_id, course_id, asked_item_id, answered_item_id), count, last_at
-sessions       id, user_id, course_id, kind (study|placement|exam),
-               state jsonb (engine StudySession or QueueSession), started_at, completed_at
-exam_attempts  id, user_id, course_id, session_id, score, total, passed,
-               missed_item_ids, finished_at
+enrollments    PK(user_id, course_slug), placement_completed_at, passed_at, created_at
+               -- status is derived (engine deriveStatus), not stored
+prompt_states  PK(user_id, course_slug, item_key, prompt_type)
+               phase (new|learning|review), rung (0–3), streak,
+               fsrs jsonb (ts-fsrs Card; dates revived on read), updated_at
+               -- only touched prompts are stored; hydrateStates fills the rest
+answers        id, user_id, course_slug, session_id, question_id UNIQUE,
+               context (study|placement|exam), kind (prompt|contrast), item_key,
+               prompt_type?, format, rung?, given_text, given_item_key, correct,
+               response_ms (server-measured), created_at        -- append-only
+confusions     PK(user_id, course_slug, asked_item_key, answered_item_key), count, last_at
+sessions       id, user_id, course_slug, kind (study|placement|exam),
+               state jsonb (engine StudySession or QueueSession [+ exam results]),
+               pending_question jsonb (the issued question incl. opaque choice ids),
+               version (optimistic concurrency), started_at, updated_at, completed_at
+               -- at most one active (completed_at null) session per user × course
+exam_attempts  id, user_id, course_slug, session_id, score, total, passed,
+               missed_item_keys text[], finished_at
 ```
+
+Each answer is committed atomically by one Postgres function, `commit_turn(jsonb)`, which runs as the service role only. It checks `sessions.version` (a stale or duplicate submit is rejected), then writes session state, the next pending question, changed prompt states, the answer row, the confusion increment, enrollment milestones and the exam attempt in one transaction.
+
+Session rules: starting placement or an exam abandons an active study session. A study session can't start while an exam is active, or before placement is completed or skipped. Only study sessions go stale (>24 h idle → discarded); placement and exams stay resumable.
 
 ### Security
 RLS: users may `SELECT` only their own rows. All writes go through server actions using the service role; the browser never writes directly. `answers` is the append-only history from which `confusions` can be rebuilt and FSRS parameters could later be tuned.
@@ -218,5 +222,6 @@ Passing is permanent. FSRS continues scheduling reviews. **Retention health** = 
 | 14 | After pass | Permanent badge + retention health |
 | 15 | MVP slice | Full engine, World Flags only |
 | 16 | Engine location | Pure TS module, server actions, server-side grading |
-| 17 | Typos nearer another country | Graded wrong and logged as a confusion (current). Open question: log only exact other-name matches as confusions, so typos don't feed hard distractors and contrast drills |
+| 17 | Typos nearer another country | Graded wrong and logged as a confusion (confirmed by user 2026-10-02) |
+| 19 | Dev database | Free hosted Supabase project (no local Docker) |
 | 18 | Display names | English common names; "Turkey" over "Türkiye" (kept as alias) |
