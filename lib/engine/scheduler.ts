@@ -1,4 +1,4 @@
-import { createEmptyCard, fsrs, generatorParameters, Rating } from 'ts-fsrs';
+import { createEmptyCard, fsrs, generatorParameters, Rating, type Card } from 'ts-fsrs';
 import { ENGINE_CONFIG } from './config';
 import type { PromptState } from './types';
 
@@ -20,7 +20,10 @@ const RATING: Record<ReviewGrade, Rating.Good | Rating.Hard | Rating.Again> = {
 
 /** Learning → review. Reuses the existing card after a lapse so FSRS history is kept. */
 export function graduate(state: PromptState, now: Date): PromptState {
-  const card = state.fsrs ?? createEmptyCard(now);
+  // Explicit annotation: without it, TS's contextual typing for `??` feeds the
+  // unnarrowed `Card | null` LHS type into createEmptyCard's generic default,
+  // inferring R as `Card | null` instead of `Card`.
+  const card: Card = state.fsrs ?? createEmptyCard(now);
   return {
     ...state,
     phase: 'review',
