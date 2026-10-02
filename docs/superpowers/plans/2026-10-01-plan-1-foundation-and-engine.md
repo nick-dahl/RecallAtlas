@@ -3112,6 +3112,9 @@ Skip this step if there's nothing to commit.
 ## Notes for Plan 2 (persistence)
 
 - `PromptState.fsrs` holds `Date` objects. When storing it as `jsonb` (or as columns), deserialize `due` and `last_review` back to `Date` before calling the engine. Add a `toEngineState`/`fromEngineState` mapper with a round-trip test. The test must exercise `isDue`: it calls `due.getTime()` and throws on string dates, whereas `applyReview`/`retrievability` silently tolerate strings, so they would hide the bug.
+- **Hard requirement: never leak the answer to the browser.** `Question.entry.itemKey` is the answer, and `choiceKeys` are raw ISO codes. The server must send a DTO with opaque per-question choice ids (a server-side map from choice id to item key). Flag images must not reveal the key: `/flags/ec.svg` names the answer to a flag→name question. Use inline SVG or per-question tokens.
+- **Hard requirement: persist the issued question.** Save the built `Question` (format + choiceKeys) with the pending session state and grade against it, rather than rebuilding it (a rebuild draws different random choices). Reject submitted choices that weren't offered.
+- Sort `topConfusions`/`confusedWith` ties by key (or load rows in a stable order) so "top confusions" doesn't reshuffle between page loads.
 - Progress/mastery views should read `fsrs.stability` directly for lapsed prompts. `retrievability()` returns 0 for anything not in review, which would make lapsed items look completely unlearned.
 - `StudySession` and `QueueSession` are plain JSON and are stored as-is in `sessions.state`.
 - The server picks a fresh RNG per request (e.g. `seededRng(crypto.getRandomValues(...)[0])`); the engine never calls `Math.random`.

@@ -110,7 +110,7 @@ Mastery is tracked per **item × prompt type** (World Flags: 2 prompts per item 
 | 0 Introduce | IntroCard (flag + name), ungraded — shared by both prompts | | viewed |
 | 1 Recognize | 4-choice text MC, random distractors | 4-flag grid, random | 1 correct |
 | 2 Discriminate | 6-choice MC, hard distractors | 6-flag grid, hard | 2 consecutive correct |
-| 3 Recall | Typed answer | 8-flag grid incl. all lookalikes | 1 correct → graduate |
+| 3 Recall | Typed answer | 8-flag grid, hard distractors (normally includes all lookalikes; personal confusions take priority) | 1 correct → graduate |
 
 - A new **item** is introduced once (rung 0); after viewing, both prompts are at rung 1.
 - **Miss:** rung = max(1, rung − 1); streak = 0; re-queued 3–5 positions later in the same session.
