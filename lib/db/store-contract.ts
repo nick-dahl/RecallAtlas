@@ -86,6 +86,39 @@ export function describeStoreContract(
       ).rejects.toBeInstanceOf(StaleSessionError);
     });
 
+    it('rejects a commit whose courseSlug does not match the session', async () => {
+      const session = await openSession();
+      await expect(
+        store.commitTurn('a-different-course', {
+          sessionId: session.id,
+          expectedVersion: 0,
+          sessionState: {},
+          pendingQuestion: null,
+          completed: false,
+          promptStates: [],
+        }),
+      ).rejects.toBeInstanceOf(StaleSessionError);
+      const active = await store.getActiveSession(SLUG);
+      expect(active).toMatchObject({ id: session.id, version: 0 });
+    });
+
+    it('stores only the last occurrence of a duplicated prompt state', async () => {
+      const session = await openSession();
+      const first = graduated('EC');
+      const second: PromptState = { ...first, streak: first.streak + 1 };
+      await store.commitTurn(SLUG, {
+        sessionId: session.id,
+        expectedVersion: 0,
+        sessionState: {},
+        pendingQuestion: null,
+        completed: false,
+        promptStates: [first, second],
+      });
+      const states = await store.getPromptStates(SLUG);
+      expect(states).toHaveLength(1);
+      expect(states[0]).toEqual(second);
+    });
+
     it('increments confusions and returns them sorted', async () => {
       const session = await openSession();
       const commit = (v: number, asked: string, answered: string) =>

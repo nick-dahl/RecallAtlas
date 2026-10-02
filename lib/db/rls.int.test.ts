@@ -28,13 +28,14 @@ async function makeUser() {
     pendingQuestion: null,
     completed: false,
     promptStates: [newPromptState('EC', 'flag_to_name')],
+    confusion: { asked: 'EC', answered: 'CO' },
   });
-  return { id: data.user.id, client };
+  return { id: data.user.id, client, sessionId: session.id };
 }
 
 describe('row level security', () => {
-  let a: { id: string; client: SupabaseClient };
-  let b: { id: string; client: SupabaseClient };
+  let a: { id: string; client: SupabaseClient; sessionId: string };
+  let b: { id: string; client: SupabaseClient; sessionId: string };
 
   beforeAll(async () => {
     a = await makeUser();
@@ -46,7 +47,7 @@ describe('row level security', () => {
   });
 
   it('lets a signed-in user read only their own rows', async () => {
-    for (const table of ['enrollments', 'prompt_states', 'sessions']) {
+    for (const table of ['enrollments', 'prompt_states', 'sessions', 'confusions']) {
       const { data, error } = await a.client.from(table).select('user_id');
       expect(error).toBeNull();
       expect(data!.length).toBeGreaterThan(0);
@@ -68,16 +69,44 @@ describe('row level security', () => {
 
     const update = await a.client.from('enrollments').update({ passed_at: new Date().toISOString() }).eq('user_id', a.id).select();
     expect(update.data ?? []).toHaveLength(0);
+
+    const { data: enrollment } = await admin
+      .from('enrollments')
+      .select('passed_at')
+      .eq('user_id', a.id)
+      .eq('course_slug', SLUG)
+      .single();
+    expect(enrollment!.passed_at).toBeNull();
   });
 
-  it('does not let users call commit_turn', async () => {
-    const { error } = await a.client.rpc('commit_turn', { p: {} });
+  it('does not let users call commit_turn, even with a well-formed payload targeting their own session', async () => {
+    const { data: before } = await admin.from('sessions').select('version').eq('id', a.sessionId).single();
+    expect(before!.version).toBe(1);
+
+    const { error } = await a.client.rpc('commit_turn', {
+      p: {
+        user_id: a.id,
+        session_id: a.sessionId,
+        course_slug: SLUG,
+        expected_version: 1,
+        session_state: {},
+        pending_question: null,
+        completed: false,
+        prompt_states: [],
+      },
+    });
     expect(error).not.toBeNull();
+    expect(error!.code).toBe('42501');
+    expect(error!.message).toMatch(/permission denied/i);
+
+    const { data: after } = await admin.from('sessions').select('version').eq('id', a.sessionId).single();
+    expect(after!.version).toBe(1);
   });
 
   it('shows anonymous clients nothing', async () => {
     const anon = createClient(env.supabaseUrl, env.supabasePublishableKey, { auth: { persistSession: false } });
-    const { data } = await anon.from('prompt_states').select('user_id');
+    const { data, error } = await anon.from('prompt_states').select('user_id');
+    expect(error).toBeNull();
     expect(data ?? []).toHaveLength(0);
   });
 });

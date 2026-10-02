@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Confusion, PromptState } from '@/lib/engine';
+import { stateKey } from '@/lib/engine';
 import type { PendingQuestion, SessionKind } from '@/lib/study/types';
 import { rowToPromptState, type PromptStateRow } from './serialize';
 import {
@@ -56,6 +57,19 @@ function toSession(row: SessionRow): SessionRecord {
 
 function fail(context: string, error: { message: string }): never {
   throw new Error(`${context}: ${error.message}`);
+}
+
+/**
+ * A single `commit_turn` call upserts every prompt state via one INSERT ... ON
+ * CONFLICT DO UPDATE statement, and Postgres rejects a statement that would
+ * affect the same conflict target twice ("ON CONFLICT DO UPDATE command cannot
+ * affect row a second time"). Collapse duplicates here, keeping the last
+ * occurrence, to match MemoryStore (a Map keyed by item x prompt type).
+ */
+function dedupePromptStates(states: PromptState[]): PromptState[] {
+  const byKey = new Map<string, PromptState>();
+  for (const s of states) byKey.set(stateKey(s.itemKey, s.promptType), s);
+  return [...byKey.values()];
 }
 
 /** Postgres-backed UserStore. `admin` must be a secret-key client; every query is scoped to `userId`. */
@@ -154,6 +168,9 @@ export function createSupabaseStore(admin: SupabaseClient, userId: string): User
     },
 
     async commitTurn(courseSlug, c: TurnCommit) {
+      if (c.sessionState === undefined) {
+        throw new Error('commitTurn: sessionState is required (use null, not undefined)');
+      }
       const p = {
         user_id: userId,
         session_id: c.sessionId,
@@ -162,7 +179,7 @@ export function createSupabaseStore(admin: SupabaseClient, userId: string): User
         session_state: c.sessionState,
         pending_question: c.pendingQuestion,
         completed: c.completed,
-        prompt_states: c.promptStates,
+        prompt_states: dedupePromptStates(c.promptStates),
         answer: c.answer
           ? {
               question_id: c.answer.questionId,
@@ -196,7 +213,10 @@ export function createSupabaseStore(admin: SupabaseClient, userId: string): User
       };
       const { error } = await admin.rpc('commit_turn', { p });
       if (error) {
-        if (error.message.includes('stale_session')) throw new StaleSessionError();
+        // P0001 is plpgsql's default SQLSTATE for a bare `raise exception`;
+        // the message substring is the actual discriminator (commit_turn
+        // raises no other exception), the code just narrows false positives.
+        if (error.code === 'P0001' && error.message.includes('stale_session')) throw new StaleSessionError();
         fail('commitTurn', error);
       }
     },
