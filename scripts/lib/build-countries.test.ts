@@ -44,10 +44,6 @@ describe('buildCountries (real data)', () => {
     expect(byKey.get('TD')!.flagLookalikes).toContain('RO');
   });
 
-  it('points each country at its flag path', () => {
-    expect(byKey.get('EC')!.flag).toBe('/flags/ec.svg');
-  });
-
   it('applies the TR display-name override and keeps the original name as an alias', () => {
     expect(byKey.get('TR')!.name).toBe('Turkey');
     expect(byKey.get('TR')!.aliases).toContain('Türkiye');

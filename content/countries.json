@@ -16,7 +16,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 1,
-    "flag": "/flags/be.svg",
     "flagLookalikes": [
       "DE"
     ]
@@ -34,7 +33,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 2,
-    "flag": "/flags/dk.svg",
     "flagLookalikes": [
       "NO"
     ]
@@ -52,7 +50,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 3,
-    "flag": "/flags/ee.svg",
     "flagLookalikes": []
   },
   {
@@ -69,7 +66,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 4,
-    "flag": "/flags/fi.svg",
     "flagLookalikes": [
       "SE"
     ]
@@ -86,7 +82,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 5,
-    "flag": "/flags/fr.svg",
     "flagLookalikes": [
       "NL"
     ]
@@ -103,7 +98,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 6,
-    "flag": "/flags/de.svg",
     "flagLookalikes": [
       "BE"
     ]
@@ -120,7 +114,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 7,
-    "flag": "/flags/is.svg",
     "flagLookalikes": [
       "NO"
     ]
@@ -138,7 +131,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 8,
-    "flag": "/flags/ie.svg",
     "flagLookalikes": [
       "CI",
       "IT"
@@ -156,7 +148,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 9,
-    "flag": "/flags/lv.svg",
     "flagLookalikes": [
       "AT"
     ]
@@ -173,7 +164,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 10,
-    "flag": "/flags/lt.svg",
     "flagLookalikes": [
       "BO",
       "GH"
@@ -193,7 +183,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 11,
-    "flag": "/flags/lu.svg",
     "flagLookalikes": [
       "NL"
     ]
@@ -210,7 +199,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 12,
-    "flag": "/flags/mc.svg",
     "flagLookalikes": [
       "ID",
       "PL"
@@ -229,7 +217,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 13,
-    "flag": "/flags/nl.svg",
     "flagLookalikes": [
       "FR",
       "LU",
@@ -251,7 +238,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 14,
-    "flag": "/flags/no.svg",
     "flagLookalikes": [
       "DK",
       "IS"
@@ -269,7 +255,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 15,
-    "flag": "/flags/se.svg",
     "flagLookalikes": [
       "FI"
     ]
@@ -288,7 +273,6 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 16,
-    "flag": "/flags/gb.svg",
     "flagLookalikes": []
   },
   {
@@ -305,7 +289,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 1,
-    "flag": "/flags/al.svg",
     "flagLookalikes": []
   },
   {
@@ -320,7 +303,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 2,
-    "flag": "/flags/ad.svg",
     "flagLookalikes": [
       "MD",
       "RO",
@@ -339,7 +321,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 3,
-    "flag": "/flags/ba.svg",
     "flagLookalikes": [
       "XK"
     ]
@@ -355,7 +336,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 4,
-    "flag": "/flags/bg.svg",
     "flagLookalikes": []
   },
   {
@@ -371,7 +351,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 5,
-    "flag": "/flags/hr.svg",
     "flagLookalikes": [
       "SK"
     ]
@@ -390,7 +369,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 6,
-    "flag": "/flags/cy.svg",
     "flagLookalikes": []
   },
   {
@@ -405,7 +383,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 7,
-    "flag": "/flags/gr.svg",
     "flagLookalikes": []
   },
   {
@@ -420,7 +397,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 8,
-    "flag": "/flags/it.svg",
     "flagLookalikes": [
       "IE",
       "MX"
@@ -437,7 +413,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 9,
-    "flag": "/flags/xk.svg",
     "flagLookalikes": [
       "BA"
     ]
@@ -454,7 +429,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 10,
-    "flag": "/flags/mt.svg",
     "flagLookalikes": []
   },
   {
@@ -468,7 +442,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 11,
-    "flag": "/flags/me.svg",
     "flagLookalikes": []
   },
   {
@@ -484,7 +457,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 12,
-    "flag": "/flags/mk.svg",
     "flagLookalikes": []
   },
   {
@@ -499,7 +471,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 13,
-    "flag": "/flags/pt.svg",
     "flagLookalikes": []
   },
   {
@@ -514,7 +485,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 14,
-    "flag": "/flags/ro.svg",
     "flagLookalikes": [
       "AD",
       "MD",
@@ -534,7 +504,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 15,
-    "flag": "/flags/sm.svg",
     "flagLookalikes": []
   },
   {
@@ -550,7 +519,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 16,
-    "flag": "/flags/rs.svg",
     "flagLookalikes": [
       "RU"
     ]
@@ -567,7 +535,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 17,
-    "flag": "/flags/es.svg",
     "flagLookalikes": []
   },
   {
@@ -585,7 +552,6 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 18,
-    "flag": "/flags/va.svg",
     "flagLookalikes": []
   },
   {
@@ -601,7 +567,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 1,
-    "flag": "/flags/at.svg",
     "flagLookalikes": [
       "LV"
     ]
@@ -618,7 +583,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 2,
-    "flag": "/flags/by.svg",
     "flagLookalikes": []
   },
   {
@@ -635,7 +599,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 3,
-    "flag": "/flags/cz.svg",
     "flagLookalikes": [
       "PH"
     ]
@@ -649,7 +612,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 4,
-    "flag": "/flags/hu.svg",
     "flagLookalikes": []
   },
   {
@@ -664,7 +626,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 5,
-    "flag": "/flags/li.svg",
     "flagLookalikes": [
       "HT"
     ]
@@ -681,7 +642,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 6,
-    "flag": "/flags/md.svg",
     "flagLookalikes": [
       "AD",
       "RO",
@@ -700,7 +660,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 7,
-    "flag": "/flags/pl.svg",
     "flagLookalikes": [
       "ID",
       "MC"
@@ -717,7 +676,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 8,
-    "flag": "/flags/ru.svg",
     "flagLookalikes": [
       "NL",
       "RS",
@@ -737,7 +695,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 9,
-    "flag": "/flags/sk.svg",
     "flagLookalikes": [
       "HR",
       "RU",
@@ -756,7 +713,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 10,
-    "flag": "/flags/si.svg",
     "flagLookalikes": [
       "RU",
       "SK"
@@ -777,7 +733,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 11,
-    "flag": "/flags/ch.svg",
     "flagLookalikes": []
   },
   {
@@ -791,7 +746,6 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 12,
-    "flag": "/flags/ua.svg",
     "flagLookalikes": []
   },
   {
@@ -803,7 +757,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 1,
-    "flag": "/flags/bz.svg",
     "flagLookalikes": []
   },
   {
@@ -815,7 +768,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 2,
-    "flag": "/flags/ca.svg",
     "flagLookalikes": []
   },
   {
@@ -830,7 +782,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 3,
-    "flag": "/flags/cr.svg",
     "flagLookalikes": []
   },
   {
@@ -845,7 +796,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 4,
-    "flag": "/flags/sv.svg",
     "flagLookalikes": [
       "GT",
       "HN",
@@ -863,7 +813,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 5,
-    "flag": "/flags/gt.svg",
     "flagLookalikes": [
       "SV"
     ]
@@ -880,7 +829,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 6,
-    "flag": "/flags/hn.svg",
     "flagLookalikes": [
       "NI",
       "SV"
@@ -898,7 +846,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 7,
-    "flag": "/flags/mx.svg",
     "flagLookalikes": [
       "IT"
     ]
@@ -915,7 +862,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 8,
-    "flag": "/flags/ni.svg",
     "flagLookalikes": [
       "HN",
       "SV"
@@ -933,7 +879,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 9,
-    "flag": "/flags/pa.svg",
     "flagLookalikes": []
   },
   {
@@ -950,7 +895,6 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 10,
-    "flag": "/flags/us.svg",
     "flagLookalikes": [
       "LR",
       "MY"
@@ -967,7 +911,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 1,
-    "flag": "/flags/ag.svg",
     "flagLookalikes": []
   },
   {
@@ -981,7 +924,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 2,
-    "flag": "/flags/bs.svg",
     "flagLookalikes": []
   },
   {
@@ -993,7 +935,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 3,
-    "flag": "/flags/bb.svg",
     "flagLookalikes": []
   },
   {
@@ -1008,7 +949,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 4,
-    "flag": "/flags/cu.svg",
     "flagLookalikes": []
   },
   {
@@ -1024,7 +964,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 5,
-    "flag": "/flags/dm.svg",
     "flagLookalikes": []
   },
   {
@@ -1036,7 +975,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 6,
-    "flag": "/flags/do.svg",
     "flagLookalikes": []
   },
   {
@@ -1048,7 +986,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 7,
-    "flag": "/flags/gd.svg",
     "flagLookalikes": []
   },
   {
@@ -1064,7 +1001,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 8,
-    "flag": "/flags/ht.svg",
     "flagLookalikes": [
       "LI"
     ]
@@ -1078,7 +1014,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 9,
-    "flag": "/flags/jm.svg",
     "flagLookalikes": []
   },
   {
@@ -1093,7 +1028,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 10,
-    "flag": "/flags/kn.svg",
     "flagLookalikes": []
   },
   {
@@ -1105,7 +1039,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 11,
-    "flag": "/flags/lc.svg",
     "flagLookalikes": []
   },
   {
@@ -1119,7 +1052,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 12,
-    "flag": "/flags/vc.svg",
     "flagLookalikes": []
   },
   {
@@ -1134,7 +1066,6 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 13,
-    "flag": "/flags/tt.svg",
     "flagLookalikes": []
   },
   {
@@ -1149,7 +1080,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 1,
-    "flag": "/flags/ar.svg",
     "flagLookalikes": []
   },
   {
@@ -1169,7 +1099,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 2,
-    "flag": "/flags/bo.svg",
     "flagLookalikes": [
       "GH",
       "LT"
@@ -1188,7 +1117,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 3,
-    "flag": "/flags/br.svg",
     "flagLookalikes": []
   },
   {
@@ -1203,7 +1131,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 4,
-    "flag": "/flags/cl.svg",
     "flagLookalikes": []
   },
   {
@@ -1218,7 +1145,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 5,
-    "flag": "/flags/co.svg",
     "flagLookalikes": [
       "EC",
       "VE"
@@ -1236,7 +1162,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 6,
-    "flag": "/flags/ec.svg",
     "flagLookalikes": [
       "CO",
       "VE"
@@ -1253,7 +1178,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 7,
-    "flag": "/flags/gy.svg",
     "flagLookalikes": []
   },
   {
@@ -1269,7 +1193,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 8,
-    "flag": "/flags/py.svg",
     "flagLookalikes": []
   },
   {
@@ -1284,7 +1207,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 9,
-    "flag": "/flags/pe.svg",
     "flagLookalikes": []
   },
   {
@@ -1301,7 +1223,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 10,
-    "flag": "/flags/sr.svg",
     "flagLookalikes": []
   },
   {
@@ -1316,7 +1237,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 11,
-    "flag": "/flags/uy.svg",
     "flagLookalikes": []
   },
   {
@@ -1331,7 +1251,6 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 12,
-    "flag": "/flags/ve.svg",
     "flagLookalikes": [
       "CO",
       "EC"
@@ -1349,7 +1268,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 1,
-    "flag": "/flags/am.svg",
     "flagLookalikes": []
   },
   {
@@ -1364,7 +1282,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 2,
-    "flag": "/flags/az.svg",
     "flagLookalikes": []
   },
   {
@@ -1379,7 +1296,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 3,
-    "flag": "/flags/bh.svg",
     "flagLookalikes": [
       "QA"
     ]
@@ -1395,7 +1311,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 4,
-    "flag": "/flags/ge.svg",
     "flagLookalikes": []
   },
   {
@@ -1410,7 +1325,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 5,
-    "flag": "/flags/iq.svg",
     "flagLookalikes": [
       "EG",
       "SY"
@@ -1428,7 +1342,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 6,
-    "flag": "/flags/il.svg",
     "flagLookalikes": []
   },
   {
@@ -1443,7 +1356,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 7,
-    "flag": "/flags/jo.svg",
     "flagLookalikes": [
       "PS"
     ]
@@ -1462,7 +1374,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 8,
-    "flag": "/flags/kz.svg",
     "flagLookalikes": []
   },
   {
@@ -1477,7 +1388,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 9,
-    "flag": "/flags/kw.svg",
     "flagLookalikes": [
       "AE"
     ]
@@ -1494,7 +1404,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 10,
-    "flag": "/flags/kg.svg",
     "flagLookalikes": []
   },
   {
@@ -1509,7 +1418,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 11,
-    "flag": "/flags/lb.svg",
     "flagLookalikes": []
   },
   {
@@ -1524,7 +1432,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 12,
-    "flag": "/flags/om.svg",
     "flagLookalikes": []
   },
   {
@@ -1539,7 +1446,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 13,
-    "flag": "/flags/ps.svg",
     "flagLookalikes": [
       "JO",
       "SD"
@@ -1557,7 +1463,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 14,
-    "flag": "/flags/qa.svg",
     "flagLookalikes": [
       "BH"
     ]
@@ -1575,7 +1480,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 15,
-    "flag": "/flags/sa.svg",
     "flagLookalikes": []
   },
   {
@@ -1590,7 +1494,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 16,
-    "flag": "/flags/sy.svg",
     "flagLookalikes": [
       "IQ",
       "YE"
@@ -1609,7 +1512,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 17,
-    "flag": "/flags/tj.svg",
     "flagLookalikes": []
   },
   {
@@ -1626,7 +1528,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 18,
-    "flag": "/flags/tr.svg",
     "flagLookalikes": []
   },
   {
@@ -1638,7 +1539,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 19,
-    "flag": "/flags/tm.svg",
     "flagLookalikes": []
   },
   {
@@ -1653,7 +1553,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 20,
-    "flag": "/flags/ae.svg",
     "flagLookalikes": [
       "KW"
     ]
@@ -1670,7 +1569,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 21,
-    "flag": "/flags/uz.svg",
     "flagLookalikes": []
   },
   {
@@ -1686,7 +1584,6 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 22,
-    "flag": "/flags/ye.svg",
     "flagLookalikes": [
       "EG",
       "SY"
@@ -1704,7 +1601,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 1,
-    "flag": "/flags/af.svg",
     "flagLookalikes": []
   },
   {
@@ -1719,7 +1615,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 2,
-    "flag": "/flags/bd.svg",
     "flagLookalikes": [
       "JP",
       "PW"
@@ -1736,7 +1631,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 3,
-    "flag": "/flags/bt.svg",
     "flagLookalikes": []
   },
   {
@@ -1753,7 +1647,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 4,
-    "flag": "/flags/cn.svg",
     "flagLookalikes": []
   },
   {
@@ -1769,7 +1662,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 5,
-    "flag": "/flags/in.svg",
     "flagLookalikes": [
       "NE"
     ]
@@ -1786,7 +1678,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 6,
-    "flag": "/flags/ir.svg",
     "flagLookalikes": []
   },
   {
@@ -1801,7 +1692,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 7,
-    "flag": "/flags/jp.svg",
     "flagLookalikes": [
       "BD",
       "PW"
@@ -1820,7 +1710,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 8,
-    "flag": "/flags/mv.svg",
     "flagLookalikes": []
   },
   {
@@ -1832,7 +1721,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 9,
-    "flag": "/flags/mn.svg",
     "flagLookalikes": []
   },
   {
@@ -1847,7 +1735,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 10,
-    "flag": "/flags/np.svg",
     "flagLookalikes": []
   },
   {
@@ -1863,7 +1750,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 11,
-    "flag": "/flags/kp.svg",
     "flagLookalikes": []
   },
   {
@@ -1878,7 +1764,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 12,
-    "flag": "/flags/pk.svg",
     "flagLookalikes": []
   },
   {
@@ -1892,7 +1777,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 13,
-    "flag": "/flags/kr.svg",
     "flagLookalikes": []
   },
   {
@@ -1907,7 +1791,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 14,
-    "flag": "/flags/lk.svg",
     "flagLookalikes": []
   },
   {
@@ -1924,7 +1807,6 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 15,
-    "flag": "/flags/tw.svg",
     "flagLookalikes": []
   },
   {
@@ -1939,7 +1821,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 1,
-    "flag": "/flags/bn.svg",
     "flagLookalikes": []
   },
   {
@@ -1953,7 +1834,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 2,
-    "flag": "/flags/kh.svg",
     "flagLookalikes": []
   },
   {
@@ -1968,7 +1848,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 3,
-    "flag": "/flags/id.svg",
     "flagLookalikes": [
       "MC",
       "PL"
@@ -1986,7 +1865,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 4,
-    "flag": "/flags/la.svg",
     "flagLookalikes": []
   },
   {
@@ -1998,7 +1876,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 5,
-    "flag": "/flags/my.svg",
     "flagLookalikes": [
       "LR",
       "US"
@@ -2017,7 +1894,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 6,
-    "flag": "/flags/mm.svg",
     "flagLookalikes": []
   },
   {
@@ -2032,7 +1908,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 7,
-    "flag": "/flags/ph.svg",
     "flagLookalikes": [
       "CZ"
     ]
@@ -2050,7 +1925,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 8,
-    "flag": "/flags/sg.svg",
     "flagLookalikes": []
   },
   {
@@ -2065,7 +1939,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 9,
-    "flag": "/flags/th.svg",
     "flagLookalikes": []
   },
   {
@@ -2084,7 +1957,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 10,
-    "flag": "/flags/tl.svg",
     "flagLookalikes": []
   },
   {
@@ -2100,7 +1972,6 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 11,
-    "flag": "/flags/vn.svg",
     "flagLookalikes": []
   },
   {
@@ -2116,7 +1987,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 1,
-    "flag": "/flags/dz.svg",
     "flagLookalikes": []
   },
   {
@@ -2131,7 +2001,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 2,
-    "flag": "/flags/bj.svg",
     "flagLookalikes": []
   },
   {
@@ -2145,7 +2014,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 3,
-    "flag": "/flags/bf.svg",
     "flagLookalikes": []
   },
   {
@@ -2161,7 +2029,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 4,
-    "flag": "/flags/cv.svg",
     "flagLookalikes": []
   },
   {
@@ -2175,7 +2042,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 5,
-    "flag": "/flags/eg.svg",
     "flagLookalikes": [
       "IQ",
       "YE"
@@ -2192,7 +2058,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 6,
-    "flag": "/flags/gm.svg",
     "flagLookalikes": []
   },
   {
@@ -2206,7 +2071,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 7,
-    "flag": "/flags/gh.svg",
     "flagLookalikes": [
       "BO",
       "LT"
@@ -2224,7 +2088,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 8,
-    "flag": "/flags/gn.svg",
     "flagLookalikes": [
       "ML"
     ]
@@ -2241,7 +2104,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 9,
-    "flag": "/flags/gw.svg",
     "flagLookalikes": []
   },
   {
@@ -2257,7 +2119,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 10,
-    "flag": "/flags/ci.svg",
     "flagLookalikes": [
       "IE"
     ]
@@ -2273,7 +2134,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 11,
-    "flag": "/flags/lr.svg",
     "flagLookalikes": [
       "MY",
       "US"
@@ -2291,7 +2151,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 12,
-    "flag": "/flags/ly.svg",
     "flagLookalikes": []
   },
   {
@@ -2306,7 +2165,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 13,
-    "flag": "/flags/ml.svg",
     "flagLookalikes": [
       "GN",
       "SN"
@@ -2324,7 +2182,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 14,
-    "flag": "/flags/mr.svg",
     "flagLookalikes": []
   },
   {
@@ -2339,7 +2196,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 15,
-    "flag": "/flags/ma.svg",
     "flagLookalikes": []
   },
   {
@@ -2354,7 +2210,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 16,
-    "flag": "/flags/ne.svg",
     "flagLookalikes": [
       "IN"
     ]
@@ -2372,7 +2227,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 17,
-    "flag": "/flags/ng.svg",
     "flagLookalikes": []
   },
   {
@@ -2387,7 +2241,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 18,
-    "flag": "/flags/sn.svg",
     "flagLookalikes": [
       "CM",
       "ML"
@@ -2404,7 +2257,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 19,
-    "flag": "/flags/sl.svg",
     "flagLookalikes": []
   },
   {
@@ -2419,7 +2271,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 20,
-    "flag": "/flags/sd.svg",
     "flagLookalikes": [
       "PS"
     ]
@@ -2436,7 +2287,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 21,
-    "flag": "/flags/tg.svg",
     "flagLookalikes": []
   },
   {
@@ -2452,7 +2302,6 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 22,
-    "flag": "/flags/tn.svg",
     "flagLookalikes": []
   },
   {
@@ -2467,7 +2316,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 1,
-    "flag": "/flags/ao.svg",
     "flagLookalikes": []
   },
   {
@@ -2482,7 +2330,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 2,
-    "flag": "/flags/bw.svg",
     "flagLookalikes": []
   },
   {
@@ -2497,7 +2344,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 3,
-    "flag": "/flags/cm.svg",
     "flagLookalikes": [
       "SN"
     ]
@@ -2514,7 +2360,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 4,
-    "flag": "/flags/cf.svg",
     "flagLookalikes": []
   },
   {
@@ -2530,7 +2375,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 5,
-    "flag": "/flags/td.svg",
     "flagLookalikes": [
       "AD",
       "MD",
@@ -2551,7 +2395,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 6,
-    "flag": "/flags/cd.svg",
     "flagLookalikes": []
   },
   {
@@ -2568,7 +2411,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 7,
-    "flag": "/flags/gq.svg",
     "flagLookalikes": []
   },
   {
@@ -2587,7 +2429,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 8,
-    "flag": "/flags/sz.svg",
     "flagLookalikes": []
   },
   {
@@ -2602,7 +2443,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 9,
-    "flag": "/flags/ga.svg",
     "flagLookalikes": []
   },
   {
@@ -2617,7 +2457,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 10,
-    "flag": "/flags/ls.svg",
     "flagLookalikes": []
   },
   {
@@ -2632,7 +2471,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 11,
-    "flag": "/flags/na.svg",
     "flagLookalikes": []
   },
   {
@@ -2648,7 +2486,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 12,
-    "flag": "/flags/cg.svg",
     "flagLookalikes": []
   },
   {
@@ -2664,7 +2501,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 13,
-    "flag": "/flags/st.svg",
     "flagLookalikes": []
   },
   {
@@ -2679,7 +2515,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 14,
-    "flag": "/flags/za.svg",
     "flagLookalikes": []
   },
   {
@@ -2693,7 +2528,6 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 15,
-    "flag": "/flags/ss.svg",
     "flagLookalikes": []
   },
   {
@@ -2709,7 +2543,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 1,
-    "flag": "/flags/bi.svg",
     "flagLookalikes": []
   },
   {
@@ -2726,7 +2559,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 2,
-    "flag": "/flags/km.svg",
     "flagLookalikes": []
   },
   {
@@ -2745,7 +2577,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 3,
-    "flag": "/flags/dj.svg",
     "flagLookalikes": []
   },
   {
@@ -2762,7 +2593,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 4,
-    "flag": "/flags/er.svg",
     "flagLookalikes": []
   },
   {
@@ -2777,7 +2607,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 5,
-    "flag": "/flags/et.svg",
     "flagLookalikes": []
   },
   {
@@ -2792,7 +2621,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 6,
-    "flag": "/flags/ke.svg",
     "flagLookalikes": []
   },
   {
@@ -2808,7 +2636,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 7,
-    "flag": "/flags/mg.svg",
     "flagLookalikes": []
   },
   {
@@ -2822,7 +2649,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 8,
-    "flag": "/flags/mw.svg",
     "flagLookalikes": []
   },
   {
@@ -2837,7 +2663,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 9,
-    "flag": "/flags/mu.svg",
     "flagLookalikes": []
   },
   {
@@ -2852,7 +2677,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 10,
-    "flag": "/flags/mz.svg",
     "flagLookalikes": []
   },
   {
@@ -2868,7 +2692,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 11,
-    "flag": "/flags/rw.svg",
     "flagLookalikes": []
   },
   {
@@ -2884,7 +2707,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 12,
-    "flag": "/flags/sc.svg",
     "flagLookalikes": []
   },
   {
@@ -2901,7 +2723,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 13,
-    "flag": "/flags/so.svg",
     "flagLookalikes": []
   },
   {
@@ -2916,7 +2737,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 14,
-    "flag": "/flags/tz.svg",
     "flagLookalikes": []
   },
   {
@@ -2931,7 +2751,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 15,
-    "flag": "/flags/ug.svg",
     "flagLookalikes": []
   },
   {
@@ -2945,7 +2764,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 16,
-    "flag": "/flags/zm.svg",
     "flagLookalikes": []
   },
   {
@@ -2959,7 +2777,6 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 17,
-    "flag": "/flags/zw.svg",
     "flagLookalikes": []
   },
   {
@@ -2973,7 +2790,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 1,
-    "flag": "/flags/au.svg",
     "flagLookalikes": [
       "NZ"
     ]
@@ -2992,7 +2808,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 2,
-    "flag": "/flags/fj.svg",
     "flagLookalikes": []
   },
   {
@@ -3008,7 +2823,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 3,
-    "flag": "/flags/ki.svg",
     "flagLookalikes": []
   },
   {
@@ -3023,7 +2837,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 4,
-    "flag": "/flags/mh.svg",
     "flagLookalikes": []
   },
   {
@@ -3037,7 +2850,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 5,
-    "flag": "/flags/fm.svg",
     "flagLookalikes": []
   },
   {
@@ -3054,7 +2866,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 6,
-    "flag": "/flags/nr.svg",
     "flagLookalikes": []
   },
   {
@@ -3068,7 +2879,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 7,
-    "flag": "/flags/nz.svg",
     "flagLookalikes": [
       "AU"
     ]
@@ -3085,7 +2895,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 8,
-    "flag": "/flags/pw.svg",
     "flagLookalikes": [
       "BD",
       "JP"
@@ -3104,7 +2913,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 9,
-    "flag": "/flags/pg.svg",
     "flagLookalikes": []
   },
   {
@@ -3119,7 +2927,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 10,
-    "flag": "/flags/ws.svg",
     "flagLookalikes": []
   },
   {
@@ -3131,7 +2938,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 11,
-    "flag": "/flags/sb.svg",
     "flagLookalikes": []
   },
   {
@@ -3145,7 +2951,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 12,
-    "flag": "/flags/to.svg",
     "flagLookalikes": []
   },
   {
@@ -3157,7 +2962,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 13,
-    "flag": "/flags/tv.svg",
     "flagLookalikes": []
   },
   {
@@ -3173,7 +2977,6 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 14,
-    "flag": "/flags/vu.svg",
     "flagLookalikes": []
   }
 ]

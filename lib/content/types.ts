@@ -8,6 +8,5 @@ export interface CountryRecord {
   group: string;
   groupOrder: number;
   itemOrder: number;
-  flag: string; // public path, e.g. "/flags/ec.svg"
   flagLookalikes: string[];
 }

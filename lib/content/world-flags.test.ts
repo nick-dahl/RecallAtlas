@@ -3,7 +3,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { normalize } from '@/lib/engine/grading';
 import { getCourse } from './registry';
-import { flagPath, WORLD_FLAGS } from './world-flags';
+import { WORLD_FLAGS } from './world-flags';
 
 describe('WORLD_FLAGS', () => {
   it('has 197 items and two prompt types', () => {
@@ -14,7 +14,9 @@ describe('WORLD_FLAGS', () => {
 
   it('has a flag file for every item', () => {
     for (const item of WORLD_FLAGS.items) {
-      expect(fs.existsSync(path.join(process.cwd(), 'public', flagPath(item.key)))).toBe(true);
+      expect(fs.existsSync(path.join(process.cwd(), 'content', 'flags', `${item.key.toLowerCase()}.svg`))).toBe(
+        true,
+      );
     }
   });
 

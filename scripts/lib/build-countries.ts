@@ -124,7 +124,6 @@ export function buildCountries(
       group: c.group,
       groupOrder: groupIndex(c.group) + 1,
       itemOrder,
-      flag: `/flags/${c.key.toLowerCase()}.svg`,
       flagLookalikes: [...(lookalikes.get(c.key) ?? [])].sort(),
     };
   });

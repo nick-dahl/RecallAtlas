@@ -20,7 +20,3 @@ export const WORLD_FLAGS: CourseDef = {
     lookalikes: c.flagLookalikes,
   })),
 };
-
-export function flagPath(itemKey: string): string {
-  return `/flags/${itemKey.toLowerCase()}.svg`;
-}
