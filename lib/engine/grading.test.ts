@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { gradeChoice, gradeTyped, levenshtein, normalize } from './grading';
+import { editDistance, gradeChoice, gradeTyped, normalize } from './grading';
 import { fixtureItem, ITEMS } from './test-fixtures';
 
 describe('normalize', () => {
   it.each([
     ['Côte d’Ivoire', 'cote divoire'],
     ["Côte d'Ivoire", 'cote divoire'],
+    ['Côte d‘Ivoire', 'cote divoire'],
     ['  The   Gambia ', 'gambia'],
     ['St. Lucia', 'saint lucia'],
     ['Guinea-Bissau', 'guinea bissau'],
@@ -16,11 +17,15 @@ describe('normalize', () => {
   });
 });
 
-describe('levenshtein', () => {
+describe('editDistance', () => {
   it('computes edit distance', () => {
-    expect(levenshtein('kitten', 'sitting')).toBe(3);
-    expect(levenshtein('', 'abc')).toBe(3);
-    expect(levenshtein('peru', 'peru')).toBe(0);
+    expect(editDistance('kitten', 'sitting')).toBe(3);
+    expect(editDistance('', 'abc')).toBe(3);
+    expect(editDistance('peru', 'peru')).toBe(0);
+  });
+
+  it('counts an adjacent transposition as a single edit', () => {
+    expect(editDistance('chad', 'cahd')).toBe(1);
   });
 });
 
@@ -39,6 +44,11 @@ describe('gradeTyped', () => {
     expect(grade('Equador', 'EC')).toEqual({ correct: true, typo: true, answeredItemKey: null });
     expect(grade('Madagaskr', 'MG')).toEqual({ correct: true, typo: true, answeredItemKey: null });
     expect(grade('Nigerria', 'NG')).toEqual({ correct: true, typo: true, answeredItemKey: null });
+  });
+
+  it('accepts an adjacent-letter transposition as a typo', () => {
+    expect(grade('Cahd', 'TD')).toEqual({ correct: true, typo: true, answeredItemKey: null });
+    expect(grade('Inida', 'IN')).toEqual({ correct: true, typo: true, answeredItemKey: null });
   });
 
   it('rejects typos beyond tolerance', () => {

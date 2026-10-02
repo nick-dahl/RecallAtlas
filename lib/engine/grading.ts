@@ -7,25 +7,31 @@ export function normalize(input: string): string {
     .replace(/\p{M}/gu, '')
     .toLowerCase()
     .replace(/&/g, ' and ')
-    .replace(/['’`]/g, '')
+    .replace(/['‘’ʼ´`]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
     .replace(/^the /, '')
     .replace(/\bst\b/g, 'saint');
 }
 
-export function levenshtein(a: string, b: string): number {
+/** Optimal string alignment distance: Levenshtein plus adjacent transposition as a single edit. */
+export function editDistance(a: string, b: string): number {
   if (a === b) return 0;
-  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
-  for (let i = 1; i <= a.length; i++) {
-    const curr = [i];
-    for (let j = 1; j <= b.length; j++) {
+  const rows = a.length + 1;
+  const cols = b.length + 1;
+  const d: number[][] = Array.from({ length: rows }, () => new Array<number>(cols).fill(0));
+  for (let i = 0; i < rows; i++) d[i][0] = i;
+  for (let j = 0; j < cols; j++) d[0][j] = j;
+  for (let i = 1; i < rows; i++) {
+    for (let j = 1; j < cols; j++) {
       const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+        d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+      }
     }
-    prev = curr;
   }
-  return prev[b.length];
+  return d[rows - 1][cols - 1];
 }
 
 function tolerance(normalizedName: string): number {
@@ -42,22 +48,24 @@ function namesOf(item: Item): string[] {
 function typoDistance(input: string, item: Item): number | null {
   let best: number | null = null;
   for (const name of namesOf(item)) {
-    const d = levenshtein(input, name);
+    const d = editDistance(input, name);
     if (d <= tolerance(name) && (best === null || d < best)) best = d;
   }
   return best;
 }
 
-const WRONG: AnswerGrade = { correct: false, typo: false, answeredItemKey: null };
+function wrong(answeredItemKey: string | null = null): AnswerGrade {
+  return { correct: false, typo: false, answeredItemKey };
+}
 
 export function gradeTyped(input: string, target: Item, allItems: readonly Item[]): AnswerGrade {
   const n = normalize(input);
-  if (!n) return WRONG;
+  if (!n) return wrong();
   if (namesOf(target).includes(n)) return { correct: true, typo: false, answeredItemKey: null };
 
   const others = allItems.filter((i) => i.key !== target.key);
   const exactOther = others.find((i) => namesOf(i).includes(n));
-  if (exactOther) return { ...WRONG, answeredItemKey: exactOther.key };
+  if (exactOther) return wrong(exactOther.key);
 
   const targetDistance = typoDistance(n, target);
   let closestOther: { key: string; d: number } | null = null;
@@ -70,12 +78,12 @@ export function gradeTyped(input: string, target: Item, allItems: readonly Item[
   if (targetDistance !== null && (closestOther === null || targetDistance < closestOther.d)) {
     return { correct: true, typo: true, answeredItemKey: null };
   }
-  if (closestOther) return { ...WRONG, answeredItemKey: closestOther.key };
-  return WRONG;
+  if (closestOther) return wrong(closestOther.key);
+  return wrong();
 }
 
 export function gradeChoice(choiceKey: string | null, targetKey: string): AnswerGrade {
-  if (choiceKey === null) return WRONG;
+  if (choiceKey === null) return wrong();
   if (choiceKey === targetKey) return { correct: true, typo: false, answeredItemKey: null };
-  return { ...WRONG, answeredItemKey: choiceKey };
+  return wrong(choiceKey);
 }
