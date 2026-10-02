@@ -3115,6 +3115,7 @@ Skip this step if there's nothing to commit.
 - **Hard requirement: never leak the answer to the browser.** `Question.entry.itemKey` is the answer, and `choiceKeys` are raw ISO codes. The server must send a DTO with opaque per-question choice ids (a server-side map from choice id to item key). Flag images must not reveal the key: `/flags/ec.svg` names the answer to a flag→name question. Use inline SVG or per-question tokens.
 - **Hard requirement: persist the issued question.** Save the built `Question` (format + choiceKeys) with the pending session state and grade against it, rather than rebuilding it (a rebuild draws different random choices). Reject submitted choices that weren't offered.
 - Sort `topConfusions`/`confusedWith` ties by key (or load rows in a stable order) so "top confusions" doesn't reshuffle between page loads.
+- (Plan 3 UI) When `nextEntry` returns null with prompts still in learning (e.g. a single straggler prompt, which can't be re-asked back to back), end the session with a "Nothing left to practice right now, come back later" message rather than "All caught up".
 - Progress/mastery views should read `fsrs.stability` directly for lapsed prompts. `retrievability()` returns 0 for anything not in review, which would make lapsed items look completely unlearned.
 - `StudySession` and `QueueSession` are plain JSON and are stored as-is in `sessions.state`.
 - The server picks a fresh RNG per request (e.g. `seededRng(crypto.getRandomValues(...)[0])`); the engine never calls `Math.random`.
