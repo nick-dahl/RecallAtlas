@@ -8,13 +8,17 @@ import {
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
 import { gradeSubmission } from './issue';
-import { answerLog, confusionFor, feedbackFor, issue, loadTurn, requireEnrollment, view } from './turn';
+import { answerLog, confusionFor, feedbackFor, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
 import { ServiceError, type SubmissionInput, type TurnResult } from './types';
 
 const progressOf = (q: QueueSession) => ({ answered: q.position, total: q.queue.length });
 
 /** Starts the placement sweep, or resumes the one in progress. */
 export async function startPlacement(ctx: ServiceContext): Promise<TurnResult> {
+  return withConflictRetry(() => startPlacementAttempt(ctx));
+}
+
+async function startPlacementAttempt(ctx: ServiceContext): Promise<TurnResult> {
   const { store, course, now } = ctx;
   const enrollment = await requireEnrollment(ctx);
   if (enrollment.placementCompletedAt) throw new ServiceError('placement_done');

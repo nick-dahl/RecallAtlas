@@ -55,6 +55,18 @@ export function describeStoreContract(
       ).rejects.toBeInstanceOf(SessionConflictError);
     });
 
+    it('resolves two concurrent creates to exactly one winner', async () => {
+      await store.enroll(SLUG);
+      const results = await Promise.allSettled([
+        store.createSession({ courseSlug: SLUG, kind: 'study', state: {}, pendingQuestion: null }),
+        store.createSession({ courseSlug: SLUG, kind: 'study', state: {}, pendingQuestion: null }),
+      ]);
+      expect(results.filter((r) => r.status === 'fulfilled')).toHaveLength(1);
+      const rejected = results.filter((r): r is PromiseRejectedResult => r.status === 'rejected');
+      expect(rejected).toHaveLength(1);
+      expect(rejected[0].reason).toBeInstanceOf(SessionConflictError);
+    });
+
     it('commits a turn: state, version, prompt states with revived dates', async () => {
       const session = await openSession();
       const ec = graduated('EC');

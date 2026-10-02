@@ -38,6 +38,13 @@ describe('startStudy', () => {
     await expect(startStudy(testContext(store))).rejects.toEqual(new ServiceError('exam_in_progress'));
   });
 
+  it('resolves two concurrent starts to the same session instead of crashing', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    const ctx = testContext(store);
+    const [a, b] = await Promise.all([startStudy(ctx), startStudy(ctx)]);
+    expect(a.next!.questionId).toBe(b.next!.questionId);
+  });
+
   it('ends immediately with caught_up when everything is graduated and nothing is due', async () => {
     const { store } = await enrolledStore({ placementDone: true });
     store.seedPromptStates(SLUG, allGraduated());

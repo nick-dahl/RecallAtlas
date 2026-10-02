@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { MemoryStore } from '@/lib/db/memory-store';
 import { days, NOW, TEST_COURSE } from '@/lib/engine/test-fixtures';
+import { startExam, submitExamAnswer } from './exam-service';
 import { enroll, getCourseOverview } from './overview-service';
-import { allGraduated, enrolledStore, testContext } from './test-helpers';
+import { allGraduated, correctResponse, enrolledStore, pendingFor, testContext } from './test-helpers';
 
 describe('getCourseOverview', () => {
   it('reports an unenrolled course', async () => {
@@ -51,6 +52,26 @@ describe('getCourseOverview', () => {
     store.seedConfusion(TEST_COURSE.slug, 'TD', 'RO', 3);
     const overview = await getCourseOverview(testContext(store));
     expect(overview.topConfusions).toEqual([{ a: 'Romania', b: 'Chad', count: 3 }]);
+  });
+});
+
+describe('lastExamAttempt', () => {
+  it('is null before any attempt, and reflects the most recent attempt afterwards', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    store.seedPromptStates(TEST_COURSE.slug, allGraduated());
+    const ctx = testContext(store);
+    expect((await getCourseOverview(ctx)).lastExamAttempt).toBeNull();
+
+    let turn = await startExam(ctx);
+    while (turn.next) {
+      const pending = await pendingFor(store);
+      const response = pending.entry.itemKey === 'TD' ? { kind: 'dont-know' as const } : correctResponse(pending);
+      turn = await submitExamAnswer(ctx, { sessionId: turn.next.sessionId, questionId: turn.next.questionId, response });
+    }
+
+    const overview = await getCourseOverview(ctx);
+    expect(overview.lastExamAttempt).toMatchObject({ score: 16, total: 17, passed: false, missed: [{ name: 'Chad' }] });
+    expect(overview.lastExamAttempt!.finishedAt).toBeInstanceOf(Date);
   });
 });
 

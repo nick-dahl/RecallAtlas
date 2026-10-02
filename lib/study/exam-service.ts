@@ -11,7 +11,7 @@ import {
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
 import { gradeSubmission } from './issue';
-import { answerLog, confusionFor, issue, loadTurn, requireEnrollment, view } from './turn';
+import { answerLog, confusionFor, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
 import { ServiceError, type EndView, type SubmissionInput, type TurnResult } from './types';
 
 export interface ExamState extends QueueSession {
@@ -22,11 +22,22 @@ const progressOf = (s: QueueSession) => ({ answered: s.position, total: s.queue.
 
 /** Starts the final exam (gated by readiness, checked only here), or resumes it. */
 export async function startExam(ctx: ServiceContext): Promise<TurnResult> {
+  return withConflictRetry(() => startExamAttempt(ctx));
+}
+
+async function startExamAttempt(ctx: ServiceContext): Promise<TurnResult> {
   const { store, course, rng } = ctx;
   await requireEnrollment(ctx);
-  const active = await store.getActiveSession(course.slug);
+  let active = await store.getActiveSession(course.slug);
   if (active?.kind === 'exam' && active.pendingQuestion) {
     return { next: view(ctx, active.pendingQuestion, active, progressOf(active.state as ExamState)) };
+  }
+  // A dead-end exam session (no pending question, e.g. left over from a crash) can never be
+  // resumed above; clear it before the readiness check so it can't block study or a retry
+  // forever, regardless of whether the course turns out to be exam-ready right now.
+  if (active?.kind === 'exam' && !active.pendingQuestion) {
+    await store.completeSession(active.id);
+    active = null;
   }
 
   const [stored, confusions] = await Promise.all([store.getPromptStates(course.slug), store.getConfusions(course.slug)]);

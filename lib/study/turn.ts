@@ -1,5 +1,5 @@
 import type { AnswerGrade, Confusion, QuestionRung, QueueEntry } from '@/lib/engine';
-import type { AnswerLog, EnrollmentRecord, SessionRecord } from '@/lib/db/store';
+import { SessionConflictError, type AnswerLog, type EnrollmentRecord, type SessionRecord } from '@/lib/db/store';
 import type { ServiceContext } from './context';
 import { issueQuestion } from './issue';
 import { toQuestionView } from './present';
@@ -13,10 +13,28 @@ import {
   type SubmissionInput,
 } from './types';
 
+/** Answers more than this stale are from a resumed, long-idle question; their timing is noise. */
+const RESPONSE_MS_CAP = 5 * 60 * 1000;
+
 export async function requireEnrollment(ctx: ServiceContext): Promise<EnrollmentRecord> {
   const enrollment = await ctx.store.getEnrollment(ctx.course.slug);
   if (!enrollment) throw new ServiceError('not_enrolled');
   return enrollment;
+}
+
+/**
+ * Runs a "start a session" attempt, retrying once if it loses a race to create the active
+ * session (two concurrent starts both found none active and both tried to create one; the
+ * store's unique constraint lets only one through). The retry re-reads state from scratch and
+ * will find and resume the winner's session instead of surfacing the race to the caller.
+ */
+export async function withConflictRetry<T>(fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (err) {
+    if (!(err instanceof SessionConflictError)) throw err;
+    return fn();
+  }
 }
 
 /** Loads the active session for a submission and checks it is the question we issued. */
@@ -58,6 +76,7 @@ export function answerLog(
   context: SessionKind,
 ): AnswerLog {
   const { entry } = pending;
+  const elapsedMs = ctx.now.getTime() - Date.parse(pending.issuedAt);
   return {
     questionId: pending.questionId,
     context,
@@ -69,7 +88,7 @@ export function answerLog(
     givenText: response.kind === 'typed' ? response.text : null,
     givenItemKey: grade.correct ? entry.itemKey : grade.answeredItemKey,
     correct: grade.correct,
-    responseMs: Math.max(0, ctx.now.getTime() - Date.parse(pending.issuedAt)),
+    responseMs: elapsedMs > RESPONSE_MS_CAP ? null : Math.max(0, elapsedMs),
   };
 }
 

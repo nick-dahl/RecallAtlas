@@ -15,7 +15,7 @@ import {
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
 import { gradeSubmission } from './issue';
-import { answerLog, confusionFor, feedbackFor, issue, loadTurn, requireEnrollment, view } from './turn';
+import { answerLog, confusionFor, feedbackFor, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
 import {
   ServiceError,
   type EndReason,
@@ -54,6 +54,10 @@ export async function startStudy(
   ctx: ServiceContext,
   opts: { mode?: StudyMode; size?: number } = {},
 ): Promise<TurnResult> {
+  return withConflictRetry(() => startStudyAttempt(ctx, opts));
+}
+
+async function startStudyAttempt(ctx: ServiceContext, opts: { mode?: StudyMode; size?: number }): Promise<TurnResult> {
   const { store, course, now } = ctx;
   const enrollment = await requireEnrollment(ctx);
   if (!enrollment.placementCompletedAt) throw new ServiceError('placement_pending');

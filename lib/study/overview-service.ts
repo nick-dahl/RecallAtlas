@@ -12,7 +12,7 @@ import {
   type TileState,
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
-import type { SessionKind } from './types';
+import type { ItemView, SessionKind } from './types';
 
 export interface CourseOverview {
   slug: string;
@@ -28,6 +28,8 @@ export interface CourseOverview {
   /** The mastery grid. Keys are fine here: this is a reference view, not a question. */
   tiles: { key: string; name: string; group: string; tile: TileState }[];
   topConfusions: { a: string; b: string; count: number }[];
+  /** The most recent exam attempt, by finishedAt, or null if none yet. */
+  lastExamAttempt: { score: number; total: number; passed: boolean; missed: ItemView[]; finishedAt: Date } | null;
 }
 
 export async function enroll(ctx: ServiceContext): Promise<void> {
@@ -35,14 +37,19 @@ export async function enroll(ctx: ServiceContext): Promise<void> {
 }
 
 export async function getCourseOverview(ctx: ServiceContext): Promise<CourseOverview> {
-  const { course, store, now } = ctx;
-  const [enrollment, stored, confusions, active] = await Promise.all([
+  const { course, store, now, presenter } = ctx;
+  const [enrollment, stored, confusions, active, attempts] = await Promise.all([
     store.getEnrollment(course.slug),
     store.getPromptStates(course.slug),
     store.getConfusions(course.slug),
     store.getActiveSession(course.slug),
+    store.getExamAttempts(course.slug),
   ]);
   const states = hydrateStates(course, stored);
+  const lastAttempt = attempts.reduce<(typeof attempts)[number] | null>(
+    (latest, a) => (!latest || a.finishedAt > latest.finishedAt ? a : latest),
+    null,
+  );
   const status = enrollment
     ? deriveStatus({
         course,
@@ -77,5 +84,14 @@ export async function getCourseOverview(ctx: ServiceContext): Promise<CourseOver
       b: getItem(course, c.b).name,
       count: c.count,
     })),
+    lastExamAttempt: lastAttempt
+      ? {
+          score: lastAttempt.score,
+          total: lastAttempt.total,
+          passed: lastAttempt.passed,
+          missed: lastAttempt.missedItemKeys.map(presenter.item),
+          finishedAt: lastAttempt.finishedAt,
+        }
+      : null,
   };
 }

@@ -79,7 +79,10 @@ export class MemoryStore implements UserStore {
   }
 
   async createSession(args: { courseSlug: string; kind: SessionKind; state: unknown; pendingQuestion: PendingQuestion | null }) {
-    if (await this.getActiveSession(args.courseSlug)) throw new SessionConflictError();
+    // No `await` between this check and the push below: two concurrent calls must not both
+    // observe "no active session", matching Postgres's unique index on (user, course, active).
+    const existing = this.sessions.find((x) => x.courseSlug === args.courseSlug && x.completedAt === null);
+    if (existing) throw new SessionConflictError();
     const now = this.clock();
     const session: StoredSession = {
       id: randomUUID(),

@@ -61,6 +61,30 @@ describe('exam', () => {
     await expect(startExam(testContext(store))).rejects.toEqual(new ServiceError('exam_not_ready'));
   });
 
+  it('clears a dead-end active exam session (no pending question) and starts fresh', async () => {
+    const store = await readyStore();
+    await store.createSession({ courseSlug: SLUG, kind: 'exam', state: {}, pendingQuestion: null });
+    const ctx = testContext(store);
+    const result = await startExam(ctx);
+    expect(result.next).toMatchObject({ sessionKind: 'exam' });
+    expect((await store.getActiveSession(SLUG))!.pendingQuestion).not.toBeNull();
+  });
+
+  it('clears a dead-end exam session even when not exam-ready, so it does not block forever', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    await store.createSession({ courseSlug: SLUG, kind: 'exam', state: {}, pendingQuestion: null });
+    const ctx = testContext(store);
+    await expect(startExam(ctx)).rejects.toEqual(new ServiceError('exam_not_ready'));
+    expect(await store.getActiveSession(SLUG)).toBeNull();
+  });
+
+  it('resolves two concurrent starts to the same exam session instead of crashing', async () => {
+    const store = await readyStore();
+    const ctx = testContext(store);
+    const [a, b] = await Promise.all([startExam(ctx), startExam(ctx)]);
+    expect(a.next!.questionId).toBe(b.next!.questionId);
+  });
+
   it('abandons a study session when the exam starts, and blocks study during the exam', async () => {
     const store = await readyStore();
     const ctx = testContext(store);
