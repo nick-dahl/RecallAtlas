@@ -3117,6 +3117,7 @@ Skip this step if there's nothing to commit.
 - Sort `topConfusions`/`confusedWith` ties by key (or load rows in a stable order) so "top confusions" doesn't reshuffle between page loads.
 - Placement resume: store the placement `QueueSession` and resume it as-is (don't rebuild). Items that entered learning in the meantime are no-ops when answered correctly (`applyPlacementAnswer` only graduates `new` prompts). Set `placement_completed_at` when the queue finishes or the user skips; `deriveStatus` stays `placement` until then.
 - Exam caller must always build questions at rung 3 (`buildQuestion({ rung: 3 })`), never via `rungForState`, which returns 2 for a lapsed prompt.
+- (Plan 3) `public/flags` is 1.6 MB (rs.svg alone is 182 KB). Run svgo in `content:build` or preload per group so 8-flag grids stay fast.
 - (Plan 3 UI) When `nextEntry` returns null with prompts still in learning (e.g. a single straggler prompt, which can't be re-asked back to back), end the session with a "Nothing left to practice right now, come back later" message rather than "All caught up".
 - Progress/mastery views should read `fsrs.stability` directly for lapsed prompts. `retrievability()` returns 0 for anything not in review, which would make lapsed items look completely unlearned.
 - `StudySession` and `QueueSession` are plain JSON and are stored as-is in `sessions.state`.
