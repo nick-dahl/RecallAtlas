@@ -1,0 +1,3166 @@
+[
+  {
+    "key": "BE",
+    "name": "Belgium",
+    "aliases": [
+      "Kingdom of Belgium",
+      "België",
+      "Belgien",
+      "Belgique",
+      "Koninkrijk België",
+      "Royaume de Belgique",
+      "Königreich Belgien"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 1,
+    "flag": "/flags/be.svg",
+    "flagLookalikes": [
+      "DE"
+    ]
+  },
+  {
+    "key": "DK",
+    "name": "Denmark",
+    "aliases": [
+      "Kingdom of Denmark",
+      "Danmark",
+      "Kongeriget Danmark"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 2,
+    "flag": "/flags/dk.svg",
+    "flagLookalikes": [
+      "NO"
+    ]
+  },
+  {
+    "key": "EE",
+    "name": "Estonia",
+    "aliases": [
+      "Republic of Estonia",
+      "Eesti",
+      "Eesti Vabariik"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 3,
+    "flag": "/flags/ee.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "FI",
+    "name": "Finland",
+    "aliases": [
+      "Republic of Finland",
+      "Suomi",
+      "Suomen tasavalta",
+      "Republiken Finland"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 4,
+    "flag": "/flags/fi.svg",
+    "flagLookalikes": [
+      "SE"
+    ]
+  },
+  {
+    "key": "FR",
+    "name": "France",
+    "aliases": [
+      "French Republic",
+      "République française"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 5,
+    "flag": "/flags/fr.svg",
+    "flagLookalikes": [
+      "NL"
+    ]
+  },
+  {
+    "key": "DE",
+    "name": "Germany",
+    "aliases": [
+      "Federal Republic of Germany",
+      "Bundesrepublik Deutschland"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 6,
+    "flag": "/flags/de.svg",
+    "flagLookalikes": [
+      "BE"
+    ]
+  },
+  {
+    "key": "IS",
+    "name": "Iceland",
+    "aliases": [
+      "Island",
+      "Republic of Iceland",
+      "Lýðveldið Ísland"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 7,
+    "flag": "/flags/is.svg",
+    "flagLookalikes": [
+      "NO"
+    ]
+  },
+  {
+    "key": "IE",
+    "name": "Ireland",
+    "aliases": [
+      "Republic of Ireland",
+      "Éire",
+      "Poblacht na hÉireann"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 8,
+    "flag": "/flags/ie.svg",
+    "flagLookalikes": [
+      "CI",
+      "IT"
+    ]
+  },
+  {
+    "key": "LV",
+    "name": "Latvia",
+    "aliases": [
+      "Republic of Latvia",
+      "Latvijas Republika"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 9,
+    "flag": "/flags/lv.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "LI",
+    "name": "Liechtenstein",
+    "aliases": [
+      "Principality of Liechtenstein",
+      "Fürstentum Liechtenstein"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 10,
+    "flag": "/flags/li.svg",
+    "flagLookalikes": [
+      "HT"
+    ]
+  },
+  {
+    "key": "LT",
+    "name": "Lithuania",
+    "aliases": [
+      "Republic of Lithuania",
+      "Lietuvos Respublika"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 11,
+    "flag": "/flags/lt.svg",
+    "flagLookalikes": [
+      "BO",
+      "GH"
+    ]
+  },
+  {
+    "key": "LU",
+    "name": "Luxembourg",
+    "aliases": [
+      "Grand Duchy of Luxembourg",
+      "Grand-Duché de Luxembourg",
+      "Großherzogtum Luxemburg",
+      "Groussherzogtum Lëtzebuerg"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 12,
+    "flag": "/flags/lu.svg",
+    "flagLookalikes": [
+      "NL"
+    ]
+  },
+  {
+    "key": "MC",
+    "name": "Monaco",
+    "aliases": [
+      "Principality of Monaco",
+      "Principauté de Monaco"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 13,
+    "flag": "/flags/mc.svg",
+    "flagLookalikes": [
+      "ID",
+      "PL"
+    ]
+  },
+  {
+    "key": "NL",
+    "name": "Netherlands",
+    "aliases": [
+      "Kingdom of the Netherlands",
+      "Holland",
+      "Nederland"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 14,
+    "flag": "/flags/nl.svg",
+    "flagLookalikes": [
+      "FR",
+      "LU",
+      "RU"
+    ]
+  },
+  {
+    "key": "NO",
+    "name": "Norway",
+    "aliases": [
+      "Kingdom of Norway",
+      "Norge",
+      "Noreg",
+      "Kongeriket Norge",
+      "Kongeriket Noreg"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 15,
+    "flag": "/flags/no.svg",
+    "flagLookalikes": [
+      "DK",
+      "IS"
+    ]
+  },
+  {
+    "key": "SE",
+    "name": "Sweden",
+    "aliases": [
+      "Kingdom of Sweden",
+      "Konungariket Sverige"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 16,
+    "flag": "/flags/se.svg",
+    "flagLookalikes": [
+      "FI"
+    ]
+  },
+  {
+    "key": "CH",
+    "name": "Switzerland",
+    "aliases": [
+      "Swiss Confederation",
+      "Schweiz",
+      "Suisse",
+      "Svizzera",
+      "Svizra"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 17,
+    "flag": "/flags/ch.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "GB",
+    "name": "United Kingdom",
+    "aliases": [
+      "United Kingdom of Great Britain and Northern Ireland",
+      "UK",
+      "Great Britain",
+      "Britain"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 18,
+    "flag": "/flags/gb.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "AL",
+    "name": "Albania",
+    "aliases": [
+      "Republic of Albania",
+      "Shqipëri",
+      "Shqipëria",
+      "Shqipnia"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 1,
+    "flag": "/flags/al.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "AD",
+    "name": "Andorra",
+    "aliases": [
+      "Principality of Andorra",
+      "Principat d'Andorra"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 2,
+    "flag": "/flags/ad.svg",
+    "flagLookalikes": [
+      "MD",
+      "RO",
+      "TD"
+    ]
+  },
+  {
+    "key": "AT",
+    "name": "Austria",
+    "aliases": [
+      "Republic of Austria",
+      "Osterreich",
+      "Oesterreich"
+    ],
+    "region": "Europe",
+    "subregion": "Central Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 3,
+    "flag": "/flags/at.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BY",
+    "name": "Belarus",
+    "aliases": [
+      "Republic of Belarus",
+      "Bielaruś"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 4,
+    "flag": "/flags/by.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BA",
+    "name": "Bosnia and Herzegovina",
+    "aliases": [
+      "Bosnia-Herzegovina"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 5,
+    "flag": "/flags/ba.svg",
+    "flagLookalikes": [
+      "XK"
+    ]
+  },
+  {
+    "key": "BG",
+    "name": "Bulgaria",
+    "aliases": [
+      "Republic of Bulgaria"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 6,
+    "flag": "/flags/bg.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "HR",
+    "name": "Croatia",
+    "aliases": [
+      "Republic of Croatia",
+      "Hrvatska",
+      "Republika Hrvatska"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 7,
+    "flag": "/flags/hr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CY",
+    "name": "Cyprus",
+    "aliases": [
+      "Republic of Cyprus",
+      "Kýpros",
+      "Kıbrıs",
+      "Kıbrıs Cumhuriyeti"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 8,
+    "flag": "/flags/cy.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CZ",
+    "name": "Czechia",
+    "aliases": [
+      "Czech Republic",
+      "Česká republika",
+      "Česko"
+    ],
+    "region": "Europe",
+    "subregion": "Central Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 9,
+    "flag": "/flags/cz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "GR",
+    "name": "Greece",
+    "aliases": [
+      "Hellenic Republic",
+      "Elláda"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 10,
+    "flag": "/flags/gr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "HU",
+    "name": "Hungary",
+    "aliases": [],
+    "region": "Europe",
+    "subregion": "Central Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 11,
+    "flag": "/flags/hu.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "IT",
+    "name": "Italy",
+    "aliases": [
+      "Italian Republic",
+      "Repubblica italiana"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 12,
+    "flag": "/flags/it.svg",
+    "flagLookalikes": [
+      "IE",
+      "MX"
+    ]
+  },
+  {
+    "key": "XK",
+    "name": "Kosovo",
+    "aliases": [
+      "Republic of Kosovo"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 13,
+    "flag": "/flags/xk.svg",
+    "flagLookalikes": [
+      "BA"
+    ]
+  },
+  {
+    "key": "MT",
+    "name": "Malta",
+    "aliases": [
+      "Republic of Malta",
+      "Repubblika ta' Malta"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 14,
+    "flag": "/flags/mt.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MD",
+    "name": "Moldova",
+    "aliases": [
+      "Republic of Moldova",
+      "Moldova, Republic of",
+      "Republica Moldova"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 15,
+    "flag": "/flags/md.svg",
+    "flagLookalikes": [
+      "AD",
+      "RO",
+      "TD"
+    ]
+  },
+  {
+    "key": "ME",
+    "name": "Montenegro",
+    "aliases": [
+      "Crna Gora"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 16,
+    "flag": "/flags/me.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MK",
+    "name": "North Macedonia",
+    "aliases": [
+      "Republic of North Macedonia",
+      "The former Yugoslav Republic of Macedonia",
+      "Macedonia, The Former Yugoslav Republic of",
+      "Macedonia"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 17,
+    "flag": "/flags/mk.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "PL",
+    "name": "Poland",
+    "aliases": [
+      "Republic of Poland",
+      "Rzeczpospolita Polska"
+    ],
+    "region": "Europe",
+    "subregion": "Central Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 18,
+    "flag": "/flags/pl.svg",
+    "flagLookalikes": [
+      "ID",
+      "MC"
+    ]
+  },
+  {
+    "key": "PT",
+    "name": "Portugal",
+    "aliases": [
+      "Portuguese Republic",
+      "Portuguesa",
+      "República Portuguesa"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 19,
+    "flag": "/flags/pt.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "RO",
+    "name": "Romania",
+    "aliases": [
+      "Rumania",
+      "Roumania"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 20,
+    "flag": "/flags/ro.svg",
+    "flagLookalikes": [
+      "AD",
+      "MD",
+      "TD"
+    ]
+  },
+  {
+    "key": "RU",
+    "name": "Russia",
+    "aliases": [
+      "Russian Federation"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 21,
+    "flag": "/flags/ru.svg",
+    "flagLookalikes": [
+      "NL",
+      "RS",
+      "SI",
+      "SK"
+    ]
+  },
+  {
+    "key": "SM",
+    "name": "San Marino",
+    "aliases": [
+      "Most Serene Republic of San Marino",
+      "Republic of San Marino",
+      "Repubblica di San Marino"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 22,
+    "flag": "/flags/sm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "RS",
+    "name": "Serbia",
+    "aliases": [
+      "Republic of Serbia",
+      "Srbija",
+      "Republika Srbija"
+    ],
+    "region": "Europe",
+    "subregion": "Southeast Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 23,
+    "flag": "/flags/rs.svg",
+    "flagLookalikes": [
+      "RU"
+    ]
+  },
+  {
+    "key": "SK",
+    "name": "Slovakia",
+    "aliases": [
+      "Slovak Republic",
+      "Slovenská republika"
+    ],
+    "region": "Europe",
+    "subregion": "Central Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 24,
+    "flag": "/flags/sk.svg",
+    "flagLookalikes": [
+      "RU",
+      "SI"
+    ]
+  },
+  {
+    "key": "SI",
+    "name": "Slovenia",
+    "aliases": [
+      "Republic of Slovenia",
+      "Republika Slovenija"
+    ],
+    "region": "Europe",
+    "subregion": "Central Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 25,
+    "flag": "/flags/si.svg",
+    "flagLookalikes": [
+      "RU",
+      "SK"
+    ]
+  },
+  {
+    "key": "ES",
+    "name": "Spain",
+    "aliases": [
+      "Kingdom of Spain",
+      "Reino de España"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 26,
+    "flag": "/flags/es.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "UA",
+    "name": "Ukraine",
+    "aliases": [
+      "Ukrayina"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 27,
+    "flag": "/flags/ua.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "VA",
+    "name": "Vatican City",
+    "aliases": [
+      "Vatican City State",
+      "Holy See (Vatican City State)",
+      "Vatican",
+      "Stato della Città del Vaticano",
+      "Holy See"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "group": "Southern & Eastern Europe",
+    "groupOrder": 2,
+    "itemOrder": 28,
+    "flag": "/flags/va.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BZ",
+    "name": "Belize",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Central America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 1,
+    "flag": "/flags/bz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CA",
+    "name": "Canada",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "North America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 2,
+    "flag": "/flags/ca.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CR",
+    "name": "Costa Rica",
+    "aliases": [
+      "Republic of Costa Rica",
+      "República de Costa Rica"
+    ],
+    "region": "Americas",
+    "subregion": "Central America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 3,
+    "flag": "/flags/cr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SV",
+    "name": "El Salvador",
+    "aliases": [
+      "Republic of El Salvador",
+      "República de El Salvador"
+    ],
+    "region": "Americas",
+    "subregion": "Central America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 4,
+    "flag": "/flags/sv.svg",
+    "flagLookalikes": [
+      "GT",
+      "HN",
+      "NI"
+    ]
+  },
+  {
+    "key": "GT",
+    "name": "Guatemala",
+    "aliases": [
+      "Republic of Guatemala"
+    ],
+    "region": "Americas",
+    "subregion": "Central America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 5,
+    "flag": "/flags/gt.svg",
+    "flagLookalikes": [
+      "SV"
+    ]
+  },
+  {
+    "key": "HN",
+    "name": "Honduras",
+    "aliases": [
+      "Republic of Honduras",
+      "República de Honduras"
+    ],
+    "region": "Americas",
+    "subregion": "Central America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 6,
+    "flag": "/flags/hn.svg",
+    "flagLookalikes": [
+      "NI",
+      "SV"
+    ]
+  },
+  {
+    "key": "MX",
+    "name": "Mexico",
+    "aliases": [
+      "United Mexican States",
+      "Mexicanos",
+      "Estados Unidos Mexicanos"
+    ],
+    "region": "Americas",
+    "subregion": "North America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 7,
+    "flag": "/flags/mx.svg",
+    "flagLookalikes": [
+      "IT"
+    ]
+  },
+  {
+    "key": "NI",
+    "name": "Nicaragua",
+    "aliases": [
+      "Republic of Nicaragua",
+      "República de Nicaragua"
+    ],
+    "region": "Americas",
+    "subregion": "Central America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 8,
+    "flag": "/flags/ni.svg",
+    "flagLookalikes": [
+      "HN",
+      "SV"
+    ]
+  },
+  {
+    "key": "PA",
+    "name": "Panama",
+    "aliases": [
+      "Republic of Panama",
+      "República de Panamá"
+    ],
+    "region": "Americas",
+    "subregion": "Central America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 9,
+    "flag": "/flags/pa.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "US",
+    "name": "United States",
+    "aliases": [
+      "United States of America",
+      "USA",
+      "America"
+    ],
+    "region": "Americas",
+    "subregion": "North America",
+    "group": "North & Central America",
+    "groupOrder": 3,
+    "itemOrder": 10,
+    "flag": "/flags/us.svg",
+    "flagLookalikes": [
+      "LR",
+      "MY"
+    ]
+  },
+  {
+    "key": "AG",
+    "name": "Antigua and Barbuda",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 1,
+    "flag": "/flags/ag.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BS",
+    "name": "Bahamas",
+    "aliases": [
+      "Commonwealth of the Bahamas"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 2,
+    "flag": "/flags/bs.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BB",
+    "name": "Barbados",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 3,
+    "flag": "/flags/bb.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CU",
+    "name": "Cuba",
+    "aliases": [
+      "Republic of Cuba",
+      "República de Cuba"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 4,
+    "flag": "/flags/cu.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "DM",
+    "name": "Dominica",
+    "aliases": [
+      "Commonwealth of Dominica",
+      "Dominique",
+      "Wai‘tu kubuli"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 5,
+    "flag": "/flags/dm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "DO",
+    "name": "Dominican Republic",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 6,
+    "flag": "/flags/do.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "GD",
+    "name": "Grenada",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 7,
+    "flag": "/flags/gd.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "HT",
+    "name": "Haiti",
+    "aliases": [
+      "Republic of Haiti",
+      "République d'Haïti",
+      "Repiblik Ayiti"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 8,
+    "flag": "/flags/ht.svg",
+    "flagLookalikes": [
+      "LI"
+    ]
+  },
+  {
+    "key": "JM",
+    "name": "Jamaica",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 9,
+    "flag": "/flags/jm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KN",
+    "name": "Saint Kitts and Nevis",
+    "aliases": [
+      "Federation of Saint Christopher and Nevis"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 10,
+    "flag": "/flags/kn.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "LC",
+    "name": "Saint Lucia",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 11,
+    "flag": "/flags/lc.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "VC",
+    "name": "Saint Vincent and the Grenadines",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 12,
+    "flag": "/flags/vc.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TT",
+    "name": "Trinidad and Tobago",
+    "aliases": [
+      "Republic of Trinidad and Tobago"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 4,
+    "itemOrder": 13,
+    "flag": "/flags/tt.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "AR",
+    "name": "Argentina",
+    "aliases": [
+      "Argentine Republic",
+      "República Argentina"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 1,
+    "flag": "/flags/ar.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BO",
+    "name": "Bolivia",
+    "aliases": [
+      "Plurinational State of Bolivia",
+      "Buliwya",
+      "Wuliwya",
+      "Bolivia, Plurinational State of",
+      "Estado Plurinacional de Bolivia",
+      "Buliwya Mamallaqta",
+      "Wuliwya Suyu",
+      "Tetã Volívia"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 2,
+    "flag": "/flags/bo.svg",
+    "flagLookalikes": [
+      "GH",
+      "LT"
+    ]
+  },
+  {
+    "key": "BR",
+    "name": "Brazil",
+    "aliases": [
+      "Federative Republic of Brazil",
+      "Brasil",
+      "República Federativa do Brasil"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 3,
+    "flag": "/flags/br.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CL",
+    "name": "Chile",
+    "aliases": [
+      "Republic of Chile",
+      "República de Chile"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 4,
+    "flag": "/flags/cl.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CO",
+    "name": "Colombia",
+    "aliases": [
+      "Republic of Colombia",
+      "República de Colombia"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 5,
+    "flag": "/flags/co.svg",
+    "flagLookalikes": [
+      "EC",
+      "VE"
+    ]
+  },
+  {
+    "key": "EC",
+    "name": "Ecuador",
+    "aliases": [
+      "Republic of Ecuador",
+      "República del Ecuador"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 6,
+    "flag": "/flags/ec.svg",
+    "flagLookalikes": [
+      "CO",
+      "VE"
+    ]
+  },
+  {
+    "key": "GY",
+    "name": "Guyana",
+    "aliases": [
+      "Co-operative Republic of Guyana"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 7,
+    "flag": "/flags/gy.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "PY",
+    "name": "Paraguay",
+    "aliases": [
+      "Republic of Paraguay",
+      "República del Paraguay",
+      "Tetã Paraguái"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 8,
+    "flag": "/flags/py.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "PE",
+    "name": "Peru",
+    "aliases": [
+      "Republic of Peru",
+      "República del Perú"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 9,
+    "flag": "/flags/pe.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SR",
+    "name": "Suriname",
+    "aliases": [
+      "Republic of Suriname",
+      "Sarnam",
+      "Sranangron",
+      "Republiek Suriname"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 10,
+    "flag": "/flags/sr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "UY",
+    "name": "Uruguay",
+    "aliases": [
+      "Oriental Republic of Uruguay",
+      "República Oriental del Uruguay"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 11,
+    "flag": "/flags/uy.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "VE",
+    "name": "Venezuela",
+    "aliases": [
+      "Bolivarian Republic of Venezuela",
+      "Venezuela, Bolivarian Republic of",
+      "República Bolivariana de Venezuela"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 5,
+    "itemOrder": 12,
+    "flag": "/flags/ve.svg",
+    "flagLookalikes": [
+      "CO",
+      "EC"
+    ]
+  },
+  {
+    "key": "AM",
+    "name": "Armenia",
+    "aliases": [
+      "Republic of Armenia",
+      "Hayastan"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 1,
+    "flag": "/flags/am.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "AZ",
+    "name": "Azerbaijan",
+    "aliases": [
+      "Republic of Azerbaijan",
+      "Azərbaycan Respublikası"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 2,
+    "flag": "/flags/az.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BH",
+    "name": "Bahrain",
+    "aliases": [
+      "Kingdom of Bahrain",
+      "Mamlakat al-Baḥrayn"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 3,
+    "flag": "/flags/bh.svg",
+    "flagLookalikes": [
+      "QA"
+    ]
+  },
+  {
+    "key": "GE",
+    "name": "Georgia",
+    "aliases": [
+      "Sakartvelo"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 4,
+    "flag": "/flags/ge.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "IQ",
+    "name": "Iraq",
+    "aliases": [
+      "Republic of Iraq",
+      "Jumhūriyyat al-‘Irāq"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 5,
+    "flag": "/flags/iq.svg",
+    "flagLookalikes": [
+      "EG",
+      "SY"
+    ]
+  },
+  {
+    "key": "IL",
+    "name": "Israel",
+    "aliases": [
+      "State of Israel",
+      "Medīnat Yisrā'el"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 6,
+    "flag": "/flags/il.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "JO",
+    "name": "Jordan",
+    "aliases": [
+      "Hashemite Kingdom of Jordan",
+      "al-Mamlakah al-Urdunīyah al-Hāshimīyah"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 7,
+    "flag": "/flags/jo.svg",
+    "flagLookalikes": [
+      "PS"
+    ]
+  },
+  {
+    "key": "KZ",
+    "name": "Kazakhstan",
+    "aliases": [
+      "Republic of Kazakhstan",
+      "Qazaqstan",
+      "Qazaqstan Respublïkası",
+      "Respublika Kazakhstan"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 8,
+    "flag": "/flags/kz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KW",
+    "name": "Kuwait",
+    "aliases": [
+      "State of Kuwait",
+      "Dawlat al-Kuwait"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 9,
+    "flag": "/flags/kw.svg",
+    "flagLookalikes": [
+      "AE"
+    ]
+  },
+  {
+    "key": "KG",
+    "name": "Kyrgyzstan",
+    "aliases": [
+      "Kyrgyz Republic",
+      "Kyrgyz Respublikasy"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 10,
+    "flag": "/flags/kg.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "LB",
+    "name": "Lebanon",
+    "aliases": [
+      "Lebanese Republic",
+      "Al-Jumhūrīyah Al-Libnānīyah"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 11,
+    "flag": "/flags/lb.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "OM",
+    "name": "Oman",
+    "aliases": [
+      "Sultanate of Oman",
+      "Salṭanat ʻUmān"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 12,
+    "flag": "/flags/om.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "PS",
+    "name": "Palestine",
+    "aliases": [
+      "State of Palestine",
+      "Palestine, State of",
+      "Dawlat Filasṭin"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 13,
+    "flag": "/flags/ps.svg",
+    "flagLookalikes": [
+      "JO",
+      "SD"
+    ]
+  },
+  {
+    "key": "QA",
+    "name": "Qatar",
+    "aliases": [
+      "State of Qatar",
+      "Dawlat Qaṭar"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 14,
+    "flag": "/flags/qa.svg",
+    "flagLookalikes": [
+      "BH"
+    ]
+  },
+  {
+    "key": "SA",
+    "name": "Saudi Arabia",
+    "aliases": [
+      "Kingdom of Saudi Arabia",
+      "Saudi",
+      "Al-Mamlakah al-‘Arabiyyah as-Su‘ūdiyyah"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 15,
+    "flag": "/flags/sa.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SY",
+    "name": "Syria",
+    "aliases": [
+      "Syrian Arab Republic",
+      "Al-Jumhūrīyah Al-ʻArabīyah As-Sūrīyah"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 16,
+    "flag": "/flags/sy.svg",
+    "flagLookalikes": [
+      "IQ",
+      "YE"
+    ]
+  },
+  {
+    "key": "TJ",
+    "name": "Tajikistan",
+    "aliases": [
+      "Republic of Tajikistan",
+      "Toçikiston",
+      "Çumhuriyi Toçikiston"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 17,
+    "flag": "/flags/tj.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TR",
+    "name": "Türkiye",
+    "aliases": [
+      "Republic of Türkiye",
+      "Republic of Turkey",
+      "Türkiye Cumhuriyeti",
+      "Turkey"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 18,
+    "flag": "/flags/tr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TM",
+    "name": "Turkmenistan",
+    "aliases": [],
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 19,
+    "flag": "/flags/tm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "AE",
+    "name": "United Arab Emirates",
+    "aliases": [
+      "UAE",
+      "Emirates"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 20,
+    "flag": "/flags/ae.svg",
+    "flagLookalikes": [
+      "KW"
+    ]
+  },
+  {
+    "key": "UZ",
+    "name": "Uzbekistan",
+    "aliases": [
+      "Republic of Uzbekistan",
+      "O‘zbekiston Respublikasi"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 21,
+    "flag": "/flags/uz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "YE",
+    "name": "Yemen",
+    "aliases": [
+      "Republic of Yemen",
+      "Yemeni Republic",
+      "al-Jumhūriyyah al-Yamaniyyah"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "group": "Middle East & Central Asia",
+    "groupOrder": 6,
+    "itemOrder": 22,
+    "flag": "/flags/ye.svg",
+    "flagLookalikes": [
+      "EG",
+      "SY"
+    ]
+  },
+  {
+    "key": "AF",
+    "name": "Afghanistan",
+    "aliases": [
+      "Islamic Republic of Afghanistan",
+      "Afġānistān"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 1,
+    "flag": "/flags/af.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BD",
+    "name": "Bangladesh",
+    "aliases": [
+      "People's Republic of Bangladesh",
+      "Gônôprôjatôntri Bangladesh"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 2,
+    "flag": "/flags/bd.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BT",
+    "name": "Bhutan",
+    "aliases": [
+      "Kingdom of Bhutan"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 3,
+    "flag": "/flags/bt.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CN",
+    "name": "China",
+    "aliases": [
+      "People's Republic of China",
+      "Zhōngguó",
+      "Zhonghua",
+      "Zhōnghuá Rénmín Gònghéguó"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 4,
+    "flag": "/flags/cn.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "IN",
+    "name": "India",
+    "aliases": [
+      "Republic of India",
+      "Bhārat",
+      "Bharat Ganrajya"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 5,
+    "flag": "/flags/in.svg",
+    "flagLookalikes": [
+      "NE"
+    ]
+  },
+  {
+    "key": "IR",
+    "name": "Iran",
+    "aliases": [
+      "Islamic Republic of Iran",
+      "Iran, Islamic Republic of",
+      "Jomhuri-ye Eslāmi-ye Irān"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 6,
+    "flag": "/flags/ir.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "JP",
+    "name": "Japan",
+    "aliases": [
+      "Nippon",
+      "Nihon"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 7,
+    "flag": "/flags/jp.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MV",
+    "name": "Maldives",
+    "aliases": [
+      "Republic of the Maldives",
+      "Maldive Islands",
+      "Dhivehi Raajjeyge Jumhooriyya"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 8,
+    "flag": "/flags/mv.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MN",
+    "name": "Mongolia",
+    "aliases": [],
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 9,
+    "flag": "/flags/mn.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "NP",
+    "name": "Nepal",
+    "aliases": [
+      "Federal Democratic Republic of Nepal",
+      "Loktāntrik Ganatantra Nepāl"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 10,
+    "flag": "/flags/np.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KP",
+    "name": "North Korea",
+    "aliases": [
+      "Democratic People's Republic of Korea",
+      "DPRK",
+      "Chosŏn Minjujuŭi Inmin Konghwaguk",
+      "Korea, Democratic People's Republic of"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 11,
+    "flag": "/flags/kp.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "PK",
+    "name": "Pakistan",
+    "aliases": [
+      "Islamic Republic of Pakistan",
+      "Islāmī Jumhūriya'eh Pākistān"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 12,
+    "flag": "/flags/pk.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KR",
+    "name": "South Korea",
+    "aliases": [
+      "Republic of Korea",
+      "Korea, Republic of"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 13,
+    "flag": "/flags/kr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "LK",
+    "name": "Sri Lanka",
+    "aliases": [
+      "Democratic Socialist Republic of Sri Lanka",
+      "ilaṅkai"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 14,
+    "flag": "/flags/lk.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TW",
+    "name": "Taiwan",
+    "aliases": [
+      "Republic of China (Taiwan)",
+      "Republic of China",
+      "Zhōnghuá Mínguó",
+      "Chinese Taipei"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia",
+    "group": "South & East Asia",
+    "groupOrder": 7,
+    "itemOrder": 15,
+    "flag": "/flags/tw.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BN",
+    "name": "Brunei",
+    "aliases": [
+      "Nation of Brunei, Abode of Peace",
+      "Brunei Darussalam",
+      "Nation of Brunei",
+      "the Abode of Peace"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 1,
+    "flag": "/flags/bn.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KH",
+    "name": "Cambodia",
+    "aliases": [
+      "Kingdom of Cambodia"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 2,
+    "flag": "/flags/kh.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ID",
+    "name": "Indonesia",
+    "aliases": [
+      "Republic of Indonesia",
+      "Republik Indonesia"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 3,
+    "flag": "/flags/id.svg",
+    "flagLookalikes": [
+      "MC",
+      "PL"
+    ]
+  },
+  {
+    "key": "LA",
+    "name": "Laos",
+    "aliases": [
+      "Lao People's Democratic Republic",
+      "Sathalanalat Paxathipatai Paxaxon Lao"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 4,
+    "flag": "/flags/la.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MY",
+    "name": "Malaysia",
+    "aliases": [],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 5,
+    "flag": "/flags/my.svg",
+    "flagLookalikes": [
+      "LR",
+      "US"
+    ]
+  },
+  {
+    "key": "MM",
+    "name": "Myanmar",
+    "aliases": [
+      "Republic of the Union of Myanmar",
+      "Burma",
+      "Pyidaunzu Thanmăda Myăma Nainngandaw"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 6,
+    "flag": "/flags/mm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "PH",
+    "name": "Philippines",
+    "aliases": [
+      "Republic of the Philippines",
+      "Repúblika ng Pilipinas"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 7,
+    "flag": "/flags/ph.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SG",
+    "name": "Singapore",
+    "aliases": [
+      "Republic of Singapore",
+      "Singapura",
+      "Republik Singapura"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 8,
+    "flag": "/flags/sg.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TH",
+    "name": "Thailand",
+    "aliases": [
+      "Kingdom of Thailand",
+      "Prathet",
+      "Thai",
+      "Ratcha Anachak Thai"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 9,
+    "flag": "/flags/th.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TL",
+    "name": "Timor-Leste",
+    "aliases": [
+      "Democratic Republic of Timor-Leste",
+      "East Timor",
+      "Timor",
+      "República Democrática de Timor-Leste",
+      "Repúblika Demokrátika Timór-Leste",
+      "Timór Lorosa'e"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 10,
+    "flag": "/flags/tl.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "VN",
+    "name": "Vietnam",
+    "aliases": [
+      "Socialist Republic of Vietnam",
+      "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+      "Viet Nam"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia",
+    "group": "Southeast Asia",
+    "groupOrder": 8,
+    "itemOrder": 11,
+    "flag": "/flags/vn.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "DZ",
+    "name": "Algeria",
+    "aliases": [
+      "People's Democratic Republic of Algeria",
+      "Dzayer",
+      "Algérie"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 1,
+    "flag": "/flags/dz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BJ",
+    "name": "Benin",
+    "aliases": [
+      "Republic of Benin",
+      "République du Bénin"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 2,
+    "flag": "/flags/bj.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BF",
+    "name": "Burkina Faso",
+    "aliases": [],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 3,
+    "flag": "/flags/bf.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CV",
+    "name": "Cape Verde",
+    "aliases": [
+      "Republic of Cabo Verde",
+      "República de Cabo Verde",
+      "Cabo Verde"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 4,
+    "flag": "/flags/cv.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "EG",
+    "name": "Egypt",
+    "aliases": [
+      "Arab Republic of Egypt"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 5,
+    "flag": "/flags/eg.svg",
+    "flagLookalikes": [
+      "IQ",
+      "YE"
+    ]
+  },
+  {
+    "key": "GM",
+    "name": "Gambia",
+    "aliases": [
+      "Republic of the Gambia"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 6,
+    "flag": "/flags/gm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "GH",
+    "name": "Ghana",
+    "aliases": [
+      "Republic of Ghana"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 7,
+    "flag": "/flags/gh.svg",
+    "flagLookalikes": [
+      "BO",
+      "LT"
+    ]
+  },
+  {
+    "key": "GN",
+    "name": "Guinea",
+    "aliases": [
+      "Republic of Guinea",
+      "République de Guinée"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 8,
+    "flag": "/flags/gn.svg",
+    "flagLookalikes": [
+      "ML"
+    ]
+  },
+  {
+    "key": "GW",
+    "name": "Guinea-Bissau",
+    "aliases": [
+      "Republic of Guinea-Bissau",
+      "República da Guiné-Bissau"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 9,
+    "flag": "/flags/gw.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CI",
+    "name": "Ivory Coast",
+    "aliases": [
+      "Republic of Côte d'Ivoire",
+      "Côte d'Ivoire",
+      "République de Côte d'Ivoire"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 10,
+    "flag": "/flags/ci.svg",
+    "flagLookalikes": [
+      "IE"
+    ]
+  },
+  {
+    "key": "LR",
+    "name": "Liberia",
+    "aliases": [
+      "Republic of Liberia"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 11,
+    "flag": "/flags/lr.svg",
+    "flagLookalikes": [
+      "MY",
+      "US"
+    ]
+  },
+  {
+    "key": "LY",
+    "name": "Libya",
+    "aliases": [
+      "State of Libya",
+      "Dawlat Libya"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 12,
+    "flag": "/flags/ly.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ML",
+    "name": "Mali",
+    "aliases": [
+      "Republic of Mali",
+      "République du Mali"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 13,
+    "flag": "/flags/ml.svg",
+    "flagLookalikes": [
+      "GN",
+      "SN"
+    ]
+  },
+  {
+    "key": "MR",
+    "name": "Mauritania",
+    "aliases": [
+      "Islamic Republic of Mauritania",
+      "al-Jumhūriyyah al-ʾIslāmiyyah al-Mūrītāniyyah"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 14,
+    "flag": "/flags/mr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MA",
+    "name": "Morocco",
+    "aliases": [
+      "Kingdom of Morocco",
+      "Al-Mamlakah al-Maġribiyah"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 15,
+    "flag": "/flags/ma.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "NE",
+    "name": "Niger",
+    "aliases": [
+      "Republic of Niger",
+      "Nijar"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 16,
+    "flag": "/flags/ne.svg",
+    "flagLookalikes": [
+      "IN"
+    ]
+  },
+  {
+    "key": "NG",
+    "name": "Nigeria",
+    "aliases": [
+      "Federal Republic of Nigeria",
+      "Nijeriya",
+      "Naíjíríà"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 17,
+    "flag": "/flags/ng.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SN",
+    "name": "Senegal",
+    "aliases": [
+      "Republic of Senegal",
+      "République du Sénégal"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 18,
+    "flag": "/flags/sn.svg",
+    "flagLookalikes": [
+      "CM",
+      "ML"
+    ]
+  },
+  {
+    "key": "SL",
+    "name": "Sierra Leone",
+    "aliases": [
+      "Republic of Sierra Leone"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 19,
+    "flag": "/flags/sl.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SD",
+    "name": "Sudan",
+    "aliases": [
+      "Republic of the Sudan",
+      "Jumhūrīyat as-Sūdān"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 20,
+    "flag": "/flags/sd.svg",
+    "flagLookalikes": [
+      "PS"
+    ]
+  },
+  {
+    "key": "TG",
+    "name": "Togo",
+    "aliases": [
+      "Togolese Republic",
+      "Togolese",
+      "République Togolaise"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 21,
+    "flag": "/flags/tg.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TN",
+    "name": "Tunisia",
+    "aliases": [
+      "Tunisian Republic",
+      "Republic of Tunisia",
+      "al-Jumhūriyyah at-Tūnisiyyah"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa",
+    "group": "North & West Africa",
+    "groupOrder": 9,
+    "itemOrder": 22,
+    "flag": "/flags/tn.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "AO",
+    "name": "Angola",
+    "aliases": [
+      "Republic of Angola",
+      "República de Angola",
+      "ʁɛpublika de an'ɡɔla"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 1,
+    "flag": "/flags/ao.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BW",
+    "name": "Botswana",
+    "aliases": [
+      "Republic of Botswana",
+      "Lefatshe la Botswana"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 2,
+    "flag": "/flags/bw.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CM",
+    "name": "Cameroon",
+    "aliases": [
+      "Republic of Cameroon",
+      "République du Cameroun"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 3,
+    "flag": "/flags/cm.svg",
+    "flagLookalikes": [
+      "SN"
+    ]
+  },
+  {
+    "key": "CF",
+    "name": "Central African Republic",
+    "aliases": [
+      "République centrafricaine",
+      "CAR"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 4,
+    "flag": "/flags/cf.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TD",
+    "name": "Chad",
+    "aliases": [
+      "Republic of Chad",
+      "Tchad",
+      "République du Tchad"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 5,
+    "flag": "/flags/td.svg",
+    "flagLookalikes": [
+      "AD",
+      "MD",
+      "RO"
+    ]
+  },
+  {
+    "key": "CD",
+    "name": "DR Congo",
+    "aliases": [
+      "Democratic Republic of the Congo",
+      "Congo-Kinshasa",
+      "Congo, the Democratic Republic of the",
+      "Democratic Republic of Congo",
+      "DRC"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 6,
+    "flag": "/flags/cd.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "GQ",
+    "name": "Equatorial Guinea",
+    "aliases": [
+      "Republic of Equatorial Guinea",
+      "República de Guinea Ecuatorial",
+      "République de Guinée équatoriale",
+      "República da Guiné Equatorial"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 7,
+    "flag": "/flags/gq.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SZ",
+    "name": "Eswatini",
+    "aliases": [
+      "Kingdom of Eswatini",
+      "Swaziland",
+      "weSwatini",
+      "Swatini",
+      "Ngwane",
+      "Umbuso weSwatini"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 8,
+    "flag": "/flags/sz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "GA",
+    "name": "Gabon",
+    "aliases": [
+      "Gabonese Republic",
+      "République Gabonaise"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 9,
+    "flag": "/flags/ga.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "LS",
+    "name": "Lesotho",
+    "aliases": [
+      "Kingdom of Lesotho",
+      "Muso oa Lesotho"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 10,
+    "flag": "/flags/ls.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "NA",
+    "name": "Namibia",
+    "aliases": [
+      "Republic of Namibia",
+      "Namibië"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 11,
+    "flag": "/flags/na.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "CG",
+    "name": "Republic of the Congo",
+    "aliases": [
+      "Congo",
+      "Congo-Brazzaville"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 12,
+    "flag": "/flags/cg.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ST",
+    "name": "São Tomé and Príncipe",
+    "aliases": [
+      "Democratic Republic of São Tomé and Príncipe",
+      "República Democrática de São Tomé e Príncipe",
+      "Sao Tome"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 13,
+    "flag": "/flags/st.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ZA",
+    "name": "South Africa",
+    "aliases": [
+      "Republic of South Africa",
+      "Suid-Afrika"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 14,
+    "flag": "/flags/za.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SS",
+    "name": "South Sudan",
+    "aliases": [
+      "Republic of South Sudan"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa",
+    "group": "Central & Southern Africa",
+    "groupOrder": 10,
+    "itemOrder": 15,
+    "flag": "/flags/ss.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "BI",
+    "name": "Burundi",
+    "aliases": [
+      "Republic of Burundi",
+      "Republika y'Uburundi",
+      "République du Burundi"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 1,
+    "flag": "/flags/bi.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KM",
+    "name": "Comoros",
+    "aliases": [
+      "Union of the Comoros",
+      "Union des Comores",
+      "Udzima wa Komori",
+      "al-Ittiḥād al-Qumurī"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 2,
+    "flag": "/flags/km.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "DJ",
+    "name": "Djibouti",
+    "aliases": [
+      "Republic of Djibouti",
+      "Jabuuti",
+      "Gabuuti",
+      "République de Djibouti",
+      "Gabuutih Ummuuno",
+      "Jamhuuriyadda Jabuuti"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 3,
+    "flag": "/flags/dj.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ER",
+    "name": "Eritrea",
+    "aliases": [
+      "State of Eritrea",
+      "Dawlat Iritriyá",
+      "ʾErtrā",
+      "Iritriyā"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 4,
+    "flag": "/flags/er.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ET",
+    "name": "Ethiopia",
+    "aliases": [
+      "Federal Democratic Republic of Ethiopia",
+      "ʾĪtyōṗṗyā"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 5,
+    "flag": "/flags/et.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KE",
+    "name": "Kenya",
+    "aliases": [
+      "Republic of Kenya",
+      "Jamhuri ya Kenya"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 6,
+    "flag": "/flags/ke.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MG",
+    "name": "Madagascar",
+    "aliases": [
+      "Republic of Madagascar",
+      "Repoblikan'i Madagasikara",
+      "République de Madagascar"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 7,
+    "flag": "/flags/mg.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MW",
+    "name": "Malawi",
+    "aliases": [
+      "Republic of Malawi"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 8,
+    "flag": "/flags/mw.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MU",
+    "name": "Mauritius",
+    "aliases": [
+      "Republic of Mauritius",
+      "République de Maurice"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 9,
+    "flag": "/flags/mu.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MZ",
+    "name": "Mozambique",
+    "aliases": [
+      "Republic of Mozambique",
+      "República de Moçambique"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 10,
+    "flag": "/flags/mz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "RW",
+    "name": "Rwanda",
+    "aliases": [
+      "Republic of Rwanda",
+      "Repubulika y'u Rwanda",
+      "République du Rwanda"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 11,
+    "flag": "/flags/rw.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SC",
+    "name": "Seychelles",
+    "aliases": [
+      "Republic of Seychelles",
+      "Repiblik Sesel",
+      "République des Seychelles"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 12,
+    "flag": "/flags/sc.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SO",
+    "name": "Somalia",
+    "aliases": [
+      "Federal Republic of Somalia",
+      "aṣ-Ṣūmāl",
+      "Jamhuuriyadda Federaalka Soomaaliya",
+      "Jumhūriyyat aṣ-Ṣūmāl al-Fiderāliyya"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 13,
+    "flag": "/flags/so.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TZ",
+    "name": "Tanzania",
+    "aliases": [
+      "United Republic of Tanzania",
+      "Tanzania, United Republic of",
+      "Jamhuri ya Muungano wa Tanzania"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 14,
+    "flag": "/flags/tz.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "UG",
+    "name": "Uganda",
+    "aliases": [
+      "Republic of Uganda",
+      "Jamhuri ya Uganda"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 15,
+    "flag": "/flags/ug.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ZM",
+    "name": "Zambia",
+    "aliases": [
+      "Republic of Zambia"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 16,
+    "flag": "/flags/zm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "ZW",
+    "name": "Zimbabwe",
+    "aliases": [
+      "Republic of Zimbabwe"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa",
+    "group": "East Africa",
+    "groupOrder": 11,
+    "itemOrder": 17,
+    "flag": "/flags/zw.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "AU",
+    "name": "Australia",
+    "aliases": [
+      "Commonwealth of Australia"
+    ],
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 1,
+    "flag": "/flags/au.svg",
+    "flagLookalikes": [
+      "NZ"
+    ]
+  },
+  {
+    "key": "FJ",
+    "name": "Fiji",
+    "aliases": [
+      "Republic of Fiji",
+      "Viti",
+      "Matanitu ko Viti",
+      "Fijī Gaṇarājya"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 2,
+    "flag": "/flags/fj.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "KI",
+    "name": "Kiribati",
+    "aliases": [
+      "Independent and Sovereign Republic of Kiribati",
+      "Republic of Kiribati",
+      "Ribaberiki Kiribati"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 3,
+    "flag": "/flags/ki.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "MH",
+    "name": "Marshall Islands",
+    "aliases": [
+      "Republic of the Marshall Islands",
+      "Aolepān Aorōkin M̧ajeļ"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 4,
+    "flag": "/flags/mh.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "FM",
+    "name": "Micronesia",
+    "aliases": [
+      "Federated States of Micronesia",
+      "Micronesia, Federated States of"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 5,
+    "flag": "/flags/fm.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "NR",
+    "name": "Nauru",
+    "aliases": [
+      "Republic of Nauru",
+      "Naoero",
+      "Pleasant Island",
+      "Ripublik Naoero"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 6,
+    "flag": "/flags/nr.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "NZ",
+    "name": "New Zealand",
+    "aliases": [
+      "Aotearoa"
+    ],
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 7,
+    "flag": "/flags/nz.svg",
+    "flagLookalikes": [
+      "AU"
+    ]
+  },
+  {
+    "key": "PW",
+    "name": "Palau",
+    "aliases": [
+      "Republic of Palau",
+      "Beluu er a Belau"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 8,
+    "flag": "/flags/pw.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "PG",
+    "name": "Papua New Guinea",
+    "aliases": [
+      "Independent State of Papua New Guinea",
+      "Independen Stet bilong Papua Niugini"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 9,
+    "flag": "/flags/pg.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "WS",
+    "name": "Samoa",
+    "aliases": [
+      "Independent State of Samoa",
+      "Malo Saʻoloto Tutoʻatasi o Sāmoa"
+    ],
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 10,
+    "flag": "/flags/ws.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "SB",
+    "name": "Solomon Islands",
+    "aliases": [],
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 11,
+    "flag": "/flags/sb.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TO",
+    "name": "Tonga",
+    "aliases": [
+      "Kingdom of Tonga"
+    ],
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 12,
+    "flag": "/flags/to.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "TV",
+    "name": "Tuvalu",
+    "aliases": [],
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 13,
+    "flag": "/flags/tv.svg",
+    "flagLookalikes": []
+  },
+  {
+    "key": "VU",
+    "name": "Vanuatu",
+    "aliases": [
+      "Republic of Vanuatu",
+      "Ripablik blong Vanuatu",
+      "République de Vanuatu"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "group": "Oceania",
+    "groupOrder": 12,
+    "itemOrder": 14,
+    "flag": "/flags/vu.svg",
+    "flagLookalikes": []
+  }
+]
