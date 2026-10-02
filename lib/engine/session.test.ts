@@ -125,6 +125,22 @@ describe('nextEntry', () => {
       promptType: 'name_to_flag',
     });
   });
+
+  it('excludes the most recently asked prompt overall from the straggler fallback, even after a drill', () => {
+    // Every prompt is a not-yet-due review except LC, which has only
+    // flag_to_name in learning (name_to_flag already graduated).
+    const states = initialStates(course).map((s) =>
+      s.itemKey === 'LC' && s.promptType === 'flag_to_name' ? toLearning(s) : toReviewJustNow(s),
+    );
+    let session = startStudySession();
+    // LC:flag_to_name is answered wrong, then a contrast drill is queued and served.
+    // Both advance `turn`, so LC:flag_to_name is the most recently asked prompt
+    // even though it is no longer the entry most recently returned by nextEntry.
+    session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'LC', promptType: 'flag_to_name' }, false);
+    session = queueContrast(session, { kind: 'contrast', itemKey: 'LC', otherKey: 'DO' });
+    session = recordContrastServed(session);
+    expect(nextEntry({ course, states, session, now: NOW })).toBeNull();
+  });
 });
 
 describe('canIntroduce', () => {

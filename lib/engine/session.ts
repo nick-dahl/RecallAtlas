@@ -116,10 +116,16 @@ export function nextEntry(args: {
   if (relaxed) return toEntry(relaxed);
 
   // Straggler fallback: when the only learning prompts belong to the item
-  // served last turn, ask anything except the exact prompt just answered
-  // rather than ending the session after a single answer.
+  // served last turn, ask anything except the prompt most recently asked
+  // overall rather than ending the session after a single answer. Intros and
+  // contrast drills also advance `turn`, so comparing against `turn - 1`
+  // would let that prompt slip back through right after one of those.
+  const mostRecentAskedKey = Object.entries(session.lastAsked).reduce<string | null>(
+    (best, [key, turn]) => (best === null || turn > session.lastAsked[best] ? key : best),
+    null,
+  );
   const straggler = pickLearning(
-    learning.filter((s) => session.lastAsked[stateKey(s.itemKey, s.promptType)] !== session.turn - 1),
+    learning.filter((s) => stateKey(s.itemKey, s.promptType) !== mostRecentAskedKey),
     session,
   );
   return straggler ? toEntry(straggler) : null;
