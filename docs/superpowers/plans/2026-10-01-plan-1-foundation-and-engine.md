@@ -3111,7 +3111,8 @@ Skip this step if there's nothing to commit.
 
 ## Notes for Plan 2 (persistence)
 
-- `PromptState.fsrs` holds `Date` objects. When storing it as `jsonb` (or as columns), deserialize `due` and `last_review` back to `Date` before calling the engine. Add a `toEngineState`/`fromEngineState` mapper with a round-trip test.
+- `PromptState.fsrs` holds `Date` objects. When storing it as `jsonb` (or as columns), deserialize `due` and `last_review` back to `Date` before calling the engine. Add a `toEngineState`/`fromEngineState` mapper with a round-trip test. The test must exercise `isDue`: it calls `due.getTime()` and throws on string dates, whereas `applyReview`/`retrievability` silently tolerate strings, so they would hide the bug.
+- Progress/mastery views should read `fsrs.stability` directly for lapsed prompts. `retrievability()` returns 0 for anything not in review, which would make lapsed items look completely unlearned.
 - `StudySession` and `QueueSession` are plain JSON and are stored as-is in `sessions.state`.
 - The server picks a fresh RNG per request (e.g. `seededRng(crypto.getRandomValues(...)[0])`); the engine never calls `Math.random`.
 - No Docker is installed locally. Plan 2 needs either Docker Desktop (for `supabase start`) or a hosted Supabase dev project for integration tests. That needs a decision before Plan 2.
