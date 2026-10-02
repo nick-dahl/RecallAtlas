@@ -48,7 +48,7 @@ export function correctResponse(pending: PendingQuestion, course: CourseDef = TE
   return { kind: 'choice', choiceId: pending.choices.find((c) => c.itemKey === entry.itemKey)!.id };
 }
 
-export function wrongChoice(pending: PendingQuestion): AnswerResponse & { itemKey: string } {
+export function wrongChoice(pending: PendingQuestion): { kind: 'choice'; choiceId: string; itemKey: string } {
   const other = pending.choices.find((c) => c.itemKey !== pending.entry.itemKey)!;
   return { kind: 'choice', choiceId: other.id, itemKey: other.itemKey };
 }
