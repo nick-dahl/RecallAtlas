@@ -50,10 +50,13 @@ export function newItemsInOrder(course: CourseDef, states: readonly PromptState[
 export function canIntroduce(course: CourseDef, states: readonly PromptState[], session: StudySession): boolean {
   const learningCount = states.filter((s) => s.phase === 'learning').length;
   const remaining = session.size - session.answered;
+  // A freshly introduced item sits on cooldown for the next few turns, so there
+  // must be enough room left to actually clear cooldown and ask each of its prompts.
+  const turnsNeeded = course.promptTypes.length + ENGINE_CONFIG.cooldownItems - 1;
   return (
     session.newItemsIntroduced < ENGINE_CONFIG.maxNewItemsPerSession &&
     learningCount < ENGINE_CONFIG.maxLearningPrompts &&
-    remaining >= course.promptTypes.length
+    remaining >= turnsNeeded
   );
 }
 
@@ -65,6 +68,11 @@ function pickLearning(pool: PromptState[], session: StudySession): PromptState |
   return [...pool].sort((a, b) => missed(a) - missed(b) || asked(a) - asked(b) || a.rung - b.rung)[0];
 }
 
+/**
+ * `states` must contain exactly one `PromptState` per item × prompt type of
+ * `course` (see `initialStates`/`hydrateStates`); entries for unknown or
+ * missing item/prompt-type pairs are not handled.
+ */
 export function nextEntry(args: {
   course: CourseDef;
   states: readonly PromptState[];
@@ -77,6 +85,15 @@ export function nextEntry(args: {
 
   const recent = new Set(session.recentItems);
   const offCooldown = (s: PromptState) => !recent.has(s.itemKey);
+
+  // A prompt missed earlier this session and now off cooldown jumps the queue:
+  // with a review backlog larger than the session, it would otherwise never
+  // be asked again before the session ends.
+  const freshMisses = states.filter(
+    (s) => s.phase === 'learning' && offCooldown(s) && session.lastMissed[stateKey(s.itemKey, s.promptType)] === true,
+  );
+  const freshMiss = pickLearning(freshMisses, session);
+  if (freshMiss) return toEntry(freshMiss);
 
   const reviewable = (s: PromptState) =>
     session.mode === 'practice-ahead' ? s.phase === 'review' : isDue(s, now);
@@ -96,7 +113,16 @@ export function nextEntry(args: {
 
   const lastItem = session.recentItems[0];
   const relaxed = pickLearning(learning.filter((s) => s.itemKey !== lastItem), session);
-  return relaxed ? toEntry(relaxed) : null;
+  if (relaxed) return toEntry(relaxed);
+
+  // Straggler fallback: when the only learning prompts belong to the item
+  // served last turn, ask anything except the exact prompt just answered
+  // rather than ending the session after a single answer.
+  const straggler = pickLearning(
+    learning.filter((s) => session.lastAsked[stateKey(s.itemKey, s.promptType)] !== session.turn - 1),
+    session,
+  );
+  return straggler ? toEntry(straggler) : null;
 }
 
 function pushRecent(recent: string[], itemKey: string): string[] {

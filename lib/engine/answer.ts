@@ -64,7 +64,11 @@ export function applyStudyAnswer(args: {
   return { session, state, confusions, outcome, contrastQueued };
 }
 
-/** Marks the intro card as seen: every prompt of the item enters learning at rung 1. */
+/**
+ * Marks the intro card as seen: every prompt of the item enters learning at rung 1.
+ * `states` must contain exactly one `PromptState` per item × prompt type of the
+ * course (see `initialStates`/`hydrateStates`).
+ */
 export function applyIntro(args: {
   session: StudySession;
   itemKey: string;

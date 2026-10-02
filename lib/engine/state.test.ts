@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getItem, indexStates, initialStates, newPromptState, stateKey } from './state';
+import { getItem, hydrateStates, indexStates, initialStates, newPromptState, stateKey } from './state';
 import { TEST_COURSE } from './test-fixtures';
 
 describe('state helpers', () => {
@@ -29,5 +29,16 @@ describe('state helpers', () => {
   it('getItem throws for unknown keys', () => {
     expect(getItem(TEST_COURSE, 'EC').name).toBe('Ecuador');
     expect(() => getItem(TEST_COURSE, 'ZZ')).toThrow(/ZZ/);
+  });
+
+  it('hydrateStates overlays stored rows onto a fresh initial-states skeleton', () => {
+    const introduced = { ...newPromptState('TD', 'flag_to_name'), phase: 'learning' as const, rung: 1 as const };
+    const hydrated = hydrateStates(TEST_COURSE, [introduced, newPromptState('ZZ', 'flag_to_name')]);
+    expect(hydrated).toHaveLength(TEST_COURSE.items.length * 2);
+    expect(hydrated.find((s) => s.itemKey === 'TD' && s.promptType === 'flag_to_name')).toEqual(introduced);
+    expect(hydrated.some((s) => s.itemKey === 'ZZ')).toBe(false);
+    expect(hydrated.find((s) => s.itemKey === 'US' && s.promptType === 'flag_to_name')).toEqual(
+      newPromptState('US', 'flag_to_name'),
+    );
   });
 });

@@ -69,6 +69,21 @@ describe('applyStudyAnswer', () => {
     const r = answer(learning(2), { correct: false, typo: false, answeredItemKey: null });
     expect(r.confusions).toEqual([]);
   });
+
+  it('holds at the same rung on a correct answer that does not clear the streak', () => {
+    const r = answer(learning(2, 0), RIGHT);
+    expect(r.outcome).toBe('held');
+    expect(r.state.rung).toBe(2);
+    expect(r.state.streak).toBe(1);
+  });
+
+  it('lapses a review AND queues a contrast drill when the miss is a known confusion', () => {
+    const r = answer(review(), WRONG_RO, [{ asked: 'TD', answered: 'RO', count: 1 }]);
+    expect(r.outcome).toBe('lapsed');
+    expect(r.state).toMatchObject({ phase: 'learning', rung: 2 });
+    expect(r.contrastQueued).toBe(true);
+    expect(r.session.pending).toEqual([{ kind: 'contrast', itemKey: 'TD', otherKey: 'RO' }]);
+  });
 });
 
 describe('applyIntro', () => {

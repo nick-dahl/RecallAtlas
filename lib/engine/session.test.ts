@@ -56,6 +56,20 @@ describe('nextEntry', () => {
     expect(e).toMatchObject({ kind: 'prompt', itemKey: 'TD' });
   });
 
+  it('serves a fresh miss off cooldown before a due review', () => {
+    const states = initialStates(course).map((s) => (s.itemKey === 'TD' ? toLearning(s) : toReviewLongAgo(s)));
+    let session = startStudySession();
+    session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'TD', promptType: 'flag_to_name' }, false);
+    for (const k of ['US', 'EC', 'CO']) {
+      session = recordPromptAnswered(session, { kind: 'prompt', itemKey: k, promptType: 'flag_to_name' }, true);
+    }
+    expect(nextEntry({ course, states, session, now: NOW })).toEqual({
+      kind: 'prompt',
+      itemKey: 'TD',
+      promptType: 'flag_to_name',
+    });
+  });
+
   it('prefers a prompt that was just missed once it is off cooldown', () => {
     let states = initialStates(course);
     states = update(states, ['US', 'EC', 'CO', 'VE', 'PE'], toLearning);
@@ -100,6 +114,17 @@ describe('nextEntry', () => {
     const e = nextEntry({ course, states, session: startStudySession({ mode: 'practice-ahead' }), now: days(1) });
     expect(e?.kind).toBe('prompt');
   });
+
+  it('falls back to a straggler prompt when only the last-served item remains in learning', () => {
+    const states = initialStates(course).map((s) => (s.itemKey === 'LC' ? toLearning(s) : toReviewJustNow(s)));
+    let session = startStudySession();
+    session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'LC', promptType: 'flag_to_name' }, true);
+    expect(nextEntry({ course, states, session, now: NOW })).toEqual({
+      kind: 'prompt',
+      itemKey: 'LC',
+      promptType: 'name_to_flag',
+    });
+  });
 });
 
 describe('canIntroduce', () => {
@@ -124,6 +149,20 @@ describe('canIntroduce', () => {
     session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'US', promptType: 'flag_to_name' }, true);
     session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'US', promptType: 'name_to_flag' }, true);
     expect(canIntroduce(course, initialStates(course), session)).toBe(false);
+  });
+
+  it('blocks when too few turns remain for an intro to clear cooldown (size 5, remaining 3)', () => {
+    let session = startStudySession({ size: 5 });
+    session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'US', promptType: 'flag_to_name' }, true);
+    session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'EC', promptType: 'flag_to_name' }, true);
+    expect(canIntroduce(course, initialStates(course), session)).toBe(false);
+  });
+
+  it('allows introductions when enough turns remain to clear cooldown (size 6, remaining 4)', () => {
+    let session = startStudySession({ size: 6 });
+    session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'US', promptType: 'flag_to_name' }, true);
+    session = recordPromptAnswered(session, { kind: 'prompt', itemKey: 'EC', promptType: 'flag_to_name' }, true);
+    expect(canIntroduce(course, initialStates(course), session)).toBe(true);
   });
 });
 
