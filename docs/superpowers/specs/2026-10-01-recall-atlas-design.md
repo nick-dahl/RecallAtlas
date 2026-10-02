@@ -130,11 +130,15 @@ A study session is **N graded answers** (default 20; user choice 10 / 20 / 40). 
 
 Pick order for the next entry:
 1. A pending contrast drill (§6.5), if any.
-2. Due reviews (`phase=review`, `due ≤ now`) not on cooldown, lowest retrievability first.
-3. Learning prompts not on cooldown: last answer missed first, then least recently asked, then lowest rung.
-4. Introduce the next new item (group order, then item order) if fewer than 5 items have been introduced this session, fewer than 15 prompts are in `learning`, and enough answers remain in the session to ask each of its prompts.
-5. Relaxed: any learning prompt whose item isn't the very last one served.
-6. Nothing eligible → the session ends early.
+2. Learning prompts missed earlier in this session, now off cooldown (least recently asked first). This keeps "a miss returns 3–5 questions later" true even when there's a large review backlog.
+3. Due reviews (`phase=review`, `due ≤ now`) not on cooldown, lowest retrievability first.
+4. Learning prompts not on cooldown: least recently asked first, then lowest rung.
+5. Introduce the next new item (group order, then item order) if fewer than 5 items have been introduced this session, fewer than 15 prompts are in `learning`, and enough answers remain for its prompts to clear cooldown and be asked (`prompt types + cooldown − 1`).
+6. Relaxed: any learning prompt whose item isn't the very last one served.
+7. Straggler fallback: any learning prompt except the exact prompt just asked. This lets the final item in learning keep being practiced rather than ending the session after one answer.
+8. Nothing eligible → the session ends early.
+
+The engine requires the full set of prompt states (every item × prompt type). Persistence may store only touched rows and must call `hydrateStates` before handing them to the engine.
 
 A natural "working set" of about 4 items forms: new items are introduced only when everything in learning is on cooldown. If a session ends with nothing due, learning or new, the UI shows "All caught up" with **Practice ahead** (review prompts treated as due, lowest retrievability first) and, if unlocked, **Take exam**.
 
