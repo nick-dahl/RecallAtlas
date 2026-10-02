@@ -24,6 +24,11 @@ describe('deriveStatus', () => {
     expect(deriveStatus({ course: TEST_COURSE, states: allReview(), placementCompleted: true, passedAt: null })).toBe('exam_ready');
     expect(deriveStatus({ course: TEST_COURSE, states: fresh, placementCompleted: true, passedAt: NOW })).toBe('passed');
   });
+
+  it('stays in placement until the sweep is marked completed, even after a correct answer', () => {
+    const states = initialStates(TEST_COURSE).map((s, i) => (i === 0 ? grad(s) : s));
+    expect(deriveStatus({ course: TEST_COURSE, states, placementCompleted: false, passedAt: null })).toBe('placement');
+  });
 });
 
 describe('readiness', () => {
@@ -38,12 +43,23 @@ describe('retentionHealth', () => {
     const states = allReview();
     expect(retentionHealth(states, NOW)).toBeCloseTo(1, 2);
     expect(retentionHealth(states, days(60))).toBeLessThan(0.9);
-    expect(needsReviewNudge(retentionHealth(states, days(60)))).toBe(true);
-    expect(needsReviewNudge(retentionHealth(states, NOW))).toBe(false);
+    expect(needsReviewNudge(retentionHealth(states, days(60)), 'passed')).toBe(true);
+    expect(needsReviewNudge(retentionHealth(states, NOW), 'passed')).toBe(false);
   });
 
   it('is 0 for no states', () => {
     expect(retentionHealth([], NOW)).toBe(0);
+  });
+});
+
+describe('needsReviewNudge', () => {
+  it('never fires before the course is passed, even with low health', () => {
+    // Unlearned prompts count as 0 in health, so a course still being learned
+    // would otherwise always read as unhealthy.
+    expect(needsReviewNudge(0, 'learning')).toBe(false);
+    expect(needsReviewNudge(0, 'placement')).toBe(false);
+    expect(needsReviewNudge(0, 'exam_ready')).toBe(false);
+    expect(needsReviewNudge(0, 'passed')).toBe(true);
   });
 });
 

@@ -66,4 +66,11 @@ describe('scoreExam', () => {
     });
     expect(scoreExam([{ itemKey: 'A', correct: true }], 2).passed).toBe(false);
   });
+
+  it('does not let a duplicate result compensate for an unanswered item', () => {
+    expect(scoreExam([{ itemKey: 'A', correct: true }, { itemKey: 'A', correct: true }], 2)).toMatchObject({
+      score: 1,
+      passed: false,
+    });
+  });
 });

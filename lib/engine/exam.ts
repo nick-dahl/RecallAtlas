@@ -32,11 +32,13 @@ export function scoreExam(
   results: readonly { itemKey: string; correct: boolean }[],
   total: number,
 ): { score: number; total: number; passed: boolean; missed: string[] } {
-  const score = results.filter((r) => r.correct).length;
+  const correctItems = new Set(results.filter((r) => r.correct).map((r) => r.itemKey));
+  const score = correctItems.size;
+  const noIncorrect = results.every((r) => r.correct);
   return {
     score,
     total,
-    passed: results.length === total && score === total,
+    passed: noIncorrect && correctItems.size === total,
     missed: results.filter((r) => !r.correct).map((r) => r.itemKey),
   };
 }
