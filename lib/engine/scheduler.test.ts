@@ -17,6 +17,15 @@ describe('graduate', () => {
     expect(interval).toBeGreaterThanOrEqual(1 * DAY);
     expect(interval).toBeLessThanOrEqual(7 * DAY);
   });
+
+  it('re-graduates a lapsed card, keeping FSRS history', () => {
+    const g = graduate(learningRung3, NOW);
+    const lapsed = applyReview(g, 'again', g.fsrs!.due);
+    const regraduated = graduate({ ...lapsed, rung: 3 }, g.fsrs!.due);
+    expect(regraduated.phase).toBe('review');
+    expect(regraduated.fsrs!.lapses).toBe(1);
+    expect(regraduated.fsrs!.reps).toBeGreaterThan(lapsed.fsrs!.reps);
+  });
 });
 
 describe('isDue', () => {
