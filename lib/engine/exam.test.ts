@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { applyExamAnswer, buildExamQueue, isExamReady, scoreExam } from './exam';
-import { introduce } from './ladder';
+import { applyLearningAnswer, introduce, type LadderOutcome } from './ladder';
 import { seededRng } from './random';
 import { graduate } from './scheduler';
 import { initialStates } from './state';
 import { NOW, TEST_COURSE } from './test-fixtures';
-import type { PromptState } from './types';
+import type { AnswerGrade, PromptState } from './types';
 
 const allReview = (): PromptState[] =>
   initialStates(TEST_COURSE).map((s) => graduate({ ...introduce(s), rung: 3 }, NOW));
@@ -72,5 +72,39 @@ describe('scoreExam', () => {
       score: 1,
       passed: false,
     });
+  });
+});
+
+describe('exam gating end-to-end (spec §9: fail → re-lock → re-graduate → unlock)', () => {
+  it('re-locks the exam on a miss and unlocks it again once the prompt reclimbs the ladder', () => {
+    const wrong: AnswerGrade = { correct: false, typo: false, answeredItemKey: null };
+
+    let states = allReview();
+    expect(isExamReady(TEST_COURSE, states)).toBe(true);
+
+    // Miss one prompt on the exam: it lapses back into learning and re-locks the exam.
+    let target = applyExamAnswer(states[0], wrong, NOW);
+    states = [target, ...states.slice(1)];
+    expect(target).toMatchObject({ phase: 'learning', rung: 2 });
+    expect(isExamReady(TEST_COURSE, states)).toBe(false);
+
+    // Re-climb: rung 2 needs 2 correct to reach rung 3, rung 3 needs 1 more to graduate.
+    let outcome: LadderOutcome;
+    ({ state: target, outcome } = applyLearningAnswer(target, true));
+    expect(outcome).toBe('held');
+    expect(target.rung).toBe(2);
+
+    ({ state: target, outcome } = applyLearningAnswer(target, true));
+    expect(outcome).toBe('climbed');
+    expect(target.rung).toBe(3);
+
+    ({ state: target, outcome } = applyLearningAnswer(target, true));
+    expect(outcome).toBe('graduate');
+
+    // Graduating puts the prompt back in review, unlocking the exam again.
+    target = graduate(target, NOW);
+    states = [target, ...states.slice(1)];
+    expect(target.phase).toBe('review');
+    expect(isExamReady(TEST_COURSE, states)).toBe(true);
   });
 });

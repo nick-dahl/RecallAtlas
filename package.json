@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "content:build": "tsx scripts/build-content.ts"
@@ -16,7 +16,7 @@
     "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "ts-fsrs": "^5.4.2"
+    "ts-fsrs": "5.4.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
