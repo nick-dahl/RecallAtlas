@@ -3109,7 +3109,28 @@ Skip this step if there's nothing to commit.
 
 ---
 
+## Execution deviations (what the code actually differs from above)
+
+The task code above is the original plan. The following changes were made during execution after code review. The code and spec are authoritative.
+- `levenshtein` → `editDistance` (optimal string alignment: adjacent transposition = 1 edit). Apostrophe variants broadened. `gradeTyped` returns fresh objects.
+- `scheduler.ts`: `const card: Card = …` annotation (ts-fsrs generic inference).
+- `session.ts`: fresh misses picked before due reviews; straggler fallback excludes the most recently asked prompt; `canIntroduce` needs `promptTypes + cooldown − 1` answers remaining. `state.ts` adds `hydrateStates`.
+- `progress.ts`: `needsReviewNudge(health, status)` only fires for `passed`; `deriveStatus` stays `placement` until `placementCompleted`. `exam.ts`: `scoreExam` counts distinct items.
+- Content: `buildCountries(raw, lookalikePairs)` injectable with strict validation; `NAME_OVERRIDES` (TR → Turkey), `ALIAS_DENYLIST`, comma-alias filter, extra short-form aliases, `GROUP_OVERRIDES`. Southern & Eastern Europe is split into Southern Europe & Balkans and Central & Eastern Europe (13 groups). Extra look-alike pairs. Drift test and empty-group check.
+- `ts-fsrs` pinned to an exact version.
+
 ## Notes for Plan 2 (persistence)
+
+- **One grading entry point:** add `gradeSubmission(question, response, course)` that switches on format (typed → `gradeTyped`; mc-text/flag-grid/contrast → `gradeChoice`) and rejects choices not in the persisted `choiceKeys`.
+- **Placement confusions:** `applyPlacementAnswer` takes only `correct`; the caller must `recordConfusion` when `gradeTyped` returns `answeredItemKey`. Exam misses: decide whether they count as confusions (§6.5 says "any wrong answer").
+- **Exam gating is checked only at exam start.** An exam miss lapses the prompt immediately, so `isExamReady`/`deriveStatus` turn false mid-exam. Never re-check per answer. Block study sessions while an exam is in progress.
+- **Contrast drills:** grade with `gradeChoice(choice, entry.itemKey)` and log them, but never record a confusion or touch the ladder. The `answers` table needs nullable `prompt_type`/`rung` for intro and contrast rows.
+- **Confusions persistence:** atomic upsert (`count = count + 1`); use the engine's returned count for the threshold check.
+- **Concurrency:** allow one active study session per enrollment, or re-validate the issued entry's phase on submit (a second tab could graduate the prompt).
+- `applyStudyAnswer` returns one `state` while `applyIntro` returns all `states`. Consider a `replaceState` helper or returning `changed: PromptState[]` so persistence writes only changed rows.
+- `gradeTyped` takes ~10 ms per call on the real course. Memoize normalized names per `Item` (WeakMap) if it matters.
+- `flagPath()` in `world-flags.ts` duplicates `CountryRecord.flag`. Consolidate when replacing public flag paths for the answer-leak fix.
+- (Plan 3 UI) A session can also end early with new items remaining (per-session new-item cap reached, nothing in learning). That needs a third end message: "Start another session to learn more".
 
 - `PromptState.fsrs` holds `Date` objects. When storing it as `jsonb` (or as columns), deserialize `due` and `last_review` back to `Date` before calling the engine. Add a `toEngineState`/`fromEngineState` mapper with a round-trip test. The test must exercise `isDue`: it calls `due.getTime()` and throws on string dates, whereas `applyReview`/`retrievability` silently tolerate strings, so they would hide the bug.
 - **Hard requirement: never leak the answer to the browser.** `Question.entry.itemKey` is the answer, and `choiceKeys` are raw ISO codes. The server must send a DTO with opaque per-question choice ids (a server-side map from choice id to item key). Flag images must not reveal the key: `/flags/ec.svg` names the answer to a flag→name question. Use inline SVG or per-question tokens.

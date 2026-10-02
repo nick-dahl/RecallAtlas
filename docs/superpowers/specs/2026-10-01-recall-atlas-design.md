@@ -113,7 +113,7 @@ Mastery is tracked per **item × prompt type** (World Flags: 2 prompts per item 
 | 3 Recall | Typed answer | 8-flag grid, hard distractors (normally includes all lookalikes; personal confusions take priority) | 1 correct → graduate |
 
 - A new **item** is introduced once (rung 0); after viewing, both prompts are at rung 1.
-- **Miss:** rung = max(1, rung − 1); streak = 0; re-queued 3–5 positions later in the same session.
+- **Miss:** rung = max(1, rung − 1); streak = 0; the dynamic picker brings it back after the cooldown, before due reviews (§6.4).
 
 **Distractor selection.** *Hard* (rungs 2–3): user's personal confusions for this item (count desc) → static `lookalikes` → same group → random. *Random* (rung 1): random items, preferring other groups.
 
@@ -169,7 +169,7 @@ Passing is permanent. FSRS continues scheduling reviews. **Retention health** = 
 ### 6.9 Grading
 - Normalize: case-fold, strip diacritics and punctuation, collapse whitespace, ignore leading "the".
 - Match against item name + `aliases`.
-- Typo tolerance (edit distance where swapping two adjacent letters counts as one edit, i.e. optimal string alignment): ≤ 1 for normalized names < 8 chars, ≤ 2 otherwise — **but** an exact or within-tolerance match to a *different* item's name/alias always wins (e.g. "Niger" is never accepted as "Nigeria"; it is graded wrong and logged as a confusion).
+- Typo tolerance (edit distance where swapping two adjacent letters counts as one edit, i.e. optimal string alignment): ≤ 1 for normalized names < 8 chars, ≤ 2 otherwise — **but** an exact match to a *different* item's name/alias always wins, and a within-tolerance match to a different item wins unless the target is strictly closer (ties go to the other item). E.g. "Niger" is never accepted as "Nigeria": it is graded wrong and logged as a confusion. A typo that lands nearer another country ("Malt" → Mali for Malta) is likewise graded wrong and logged as a confusion. About 1.5% of single-letter-deletion typos on the real course hit this case (see decision log #17).
 - Typo-accepted answers are correct but display the canonical spelling.
 - "I don't know" = wrong, `given_item_id` null (no confusion logged).
 
@@ -218,3 +218,5 @@ Passing is permanent. FSRS continues scheduling reviews. **Retention health** = 
 | 14 | After pass | Permanent badge + retention health |
 | 15 | MVP slice | Full engine, World Flags only |
 | 16 | Engine location | Pure TS module, server actions, server-side grading |
+| 17 | Typos nearer another country | Graded wrong and logged as a confusion (current). Open question: log only exact other-name matches as confusions, so typos don't feed hard distractors and contrast drills |
+| 18 | Display names | English common names; "Turkey" over "Türkiye" (kept as alias) |
