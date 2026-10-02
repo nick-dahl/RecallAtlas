@@ -67,11 +67,18 @@ describe('buildCountries (validation)', () => {
   });
 
   it('drops aliases shared by two countries, with a warning', () => {
-    const r = buildCountries([
-      fake({ cca2: 'AA', name: { common: 'Aland', official: 'Aland' }, altSpellings: ['Shared Name'] }),
-      fake({ cca2: 'BB', name: { common: 'Bland', official: 'Bland' }, altSpellings: ['Shared Name'] }),
-    ]);
+    const r = buildCountries(
+      [
+        fake({ cca2: 'AA', name: { common: 'Aland', official: 'Aland' }, altSpellings: ['Shared Name'] }),
+        fake({ cca2: 'BB', name: { common: 'Bland', official: 'Bland' }, altSpellings: ['Shared Name'] }),
+      ],
+      [],
+    );
     expect(r.countries.flatMap((c) => c.aliases)).not.toContain('Shared Name');
     expect(r.warnings.join('\n')).toMatch(/Shared Name/);
+  });
+
+  it('throws when a look-alike pair references an unknown key', () => {
+    expect(() => buildCountries([fake({})], [['AA', 'ZZ']])).toThrow(/ZZ/);
   });
 });

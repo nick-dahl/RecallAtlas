@@ -19,7 +19,10 @@ export interface RawCountry {
   altSpellings: string[];
 }
 
-export function buildCountries(raw: readonly RawCountry[]): { countries: CountryRecord[]; warnings: string[] } {
+export function buildCountries(
+  raw: readonly RawCountry[],
+  lookalikePairs: readonly [string, string][] = FLAG_LOOKALIKE_PAIRS,
+): { countries: CountryRecord[]; warnings: string[] } {
   const warnings: string[] = [];
   const selected = raw.filter((c) => c.unMember || EXTRA_KEYS.includes(c.cca2));
 
@@ -78,11 +81,10 @@ export function buildCountries(raw: readonly RawCountry[]): { countries: Country
 
   const keys = new Set(withAliases.map((c) => c.key));
   const lookalikes = new Map<string, Set<string>>();
-  for (const [a, b] of FLAG_LOOKALIKE_PAIRS) {
-    const hasA = keys.has(a);
-    const hasB = keys.has(b);
-    if (!hasA && !hasB) continue; // pair not applicable to this input set (e.g. a reduced test fixture)
-    if (!hasA || !hasB) throw new Error(`Flag look-alike pair references unknown key ${hasA ? b : a}`);
+  for (const [a, b] of lookalikePairs) {
+    for (const k of [a, b]) {
+      if (!keys.has(k)) throw new Error(`Flag look-alike pair references unknown key ${k}`);
+    }
     if (!lookalikes.has(a)) lookalikes.set(a, new Set());
     if (!lookalikes.has(b)) lookalikes.set(b, new Set());
     lookalikes.get(a)!.add(b);
