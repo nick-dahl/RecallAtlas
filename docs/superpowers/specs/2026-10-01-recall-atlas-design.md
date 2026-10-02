@@ -165,7 +165,7 @@ Passing is permanent. FSRS continues scheduling reviews. **Retention health** = 
 ### 6.9 Grading
 - Normalize: case-fold, strip diacritics and punctuation, collapse whitespace, ignore leading "the".
 - Match against item name + `aliases`.
-- Typo tolerance: Levenshtein ≤ 1 for normalized names < 8 chars, ≤ 2 otherwise — **but** an exact or within-tolerance match to a *different* item's name/alias always wins (e.g. "Niger" is never accepted as "Nigeria"; it is graded wrong and logged as a confusion).
+- Typo tolerance (edit distance where swapping two adjacent letters counts as one edit, i.e. optimal string alignment): ≤ 1 for normalized names < 8 chars, ≤ 2 otherwise — **but** an exact or within-tolerance match to a *different* item's name/alias always wins (e.g. "Niger" is never accepted as "Nigeria"; it is graded wrong and logged as a confusion).
 - Typo-accepted answers are correct but display the canonical spelling.
 - "I don't know" = wrong, `given_item_id` null (no confusion logged).
 

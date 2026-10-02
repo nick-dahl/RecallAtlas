@@ -2406,7 +2406,7 @@ export * from './types';
 export { ENGINE_CONFIG } from './config';
 export { seededRng, shuffle, randInt } from './random';
 export { newPromptState, initialStates, stateKey, indexStates, getItem } from './state';
-export { normalize, levenshtein, gradeTyped, gradeChoice } from './grading';
+export { normalize, editDistance, gradeTyped, gradeChoice } from './grading';
 export { introduce, applyLearningAnswer, type LadderOutcome } from './ladder';
 export { graduate, applyReview, isDue, retrievability, type ReviewGrade } from './scheduler';
 export { recordConfusion, shouldInjectContrast, confusedWith, topConfusions } from './confusion';
