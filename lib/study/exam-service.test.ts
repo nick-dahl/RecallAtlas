@@ -46,7 +46,9 @@ describe('exam', () => {
     expect(end.end).toMatchObject({ reason: 'exam_finished', examResult: { score: 17, total: 17, passed: true, missed: [] } });
     expect((await store.getEnrollment(SLUG))!.passedAt).not.toBeNull();
     expect(await store.getExamAttempts(SLUG)).toHaveLength(1);
-    expect(store.answers.filter((a) => a.context === 'exam')).toHaveLength(17);
+    const examAnswers = store.answers.filter((a) => a.context === 'exam');
+    expect(examAnswers).toHaveLength(17);
+    expect(new Set(examAnswers.map((a) => a.itemKey)).size).toBe(17);
   });
 
   it('fails on a single miss, lapsing that prompt and naming it', async () => {
@@ -59,6 +61,28 @@ describe('exam', () => {
     expect((await store.getEnrollment(SLUG))!.passedAt).toBeNull();
     expect((await store.getPromptStates(SLUG)).some((s) => s.itemKey === 'TD' && s.phase === 'learning')).toBe(true);
     await expect(startExam(testContext(store))).rejects.toEqual(new ServiceError('exam_not_ready'));
+  });
+
+  it('records a confusion when a miss resolves to another item', async () => {
+    const store = await readyStore();
+    const ctx = testContext(store);
+    let turn = await startExam(ctx);
+    let pending = await pendingFor(store);
+    while (pending.format !== 'typed') {
+      turn = await submitExamAnswer(ctx, { sessionId: turn.next!.sessionId, questionId: turn.next!.questionId, response: correctResponse(pending) });
+      pending = await pendingFor(store);
+    }
+    const other = TEST_COURSE.items.find((i) => i.key !== pending.entry.itemKey)!;
+    await submitExamAnswer(ctx, {
+      sessionId: turn.next!.sessionId,
+      questionId: turn.next!.questionId,
+      response: { kind: 'typed', text: other.name },
+    });
+    expect(await store.getConfusions(SLUG)).toContainEqual({
+      asked: (pending.entry as { itemKey: string }).itemKey,
+      answered: other.key,
+      count: 1,
+    });
   });
 
   it('clears a dead-end active exam session (no pending question) and starts fresh', async () => {

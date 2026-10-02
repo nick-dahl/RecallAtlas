@@ -105,6 +105,34 @@ describe('submitStudyAnswer', () => {
     expect(store.answers.at(-1)).toMatchObject({ kind: 'contrast', context: 'study' });
   });
 
+  it('answering a contrast drill wrong leaves confusions and prompt states unchanged', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    for (const other of TEST_COURSE.items) {
+      if (other.key !== 'US') store.seedConfusion(SLUG, 'US', other.key, 1);
+    }
+    const ctx = testContext(store);
+    let turn = await startStudy(ctx);
+    let pending = await pendingFor(store);
+    while (!(pending.entry.kind === 'prompt' && pending.entry.itemKey === 'US')) {
+      turn = await answer(ctx, turn, correctResponse(pending));
+      pending = await pendingFor(store);
+    }
+    const wrong = wrongChoice(pending);
+    const result = await answer(ctx, turn, { kind: 'choice', choiceId: wrong.choiceId });
+    expect(result.next).toMatchObject({ format: 'contrast' });
+
+    const drill = await pendingFor(store);
+    const confusionsBefore = await store.getConfusions(SLUG);
+    const statesBefore = await store.getPromptStates(SLUG);
+    const drillWrong = wrongChoice(drill);
+    const after = await answer(ctx, result, { kind: 'choice', choiceId: drillWrong.choiceId });
+
+    expect(after.feedback).toMatchObject({ correct: false });
+    expect(store.answers.at(-1)).toMatchObject({ kind: 'contrast', context: 'study', correct: false });
+    expect(await store.getConfusions(SLUG)).toEqual(confusionsBefore);
+    expect(await store.getPromptStates(SLUG)).toEqual(statesBefore);
+  });
+
   it('rejects invalid responses and stale questions', async () => {
     const { store } = await enrolledStore({ placementDone: true });
     const ctx = testContext(store);
