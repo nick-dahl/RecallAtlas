@@ -1,10 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import worldCountries from 'world-countries';
+import { GROUP_ORDER } from './content-config';
 import { buildCountries, type RawCountry } from './lib/build-countries';
 
 const root = process.cwd();
 const { countries, warnings } = buildCountries(worldCountries as unknown as RawCountry[]);
+
+for (const g of GROUP_ORDER) {
+  if (!countries.some((c) => c.group === g)) throw new Error(`Group "${g}" has no countries`);
+}
 
 const flagSrc = path.join(root, 'node_modules', 'flag-icons', 'flags', '4x3');
 const flagDest = path.join(root, 'public', 'flags');

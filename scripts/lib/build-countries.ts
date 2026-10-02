@@ -1,10 +1,13 @@
 import type { CountryRecord } from '../../lib/content/types';
 import { normalize } from '../../lib/engine/grading';
 import {
+  ALIAS_DENYLIST,
   EXTRA_ALIASES,
   EXTRA_KEYS,
   FLAG_LOOKALIKE_PAIRS,
+  GROUP_OVERRIDES,
   GROUP_ORDER,
+  NAME_OVERRIDES,
   SHORT_ALIAS_WHITELIST,
   SUBREGION_GROUPS,
 } from '../content-config';
@@ -27,13 +30,25 @@ export function buildCountries(
   const selected = raw.filter((c) => c.unMember || EXTRA_KEYS.includes(c.cca2));
 
   const base = selected.map((c) => {
-    const group = SUBREGION_GROUPS[c.subregion];
+    const group = GROUP_OVERRIDES[c.cca2] ?? SUBREGION_GROUPS[c.subregion];
     if (!group) throw new Error(`No group mapping for subregion "${c.subregion}" (${c.cca2})`);
-    const candidates = [c.name.official, ...c.altSpellings, ...(EXTRA_ALIASES[c.cca2] ?? [])];
+    const rawName = c.name.common;
+    const name = NAME_OVERRIDES[c.cca2] ?? rawName;
+    const denylist = new Set(ALIAS_DENYLIST[c.cca2] ?? []);
+    const candidates = [
+      // The overridden-away original name goes first so it wins the alias slot over any
+      // altSpelling that normalizes identically (e.g. ASCII "Turkiye" vs. "Türkiye").
+      ...(name !== rawName ? [rawName] : []),
+      c.name.official,
+      ...c.altSpellings,
+      ...(EXTRA_ALIASES[c.cca2] ?? []),
+    ];
     return {
       key: c.cca2,
-      name: c.name.common,
-      candidates: candidates.filter((a) => a.length > 3 || SHORT_ALIAS_WHITELIST.includes(a)),
+      name,
+      candidates: candidates.filter(
+        (a) => !denylist.has(a) && !a.includes(',') && (a.length > 3 || SHORT_ALIAS_WHITELIST.includes(a)),
+      ),
       region: c.region,
       subregion: c.subregion,
       group,
