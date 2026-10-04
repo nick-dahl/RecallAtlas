@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { signOut } from '@/app/auth/actions';
 import { buttonClass } from '@/components/ui/button';
+import { devToolsEnabled } from '@/lib/dev/dev-tools';
 
 export function SiteHeader({ signedIn = true }: { signedIn?: boolean }) {
   return (
@@ -9,9 +10,16 @@ export function SiteHeader({ signedIn = true }: { signedIn?: boolean }) {
         Recall<span className="text-accent">·</span>Atlas
       </Link>
       {signedIn ? (
-        <form action={signOut}>
-          <button className={buttonClass('ghost')}>Sign out</button>
-        </form>
+        <div className="flex items-center gap-1">
+          {devToolsEnabled() && (
+            <Link href="/dev" className={buttonClass('ghost', 'font-mono text-xs uppercase tracking-[.15em]')}>
+              Dev tools
+            </Link>
+          )}
+          <form action={signOut}>
+            <button className={buttonClass('ghost')}>Sign out</button>
+          </form>
+        </div>
       ) : (
         <Link href="/login" className={buttonClass('ghost')}>
           Sign in
