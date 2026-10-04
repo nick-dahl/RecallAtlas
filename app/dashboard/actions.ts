@@ -1,14 +1,13 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
-import { enrollAction, skipPlacementAction } from '@/app/actions/course';
+import { redirect } from 'next/navigation';
+import { enrollAction } from '@/app/actions/course';
 
-export async function enrollWorldFlags() {
-  await enrollAction('world-flags');
-  revalidatePath('/dashboard');
-}
-
-export async function skipWorldFlagsPlacement() {
-  await skipPlacementAction('world-flags');
-  revalidatePath('/dashboard');
+export async function enrollAndOpen(slug: string) {
+  const result = await enrollAction(slug);
+  if (!result.ok) {
+    if (result.error === 'unauthorized') redirect('/login?next=/dashboard');
+    throw new Error(result.error);
+  }
+  redirect(`/courses/${slug}`);
 }
