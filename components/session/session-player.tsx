@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import {
+  abandonExamAction,
   endStudyAction,
   startExamAction,
   startPlacementAction,
@@ -20,6 +21,7 @@ import type { AnswerResponse, EndView, FeedbackView, QuestionView, SessionKind, 
 import { errorMessage } from '@/lib/ui/copy';
 import { EndScreen } from './end-screen';
 import { QuestionStage } from './question-stage';
+import { blocksExamRestart, isResumable } from './resumability';
 
 type StudyOptions = { mode?: string; size?: number };
 
@@ -31,7 +33,8 @@ type Phase =
   | { name: 'error'; message: string; retry: (() => void) | null };
 
 const AUTO_ADVANCE_MS = 700;
-const RESUMABLE: ReadonlySet<ActionError> = new Set(['stale_question', 'stale_session', 'no_active_session']);
+const ABANDON_CONFIRM_MS = 3000;
+const MAX_RESUME_ATTEMPTS = 2;
 const KIND_LABEL: Record<SessionKind, string> = { study: 'Study', placement: 'Placement', exam: 'Final exam' };
 
 function startFor(kind: SessionKind, slug: string, options?: StudyOptions): Promise<ActionResult<TurnResult>> {
@@ -54,12 +57,24 @@ export function SessionPlayer({ slug, kind, options }: { slug: string; kind: Ses
   const router = useRouter();
   const pathname = usePathname();
   const [phase, setPhase] = useState<Phase>({ name: 'loading' });
+  const [confirmingAbandon, setConfirmingAbandon] = useState(false);
   const timer = useRef<number | null>(null);
+  const abandonTimer = useRef<number | null>(null);
   const started = useRef(false);
+  /** Set once the learner has chosen to leave (End / Pause / Abandon); suppresses fail()'s
+   * own recovery and error UI while that navigation is in flight. */
+  const leaving = useRef(false);
+  /** Bounds automatic restarts from `fail()` so a persistently broken session shows an error
+   * with a Retry button instead of looping `begin()` forever. */
+  const resumeAttempts = useRef(0);
 
   const clearTimer = () => {
     if (timer.current !== null) window.clearTimeout(timer.current);
     timer.current = null;
+  };
+  const clearAbandonTimer = () => {
+    if (abandonTimer.current !== null) window.clearTimeout(abandonTimer.current);
+    abandonTimer.current = null;
   };
 
   const advance = (result: TurnResult) => {
@@ -69,6 +84,7 @@ export function SessionPlayer({ slug, kind, options }: { slug: string; kind: Ses
   };
 
   const show = (result: TurnResult, view: QuestionView | null, chosenId: string | null) => {
+    resumeAttempts.current = 0;
     if (result.feedback && view) {
       setPhase({ name: 'feedback', view, feedback: result.feedback, chosenId, result });
       if (result.feedback.correct) timer.current = window.setTimeout(() => advance(result), AUTO_ADVANCE_MS);
@@ -78,12 +94,31 @@ export function SessionPlayer({ slug, kind, options }: { slug: string; kind: Ses
   };
 
   const fail = (error: ActionError) => {
+    if (leaving.current) return;
     if (error === 'unauthorized') {
-      router.replace(`/login?next=${encodeURIComponent(pathname)}`);
+      const search = typeof window !== 'undefined' ? window.location.search : '';
+      router.replace(`/login?next=${encodeURIComponent(`${pathname}${search}`)}`);
       return;
     }
-    if (RESUMABLE.has(error)) {
-      void begin();
+    if (blocksExamRestart(kind, error)) {
+      leaving.current = true;
+      router.push(`/courses/${slug}`);
+      return;
+    }
+    if (isResumable(kind, error)) {
+      if (resumeAttempts.current < MAX_RESUME_ATTEMPTS) {
+        resumeAttempts.current += 1;
+        void begin();
+        return;
+      }
+      setPhase({
+        name: 'error',
+        message: errorMessage(error),
+        retry: () => {
+          resumeAttempts.current = 0;
+          void begin();
+        },
+      });
       return;
     }
     setPhase({ name: 'error', message: errorMessage(error), retry: null });
@@ -91,6 +126,7 @@ export function SessionPlayer({ slug, kind, options }: { slug: string; kind: Ses
 
   async function begin() {
     clearTimer();
+    setPhase({ name: 'loading' }); // shown immediately so a restart can't be double-clicked
     try {
       const result = await startFor(kind, slug, options);
       if (result.ok) show(result.data, null, null);
@@ -119,14 +155,42 @@ export function SessionPlayer({ slug, kind, options }: { slug: string; kind: Ses
     if (started.current) return;
     started.current = true;
     void begin();
-    return clearTimer;
+    return () => {
+      clearTimer();
+      clearAbandonTimer();
+    };
     // Runs once per mount; the page remounts the player (via `key`) when options change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const leave = async () => {
-    if (kind === 'study') await endStudyAction(slug);
-    router.push(`/courses/${slug}`);
+    leaving.current = true;
+    try {
+      if (kind === 'study') await endStudyAction(slug);
+    } catch {
+      // Best-effort: the session will simply time out server-side. Always navigate away below.
+    } finally {
+      router.push(`/courses/${slug}`);
+    }
+  };
+
+  const abandon = () => {
+    if (!confirmingAbandon) {
+      setConfirmingAbandon(true);
+      abandonTimer.current = window.setTimeout(() => setConfirmingAbandon(false), ABANDON_CONFIRM_MS);
+      return;
+    }
+    clearAbandonTimer();
+    leaving.current = true;
+    void (async () => {
+      try {
+        await abandonExamAction(slug);
+      } catch {
+        // Best-effort: always navigate away below.
+      } finally {
+        router.push(`/courses/${slug}`);
+      }
+    })();
   };
 
   const progress =
@@ -140,8 +204,13 @@ export function SessionPlayer({ slug, kind, options }: { slug: string; kind: Ses
             ✕ Pause
           </Link>
         ) : (
-          <button type="button" onClick={leave} className={buttonClass('ghost', 'px-0')}>
+          <button type="button" onClick={() => void leave()} className={buttonClass('ghost', 'px-0')}>
             ✕ End
+          </button>
+        )}
+        {kind === 'exam' && phase.name !== 'end' && (
+          <button type="button" onClick={abandon} className={buttonClass('ghost', 'px-0')}>
+            {confirmingAbandon ? 'Abandon? Yes' : 'Abandon exam'}
           </button>
         )}
         <div className="flex-1">{progress && <ProgressRoute answered={progress.answered} total={progress.total} />}</div>
@@ -149,7 +218,7 @@ export function SessionPlayer({ slug, kind, options }: { slug: string; kind: Ses
       </header>
 
       <main className="flex flex-1 flex-col justify-center py-6">
-        {phase.name === 'loading' && <p className="animate-pulse text-center text-ink-soft">Shuffling the deck…</p>}
+        {phase.name === 'loading' && <p className="motion-safe:animate-pulse text-center text-ink-soft">Shuffling the deck…</p>}
 
         {phase.name === 'error' && (
           <div className="mx-auto max-w-md space-y-4 text-center">
