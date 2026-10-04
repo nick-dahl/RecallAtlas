@@ -224,4 +224,7 @@ Passing is permanent. FSRS continues scheduling reviews. **Retention health** = 
 | 16 | Engine location | Pure TS module, server actions, server-side grading |
 | 17 | Typos nearer another country | Graded wrong and logged as a confusion (confirmed by user 2026-10-02) |
 | 19 | Dev database | Free hosted Supabase project (no local Docker) |
+| 20 | Visual direction | Minimal but slick, lightly playful; performance over graphics (no UI/animation libraries, CSS-only motion, lazy images) |
+| 21 | Auth for MVP | Magic links only; Google OAuth deferred |
+| 22 | Deploy timing | Iterate locally until the UI looks right; deploy (Vercel) as a separate follow-up plan |
 | 18 | Display names | English common names; "Turkey" over "Türkiye" (kept as alias) |
