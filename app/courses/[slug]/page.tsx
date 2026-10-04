@@ -62,7 +62,7 @@ export default async function CoursePage({ params }: Props) {
                 <button className={buttonClass('secondary')}>Skip placement</button>
               </form>
             )}
-            {o.status === 'learning' && o.dueCount === 0 && (
+            {o.status === 'learning' && o.dueCount === 0 && o.activeSessionKind !== 'study' && (
               <Link href={`/courses/${slug}/study?mode=practice-ahead`} className={buttonClass('ghost')}>
                 Practice ahead
               </Link>
@@ -119,7 +119,7 @@ export default async function CoursePage({ params }: Props) {
                         style={{ filter: style.filter }}
                         className={`transition-[filter] duration-500 ${style.ring ? 'rounded-md ring-2 ring-gold ring-offset-2 ring-offset-paper' : ''}`}
                       >
-                        <Flag src={`/api/flag-art/${t.key}`} alt={t.name} />
+                        <Flag src={`/api/flag-art/${t.key}`} />
                       </div>
                       <p className="truncate text-[11px] text-ink-soft">{t.name}</p>
                     </li>

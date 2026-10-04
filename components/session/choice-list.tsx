@@ -7,7 +7,7 @@ import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
 const STATE: Record<ChoiceState, string> = {
-  idle: 'bg-raised ring-1 ring-rule hover:-translate-y-0.5 hover:ring-ink-soft',
+  idle: 'bg-raised ring-1 ring-rule motion-safe:hover:-translate-y-0.5 hover:ring-ink-soft',
   correct: 'bg-good-soft ring-2 ring-good animate-pop',
   wrong: 'bg-bad-soft ring-2 ring-bad animate-shake',
   dim: 'bg-raised ring-1 ring-rule opacity-40',

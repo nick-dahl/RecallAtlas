@@ -11,9 +11,13 @@ export function CourseCard({ overview: o }: { overview: CourseOverview }) {
   return (
     <article className="animate-rise flex flex-col gap-5 rounded-3xl bg-raised p-6 ring-1 ring-rule">
       <div className="flex items-start justify-between gap-3">
-        <Link href={o.enrolled ? `/courses/${o.slug}` : '#'} className="font-display text-2xl tracking-tight hover:text-accent">
-          {o.title}
-        </Link>
+        {o.enrolled ? (
+          <Link href={`/courses/${o.slug}`} className="font-display text-2xl tracking-tight hover:text-accent">
+            {o.title}
+          </Link>
+        ) : (
+          <h2 className="font-display text-2xl tracking-tight">{o.title}</h2>
+        )}
         {o.status && <StatusPill status={o.status} />}
       </div>
       {o.enrolled ? (

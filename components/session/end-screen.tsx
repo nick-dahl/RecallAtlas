@@ -29,7 +29,7 @@ export function EndScreen({
               <span className="text-ink-soft">/{result.total}</span>
             </p>
             {result.passed && (
-              <span className="animate-stamp absolute -right-20 -top-6 rounded-md border-4 border-good px-3 py-1 font-display text-2xl font-bold uppercase text-good">
+              <span className="animate-stamp absolute -right-4 -top-10 rounded-md border-4 border-good px-3 py-1 font-display text-2xl font-bold uppercase text-good sm:-right-20 sm:-top-6">
                 Passed
               </span>
             )}
