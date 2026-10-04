@@ -3979,14 +3979,40 @@ Skip this step if there's nothing to commit.
   - `more_new_available`: Start another session to learn more.
   - `placement_complete`
   - `exam_finished`
-- **Errors:**
-  - `stale_question` / `stale_session`: refetch with `start*Action` (which resumes).
-  - `unauthorized`: go to `/login`.
+- **Errors, by `ActionError`:**
+  - `stale_question` / `stale_session`: refetch with `start*Action` (which resumes). A retried submit whose first attempt actually saved also returns `stale_question`; treat it as saved. That answer's feedback is lost.
+  - `unauthorized`: go to `/login?next=…`.
+  - `not_enrolled`: enroll CTA.
+  - `placement_pending`: continue or skip placement.
+  - `placement_done`: no-op.
+  - `exam_in_progress`: resume exam.
+  - `exam_not_ready`: readiness meter.
+  - `no_active_session`: call `start*`.
+  - `invalid_response`: client bug; log it and refetch.
+  - `unknown_course`: 404.
+- **Unexpected server errors** make the action promise reject with a generic message and digest in production. Wrap calls in try/catch and show "Couldn't save — retry" (spec §8).
+- **Every new protected route:**
+  - Add it to `PROTECTED_PREFIXES` (`lib/supabase/proxy.ts`) and call `requireUserId()` in the page. The proxy is only an optimistic check.
+  - Routes the proxy matcher skips (e.g. `*.svg`) get no proxy coverage at all.
+  - Use `safeNext` for every redirect target, client-side `router.push` included.
+- **Magic links use PKCE**, so they only work in the browser that requested them. Opening one on another device lands on `/login?error=link`; say so in the copy.
+- **A browser Supabase client** (e.g. for Google OAuth) can't use `publicEnv()`, because its dynamic `process.env[name]` isn't inlined. Use static `process.env.NEXT_PUBLIC_…` references.
+- **Access JWTs** stay valid until they expire (~1 h) after sign-out or user deletion. Keep this in mind for account deletion.
+- **Course-home extras:** hover stats and the "gold border = strong" treatment need per-prompt FSRS stability, not just `tiles[].tile`. Read `fsrs.stability` directly for lapsed prompts.
+- **Replace the template:** swap `app/page.tsx` and `public/{file,globe,next,vercel,window}.svg` for the landing page, and send signed-in users from `/` to `/dashboard`.
+- **The temporary dashboard** ignores `ActionResult` errors (it's throwaway); the real one must not.
 - **Course-home mastery grid:** `CourseOverview.tiles` has keys and names but no flags. Serving all 197 flags as data URIs on one page is heavy. Add a cached route (e.g. `/api/flag-art/[key]`, which is fine for the reference grid but must never be used inside a question) or a sprite.
 - **Google sign-in:** needs a Google Cloud OAuth client and the Supabase Google provider. Do this alongside the Vercel deploy, where production redirect URLs also have to be added.
 - **Deploy:**
-  - On Vercel, set the four env vars.
-  - Add the production URL to Supabase redirect URLs.
+  - On Vercel, set four env vars:
+    - `NEXT_PUBLIC_SUPABASE_URL`
+    - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+    - `SUPABASE_SECRET_KEY`
+    - `NEXT_PUBLIC_SITE_URL` (the production origin)
+  - Keep `SUPABASE_DB_URL` off Vercel; it's only used by `db:push`.
+  - In Supabase, set the **Site URL** to the production domain and add the production callback to Redirect URLs.
+  - Avoid wildcard redirect globs; allow-list specific preview hosts only.
+  - Configure custom SMTP, since the built-in sender is rate-limited.
   - Confirm `content/flags` is traced into the serverless bundle (`outputFileTracingIncludes`).
 - **Exam result recovery:** if the final exam response is lost, show `CourseOverview.lastExamAttempt` rather than calling `startExamAction` again, which would start a fresh exam after a pass.
 - **Contrast drill UI:** `pair[].flag` and `choices[].flag` are identical strings. Hide the labelled pair once the "Which one is X?" step begins.
