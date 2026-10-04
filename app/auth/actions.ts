@@ -5,6 +5,6 @@ import { createSessionClient } from '@/lib/supabase/server';
 
 export async function signOut() {
   const supabase = await createSessionClient();
-  await supabase.auth.signOut();
+  await supabase.auth.signOut({ scope: 'local' });
   redirect('/login');
 }

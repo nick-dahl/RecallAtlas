@@ -6,7 +6,9 @@ const COURSES: Record<string, CourseDef> = {
 };
 
 export function getCourse(slug: string): CourseDef | null {
-  return COURSES[slug] ?? null;
+  // Plain indexing (`COURSES[slug]`) resolves inherited keys like '__proto__' or 'toString'
+  // via the prototype chain instead of returning undefined; hasOwn restricts to real entries.
+  return Object.hasOwn(COURSES, slug) ? COURSES[slug] : null;
 }
 
 export function listCourses(): CourseDef[] {

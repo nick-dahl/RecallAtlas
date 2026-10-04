@@ -18,6 +18,7 @@ export type ActionResult<T> = { ok: true; data: T } | { ok: false; error: Action
 async function run<T>(slug: string, fn: (ctx: ServiceContext) => Promise<T>): Promise<ActionResult<T>> {
   const userId = await getUserId();
   if (!userId) return { ok: false, error: 'unauthorized' };
+  if (typeof slug !== 'string') return { ok: false, error: 'unknown_course' };
   const course = getCourse(slug);
   if (!course) return { ok: false, error: 'unknown_course' };
   try {

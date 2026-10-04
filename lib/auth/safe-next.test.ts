@@ -11,6 +11,9 @@ describe('safeNext', () => {
     ['//evil.example', '/dashboard'],
     ['/\\evil.example', '/dashboard'],
     ['dashboard', '/dashboard'],
+    ['/\t/evil.com', '/dashboard'],
+    ['/\n/evil.com', '/dashboard'],
+    ['/\r//evil.com', '/dashboard'],
   ])('%s → %s', (input, expected) => {
     expect(safeNext(input)).toBe(expected);
   });

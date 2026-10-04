@@ -7,6 +7,7 @@ const PROTECTED_PREFIXES = ['/dashboard', '/courses', '/study', '/placement', '/
 /** Refreshes the auth session cookie on every request and gates protected routes. */
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
+  let cacheHeaders: Record<string, string> = {};
   const env = publicEnv();
   const supabase = createServerClient(env.supabaseUrl, env.supabasePublishableKey, {
     cookies: {
@@ -18,6 +19,7 @@ export async function updateSession(request: NextRequest) {
         // Cache-control headers that must accompany a cookie write, so a CDN or reverse
         // proxy in front of this app never caches (and replays) a response carrying
         // someone's session cookie. See @supabase/ssr's SetAllCookies type.
+        cacheHeaders = headers;
         for (const [key, value] of Object.entries(headers)) response.headers.set(key, value);
       },
     },
@@ -32,8 +34,13 @@ export async function updateSession(request: NextRequest) {
   if (!signedIn && isProtected) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
-    url.search = `?next=${encodeURIComponent(path)}`;
-    return NextResponse.redirect(url);
+    url.search = `?next=${encodeURIComponent(path + request.nextUrl.search)}`;
+    const redirectResponse = NextResponse.redirect(url);
+    // A session refresh above may have rotated the auth cookies onto `response`; those
+    // must still reach the browser even though we're sending a different response here.
+    for (const cookie of response.cookies.getAll()) redirectResponse.cookies.set(cookie);
+    for (const [key, value] of Object.entries(cacheHeaders)) redirectResponse.headers.set(key, value);
+    return redirectResponse;
   }
   return response;
 }

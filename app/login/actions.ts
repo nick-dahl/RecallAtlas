@@ -1,7 +1,7 @@
 'use server';
 
-import { headers } from 'next/headers';
 import { safeNext } from '@/lib/auth/safe-next';
+import { siteUrl } from '@/lib/env';
 import { createSessionClient } from '@/lib/supabase/server';
 
 export interface LoginState {
@@ -9,17 +9,22 @@ export interface LoginState {
   message?: string;
 }
 
+/** Never show the learner Supabase's raw error message; it can leak internal details. */
+const SEND_FAILED_MESSAGE = "Couldn't send the sign-in link. Please try again in a minute.";
+
 export async function sendMagicLink(_previous: LoginState, formData: FormData): Promise<LoginState> {
   const email = String(formData.get('email') ?? '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { status: 'error', message: 'Enter a valid email address.' };
 
   const next = safeNext(String(formData.get('next') ?? ''));
-  const origin = (await headers()).get('origin') ?? 'http://localhost:3000';
   const supabase = await createSessionClient();
   const { error } = await supabase.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: `${origin}/auth/callback?next=${encodeURIComponent(next)}` },
+    options: { emailRedirectTo: `${siteUrl()}/auth/callback?next=${encodeURIComponent(next)}` },
   });
-  if (error) return { status: 'error', message: error.message };
+  if (error) {
+    console.error('sendMagicLink failed:', error);
+    return { status: 'error', message: SEND_FAILED_MESSAGE };
+  }
   return { status: 'sent' };
 }
