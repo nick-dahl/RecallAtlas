@@ -9,6 +9,12 @@ export const STATUS_LABEL: Record<EnrollmentStatus, string> = {
   passed: 'Passed',
 };
 
+/** Dashboard card copy for courses not yet started. */
+export const COURSE_BLURB: Record<string, string> = {
+  'world-flags': 'All 197 flags, from Andorra to Zimbabwe.',
+  'world-map': 'Find 208 countries and territories on the map, name them, and learn their capitals.',
+};
+
 export const END_COPY: Record<EndReason, { title: string; body: string }> = {
   complete: { title: 'Session complete', body: 'Nice work. Your next reviews are already scheduled.' },
   caught_up: { title: 'All caught up', body: 'Nothing is due right now. Practice ahead, or come back later.' },
@@ -16,7 +22,7 @@ export const END_COPY: Record<EndReason, { title: string; body: string }> = {
     title: 'That’s enough for now',
     body: 'What’s left needs a little time before it sticks. Come back later.',
   },
-  more_new_available: { title: 'Session complete', body: 'Ready for more? Start another session to meet new flags.' },
+  more_new_available: { title: 'Session complete', body: 'Ready for more? Start another session to meet new ones.' },
   placement_complete: { title: 'Placement done', body: 'We know where you stand. Time to learn the rest.' },
   exam_finished: { title: 'Exam finished', body: '' },
 };

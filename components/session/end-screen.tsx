@@ -35,7 +35,7 @@ export function EndScreen({
             )}
           </div>
           {result.passed ? (
-            <p className="text-ink-soft">Every flag, no misses. The course is yours. We’ll keep it fresh with the occasional review.</p>
+            <p className="text-ink-soft">A perfect run, no misses. The course is yours. We’ll keep it fresh with the occasional review.</p>
           ) : (
             <>
               <p className="text-ink-soft">So close. These go back into practice; the exam unlocks again once they stick.</p>

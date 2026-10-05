@@ -4,6 +4,7 @@ import { buttonClass } from '@/components/ui/button';
 import { ReadinessMeter } from '@/components/ui/readiness-meter';
 import { StatusPill } from '@/components/ui/status-pill';
 import type { CourseOverview } from '@/lib/study/overview-service';
+import { COURSE_BLURB } from '@/lib/ui/copy';
 import { primaryCta } from '@/lib/ui/course-cta';
 
 export function CourseCard({ overview: o }: { overview: CourseOverview }) {
@@ -23,7 +24,7 @@ export function CourseCard({ overview: o }: { overview: CourseOverview }) {
       {o.enrolled ? (
         <ReadinessMeter graduated={o.readiness.graduated} total={o.readiness.total} />
       ) : (
-        <p className="text-sm text-ink-soft">All 197 flags, from Andorra to Zimbabwe.</p>
+        <p className="text-sm text-ink-soft">{COURSE_BLURB[o.slug] ?? ''}</p>
       )}
       <div className="mt-auto">
         {cta ? (

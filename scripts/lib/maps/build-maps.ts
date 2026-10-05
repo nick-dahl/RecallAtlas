@@ -28,7 +28,7 @@ import {
   MAP_COLORS,
   MARKER_BELOW,
   MARKER_ONLY_KEYS,
-  MARKER_OUTLINE_PAD,
+  MARKER_RING,
   MARKER_R,
   SIMPLIFY_AREA,
   SLIVER_MAX_AREA,
@@ -157,6 +157,9 @@ function labelPoint(rings: number[][]): { label: [number, number]; largest: numb
 const circlePath = (x: number, y: number, r: number) =>
   `M${round(x - r)},${round(y)}a${r},${r} 0 1,0 ${2 * r},0a${r},${r} 0 1,0 ${-2 * r},0`;
 
+/** A hollow ring around a marker (filled even-odd by the overlays). */
+const ringPath = (x: number, y: number) => circlePath(x, y, MARKER_RING[0]) + circlePath(x, y, MARKER_RING[1]);
+
 /** Every course key's geometry (lon/lat) in a simplified topology, plus land and borders. */
 function keyedGeometry(topo: WorldTopology, keyOf: (g: CountryObject) => string | null) {
   const objects = topo.objects.countries.geometries;
@@ -208,7 +211,7 @@ function buildFrame(
     countries[key] = {
       rings: [],
       bbox: [x, y, x, y],
-      outline: circlePath(x, y, MARKER_R + MARKER_OUTLINE_PAD),
+      outline: circlePath(x, y, MARKER_R) + ringPath(x, y),
       label: [x, y],
       marker: { x, y, r: MARKER_R },
     };
@@ -230,7 +233,7 @@ function buildFrame(
     countries[key] = {
       rings,
       bbox: ringBbox(rings),
-      outline: (path(geometry) ?? '') + (marker ? circlePath(marker.x, marker.y, MARKER_R + MARKER_OUTLINE_PAD) : ''),
+      outline: (path(geometry) ?? '') + (marker ? ringPath(marker.x, marker.y) : ''),
       label,
       ...(marker ? { marker } : {}),
       ...(sliver ? { sliver: true as const } : {}),
@@ -259,7 +262,7 @@ function buildFrame(
 
 function buildAtlas(pre: WorldTopology, keyOf: (g: CountryObject) => string | null, records: readonly CountryRecord[]): AtlasData {
   const { projection, height } = fit(geoEqualEarth(), ATLAS_EXTENT);
-  const { geometries, land, borders } = keyedGeometry(simplifyFor(pre, projection, ATLAS_SIMPLIFY_AREA), keyOf);
+  const { geometries, land } = keyedGeometry(simplifyFor(pre, projection, ATLAS_SIMPLIFY_AREA), keyOf);
   const path = geoPath(projection).digits(1);
   const countries: AtlasData['countries'] = {};
   for (const [key, geometry] of geometries) {
@@ -275,7 +278,7 @@ function buildAtlas(pre: WorldTopology, keyOf: (g: CountryObject) => string | nu
     const [x, y] = projection([lng, lat])!.map(round);
     countries[key] = { d: '', marker: { x, y, r: ATLAS_MARKER_R } };
   }
-  return { width: FRAME_WIDTH, height, land: path(land) ?? '', borders: path(borders) ?? '', countries };
+  return { width: FRAME_WIDTH, height, land: path(land) ?? '', countries };
 }
 
 /** Checks the map spec §3 rules; returns human-readable failures. */

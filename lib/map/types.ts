@@ -30,7 +30,7 @@ export interface FrameData {
 export interface AtlasData {
   width: number;
   height: number;
+  /** All land, including land that is not a course item (drawn under the items). */
   land: string;
-  borders: string;
   countries: Record<string, { d: string; marker?: MarkerShape }>;
 }

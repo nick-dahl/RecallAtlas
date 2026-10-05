@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { createServerClient } from '@supabase/ssr';
 import { createClient } from '@supabase/supabase-js';
 import { WORLD_FLAGS } from '@/lib/content/world-flags';
-import { graduate, initialStates, introduce } from '@/lib/engine';
+import { graduate, initialStates, introduce, type CourseDef } from '@/lib/engine';
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
@@ -45,8 +45,9 @@ export async function sessionCookies(user: TestUser) {
 export interface PendingRow {
   questionId: string;
   format: string;
-  entry: { kind: 'intro' | 'prompt' | 'contrast'; itemKey: string };
+  entry: { kind: 'intro' | 'prompt' | 'contrast'; itemKey: string; promptType?: string };
   choices: { id: string; itemKey: string }[];
+  frame?: string;
 }
 
 export async function pendingQuestion(userId: string): Promise<PendingRow | null> {
@@ -60,16 +61,17 @@ export async function pendingQuestion(userId: string): Promise<PendingRow | null
   return (data?.pending_question as PendingRow | null) ?? null;
 }
 
-export const nameOf = (key: string) => WORLD_FLAGS.items.find((i) => i.key === key)!.name;
+export const itemOf = (key: string, course: CourseDef = WORLD_FLAGS) => course.items.find((i) => i.key === key)!;
+export const nameOf = (key: string, course: CourseDef = WORLD_FLAGS) => itemOf(key, course).name;
 
-/** Shortcut to exam readiness: every World Flags prompt graduated, placement done. */
-export async function graduateEverything(userId: string) {
+/** Shortcut to exam readiness: every prompt of the course graduated, placement done. */
+export async function graduateEverything(userId: string, course: CourseDef = WORLD_FLAGS) {
   const now = new Date();
-  const rows = initialStates(WORLD_FLAGS)
+  const rows = initialStates(course)
     .map((s) => graduate({ ...introduce(s), rung: 3 }, now))
     .map((s) => ({
       user_id: userId,
-      course_slug: WORLD_FLAGS.slug,
+      course_slug: course.slug,
       item_key: s.itemKey,
       prompt_type: s.promptType,
       phase: s.phase,
@@ -83,5 +85,5 @@ export async function graduateEverything(userId: string) {
     .from('enrollments')
     .update({ placement_completed_at: now.toISOString() })
     .eq('user_id', userId)
-    .eq('course_slug', WORLD_FLAGS.slug);
+    .eq('course_slug', course.slug);
 }

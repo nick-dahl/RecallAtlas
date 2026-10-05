@@ -38,7 +38,8 @@ export interface MapView {
   /** Outline of the country being asked about (Name, Capital, intro). */
   highlight?: string;
   /** Outlined options; `id` is the opaque choice id. */
-  candidates?: { id: string; d: string; labelX: number; labelY: number }[];
+  /** `small`: the shape is tiny, so its badge sits beside it rather than on top. */
+  candidates?: { id: string; d: string; labelX: number; labelY: number; small?: boolean }[];
 }
 
 /** Everything the browser sees about a question. Contains no item keys. */

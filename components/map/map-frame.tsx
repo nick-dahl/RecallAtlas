@@ -13,6 +13,8 @@ export interface MapCandidate {
   labelY: number;
   /** Shown on the candidate's badge: its number (1–6) or, in a contrast study step, a name. */
   badge: string;
+  /** Tiny shapes get their badge up and to the right, so it doesn't hide them. */
+  small?: boolean;
   state: ChoiceState;
 }
 
@@ -95,7 +97,7 @@ export function MapFrame({
             className="animate-ink stroke-accent"
             strokeWidth="2"
             vectorEffect="non-scaling-stroke"
-            strokeLinejoin="round"
+            strokeLinejoin="round" fillRule="evenodd"
           />
         )}
         {candidates?.map((c) => (
@@ -109,11 +111,11 @@ export function MapFrame({
             className={`animate-ink transition-[fill,opacity] duration-150 ${disabled ? '' : 'cursor-pointer'} ${CANDIDATE_PATH[c.state]}`}
             strokeWidth="1.75"
             vectorEffect="non-scaling-stroke"
-            strokeLinejoin="round"
+            strokeLinejoin="round" fillRule="evenodd"
           />
         ))}
         {given && (
-          <path d={given} className="fill-bad/30 stroke-bad" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+          <path d={given} className="fill-bad/30 stroke-bad" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinejoin="round" fillRule="evenodd" />
         )}
         {correct && (
           <path
@@ -121,7 +123,7 @@ export function MapFrame({
             className="animate-map-pulse fill-good/35 stroke-good"
             strokeWidth="2.5"
             vectorEffect="non-scaling-stroke"
-            strokeLinejoin="round"
+            strokeLinejoin="round" fillRule="evenodd"
           />
         )}
       </svg>
@@ -144,7 +146,7 @@ export function MapFrame({
             onCandidate?.(c.id);
           }}
           style={{ left: `${(c.labelX / w) * 100}%`, top: `${(c.labelY / h) * 100}%`, animationDelay: `${i * 40}ms` }}
-          className={`absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-2 py-0.5 font-mono text-xs font-semibold shadow-sm ring-2 transition-colors ${CANDIDATE_BADGE[c.state]}`}
+          className={`absolute whitespace-nowrap ${c.small ? 'translate-x-[40%] -translate-y-[140%]' : '-translate-x-1/2 -translate-y-1/2'} rounded-full px-2 py-0.5 font-mono text-xs font-semibold shadow-sm ring-2 transition-colors ${CANDIDATE_BADGE[c.state]}`}
         >
           {c.badge}
         </button>

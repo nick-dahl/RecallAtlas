@@ -8,6 +8,9 @@ import type { MapView } from './types';
  * Capital questions name no country except in choice labels, which always include distractors.
  * Map overlays are bare path data; candidates are keyed by opaque choice ids.
  */
+/** Candidates smaller than this (viewBox units) get their badge beside them, not on top. */
+const SMALL_CANDIDATE = 40;
+
 export function mapPresenter(
   course: CourseDef,
   deps: { flag: (key: string) => string; capitalNote: (key: string) => string | null; maps: MapSupport },
@@ -51,7 +54,8 @@ export function mapPresenter(
           ...base(frame),
           candidates: pending.choices.map((c) => {
             const s = shape(frame, c.itemKey);
-            return { id: c.id, d: s.outline, labelX: s.label[0], labelY: s.label[1] };
+            const small = Boolean(s.marker) || Math.max(s.bbox[2] - s.bbox[0], s.bbox[3] - s.bbox[1]) < SMALL_CANDIDATE;
+            return { id: c.id, d: s.outline, labelX: s.label[0], labelY: s.label[1], ...(small ? { small } : {}) };
           }),
         };
       }

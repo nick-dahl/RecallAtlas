@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
+import { MasteryMap } from '@/components/map/mastery-map';
 import { SiteHeader } from '@/components/site-header';
 import { buttonClass } from '@/components/ui/button';
 import { Flag } from '@/components/ui/flag';
 import { ReadinessMeter } from '@/components/ui/readiness-meter';
 import { StatusPill } from '@/components/ui/status-pill';
 import { getCourse } from '@/lib/content/registry';
+import { loadAtlas } from '@/lib/map/atlas';
 import { createServiceContext } from '@/lib/server/context';
 import { getCourseOverview } from '@/lib/study/overview-service';
+import { getMapSupport } from '@/lib/study/presenters';
 import { requireUserId } from '@/lib/supabase/server';
 import { primaryCta } from '@/lib/ui/course-cta';
 import { albumSummary, groupTiles, TILE_STYLE } from '@/lib/ui/tiles';
@@ -31,6 +34,7 @@ export default async function CoursePage({ params }: Props) {
   const cta = primaryCta(o);
   const summary = albumSummary(o.tiles);
   const exam = o.lastExamAttempt;
+  const isMap = getMapSupport(course) !== undefined;
 
   return (
     <>
@@ -105,30 +109,37 @@ export default async function CoursePage({ params }: Props) {
           </section>
         )}
 
-        <section className="space-y-8">
-          <h2 className="font-display text-2xl">Your album</h2>
-          {groupTiles(o.tiles).map((g) => (
-            <div key={g.group} className="space-y-3">
-              <h3 className="font-mono text-xs uppercase tracking-[.2em] text-ink-soft">{g.group}</h3>
-              <ul className="grid grid-cols-4 gap-x-4 gap-y-5 sm:grid-cols-6 md:grid-cols-8">
-                {g.tiles.map((t) => {
-                  const style = TILE_STYLE[t.tile];
-                  return (
-                    <li key={t.key} title={`${t.name}: ${style.label}`} className="space-y-1.5">
-                      <div
-                        style={{ filter: style.filter }}
-                        className={`transition-[filter] duration-500 ${style.ring ? 'rounded-md ring-2 ring-gold ring-offset-2 ring-offset-paper' : ''}`}
-                      >
-                        <Flag src={`/api/flag-art/${t.key}`} />
-                      </div>
-                      <p className="truncate text-[11px] text-ink-soft">{t.name}</p>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </section>
+        {isMap ? (
+          <section className="space-y-5">
+            <h2 className="font-display text-2xl">Your map</h2>
+            <MasteryMap atlas={loadAtlas()} tiles={o.tiles} />
+          </section>
+        ) : (
+          <section className="space-y-8">
+            <h2 className="font-display text-2xl">Your album</h2>
+            {groupTiles(o.tiles).map((g) => (
+              <div key={g.group} className="space-y-3">
+                <h3 className="font-mono text-xs uppercase tracking-[.2em] text-ink-soft">{g.group}</h3>
+                <ul className="grid grid-cols-4 gap-x-4 gap-y-5 sm:grid-cols-6 md:grid-cols-8">
+                  {g.tiles.map((t) => {
+                    const style = TILE_STYLE[t.tile];
+                    return (
+                      <li key={t.key} title={`${t.name}: ${style.label}`} className="space-y-1.5">
+                        <div
+                          style={{ filter: style.filter }}
+                          className={`transition-[filter] duration-500 ${style.ring ? 'rounded-md ring-2 ring-gold ring-offset-2 ring-offset-paper' : ''}`}
+                        >
+                          <Flag src={`/api/flag-art/${t.key}`} />
+                        </div>
+                        <p className="truncate text-[11px] text-ink-soft">{t.name}</p>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </section>
+        )}
       </main>
     </>
   );

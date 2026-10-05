@@ -24,6 +24,17 @@ describe('getCourseOverview', () => {
     });
     expect(overview.tiles).toHaveLength(17);
     expect(overview.tiles.every((t) => t.tile === 'new')).toBe(true);
+    expect(overview.tiles[0].prompts).toEqual([
+      { label: 'Flag → Name', phase: 'new' },
+      { label: 'Name → Flag', phase: 'new' },
+    ]);
+  });
+
+  it('reports each prompt’s phase on the tile (for the mastery map’s summary)', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    store.seedPromptStates(TEST_COURSE.slug, allGraduated().filter((s) => s.itemKey === 'US' && s.promptType === 'flag_to_name'));
+    const us = (await getCourseOverview(testContext(store))).tiles.find((t) => t.key === 'US')!;
+    expect(us.prompts.map((p) => p.phase)).toEqual(['review', 'new']);
   });
 
   it('reports exam_ready, then passed with a retention nudge once memory fades', async () => {

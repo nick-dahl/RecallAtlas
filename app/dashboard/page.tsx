@@ -8,7 +8,6 @@ import { requireUserId } from '@/lib/supabase/server';
 export const metadata = { title: 'Your atlas' };
 
 const COMING_SOON = [
-  { title: 'World Map', blurb: 'Find every country on a blank map.' },
   { title: 'US Presidents', blurb: 'All 46, in order, by face and number.' },
 ];
 

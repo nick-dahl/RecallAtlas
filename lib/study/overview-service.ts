@@ -9,6 +9,7 @@ import {
   retentionHealth,
   topConfusions,
   type EnrollmentStatus,
+  type Phase,
   type TileState,
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
@@ -26,7 +27,7 @@ export interface CourseOverview {
   nudge: boolean;
   activeSessionKind: SessionKind | null;
   /** The mastery grid. Keys are fine here: this is a reference view, not a question. */
-  tiles: { key: string; name: string; group: string; tile: TileState }[];
+  tiles: { key: string; name: string; group: string; tile: TileState; prompts: { label: string; phase: Phase }[] }[];
   topConfusions: { a: string; b: string; count: number }[];
   /** The most recent exam attempt, by finishedAt, or null if none yet. */
   lastExamAttempt: { score: number; total: number; passed: boolean; missed: ItemView[]; finishedAt: Date } | null;
@@ -78,6 +79,10 @@ export async function getCourseOverview(ctx: ServiceContext): Promise<CourseOver
       name: item.name,
       group: item.group,
       tile: itemTileState(byItem.get(item.key) ?? []),
+      prompts: course.promptTypes.map((pt) => ({
+        label: pt.label,
+        phase: (byItem.get(item.key) ?? []).find((s) => s.promptType === pt.id)?.phase ?? 'new',
+      })),
     })),
     topConfusions: topConfusions(confusions, 5).map((c) => ({
       a: getItem(course, c.a).name,

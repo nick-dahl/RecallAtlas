@@ -25,7 +25,7 @@ test('enroll, run placement, skip ahead, and study', async ({ page, context }) =
 
   await page.goto('/');
   await expect(page).toHaveURL(/\/dashboard$/);
-  await page.getByRole('button', { name: 'Start course' }).click();
+  await page.locator('article', { hasText: 'World Flags' }).getByRole('button', { name: 'Start course' }).click();
   await expect(page).toHaveURL(/\/courses\/world-flags$/);
   await expect(page.getByText('0 / 394 prompts learned')).toBeVisible();
 

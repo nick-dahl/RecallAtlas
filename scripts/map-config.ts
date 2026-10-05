@@ -27,8 +27,11 @@ export const MARKER_ONLY_KEYS = ['TV'];
 export const MARKER_BELOW = 8;
 /** Marker dot radius, in viewBox units. */
 export const MARKER_R = 4;
-/** Extra radius of the ring drawn around a marker country's overlay outline. */
-export const MARKER_OUTLINE_PAD = 3;
+/**
+ * Marker countries' overlay outlines get a hollow ring (outer/inner radius, viewBox units) so a
+ * highlighted or offered speck is easy to spot. Overlays fill with even-odd to keep it hollow.
+ */
+export const MARKER_RING: [number, number] = [16, 11];
 
 /**
  * A country cut by the frame edge is a "sliver" (clickable, never a distractor) when less than
@@ -42,7 +45,7 @@ export const BASE_SVG_MAX_BYTES = 80 * 1024;
 
 /** The course-home atlas: Equal Earth, cropped above Antarctica. */
 export const ATLAS_EXTENT: Extent = [-180, -58, 180, 84];
-export const ATLAS_SIMPLIFY_AREA = 0.3;
+export const ATLAS_SIMPLIFY_AREA = 0.6;
 export const ATLAS_MARKER_R = 2.5;
 
 export const MAP_COLORS = { sea: '#d6e3e6', land: '#f5f0e3', coast: '#8f8775', border: '#b3a991' };
