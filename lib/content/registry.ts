@@ -1,8 +1,10 @@
 import type { CourseDef } from '@/lib/engine/types';
 import { WORLD_FLAGS } from './world-flags';
+import { WORLD_MAP } from './world-map';
 
 const COURSES: Record<string, CourseDef> = {
   [WORLD_FLAGS.slug]: WORLD_FLAGS,
+  [WORLD_MAP.slug]: WORLD_MAP,
 };
 
 export function getCourse(slug: string): CourseDef | null {
