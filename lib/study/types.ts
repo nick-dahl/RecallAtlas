@@ -14,6 +14,8 @@ export interface PendingQuestion {
   issuedAt: string;
   /** Map courses: the frame the learner sees, chosen at issue time and used for grading. */
   frame?: string;
+  /** Sequence courses: which of a two-position item's positions this question uses (e.g. 22 or 24). */
+  slot?: number;
 }
 
 export type AnswerResponse =
@@ -21,6 +23,8 @@ export type AnswerResponse =
   | { kind: 'typed'; text: string }
   /** A click on a map, normalized to [0,1] of the frame, with the map's rendered CSS width. */
   | { kind: 'point'; x: number; y: number; width: number }
+  /** Put-in-order: the issued choice ids, in the order the learner placed them. */
+  | { kind: 'order'; choiceIds: string[] }
   | { kind: 'dont-know' }
   | { kind: 'ack' };
 
@@ -54,12 +58,19 @@ export interface QuestionView {
     name?: string;
     flag?: string;
     question?: string;
-    /** Map Name/Capital questions: what the learner answers with. */
-    asks?: 'name' | 'capital';
+    /** Typed questions: what the learner answers with. */
+    asks?: 'name' | 'capital' | 'year';
     capital?: string;
     capitalNote?: string;
+    /** Presidents: the portrait being asked about, or shown on an intro. */
+    portrait?: string;
+    /** Fill the gap: the neighbours on either side (absent at the ends of the sequence). */
+    gap?: { before?: string; after?: string };
+    numbers?: number[];
+    startYears?: number[];
+    party?: string;
   };
-  choices?: { id: string; label?: string; flag?: string }[];
+  choices?: { id: string; label?: string; flag?: string; portrait?: string }[];
   /** Contrast drills: the two confused items side by side, labelled. */
   pair?: ItemView[];
   map?: MapView;
@@ -67,9 +78,15 @@ export interface QuestionView {
 
 export interface ItemView {
   name: string;
-  flag: string;
+  /** Flags and maps courses. */
+  flag?: string;
+  /** Presidents. */
+  portrait?: string;
   capital?: string;
   capitalNote?: string;
+  numbers?: number[];
+  startYears?: number[];
+  party?: string;
 }
 
 export interface FeedbackView {
@@ -80,6 +97,8 @@ export interface FeedbackView {
   given?: ItemView;
   outcome?: StudyOutcome;
   contrastQueued?: boolean;
+  /** Put-in-order questions: the names in the right order. */
+  order?: string[];
   /** Map questions: the correct country, and the one the learner picked, outlined on the same map. */
   map?: { baseUrl: string; width: number; height: number; correct: string; given?: string };
 }

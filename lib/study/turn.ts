@@ -122,5 +122,6 @@ export function feedbackFor(ctx: ServiceContext, pending: PendingQuestion, grade
     answer: ctx.presenter.item(pending.entry.itemKey),
     given: grade.answeredItemKey ? ctx.presenter.item(grade.answeredItemKey) : undefined,
     ...(map ? { map } : {}),
+    ...ctx.presenter.feedbackExtra?.(pending, grade),
   };
 }

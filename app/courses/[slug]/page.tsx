@@ -11,6 +11,7 @@ import { getCourse } from '@/lib/content/registry';
 import { loadAtlas } from '@/lib/map/atlas';
 import { createServiceContext } from '@/lib/server/context';
 import { getCourseOverview } from '@/lib/study/overview-service';
+import { itemImage } from '@/lib/ui/item-image';
 import { getMapSupport } from '@/lib/study/presenters';
 import { requireUserId } from '@/lib/supabase/server';
 import { offersPracticeAhead, primaryCta } from '@/lib/ui/course-cta';
@@ -88,7 +89,7 @@ export default async function CoursePage({ params }: Props) {
             <ul className="flex flex-wrap gap-3">
               {exam.missed.map((m) => (
                 <li key={m.name} className="w-20 space-y-1 text-xs">
-                  <Flag src={m.flag} alt={m.name} />
+                  <Flag src={itemImage(m)} alt={m.name} />
                   <span>{m.name}</span>
                 </li>
               ))}

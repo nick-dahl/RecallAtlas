@@ -6,6 +6,7 @@ import { MapFrame } from '@/components/map/map-frame';
 import { buttonClass } from '@/components/ui/button';
 import { Flag } from '@/components/ui/flag';
 import { Kbd } from '@/components/ui/kbd';
+import { itemImage } from '@/lib/ui/item-image';
 import { choiceState } from './choice-state';
 import { FlagChoice } from './flag-choice';
 import type { RendererProps } from './types';
@@ -43,7 +44,7 @@ export function ContrastDrill({ view, locked, feedback, chosenId, onAnswer }: Re
           <div className="mx-auto grid max-w-xl grid-cols-2 gap-8">
             {(view.pair ?? []).map((p) => (
               <figure key={p.name} className="space-y-3">
-                <Flag src={p.flag} alt={p.name} eager />
+                <Flag src={itemImage(p)} alt={p.name} eager />
                 <figcaption className="font-display text-2xl">{p.name}</figcaption>
               </figure>
             ))}

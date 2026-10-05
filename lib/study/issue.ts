@@ -2,7 +2,9 @@ import {
   buildQuestion,
   getItem,
   gradeChoice,
+  gradeOrder,
   gradeTyped,
+  isTypedFormat,
   type AnswerGrade,
   type Confusion,
   type CourseDef,
@@ -37,7 +39,14 @@ export function issueQuestion(args: {
     choices: (question.choiceKeys ?? []).map((itemKey) => ({ id: newId(), itemKey })),
     issuedAt: now.toISOString(),
     ...(frame ? { frame } : {}),
+    ...slotFor(getItem(course, entry.itemKey).sequence, rng),
   };
+}
+
+/** Two-position items (Cleveland, Trump) are asked about one position at a time, chosen now. */
+function slotFor(sequence: number[] | undefined, rng: Rng): { slot?: number } {
+  if (!sequence || sequence.length < 2) return {};
+  return { slot: sequence[Math.floor(rng() * sequence.length)] };
 }
 
 /** The single grading entry point: validates the response against what was actually issued. */
@@ -48,14 +57,33 @@ export function gradeSubmission(
   maps?: MapSupport,
 ): AnswerGrade {
   const { entry } = pending;
+  const promptType = entry.kind === 'prompt' ? course.promptTypes.find((p) => p.id === entry.promptType) : undefined;
+  const grade = gradeResponse(pending, response, course, maps);
+  // Some prompts (party) never count a miss as mixing up two items.
+  return promptType?.recordsConfusions === false ? { ...grade, answeredItemKey: null } : grade;
+}
+
+function gradeResponse(pending: PendingQuestion, response: AnswerResponse, course: CourseDef, maps?: MapSupport): AnswerGrade {
+  const { entry } = pending;
   const target = entry.itemKey;
   switch (response.kind) {
     case 'dont-know':
       return { correct: false, typo: false, answeredItemKey: null };
     case 'typed': {
-      if (pending.format !== 'typed' || entry.kind !== 'prompt') throw new ServiceError('invalid_response');
-      const field = course.promptTypes.find((p) => p.id === entry.promptType)?.answerField ?? 'name';
-      return gradeTyped(response.text, getItem(course, target), course.items, field);
+      if (!isTypedFormat(pending.format) || entry.kind !== 'prompt') throw new ServiceError('invalid_response');
+      const promptType = course.promptTypes.find((p) => p.id === entry.promptType);
+      const field = promptType?.answerField ?? 'name';
+      return gradeTyped(response.text, getItem(course, target), course.items, field, { exact: promptType?.exactAnswer });
+    }
+    case 'order': {
+      if (pending.format !== 'order') throw new ServiceError('invalid_response');
+      const keyOf = new Map(pending.choices.map((c) => [c.id, c.itemKey]));
+      const ids = response.choiceIds;
+      if (ids.length !== keyOf.size || new Set(ids).size !== ids.length || !ids.every((id) => keyOf.has(id))) {
+        throw new ServiceError('invalid_response');
+      }
+      const correct = gradeOrder(ids.map((id) => keyOf.get(id)!), course);
+      return { correct, typo: false, answeredItemKey: null };
     }
     case 'point':
       if (pending.format !== 'map-click' || !pending.frame || !maps) throw new ServiceError('invalid_response');

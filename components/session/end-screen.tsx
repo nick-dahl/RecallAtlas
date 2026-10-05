@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { buttonClass } from '@/components/ui/button';
 import { Flag } from '@/components/ui/flag';
+import { itemImage } from '@/lib/ui/item-image';
 import type { EndView, SessionKind } from '@/lib/study/types';
 import { END_COPY, practiceSummary } from '@/lib/ui/copy';
 
@@ -42,7 +43,7 @@ export function EndScreen({
               <ul className="grid grid-cols-3 gap-4 sm:grid-cols-4">
                 {result.missed.map((m) => (
                   <li key={m.name} className="space-y-1 text-xs">
-                    <Flag src={m.flag} alt={m.name} />
+                    <Flag src={itemImage(m)} alt={m.name} />
                     <span>{m.name}</span>
                   </li>
                 ))}

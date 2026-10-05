@@ -3,14 +3,22 @@ import type { FeedbackView, ItemView, MapView, PendingQuestion, QuestionView, Se
 
 /** Course-specific rendering of items into browser-safe views (names + image data, never keys). */
 export interface Presenter {
-  prompt(entry: PromptEntry): QuestionView['prompt'];
+  /** `pending` carries the format and slot, for presenters that need them. */
+  prompt(entry: PromptEntry, pending?: PendingQuestion): QuestionView['prompt'];
   /** `promptType` is absent for contrast drills. */
-  choice(itemKey: string, format: Format, promptType?: string): { label?: string; flag?: string };
+  choice(
+    itemKey: string,
+    format: Format,
+    promptType?: string,
+    pending?: PendingQuestion,
+  ): { label?: string; flag?: string; portrait?: string };
   item(itemKey: string): ItemView;
   /** Map courses: the map shown with a question, if any. */
   map?(pending: PendingQuestion): MapView | undefined;
   /** Map courses: outlines for the feedback panel. */
   feedbackMap?(pending: PendingQuestion, grade: AnswerGrade): FeedbackView['map'];
+  /** Anything else the feedback panel needs (e.g. the right order for put-in-order). */
+  feedbackExtra?(pending: PendingQuestion, grade: AnswerGrade): Partial<FeedbackView>;
 }
 
 export function flagPresenter(course: CourseDef, flag: (itemKey: string) => string): Presenter {
@@ -39,7 +47,7 @@ export function toQuestionView(args: {
   const { entry } = pending;
   const promptType = entry.kind === 'prompt' ? entry.promptType : undefined;
   const choices = pending.choices.length
-    ? pending.choices.map((c) => ({ id: c.id, ...presenter.choice(c.itemKey, pending.format, promptType) }))
+    ? pending.choices.map((c) => ({ id: c.id, ...presenter.choice(c.itemKey, pending.format, promptType, pending) }))
     : undefined;
   const map = presenter.map?.(pending);
   const withMap = map ? { map } : {};
@@ -54,5 +62,5 @@ export function toQuestionView(args: {
       ...withMap,
     };
   }
-  return { ...base, prompt: presenter.prompt(entry), choices, ...withMap };
+  return { ...base, prompt: presenter.prompt(entry, pending), choices, ...withMap };
 }

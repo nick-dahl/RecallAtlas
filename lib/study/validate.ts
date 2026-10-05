@@ -3,6 +3,8 @@ import { ServiceError, type AnswerResponse, type SubmissionInput } from './types
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const MAX_TYPED_LENGTH = 100;
+const MIN_ORDER = 2;
+const MAX_ORDER = 8;
 const SESSION_SIZES = [10, 20, 40];
 const MIN_MAP_WIDTH = 100;
 const MAX_MAP_WIDTH = 4000;
@@ -29,6 +31,16 @@ function parseResponse(value: unknown): AnswerResponse {
       return typeof value.text === 'string' && value.text.length <= MAX_TYPED_LENGTH
         ? { kind: 'typed', text: value.text }
         : invalid();
+    case 'order': {
+      const ids = value.choiceIds;
+      return Array.isArray(ids) &&
+        ids.length >= MIN_ORDER &&
+        ids.length <= MAX_ORDER &&
+        ids.every(isUuid) &&
+        new Set(ids).size === ids.length
+        ? { kind: 'order', choiceIds: ids }
+        : invalid();
+    }
     case 'point':
       return isUnit(value.x) && isUnit(value.y) && isMapWidth(value.width)
         ? { kind: 'point', x: value.x, y: value.y, width: value.width }

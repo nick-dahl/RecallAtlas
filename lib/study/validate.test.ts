@@ -60,3 +60,22 @@ describe('parseSubmission with map clicks', () => {
     expect(() => parseSubmission({ ...ids, response: { kind: 'point', ...point } })).toThrow('invalid_response');
   });
 });
+
+describe('parseSubmission with order answers', () => {
+  const choiceIds = [randomUUID(), randomUUID(), randomUUID(), randomUUID()];
+
+  it('accepts 2–8 distinct choice ids', () => {
+    expect(parseSubmission({ ...ids, response: { kind: 'order', choiceIds } }).response).toEqual({ kind: 'order', choiceIds });
+  });
+
+  it.each([
+    [[]],
+    [[choiceIds[0]]],
+    [[choiceIds[0], choiceIds[0]]],
+    [Array.from({ length: 9 }, () => randomUUID())],
+    [['EC', 'CO']],
+    ['not-an-array'],
+  ])('rejects %j', (bad) => {
+    expect(() => parseSubmission({ ...ids, response: { kind: 'order', choiceIds: bad } })).toThrow('invalid_response');
+  });
+});
