@@ -35,3 +35,28 @@ describe('parseStudyOptions', () => {
     expect(() => parseStudyOptions({ mode: 'turbo' })).toThrowError(new ServiceError('invalid_response'));
   });
 });
+
+describe('parseSubmission with map clicks', () => {
+  it('accepts a well-formed point, including the edges of the map', () => {
+    expect(parseSubmission({ ...ids, response: { kind: 'point', x: 0.5, y: 0, width: 800 } }).response).toEqual({
+      kind: 'point',
+      x: 0.5,
+      y: 0,
+      width: 800,
+    });
+    expect(parseSubmission({ ...ids, response: { kind: 'point', x: 1, y: 1, width: 100 } }).response).toMatchObject({ x: 1 });
+  });
+
+  it.each([
+    { x: Number.NaN, y: 0.5, width: 800 },
+    { x: Number.POSITIVE_INFINITY, y: 0.5, width: 800 },
+    { x: 1.01, y: 0.5, width: 800 },
+    { x: 0.5, y: -0.1, width: 800 },
+    { x: 0.5, y: 0.5, width: 99 },
+    { x: 0.5, y: 0.5, width: 4001 },
+    { x: '0.5', y: 0.5, width: 800 },
+    { x: 0.5, y: 0.5 },
+  ])('rejects a malformed point %o', (point) => {
+    expect(() => parseSubmission({ ...ids, response: { kind: 'point', ...point } })).toThrow('invalid_response');
+  });
+});

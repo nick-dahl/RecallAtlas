@@ -14,8 +14,7 @@ import {
   type StudySession,
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
-import { gradeSubmission } from './issue';
-import { answerLog, confusionFor, feedbackFor, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
+import { answerLog, confusionFor, feedbackFor, gradeAnswer, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
 import {
   ServiceError,
   type EndReason,
@@ -102,12 +101,12 @@ export async function submitStudyAnswer(ctx: ServiceContext, input: SubmissionIn
     states = result.states;
     changed = states.filter((s) => s.itemKey === entry.itemKey);
   } else if (entry.kind === 'contrast') {
-    const grade = gradeSubmission(pending, input.response, course);
+    const grade = gradeAnswer(ctx, pending, input.response);
     session = applyContrast(session);
     answer = answerLog(ctx, pending, input.response, grade, 'study');
     feedback = feedbackFor(ctx, pending, grade);
   } else {
-    const grade = gradeSubmission(pending, input.response, course);
+    const grade = gradeAnswer(ctx, pending, input.response);
     const key = stateKey(entry.itemKey, entry.promptType);
     const current = states.find((s) => stateKey(s.itemKey, s.promptType) === key)!;
     const result = applyStudyAnswer({ session, state: current, confusions, grade, now });

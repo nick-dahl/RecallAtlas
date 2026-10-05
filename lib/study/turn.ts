@@ -1,7 +1,7 @@
 import type { AnswerGrade, Confusion, QuestionRung, QueueEntry } from '@/lib/engine';
 import { SessionConflictError, type AnswerLog, type EnrollmentRecord, type SessionRecord } from '@/lib/db/store';
 import type { ServiceContext } from './context';
-import { issueQuestion } from './issue';
+import { gradeSubmission, issueQuestion } from './issue';
 import { toQuestionView } from './present';
 import {
   ServiceError,
@@ -56,7 +56,20 @@ export function issue(
   rung: QuestionRung,
   confusions: readonly Confusion[],
 ): PendingQuestion {
-  return issueQuestion({ entry, rung, course: ctx.course, confusions, rng: ctx.rng, now: ctx.now, newId: ctx.newId });
+  return issueQuestion({
+    entry,
+    rung,
+    course: ctx.course,
+    confusions,
+    rng: ctx.rng,
+    now: ctx.now,
+    newId: ctx.newId,
+    maps: ctx.maps,
+  });
+}
+
+export function gradeAnswer(ctx: ServiceContext, pending: PendingQuestion, response: AnswerResponse): AnswerGrade {
+  return gradeSubmission(pending, response, ctx.course, ctx.maps);
 }
 
 export function view(
@@ -102,10 +115,12 @@ export function confusionFor(pending: PendingQuestion, grade: AnswerGrade): { as
 }
 
 export function feedbackFor(ctx: ServiceContext, pending: PendingQuestion, grade: AnswerGrade): FeedbackView {
+  const map = ctx.presenter.feedbackMap?.(pending, grade);
   return {
     correct: grade.correct,
     typo: grade.typo,
     answer: ctx.presenter.item(pending.entry.itemKey),
     given: grade.answeredItemKey ? ctx.presenter.item(grade.answeredItemKey) : undefined,
+    ...(map ? { map } : {}),
   };
 }

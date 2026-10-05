@@ -7,8 +7,7 @@ import {
   type QueueSession,
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
-import { gradeSubmission } from './issue';
-import { answerLog, confusionFor, feedbackFor, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
+import { answerLog, confusionFor, feedbackFor, gradeAnswer, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
 import { ServiceError, type SubmissionInput, type TurnResult } from './types';
 
 const progressOf = (q: QueueSession) => ({ answered: q.position, total: q.queue.length });
@@ -48,7 +47,7 @@ export async function submitPlacementAnswer(ctx: ServiceContext, input: Submissi
   const { entry } = pending;
   if (entry.kind !== 'prompt') throw new ServiceError('invalid_response');
 
-  const grade = gradeSubmission(pending, input.response, course);
+  const grade = gradeAnswer(ctx, pending, input.response);
   const states = hydrateStates(course, await store.getPromptStates(course.slug));
   const updated = applyPlacementAnswer({ course, states, itemKey: entry.itemKey, correct: grade.correct, now });
   const queue = advance(active.state as QueueSession);

@@ -10,8 +10,7 @@ import {
   type QueueSession,
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
-import { gradeSubmission } from './issue';
-import { answerLog, confusionFor, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
+import { answerLog, confusionFor, gradeAnswer, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
 import { ServiceError, type EndView, type SubmissionInput, type TurnResult } from './types';
 
 export interface ExamState extends QueueSession {
@@ -59,7 +58,7 @@ export async function submitExamAnswer(ctx: ServiceContext, input: SubmissionInp
   const { entry } = pending;
   if (entry.kind !== 'prompt') throw new ServiceError('invalid_response');
 
-  const grade = gradeSubmission(pending, input.response, course);
+  const grade = gradeAnswer(ctx, pending, input.response);
   const [stored, confusions] = await Promise.all([store.getPromptStates(course.slug), store.getConfusions(course.slug)]);
   const states = hydrateStates(course, stored);
   const key = stateKey(entry.itemKey, entry.promptType);

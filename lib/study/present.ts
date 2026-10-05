@@ -1,11 +1,16 @@
-import { getItem, type CourseDef, type Format, type PromptEntry } from '@/lib/engine';
-import type { ItemView, PendingQuestion, QuestionView, SessionKind } from './types';
+import { getItem, type AnswerGrade, type CourseDef, type Format, type PromptEntry } from '@/lib/engine';
+import type { FeedbackView, ItemView, MapView, PendingQuestion, QuestionView, SessionKind } from './types';
 
 /** Course-specific rendering of items into browser-safe views (names + image data, never keys). */
 export interface Presenter {
   prompt(entry: PromptEntry): QuestionView['prompt'];
-  choice(itemKey: string, format: Format): { label?: string; flag?: string };
+  /** `promptType` is absent for contrast drills. */
+  choice(itemKey: string, format: Format, promptType?: string): { label?: string; flag?: string };
   item(itemKey: string): ItemView;
+  /** Map courses: the map shown with a question, if any. */
+  map?(pending: PendingQuestion): MapView | undefined;
+  /** Map courses: outlines for the feedback panel. */
+  feedbackMap?(pending: PendingQuestion, grade: AnswerGrade): FeedbackView['map'];
 }
 
 export function flagPresenter(course: CourseDef, flag: (itemKey: string) => string): Presenter {
@@ -31,19 +36,23 @@ export function toQuestionView(args: {
     format: pending.format,
     progress: session.progress,
   };
-  const choices = pending.choices.length
-    ? pending.choices.map((c) => ({ id: c.id, ...presenter.choice(c.itemKey, pending.format) }))
-    : undefined;
   const { entry } = pending;
+  const promptType = entry.kind === 'prompt' ? entry.promptType : undefined;
+  const choices = pending.choices.length
+    ? pending.choices.map((c) => ({ id: c.id, ...presenter.choice(c.itemKey, pending.format, promptType) }))
+    : undefined;
+  const map = presenter.map?.(pending);
+  const withMap = map ? { map } : {};
 
-  if (entry.kind === 'intro') return { ...base, prompt: presenter.item(entry.itemKey) };
+  if (entry.kind === 'intro') return { ...base, prompt: presenter.item(entry.itemKey), ...withMap };
   if (entry.kind === 'contrast') {
     return {
       ...base,
       prompt: { name: getItem(course, entry.itemKey).name },
       pair: [presenter.item(entry.itemKey), presenter.item(entry.otherKey)],
       choices,
+      ...withMap,
     };
   }
-  return { ...base, prompt: presenter.prompt(entry), choices };
+  return { ...base, prompt: presenter.prompt(entry), choices, ...withMap };
 }

@@ -12,11 +12,15 @@ export interface PendingQuestion {
   choices: { id: string; itemKey: string }[];
   /** ISO timestamp; response time is measured server-side from this. */
   issuedAt: string;
+  /** Map courses: the frame the learner sees, chosen at issue time and used for grading. */
+  frame?: string;
 }
 
 export type AnswerResponse =
   | { kind: 'choice'; choiceId: string }
   | { kind: 'typed'; text: string }
+  /** A click on a map, normalized to [0,1] of the frame, with the map's rendered CSS width. */
+  | { kind: 'point'; x: number; y: number; width: number }
   | { kind: 'dont-know' }
   | { kind: 'ack' };
 
@@ -26,6 +30,17 @@ export interface SubmissionInput {
   response: AnswerResponse;
 }
 
+/** A map question's picture: an id-free base map plus overlays in viewBox units. */
+export interface MapView {
+  baseUrl: string;
+  width: number;
+  height: number;
+  /** Outline of the country being asked about (Name, Capital, intro). */
+  highlight?: string;
+  /** Outlined options; `id` is the opaque choice id. */
+  candidates?: { id: string; d: string; labelX: number; labelY: number }[];
+}
+
 /** Everything the browser sees about a question. Contains no item keys. */
 export interface QuestionView {
   sessionId: string;
@@ -33,16 +48,19 @@ export interface QuestionView {
   sessionKind: SessionKind;
   format: Format;
   progress: { answered: number; total: number };
-  /** Flag → Name shows a flag; Name → Flag shows a name; intros show both. */
-  prompt: { name?: string; flag?: string };
+  /** Flag → Name shows a flag; Name → Flag shows a name; intros show both. Map questions may ask a question. */
+  prompt: { name?: string; flag?: string; question?: string; capital?: string; capitalNote?: string };
   choices?: { id: string; label?: string; flag?: string }[];
   /** Contrast drills: the two confused items side by side, labelled. */
-  pair?: { name: string; flag: string }[];
+  pair?: ItemView[];
+  map?: MapView;
 }
 
 export interface ItemView {
   name: string;
   flag: string;
+  capital?: string;
+  capitalNote?: string;
 }
 
 export interface FeedbackView {
@@ -53,6 +71,8 @@ export interface FeedbackView {
   given?: ItemView;
   outcome?: StudyOutcome;
   contrastQueued?: boolean;
+  /** Map questions: the correct country, and the one the learner picked, outlined on the same map. */
+  map?: { baseUrl: string; width: number; height: number; correct: string; given?: string };
 }
 
 export type EndReason =
