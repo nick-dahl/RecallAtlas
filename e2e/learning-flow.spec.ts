@@ -81,6 +81,22 @@ test.describe('dev sign-in', () => {
     await expect(page).toHaveURL(/\/login$/);
   });
 
+  test('admin password sign-in works for ADMIN_EMAIL only', async ({ page }) => {
+    test.skip(!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD, 'Needs ADMIN_EMAIL and ADMIN_PASSWORD in .env.local.');
+    await page.goto('/login?method=password');
+    await page.getByLabel('Email').fill('not-the-admin@example.com');
+    await page.getByLabel('Password').fill(process.env.ADMIN_PASSWORD!);
+    await page.getByRole('button', { name: 'Sign in' }).click();
+    await expect(page.getByText("Couldn't sign in with that email and password.")).toBeVisible();
+
+    await page.getByLabel('Email').fill(process.env.ADMIN_EMAIL!);
+    await page.getByLabel('Password').fill(process.env.ADMIN_PASSWORD!);
+    await page.getByRole('button', { name: 'Sign in' }).click();
+    await expect(page).toHaveURL(/\/dashboard$/);
+    await page.getByRole('button', { name: 'Sign out' }).click();
+    await expect(page).toHaveURL(/\/login$/);
+  });
+
   test('is not available on a deployment', async ({ request }) => {
     test.skip(!process.env.E2E_BASE_URL, 'Only meaningful against a production build.');
     expect((await request.get('/auth/dev-login', { maxRedirects: 0 })).status()).toBe(404);
