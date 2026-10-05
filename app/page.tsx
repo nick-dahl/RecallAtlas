@@ -7,7 +7,11 @@ import { getUserId } from '@/lib/supabase/server';
 
 const SHOWCASE = ['NP', 'TD', 'KI', 'BT', 'RO', 'JP'];
 
-export default async function Home() {
+export default async function Home({ searchParams }: { searchParams: Promise<{ code?: string }> }) {
+  // If Supabase falls back to the Site URL (e.g. a redirect URL that isn't allow-listed),
+  // the PKCE code lands here. Hand it to the callback instead of stranding the user.
+  const { code } = await searchParams;
+  if (code) redirect(`/auth/callback?code=${encodeURIComponent(code)}&next=%2Fdashboard`);
   if (await getUserId()) redirect('/dashboard');
   return (
     <>
