@@ -1,0 +1,1241 @@
+{
+  "presidents": [
+    {
+      "key": "washington",
+      "name": "George Washington",
+      "aliases": [
+        "Washington"
+      ],
+      "numbers": [
+        1
+      ],
+      "startYears": [
+        1789
+      ],
+      "party": "No party",
+      "partyAliases": [],
+      "era": "Founding era",
+      "groupOrder": 1,
+      "itemOrder": 1,
+      "lookalikes": [
+        "j-adams",
+        "jefferson",
+        "madison"
+      ],
+      "wikipedia": "George_Washington"
+    },
+    {
+      "key": "j-adams",
+      "name": "John Adams",
+      "aliases": [],
+      "numbers": [
+        2
+      ],
+      "startYears": [
+        1797
+      ],
+      "party": "Federalist",
+      "partyAliases": [],
+      "era": "Founding era",
+      "groupOrder": 1,
+      "itemOrder": 2,
+      "lookalikes": [
+        "washington",
+        "jefferson",
+        "madison",
+        "monroe"
+      ],
+      "wikipedia": "John_Adams"
+    },
+    {
+      "key": "jefferson",
+      "name": "Thomas Jefferson",
+      "aliases": [
+        "Jefferson"
+      ],
+      "numbers": [
+        3
+      ],
+      "startYears": [
+        1801
+      ],
+      "party": "Democratic-Republican",
+      "partyAliases": [],
+      "era": "Founding era",
+      "groupOrder": 1,
+      "itemOrder": 3,
+      "lookalikes": [
+        "j-adams",
+        "madison",
+        "washington",
+        "monroe",
+        "jq-adams"
+      ],
+      "wikipedia": "Thomas_Jefferson"
+    },
+    {
+      "key": "madison",
+      "name": "James Madison",
+      "aliases": [
+        "Madison"
+      ],
+      "numbers": [
+        4
+      ],
+      "startYears": [
+        1809
+      ],
+      "party": "Democratic-Republican",
+      "partyAliases": [],
+      "era": "Founding era",
+      "groupOrder": 1,
+      "itemOrder": 4,
+      "lookalikes": [
+        "jefferson",
+        "monroe",
+        "j-adams",
+        "jq-adams",
+        "washington",
+        "jackson"
+      ],
+      "wikipedia": "James_Madison"
+    },
+    {
+      "key": "monroe",
+      "name": "James Monroe",
+      "aliases": [
+        "Monroe"
+      ],
+      "numbers": [
+        5
+      ],
+      "startYears": [
+        1817
+      ],
+      "party": "Democratic-Republican",
+      "partyAliases": [],
+      "era": "Founding era",
+      "groupOrder": 1,
+      "itemOrder": 5,
+      "lookalikes": [
+        "madison",
+        "jq-adams",
+        "jefferson",
+        "jackson",
+        "j-adams",
+        "van-buren"
+      ],
+      "wikipedia": "James_Monroe"
+    },
+    {
+      "key": "jq-adams",
+      "name": "John Quincy Adams",
+      "aliases": [
+        "J. Q. Adams",
+        "JQA",
+        "Quincy Adams"
+      ],
+      "numbers": [
+        6
+      ],
+      "startYears": [
+        1825
+      ],
+      "party": "Democratic-Republican",
+      "partyAliases": [
+        "National Republican"
+      ],
+      "era": "Founding era",
+      "groupOrder": 1,
+      "itemOrder": 6,
+      "lookalikes": [
+        "monroe",
+        "jackson",
+        "madison",
+        "van-buren",
+        "jefferson",
+        "wh-harrison"
+      ],
+      "wikipedia": "John_Quincy_Adams"
+    },
+    {
+      "key": "jackson",
+      "name": "Andrew Jackson",
+      "aliases": [
+        "Jackson"
+      ],
+      "numbers": [
+        7
+      ],
+      "startYears": [
+        1829
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Jacksonian era",
+      "groupOrder": 2,
+      "itemOrder": 1,
+      "lookalikes": [
+        "jq-adams",
+        "van-buren",
+        "monroe",
+        "wh-harrison",
+        "madison",
+        "tyler"
+      ],
+      "wikipedia": "Andrew_Jackson"
+    },
+    {
+      "key": "van-buren",
+      "name": "Martin Van Buren",
+      "aliases": [
+        "Van Buren"
+      ],
+      "numbers": [
+        8
+      ],
+      "startYears": [
+        1837
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Jacksonian era",
+      "groupOrder": 2,
+      "itemOrder": 2,
+      "lookalikes": [
+        "jackson",
+        "wh-harrison",
+        "jq-adams",
+        "tyler",
+        "monroe",
+        "polk"
+      ],
+      "wikipedia": "Martin_Van_Buren"
+    },
+    {
+      "key": "wh-harrison",
+      "name": "William Henry Harrison",
+      "aliases": [
+        "W. H. Harrison",
+        "William Harrison"
+      ],
+      "numbers": [
+        9
+      ],
+      "startYears": [
+        1841
+      ],
+      "party": "Whig",
+      "partyAliases": [],
+      "era": "Jacksonian era",
+      "groupOrder": 2,
+      "itemOrder": 3,
+      "lookalikes": [
+        "van-buren",
+        "tyler",
+        "jackson",
+        "polk",
+        "jq-adams",
+        "taylor"
+      ],
+      "wikipedia": "William_Henry_Harrison"
+    },
+    {
+      "key": "tyler",
+      "name": "John Tyler",
+      "aliases": [
+        "Tyler"
+      ],
+      "numbers": [
+        10
+      ],
+      "startYears": [
+        1841
+      ],
+      "party": "Whig",
+      "partyAliases": [],
+      "era": "Jacksonian era",
+      "groupOrder": 2,
+      "itemOrder": 4,
+      "lookalikes": [
+        "wh-harrison",
+        "polk",
+        "van-buren",
+        "taylor",
+        "jackson",
+        "fillmore"
+      ],
+      "wikipedia": "John_Tyler"
+    },
+    {
+      "key": "polk",
+      "name": "James K. Polk",
+      "aliases": [
+        "Polk",
+        "James Polk"
+      ],
+      "numbers": [
+        11
+      ],
+      "startYears": [
+        1845
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Jacksonian era",
+      "groupOrder": 2,
+      "itemOrder": 5,
+      "lookalikes": [
+        "tyler",
+        "taylor",
+        "wh-harrison",
+        "fillmore",
+        "van-buren",
+        "pierce"
+      ],
+      "wikipedia": "James_K._Polk"
+    },
+    {
+      "key": "taylor",
+      "name": "Zachary Taylor",
+      "aliases": [
+        "Taylor"
+      ],
+      "numbers": [
+        12
+      ],
+      "startYears": [
+        1849
+      ],
+      "party": "Whig",
+      "partyAliases": [],
+      "era": "Jacksonian era",
+      "groupOrder": 2,
+      "itemOrder": 6,
+      "lookalikes": [
+        "polk",
+        "fillmore",
+        "tyler",
+        "pierce",
+        "wh-harrison",
+        "buchanan"
+      ],
+      "wikipedia": "Zachary_Taylor"
+    },
+    {
+      "key": "fillmore",
+      "name": "Millard Fillmore",
+      "aliases": [
+        "Fillmore"
+      ],
+      "numbers": [
+        13
+      ],
+      "startYears": [
+        1850
+      ],
+      "party": "Whig",
+      "partyAliases": [],
+      "era": "Civil War era",
+      "groupOrder": 3,
+      "itemOrder": 1,
+      "lookalikes": [
+        "taylor",
+        "pierce",
+        "polk",
+        "buchanan",
+        "tyler",
+        "lincoln"
+      ],
+      "wikipedia": "Millard_Fillmore"
+    },
+    {
+      "key": "pierce",
+      "name": "Franklin Pierce",
+      "aliases": [
+        "Pierce"
+      ],
+      "numbers": [
+        14
+      ],
+      "startYears": [
+        1853
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Civil War era",
+      "groupOrder": 3,
+      "itemOrder": 2,
+      "lookalikes": [
+        "fillmore",
+        "buchanan",
+        "taylor",
+        "lincoln",
+        "polk",
+        "a-johnson"
+      ],
+      "wikipedia": "Franklin_Pierce"
+    },
+    {
+      "key": "buchanan",
+      "name": "James Buchanan",
+      "aliases": [
+        "Buchanan"
+      ],
+      "numbers": [
+        15
+      ],
+      "startYears": [
+        1857
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Civil War era",
+      "groupOrder": 3,
+      "itemOrder": 3,
+      "lookalikes": [
+        "pierce",
+        "lincoln",
+        "fillmore",
+        "a-johnson",
+        "taylor",
+        "grant"
+      ],
+      "wikipedia": "James_Buchanan"
+    },
+    {
+      "key": "lincoln",
+      "name": "Abraham Lincoln",
+      "aliases": [
+        "Lincoln"
+      ],
+      "numbers": [
+        16
+      ],
+      "startYears": [
+        1861
+      ],
+      "party": "Republican",
+      "partyAliases": [
+        "National Union"
+      ],
+      "era": "Civil War era",
+      "groupOrder": 3,
+      "itemOrder": 4,
+      "lookalikes": [
+        "buchanan",
+        "a-johnson",
+        "pierce",
+        "grant",
+        "fillmore",
+        "hayes"
+      ],
+      "wikipedia": "Abraham_Lincoln"
+    },
+    {
+      "key": "a-johnson",
+      "name": "Andrew Johnson",
+      "aliases": [],
+      "numbers": [
+        17
+      ],
+      "startYears": [
+        1865
+      ],
+      "party": "National Union",
+      "partyAliases": [
+        "Democratic"
+      ],
+      "era": "Civil War era",
+      "groupOrder": 3,
+      "itemOrder": 5,
+      "lookalikes": [
+        "lincoln",
+        "grant",
+        "buchanan",
+        "hayes",
+        "pierce",
+        "garfield"
+      ],
+      "wikipedia": "Andrew_Johnson"
+    },
+    {
+      "key": "grant",
+      "name": "Ulysses S. Grant",
+      "aliases": [
+        "Grant",
+        "Ulysses Grant"
+      ],
+      "numbers": [
+        18
+      ],
+      "startYears": [
+        1869
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Civil War era",
+      "groupOrder": 3,
+      "itemOrder": 6,
+      "lookalikes": [
+        "a-johnson",
+        "hayes",
+        "lincoln",
+        "garfield",
+        "buchanan",
+        "arthur"
+      ],
+      "wikipedia": "Ulysses_S._Grant"
+    },
+    {
+      "key": "hayes",
+      "name": "Rutherford B. Hayes",
+      "aliases": [
+        "Hayes",
+        "Rutherford Hayes"
+      ],
+      "numbers": [
+        19
+      ],
+      "startYears": [
+        1877
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Gilded Age",
+      "groupOrder": 4,
+      "itemOrder": 1,
+      "lookalikes": [
+        "grant",
+        "garfield",
+        "a-johnson",
+        "arthur",
+        "lincoln",
+        "cleveland",
+        "b-harrison"
+      ],
+      "wikipedia": "Rutherford_B._Hayes"
+    },
+    {
+      "key": "garfield",
+      "name": "James A. Garfield",
+      "aliases": [
+        "Garfield",
+        "James Garfield"
+      ],
+      "numbers": [
+        20
+      ],
+      "startYears": [
+        1881
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Gilded Age",
+      "groupOrder": 4,
+      "itemOrder": 2,
+      "lookalikes": [
+        "hayes",
+        "arthur",
+        "grant",
+        "cleveland",
+        "a-johnson",
+        "b-harrison"
+      ],
+      "wikipedia": "James_A._Garfield"
+    },
+    {
+      "key": "arthur",
+      "name": "Chester A. Arthur",
+      "aliases": [
+        "Arthur",
+        "Chester Arthur"
+      ],
+      "numbers": [
+        21
+      ],
+      "startYears": [
+        1881
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Gilded Age",
+      "groupOrder": 4,
+      "itemOrder": 3,
+      "lookalikes": [
+        "garfield",
+        "cleveland",
+        "hayes",
+        "b-harrison",
+        "grant"
+      ],
+      "wikipedia": "Chester_A._Arthur"
+    },
+    {
+      "key": "cleveland",
+      "name": "Grover Cleveland",
+      "aliases": [
+        "Cleveland"
+      ],
+      "numbers": [
+        22,
+        24
+      ],
+      "startYears": [
+        1885,
+        1893
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Gilded Age",
+      "groupOrder": 4,
+      "itemOrder": 4,
+      "lookalikes": [
+        "arthur",
+        "b-harrison",
+        "mckinley",
+        "garfield",
+        "t-roosevelt",
+        "hayes",
+        "taft"
+      ],
+      "wikipedia": "Grover_Cleveland"
+    },
+    {
+      "key": "b-harrison",
+      "name": "Benjamin Harrison",
+      "aliases": [
+        "Ben Harrison"
+      ],
+      "numbers": [
+        23
+      ],
+      "startYears": [
+        1889
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Gilded Age",
+      "groupOrder": 4,
+      "itemOrder": 5,
+      "lookalikes": [
+        "cleveland",
+        "arthur",
+        "mckinley",
+        "garfield",
+        "t-roosevelt",
+        "hayes"
+      ],
+      "wikipedia": "Benjamin_Harrison"
+    },
+    {
+      "key": "mckinley",
+      "name": "William McKinley",
+      "aliases": [
+        "McKinley"
+      ],
+      "numbers": [
+        25
+      ],
+      "startYears": [
+        1897
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Gilded Age",
+      "groupOrder": 4,
+      "itemOrder": 6,
+      "lookalikes": [
+        "cleveland",
+        "t-roosevelt",
+        "b-harrison",
+        "taft",
+        "wilson"
+      ],
+      "wikipedia": "William_McKinley"
+    },
+    {
+      "key": "t-roosevelt",
+      "name": "Theodore Roosevelt",
+      "aliases": [
+        "Teddy Roosevelt",
+        "TR"
+      ],
+      "numbers": [
+        26
+      ],
+      "startYears": [
+        1901
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Progressive era & twenties",
+      "groupOrder": 5,
+      "itemOrder": 1,
+      "lookalikes": [
+        "mckinley",
+        "taft",
+        "cleveland",
+        "wilson",
+        "b-harrison",
+        "harding"
+      ],
+      "wikipedia": "Theodore_Roosevelt"
+    },
+    {
+      "key": "taft",
+      "name": "William Howard Taft",
+      "aliases": [
+        "Taft"
+      ],
+      "numbers": [
+        27
+      ],
+      "startYears": [
+        1909
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Progressive era & twenties",
+      "groupOrder": 5,
+      "itemOrder": 2,
+      "lookalikes": [
+        "t-roosevelt",
+        "wilson",
+        "mckinley",
+        "harding",
+        "cleveland",
+        "coolidge"
+      ],
+      "wikipedia": "William_Howard_Taft"
+    },
+    {
+      "key": "wilson",
+      "name": "Woodrow Wilson",
+      "aliases": [
+        "Wilson"
+      ],
+      "numbers": [
+        28
+      ],
+      "startYears": [
+        1913
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Progressive era & twenties",
+      "groupOrder": 5,
+      "itemOrder": 3,
+      "lookalikes": [
+        "taft",
+        "harding",
+        "t-roosevelt",
+        "coolidge",
+        "mckinley",
+        "hoover"
+      ],
+      "wikipedia": "Woodrow_Wilson"
+    },
+    {
+      "key": "harding",
+      "name": "Warren G. Harding",
+      "aliases": [
+        "Harding",
+        "Warren Harding"
+      ],
+      "numbers": [
+        29
+      ],
+      "startYears": [
+        1921
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Progressive era & twenties",
+      "groupOrder": 5,
+      "itemOrder": 4,
+      "lookalikes": [
+        "wilson",
+        "coolidge",
+        "taft",
+        "hoover",
+        "t-roosevelt",
+        "f-roosevelt"
+      ],
+      "wikipedia": "Warren_G._Harding"
+    },
+    {
+      "key": "coolidge",
+      "name": "Calvin Coolidge",
+      "aliases": [
+        "Coolidge"
+      ],
+      "numbers": [
+        30
+      ],
+      "startYears": [
+        1923
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Progressive era & twenties",
+      "groupOrder": 5,
+      "itemOrder": 5,
+      "lookalikes": [
+        "harding",
+        "hoover",
+        "wilson",
+        "f-roosevelt",
+        "taft",
+        "truman"
+      ],
+      "wikipedia": "Calvin_Coolidge"
+    },
+    {
+      "key": "hoover",
+      "name": "Herbert Hoover",
+      "aliases": [
+        "Hoover"
+      ],
+      "numbers": [
+        31
+      ],
+      "startYears": [
+        1929
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Progressive era & twenties",
+      "groupOrder": 5,
+      "itemOrder": 6,
+      "lookalikes": [
+        "coolidge",
+        "f-roosevelt",
+        "harding",
+        "truman",
+        "wilson",
+        "eisenhower"
+      ],
+      "wikipedia": "Herbert_Hoover"
+    },
+    {
+      "key": "f-roosevelt",
+      "name": "Franklin D. Roosevelt",
+      "aliases": [
+        "Franklin Roosevelt",
+        "FDR"
+      ],
+      "numbers": [
+        32
+      ],
+      "startYears": [
+        1933
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Depression, war & postwar",
+      "groupOrder": 6,
+      "itemOrder": 1,
+      "lookalikes": [
+        "hoover",
+        "truman",
+        "coolidge",
+        "eisenhower",
+        "harding",
+        "kennedy"
+      ],
+      "wikipedia": "Franklin_D._Roosevelt"
+    },
+    {
+      "key": "truman",
+      "name": "Harry S. Truman",
+      "aliases": [
+        "Truman",
+        "Harry Truman"
+      ],
+      "numbers": [
+        33
+      ],
+      "startYears": [
+        1945
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Depression, war & postwar",
+      "groupOrder": 6,
+      "itemOrder": 2,
+      "lookalikes": [
+        "f-roosevelt",
+        "eisenhower",
+        "hoover",
+        "kennedy",
+        "coolidge",
+        "l-johnson"
+      ],
+      "wikipedia": "Harry_S._Truman"
+    },
+    {
+      "key": "eisenhower",
+      "name": "Dwight D. Eisenhower",
+      "aliases": [
+        "Eisenhower",
+        "Dwight Eisenhower"
+      ],
+      "numbers": [
+        34
+      ],
+      "startYears": [
+        1953
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Depression, war & postwar",
+      "groupOrder": 6,
+      "itemOrder": 3,
+      "lookalikes": [
+        "truman",
+        "kennedy",
+        "f-roosevelt",
+        "l-johnson",
+        "hoover",
+        "nixon"
+      ],
+      "wikipedia": "Dwight_D._Eisenhower"
+    },
+    {
+      "key": "kennedy",
+      "name": "John F. Kennedy",
+      "aliases": [
+        "Kennedy",
+        "John Kennedy",
+        "JFK"
+      ],
+      "numbers": [
+        35
+      ],
+      "startYears": [
+        1961
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Depression, war & postwar",
+      "groupOrder": 6,
+      "itemOrder": 4,
+      "lookalikes": [
+        "eisenhower",
+        "l-johnson",
+        "truman",
+        "nixon",
+        "f-roosevelt",
+        "ford"
+      ],
+      "wikipedia": "John_F._Kennedy"
+    },
+    {
+      "key": "l-johnson",
+      "name": "Lyndon B. Johnson",
+      "aliases": [
+        "Lyndon Johnson",
+        "LBJ"
+      ],
+      "numbers": [
+        36
+      ],
+      "startYears": [
+        1963
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Depression, war & postwar",
+      "groupOrder": 6,
+      "itemOrder": 5,
+      "lookalikes": [
+        "kennedy",
+        "nixon",
+        "eisenhower",
+        "ford",
+        "truman",
+        "carter"
+      ],
+      "wikipedia": "Lyndon_B._Johnson"
+    },
+    {
+      "key": "nixon",
+      "name": "Richard Nixon",
+      "aliases": [
+        "Nixon"
+      ],
+      "numbers": [
+        37
+      ],
+      "startYears": [
+        1969
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Late Cold War",
+      "groupOrder": 7,
+      "itemOrder": 1,
+      "lookalikes": [
+        "l-johnson",
+        "ford",
+        "kennedy",
+        "carter",
+        "eisenhower",
+        "reagan"
+      ],
+      "wikipedia": "Richard_Nixon"
+    },
+    {
+      "key": "ford",
+      "name": "Gerald Ford",
+      "aliases": [
+        "Ford"
+      ],
+      "numbers": [
+        38
+      ],
+      "startYears": [
+        1974
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Late Cold War",
+      "groupOrder": 7,
+      "itemOrder": 2,
+      "lookalikes": [
+        "nixon",
+        "carter",
+        "l-johnson",
+        "reagan",
+        "kennedy",
+        "hw-bush"
+      ],
+      "wikipedia": "Gerald_Ford"
+    },
+    {
+      "key": "carter",
+      "name": "Jimmy Carter",
+      "aliases": [
+        "Carter"
+      ],
+      "numbers": [
+        39
+      ],
+      "startYears": [
+        1977
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Late Cold War",
+      "groupOrder": 7,
+      "itemOrder": 3,
+      "lookalikes": [
+        "ford",
+        "reagan",
+        "nixon",
+        "hw-bush",
+        "l-johnson",
+        "clinton"
+      ],
+      "wikipedia": "Jimmy_Carter"
+    },
+    {
+      "key": "reagan",
+      "name": "Ronald Reagan",
+      "aliases": [
+        "Reagan"
+      ],
+      "numbers": [
+        40
+      ],
+      "startYears": [
+        1981
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Late Cold War",
+      "groupOrder": 7,
+      "itemOrder": 4,
+      "lookalikes": [
+        "carter",
+        "hw-bush",
+        "ford",
+        "clinton",
+        "nixon",
+        "gw-bush"
+      ],
+      "wikipedia": "Ronald_Reagan"
+    },
+    {
+      "key": "hw-bush",
+      "name": "George H. W. Bush",
+      "aliases": [
+        "H. W. Bush",
+        "Bush 41"
+      ],
+      "numbers": [
+        41
+      ],
+      "startYears": [
+        1989
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Late Cold War",
+      "groupOrder": 7,
+      "itemOrder": 5,
+      "lookalikes": [
+        "reagan",
+        "clinton",
+        "carter",
+        "gw-bush",
+        "ford",
+        "obama"
+      ],
+      "wikipedia": "George_H._W._Bush"
+    },
+    {
+      "key": "clinton",
+      "name": "Bill Clinton",
+      "aliases": [
+        "Clinton"
+      ],
+      "numbers": [
+        42
+      ],
+      "startYears": [
+        1993
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Modern era",
+      "groupOrder": 8,
+      "itemOrder": 1,
+      "lookalikes": [
+        "hw-bush",
+        "gw-bush",
+        "reagan",
+        "obama",
+        "carter",
+        "trump"
+      ],
+      "wikipedia": "Bill_Clinton"
+    },
+    {
+      "key": "gw-bush",
+      "name": "George W. Bush",
+      "aliases": [
+        "G. W. Bush",
+        "Bush 43"
+      ],
+      "numbers": [
+        43
+      ],
+      "startYears": [
+        2001
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Modern era",
+      "groupOrder": 8,
+      "itemOrder": 2,
+      "lookalikes": [
+        "clinton",
+        "obama",
+        "hw-bush",
+        "trump",
+        "reagan",
+        "biden"
+      ],
+      "wikipedia": "George_W._Bush"
+    },
+    {
+      "key": "obama",
+      "name": "Barack Obama",
+      "aliases": [
+        "Obama"
+      ],
+      "numbers": [
+        44
+      ],
+      "startYears": [
+        2009
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Modern era",
+      "groupOrder": 8,
+      "itemOrder": 3,
+      "lookalikes": [
+        "gw-bush",
+        "trump",
+        "clinton",
+        "biden",
+        "hw-bush"
+      ],
+      "wikipedia": "Barack_Obama"
+    },
+    {
+      "key": "trump",
+      "name": "Donald Trump",
+      "aliases": [
+        "Trump"
+      ],
+      "numbers": [
+        45,
+        47
+      ],
+      "startYears": [
+        2017,
+        2025
+      ],
+      "party": "Republican",
+      "partyAliases": [],
+      "era": "Modern era",
+      "groupOrder": 8,
+      "itemOrder": 4,
+      "lookalikes": [
+        "obama",
+        "biden",
+        "gw-bush",
+        "clinton"
+      ],
+      "wikipedia": "Donald_Trump"
+    },
+    {
+      "key": "biden",
+      "name": "Joe Biden",
+      "aliases": [
+        "Biden"
+      ],
+      "numbers": [
+        46
+      ],
+      "startYears": [
+        2021
+      ],
+      "party": "Democratic",
+      "partyAliases": [],
+      "era": "Modern era",
+      "groupOrder": 8,
+      "itemOrder": 5,
+      "lookalikes": [
+        "trump",
+        "obama",
+        "gw-bush"
+      ],
+      "wikipedia": "Joe_Biden"
+    }
+  ],
+  "orderExclusions": [
+    [
+      "cleveland",
+      "b-harrison"
+    ],
+    [
+      "trump",
+      "biden"
+    ]
+  ]
+}

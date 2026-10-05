@@ -23,3 +23,24 @@ export interface CountryRecord {
   /** [lat, lng] */
   latlng: [number, number];
 }
+
+/** One entry in content/presidents.json (US Presidents). */
+export interface PresidentRecord {
+  key: string;
+  name: string;
+  /** Accepted typed answers besides `name`. */
+  aliases: string[];
+  /** Presidency numbers; two for non-consecutive terms. */
+  numbers: number[];
+  /** Year(s) he took office, matching `numbers`. */
+  startYears: number[];
+  party: string;
+  partyAliases: string[];
+  era: string;
+  groupOrder: number;
+  itemOrder: number;
+  /** Era neighbours (nearest number first), then hand-picked face look-alikes. */
+  lookalikes: string[];
+  wikipedia: string;
+  commonsFile?: string;
+}
