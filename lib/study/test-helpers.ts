@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { getItem, graduate, initialStates, introduce, seededRng, type CourseDef } from '@/lib/engine';
+import { getItem, graduate, initialStates, introduce, isTypedFormat, seededRng, type CourseDef } from '@/lib/engine';
 import { NOW, TEST_COURSE, TEST_MAP_COURSE } from '@/lib/engine/test-fixtures';
 import { MemoryStore } from '@/lib/db/memory-store';
 import type { UserStore } from '@/lib/db/store';
@@ -100,7 +100,12 @@ export function correctResponse(pending: PendingQuestion, course: CourseDef = TE
     if (!maps) throw new Error('correctResponse needs maps for a map-click question');
     return clickOn(pending, maps, entry.itemKey);
   }
-  if (pending.format === 'typed') {
+  if (pending.format === 'order') {
+    const first = (key: string) => getItem(course, key).sequence![0];
+    const sorted = [...pending.choices].sort((a, b) => first(a.itemKey) - first(b.itemKey));
+    return { kind: 'order', choiceIds: sorted.map((c) => c.id) };
+  }
+  if (isTypedFormat(pending.format)) {
     const promptType = entry.kind === 'prompt' ? entry.promptType : undefined;
     const field = course.promptTypes.find((p) => p.id === promptType)?.answerField ?? 'name';
     const item = getItem(course, entry.itemKey);
