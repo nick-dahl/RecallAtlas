@@ -25,11 +25,17 @@ export function mapPresenter(
     prompt: (entry) =>
       entry.promptType === 'find'
         ? { name: name(entry.itemKey) }
-        : { question: entry.promptType === 'capital' ? "What's its capital?" : 'Which country is this?' },
+        : entry.promptType === 'capital'
+          ? { question: "What's its capital?", asks: 'capital' }
+          : { question: 'Which country is this?', asks: 'name' },
 
-    // Map-pick options are outlines on the map; a label would give the answer away.
-    choice: (key, format, promptType) =>
-      format === 'map-pick' ? {} : { label: promptType === 'capital' ? capital(key) : name(key) },
+    // Map-pick options are outlines on the map; a label would give the answer away. Contrast
+    // drills also carry flags, for when no frame shows both countries.
+    choice: (key, format, promptType) => {
+      if (format === 'map-pick') return {};
+      if (format === 'contrast') return { label: name(key), flag: flag(key) };
+      return { label: promptType === 'capital' ? capital(key) : name(key) };
+    },
 
     item: (key) => {
       const note = capitalNote(key);

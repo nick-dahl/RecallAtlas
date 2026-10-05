@@ -7,6 +7,8 @@ import { ContrastDrill } from './contrast-drill';
 import { FeedbackPanel } from './feedback-panel';
 import { FlagGrid } from './flag-grid';
 import { IntroCard } from './intro-card';
+import { MapClick } from './map-click';
+import { MapPick } from './map-pick';
 import { TypedAnswer } from './typed-answer';
 import type { RendererProps } from './types';
 
@@ -16,9 +18,8 @@ const RENDERERS: Record<Format, ComponentType<RendererProps>> = {
   'flag-grid': FlagGrid,
   typed: TypedAnswer,
   contrast: ContrastDrill,
-  // Interim until the World Map renderers land (Plan 6); no map course reaches the player yet.
-  'map-pick': ChoiceList,
-  'map-click': TypedAnswer,
+  'map-pick': MapPick,
+  'map-click': MapClick,
 };
 
 export function QuestionStage(props: RendererProps & { onContinue: () => void }) {
@@ -27,7 +28,7 @@ export function QuestionStage(props: RendererProps & { onContinue: () => void })
   return (
     <section data-question-id={view.questionId} data-format={view.format} className="animate-rise">
       <Renderer {...props} />
-      {feedback && <FeedbackPanel feedback={feedback} onContinue={onContinue} />}
+      {feedback && <FeedbackPanel view={view} feedback={feedback} onContinue={onContinue} />}
     </section>
   );
 }

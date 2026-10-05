@@ -7,9 +7,10 @@ import { Prompt } from './prompt';
 import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
-/** Recall: type the country's name. Esc = "I don't know". */
+/** Recall: type the country's name (or, for map Capital questions, its capital). Esc = "I don't know". */
 export function TypedAnswer({ view, locked, feedback, onAnswer }: RendererProps) {
   const [text, setText] = useState('');
+  const capital = view.prompt.asks === 'capital';
   useHotkeys({ Escape: () => !locked && onAnswer({ kind: 'dont-know' }) }, !locked);
 
   const submit = (e: FormEvent) => {
@@ -24,18 +25,18 @@ export function TypedAnswer({ view, locked, feedback, onAnswer }: RendererProps)
 
   return (
     <div className="space-y-8">
-      <Prompt view={view} />
+      <Prompt view={view} feedback={feedback} />
       <form onSubmit={submit} className="mx-auto flex max-w-md flex-col gap-3">
         <input
           autoFocus
-          aria-label="Country name"
+          aria-label={capital ? 'Capital' : 'Country name'}
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
           value={text}
           onChange={(e) => setText(e.target.value)}
           disabled={locked}
-          placeholder="Type the country…"
+          placeholder={capital ? 'Type the capital…' : 'Type the country…'}
           className={`rounded-2xl bg-raised px-5 py-4 text-lg outline-none ring-2 transition ${tone}`}
         />
         <div className="flex items-center justify-between text-sm text-ink-soft">

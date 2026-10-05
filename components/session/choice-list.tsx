@@ -13,7 +13,7 @@ const STATE: Record<ChoiceState, string> = {
   dim: 'bg-raised ring-1 ring-rule opacity-40',
 };
 
-/** Flag → Name multiple choice (text options). */
+/** Text multiple choice: Flag → Name, and map Name/Capital at rungs 1–2. */
 export function ChoiceList({ view, locked, feedback, chosenId, onAnswer }: RendererProps) {
   const choices = view.choices ?? [];
   const pick = (i: number) => {
@@ -24,7 +24,7 @@ export function ChoiceList({ view, locked, feedback, chosenId, onAnswer }: Rende
 
   return (
     <div className="space-y-8">
-      <Prompt view={view} />
+      <Prompt view={view} feedback={feedback} />
       <ol className="mx-auto grid max-w-2xl gap-3 sm:grid-cols-2">
         {choices.map((c, i) => (
           <li key={c.id}>

@@ -11,6 +11,11 @@ describe('choiceState', () => {
     expect(choiceState({ id: '1', label: 'Chad' }, feedback, '2')).toBe('correct');
     expect(choiceState({ id: '1', flag: 'data:chad' }, feedback, '2')).toBe('correct');
   });
+  it('marks the right answer by capital when the options are capitals', () => {
+    const capitalFeedback = { ...feedback, answer: { name: 'Bolivia', flag: 'data:bo', capital: 'Sucre' } };
+    expect(choiceState({ id: '1', label: 'Sucre' }, capitalFeedback, '2')).toBe('correct');
+    expect(choiceState({ id: '2', label: 'Lima' }, capitalFeedback, '2')).toBe('wrong');
+  });
   it('marks the learner’s wrong pick and dims the rest', () => {
     expect(choiceState({ id: '2', label: 'Romania' }, feedback, '2')).toBe('wrong');
     expect(choiceState({ id: '3', label: 'Andorra' }, feedback, '2')).toBe('dim');

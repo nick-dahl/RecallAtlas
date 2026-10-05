@@ -49,7 +49,15 @@ export interface QuestionView {
   format: Format;
   progress: { answered: number; total: number };
   /** Flag → Name shows a flag; Name → Flag shows a name; intros show both. Map questions may ask a question. */
-  prompt: { name?: string; flag?: string; question?: string; capital?: string; capitalNote?: string };
+  prompt: {
+    name?: string;
+    flag?: string;
+    question?: string;
+    /** Map Name/Capital questions: what the learner answers with. */
+    asks?: 'name' | 'capital';
+    capital?: string;
+    capitalNote?: string;
+  };
   choices?: { id: string; label?: string; flag?: string }[];
   /** Contrast drills: the two confused items side by side, labelled. */
   pair?: ItemView[];
