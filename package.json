@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "content:build": "tsx scripts/build-content.ts",
     "test:integration": "vitest run --config vitest.integration.config.mts",
+    "test:e2e": "playwright test",
     "db:push": "tsx scripts/db-push.ts"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "ts-fsrs": "5.4.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^24",
     "@types/pg": "^8.23.1",
