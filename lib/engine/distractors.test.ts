@@ -51,3 +51,27 @@ describe('pickDistractors', () => {
     expect(pickDistractors({ ...args, rng: seededRng(5) })).toEqual(pickDistractors({ ...args, rng: seededRng(5) }));
   });
 });
+
+describe('pickDistractors for maps', () => {
+  it('local mode prefers the same group', () => {
+    const d = pickDistractors({ target: fixtureItem('EC'), items: ITEMS, count: 3, mode: 'local', confusions: [], rng: seededRng(1) });
+    expect(new Set(d)).toEqual(new Set(['CO', 'VE', 'PE']));
+  });
+
+  it('never picks an ineligible item, in any mode', () => {
+    const allowed = ['CO', 'VE', 'PE', 'US'];
+    for (const mode of ['random', 'hard', 'local'] as const) {
+      const d = pickDistractors({
+        target: fixtureItem('EC'),
+        items: ITEMS,
+        count: 5,
+        mode,
+        confusions: [{ asked: 'EC', answered: 'IN', count: 3 }],
+        rng: seededRng(2),
+        eligible: (k) => allowed.includes(k),
+      });
+      expect(d.length).toBe(4);
+      expect(d.every((k) => allowed.includes(k))).toBe(true);
+    }
+  });
+});

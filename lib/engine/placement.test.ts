@@ -3,7 +3,7 @@ import { introduce } from './ladder';
 import { applyPlacementAnswer, buildPlacementQueue } from './placement';
 import { advance, currentEntry, isQueueComplete } from './queue';
 import { initialStates } from './state';
-import { NOW, TEST_COURSE } from './test-fixtures';
+import { NOW, TEST_COURSE, TEST_MAP_COURSE } from './test-fixtures';
 
 describe('buildPlacementQueue', () => {
   it('asks every all-new item once, typed flag_to_name, in group order', () => {
@@ -32,7 +32,7 @@ describe('queue helpers', () => {
 
 describe('applyPlacementAnswer', () => {
   it('graduates both prompts of a correctly named item', () => {
-    const states = applyPlacementAnswer({ states: initialStates(TEST_COURSE), itemKey: 'US', correct: true, now: NOW });
+    const states = applyPlacementAnswer({ course: TEST_COURSE, states: initialStates(TEST_COURSE), itemKey: 'US', correct: true, now: NOW });
     const us = states.filter((s) => s.itemKey === 'US');
     expect(us).toHaveLength(2);
     expect(us.every((s) => s.phase === 'review' && s.fsrs !== null)).toBe(true);
@@ -41,7 +41,34 @@ describe('applyPlacementAnswer', () => {
 
   it('leaves the item new when missed', () => {
     const before = initialStates(TEST_COURSE);
-    const after = applyPlacementAnswer({ states: before, itemKey: 'EC', correct: false, now: NOW });
+    const after = applyPlacementAnswer({ course: TEST_COURSE, states: before, itemKey: 'EC', correct: false, now: NOW });
     expect(after).toEqual(before);
+  });
+});
+
+describe('placement with placementGraduates', () => {
+  it('graduates only the listed prompts', () => {
+    const states = applyPlacementAnswer({
+      course: TEST_MAP_COURSE,
+      states: initialStates(TEST_MAP_COURSE),
+      itemKey: 'EC',
+      correct: true,
+      now: NOW,
+    });
+    const phase = (pt: string) => states.find((s) => s.itemKey === 'EC' && s.promptType === pt)!.phase;
+    expect([phase('find'), phase('name'), phase('capital')]).toEqual(['review', 'review', 'new']);
+  });
+
+  it('does not re-queue a partially placed item', () => {
+    const states = applyPlacementAnswer({
+      course: TEST_MAP_COURSE,
+      states: initialStates(TEST_MAP_COURSE),
+      itemKey: 'US',
+      correct: true,
+      now: NOW,
+    });
+    const q = buildPlacementQueue(TEST_MAP_COURSE, states);
+    expect(q.queue.map((e) => e.itemKey)).not.toContain('US');
+    expect(q.queue[0]).toEqual({ kind: 'prompt', itemKey: 'EC', promptType: 'find' });
   });
 });

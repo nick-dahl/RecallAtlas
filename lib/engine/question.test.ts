@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { buildQuestion, rungForState } from './question';
 import { seededRng } from './random';
 import { newPromptState } from './state';
-import { TEST_COURSE } from './test-fixtures';
+import { TEST_COURSE, TEST_MAP_COURSE } from './test-fixtures';
 
 const base = { course: TEST_COURSE, confusions: [], rng: seededRng(11) };
 
@@ -52,5 +52,31 @@ describe('rungForState', () => {
     expect(rungForState(s)).toBe(1);
     expect(rungForState({ ...s, phase: 'learning', rung: 2 })).toBe(2);
     expect(rungForState({ ...s, phase: 'review', rung: 3 })).toBe(3);
+  });
+});
+
+describe('buildQuestion for maps', () => {
+  const find = { kind: 'prompt' as const, itemKey: 'EC', promptType: 'find' };
+
+  it('builds map-pick with choices and map-click without', () => {
+    const pick = buildQuestion({ entry: find, rung: 1, course: TEST_MAP_COURSE, confusions: [], rng: seededRng(1) });
+    expect(pick.format).toBe('map-pick');
+    expect(pick.choiceKeys).toHaveLength(4);
+    expect(pick.choiceKeys).toContain('EC');
+    const click = buildQuestion({ entry: find, rung: 3, course: TEST_MAP_COURSE, confusions: [], rng: seededRng(1) });
+    expect(click).toEqual({ entry: find, format: 'map-click' });
+  });
+
+  it('passes eligibility through to distractors', () => {
+    const q = buildQuestion({
+      entry: find,
+      rung: 2,
+      course: TEST_MAP_COURSE,
+      confusions: [{ asked: 'EC', answered: 'IN', count: 4 }],
+      rng: seededRng(4),
+      eligible: (k) => ['CO', 'VE', 'PE', 'US', 'DO', 'DM'].includes(k),
+    });
+    expect(q.choiceKeys).toHaveLength(6);
+    expect(q.choiceKeys).not.toContain('IN');
   });
 });

@@ -39,12 +39,21 @@ export function isSessionComplete(session: StudySession): boolean {
   return session.pending.length === 0 && session.answered >= session.size;
 }
 
-/** Items whose prompts are all still new, in group order then item order. */
+const inOrder = (items: Item[]) => items.sort((a, b) => a.groupOrder - b.groupOrder || a.itemOrder - b.itemOrder);
+
+/**
+ * Items with at least one prompt still new, in group order then item order. Usually every
+ * prompt is new; a placed World Map item still has its capital to introduce.
+ */
 export function newItemsInOrder(course: CourseDef, states: readonly PromptState[]): Item[] {
+  const pending = new Set(states.filter((s) => s.phase === 'new').map((s) => s.itemKey));
+  return inOrder(course.items.filter((i) => pending.has(i.key)));
+}
+
+/** Items whose prompts are all still new, in group order then item order. */
+export function untouchedItemsInOrder(course: CourseDef, states: readonly PromptState[]): Item[] {
   const started = new Set(states.filter((s) => s.phase !== 'new').map((s) => s.itemKey));
-  return course.items
-    .filter((i) => !started.has(i.key))
-    .sort((a, b) => a.groupOrder - b.groupOrder || a.itemOrder - b.itemOrder);
+  return inOrder(course.items.filter((i) => !started.has(i.key)));
 }
 
 export function canIntroduce(course: CourseDef, states: readonly PromptState[], session: StudySession): boolean {

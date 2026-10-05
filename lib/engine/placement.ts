@@ -1,11 +1,11 @@
 import { graduate } from './scheduler';
-import { newItemsInOrder } from './session';
+import { untouchedItemsInOrder } from './session';
 import type { QueueSession } from './queue';
 import type { CourseDef, PromptState } from './types';
 
 export function buildPlacementQueue(course: CourseDef, states: readonly PromptState[]): QueueSession {
   return {
-    queue: newItemsInOrder(course, states).map((item) => ({
+    queue: untouchedItemsInOrder(course, states).map((item) => ({
       kind: 'prompt' as const,
       itemKey: item.key,
       promptType: course.placementPromptType,
@@ -14,14 +14,21 @@ export function buildPlacementQueue(course: CourseDef, states: readonly PromptSt
   };
 }
 
-/** A correct placement answer fast-tracks every prompt of the item straight into review. */
+/**
+ * A correct placement answer fast-tracks the item's `placementGraduates` prompts (default:
+ * all of them) straight into review; the rest stay new and are learned in study.
+ */
 export function applyPlacementAnswer(args: {
+  course: CourseDef;
   states: readonly PromptState[];
   itemKey: string;
   correct: boolean;
   now: Date;
 }): PromptState[] {
-  const { states, itemKey, correct, now } = args;
+  const { course, states, itemKey, correct, now } = args;
   if (!correct) return [...states];
-  return states.map((s) => (s.itemKey === itemKey && s.phase === 'new' ? graduate(s, now) : s));
+  const graduates = new Set(course.placementGraduates ?? course.promptTypes.map((p) => p.id));
+  return states.map((s) =>
+    s.itemKey === itemKey && s.phase === 'new' && graduates.has(s.promptType) ? graduate(s, now) : s,
+  );
 }

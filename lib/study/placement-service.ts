@@ -50,7 +50,7 @@ export async function submitPlacementAnswer(ctx: ServiceContext, input: Submissi
 
   const grade = gradeSubmission(pending, input.response, course);
   const states = hydrateStates(course, await store.getPromptStates(course.slug));
-  const updated = applyPlacementAnswer({ states, itemKey: entry.itemKey, correct: grade.correct, now });
+  const updated = applyPlacementAnswer({ course, states, itemKey: entry.itemKey, correct: grade.correct, now });
   const queue = advance(active.state as QueueSession);
   const nextEntry = currentEntry(queue);
   const nextPending = nextEntry ? issue(ctx, nextEntry, 3, []) : null;

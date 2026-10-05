@@ -14,8 +14,10 @@ export function buildQuestion(args: {
   course: CourseDef;
   confusions: readonly Confusion[];
   rng: Rng;
+  /** Restricts distractors (map questions: countries drawn in the frame). */
+  eligible?: (key: string) => boolean;
 }): Question {
-  const { entry, rung, course, confusions, rng } = args;
+  const { entry, rung, course, confusions, rng, eligible } = args;
   if (entry.kind === 'intro') return { entry, format: 'intro' };
   if (entry.kind === 'contrast') {
     return { entry, format: 'contrast', choiceKeys: shuffle([entry.itemKey, entry.otherKey], rng) };
@@ -34,6 +36,7 @@ export function buildQuestion(args: {
     mode: spec.distractors ?? 'random',
     confusions,
     rng,
+    eligible,
   });
   return { entry, format: spec.format, choiceKeys: shuffle([target.key, ...distractors], rng) };
 }

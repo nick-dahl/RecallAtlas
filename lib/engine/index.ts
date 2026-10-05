@@ -14,6 +14,7 @@ export {
   nextEntry,
   canIntroduce,
   newItemsInOrder,
+  untouchedItemsInOrder,
   type StudySession,
   type StudyMode,
 } from './session';

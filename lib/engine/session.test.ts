@@ -4,6 +4,7 @@ import { graduate } from './scheduler';
 import {
   canIntroduce,
   isSessionComplete,
+  newItemsInOrder,
   nextEntry,
   queueContrast,
   recordContrastServed,
@@ -12,7 +13,8 @@ import {
   startStudySession,
 } from './session';
 import { initialStates, stateKey } from './state';
-import { days, NOW, TEST_COURSE } from './test-fixtures';
+import { applyPlacementAnswer } from './placement';
+import { days, NOW, TEST_COURSE, TEST_MAP_COURSE } from './test-fixtures';
 import type { PromptState } from './types';
 
 const course = TEST_COURSE;
@@ -196,5 +198,24 @@ describe('session bookkeeping', () => {
     expect(s.lastAsked[stateKey('EC', 'flag_to_name')]).toBe(0);
     expect(s.lastMissed[stateKey('EC', 'flag_to_name')]).toBe(true);
     expect(s.recentItems).toEqual(['EC']);
+  });
+});
+
+describe('partially placed items', () => {
+  const placed = () =>
+    applyPlacementAnswer({ course: TEST_MAP_COURSE, states: initialStates(TEST_MAP_COURSE), itemKey: 'US', correct: true, now: NOW });
+
+  it('still counts an item with a new capital as new', () => {
+    expect(newItemsInOrder(TEST_MAP_COURSE, placed())[0].key).toBe('US');
+  });
+
+  it('introduces it in study, which moves only its capital into learning', () => {
+    const states = placed();
+    expect(nextEntry({ course: TEST_MAP_COURSE, states, session: startStudySession(), now: NOW })).toEqual({
+      kind: 'intro',
+      itemKey: 'US',
+    });
+    const us = states.filter((s) => s.itemKey === 'US').map(introduce);
+    expect(us.map((s) => s.phase)).toEqual(['review', 'review', 'learning']);
   });
 });

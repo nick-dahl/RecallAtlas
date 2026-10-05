@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { editDistance, gradeChoice, gradeTyped, normalize } from './grading';
-import { fixtureItem, ITEMS } from './test-fixtures';
+import { fixtureItem, ITEMS, TEST_MAP_COURSE } from './test-fixtures';
 
 describe('normalize', () => {
   it.each([
@@ -77,5 +77,35 @@ describe('gradeChoice', () => {
     expect(gradeChoice('EC', 'EC')).toEqual({ correct: true, typo: false, answeredItemKey: null });
     expect(gradeChoice('CO', 'EC')).toEqual({ correct: false, typo: false, answeredItemKey: 'CO' });
     expect(gradeChoice(null, 'EC')).toEqual({ correct: false, typo: false, answeredItemKey: null });
+  });
+});
+
+describe('gradeTyped with an answer field', () => {
+  const items = TEST_MAP_COURSE.items;
+  const item = (k: string) => items.find((i) => i.key === k)!;
+
+  it('grades capitals, with aliases and accents', () => {
+    expect(gradeTyped('Bogota', item('CO'), items, 'capital')).toMatchObject({ correct: true, typo: false });
+    expect(gradeTyped('washington', item('US'), items, 'capital').correct).toBe(true);
+    expect(gradeTyped('Washington DC', item('US'), items, 'capital').correct).toBe(true);
+    expect(gradeTyped('Colombia', item('CO'), items, 'capital').correct).toBe(false);
+  });
+
+  it('tolerates typos and transpositions', () => {
+    expect(gradeTyped('Quitp', item('EC'), items, 'capital')).toMatchObject({ correct: true, typo: true });
+    expect(gradeTyped('Bucharets', item('RO'), items, 'capital')).toMatchObject({ correct: true, typo: true });
+  });
+
+  it("records another item's capital as a confusion", () => {
+    expect(gradeTyped('Lima', item('EC'), items, 'capital')).toEqual({ correct: false, typo: false, answeredItemKey: 'PE' });
+  });
+
+  it('defaults to names, so flags are unchanged', () => {
+    expect(gradeTyped('Ecuador', item('EC'), items).correct).toBe(true);
+    expect(gradeTyped('Quito', item('EC'), items).correct).toBe(false);
+  });
+
+  it('never accepts an answer for a field the item lacks', () => {
+    expect(gradeTyped('Quito', fixtureItem('EC'), ITEMS, 'capital').correct).toBe(false);
   });
 });

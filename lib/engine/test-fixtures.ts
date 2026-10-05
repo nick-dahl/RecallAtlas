@@ -1,4 +1,5 @@
 import { FLAG_PROMPT_TYPES } from '@/lib/content/flag-prompts';
+import { MAP_PROMPT_TYPES } from '@/lib/content/map-prompts';
 import type { CourseDef, Item } from './types';
 
 function item(
@@ -39,6 +40,39 @@ export const TEST_COURSE: CourseDef = {
   placementPromptType: 'flag_to_name',
   promptTypes: FLAG_PROMPT_TYPES,
   items: ITEMS,
+};
+
+const CAPITALS: Record<string, [string, ...string[]]> = {
+  US: ['Washington, D.C.', 'Washington'],
+  EC: ['Quito'],
+  CO: ['Bogotá'],
+  VE: ['Caracas'],
+  PE: ['Lima'],
+  TD: ["N'Djamena"],
+  RO: ['Bucharest'],
+  NE: ['Niamey'],
+  NG: ['Abuja'],
+  CI: ['Yamoussoukro'],
+  GM: ['Banjul'],
+  IN: ['New Delhi'],
+  IE: ['Dublin'],
+  DM: ['Roseau'],
+  DO: ['Santo Domingo'],
+  LC: ['Castries'],
+  MG: ['Antananarivo'],
+};
+
+/** The fixture items as a map course: Find / Name / Capital, placement graduating Find + Name. */
+export const TEST_MAP_COURSE: CourseDef = {
+  slug: 'test-map',
+  title: 'Test Map',
+  placementPromptType: 'find',
+  placementGraduates: ['find', 'name'],
+  promptTypes: MAP_PROMPT_TYPES,
+  items: ITEMS.map((i) => {
+    const [text, ...aliases] = CAPITALS[i.key];
+    return { ...i, answers: { capital: { text, aliases } } };
+  }),
 };
 
 export function fixtureItem(key: string): Item {

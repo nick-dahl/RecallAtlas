@@ -5,8 +5,9 @@ export type Phase = 'new' | 'learning' | 'review';
 export type Rung = 0 | 1 | 2 | 3;
 /** Rungs that produce a graded question. */
 export type QuestionRung = 1 | 2 | 3;
-export type Format = 'intro' | 'mc-text' | 'flag-grid' | 'typed' | 'contrast';
-export type DistractorMode = 'random' | 'hard';
+export type Format = 'intro' | 'mc-text' | 'flag-grid' | 'typed' | 'contrast' | 'map-pick' | 'map-click';
+/** random: other groups first; hard: confusions, look-alikes, same group; local: same group first. */
+export type DistractorMode = 'random' | 'hard' | 'local';
 /** Returns a float in [0, 1). Injected so the engine stays deterministic in tests. */
 export type Rng = () => number;
 
@@ -19,10 +20,12 @@ export interface Item {
   itemOrder: number;
   /** Keys of statically similar items (seed confusions). */
   lookalikes: string[];
+  /** Answers other than the name, by answer field (e.g. `capital`). */
+  answers?: Record<string, { text: string; aliases: string[] }>;
 }
 
 export interface FormatSpec {
-  format: 'mc-text' | 'flag-grid' | 'typed';
+  format: 'mc-text' | 'flag-grid' | 'typed' | 'map-pick' | 'map-click';
   /** Total options shown, including the correct one. Omitted for typed. */
   choices?: number;
   distractors?: DistractorMode;
@@ -31,6 +34,8 @@ export interface FormatSpec {
 export interface PromptTypeDef {
   id: string;
   label: string;
+  /** What typed answers are graded by and mc-text shows: 'name' (default) or an `Item.answers` key. */
+  answerField?: string;
   formats: Record<QuestionRung, FormatSpec>;
 }
 
@@ -38,6 +43,8 @@ export interface CourseDef {
   slug: string;
   title: string;
   placementPromptType: string;
+  /** Prompt types a correct placement answer graduates (default: all). */
+  placementGraduates?: string[];
   promptTypes: PromptTypeDef[];
   items: Item[];
 }

@@ -16,6 +16,9 @@ const RENDERERS: Record<Format, ComponentType<RendererProps>> = {
   'flag-grid': FlagGrid,
   typed: TypedAnswer,
   contrast: ContrastDrill,
+  // Interim until the World Map renderers land (Plan 6); no map course reaches the player yet.
+  'map-pick': ChoiceList,
+  'map-click': TypedAnswer,
 };
 
 export function QuestionStage(props: RendererProps & { onContinue: () => void }) {
