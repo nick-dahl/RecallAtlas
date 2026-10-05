@@ -15,7 +15,7 @@ export interface FrameDef {
 /** Fixed, pre-framed views (map spec §3, §11). The content build validates every item fits. */
 export const FRAMES: FrameDef[] = [
   { id: 'western-northern-europe', kind: 'region', extent: [-25, 41, 32, 71.5] },
-  { id: 'southern-europe-balkans', kind: 'region', extent: [-10, 34.5, 30, 48.5] },
+  { id: 'southern-europe-balkans', kind: 'region', extent: [-10, 34, 35.5, 48.5] },
   { id: 'central-eastern-europe', kind: 'region', extent: [5, 42, 60, 62] },
   { id: 'north-central-america', kind: 'region', extent: [-170, 6, -10, 84] },
   { id: 'caribbean', kind: 'region', extent: [-86, 9.5, -58.5, 27.5] },

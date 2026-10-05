@@ -15,6 +15,8 @@ export interface CountryShape {
   label: [number, number];
   /** Countries too small to click reliably get a dot with a padded hit area. */
   marker?: MarkerShape;
+  /** Mostly cut off by the frame edge: clickable, but never offered as a candidate. */
+  sliver?: true;
 }
 
 export interface FrameData {

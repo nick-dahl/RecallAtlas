@@ -4,6 +4,7 @@ import { optimize } from 'svgo';
 import worldCountries from 'world-countries';
 import { GROUP_ORDER } from './content-config';
 import { buildCountries, type RawCountry } from './lib/build-countries';
+import { buildMaps } from './lib/maps/build-maps';
 
 const root = process.cwd();
 const { countries, warnings } = buildCountries(worldCountries as unknown as RawCountry[]);
@@ -39,3 +40,25 @@ console.log(
   `Wrote ${countries.length} countries to content/countries.json and ${countries.length} flags ` +
     `(${(totalBytes / 1024).toFixed(0)} KB) to content/flags/.`,
 );
+
+const maps = buildMaps(countries);
+for (const w of maps.warnings) console.warn(`warn: ${w}`);
+if (maps.errors.length > 0) {
+  for (const e of maps.errors) console.error(`error: ${e}`);
+  throw new Error(`Map validation failed (${maps.errors.length} errors); nothing written to content/maps or public/maps.`);
+}
+
+const svgDest = path.join(root, 'public', 'maps');
+const hitDest = path.join(root, 'content', 'maps');
+for (const dir of [svgDest, hitDest]) {
+  fs.rmSync(dir, { recursive: true, force: true });
+  fs.mkdirSync(dir, { recursive: true });
+}
+const sizes: string[] = [];
+for (const { def, svg, data } of maps.frames) {
+  fs.writeFileSync(path.join(svgDest, `${def.id}.svg`), svg);
+  fs.writeFileSync(path.join(hitDest, `${def.id}.hit.json`), JSON.stringify(data));
+  sizes.push(`${def.id} ${(Buffer.byteLength(svg) / 1024).toFixed(0)} KB`);
+}
+fs.writeFileSync(path.join(hitDest, 'world-atlas.json'), JSON.stringify(maps.atlas));
+console.log(`Wrote ${maps.frames.length} map frames (base SVG sizes: ${sizes.join(', ')}) and the world atlas.`);
