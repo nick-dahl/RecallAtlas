@@ -65,7 +65,10 @@ for (const { def, svg, data } of maps.frames) {
 fs.writeFileSync(path.join(hitDest, 'world-atlas.json'), JSON.stringify(maps.atlas));
 console.log(`Wrote ${maps.frames.length} map frames (base SVG sizes: ${sizes.join(', ')}) and the world atlas.`);
 
-const presidents = buildPresidents(PRESIDENTS, ERAS, FACE_LOOKALIKE_PAIRS, SHARED_SPAN_PAIRS);
+// Portraits come from `npm run content:portraits` (committed); the build only checks they exist.
+const presidents = buildPresidents(PRESIDENTS, ERAS, FACE_LOOKALIKE_PAIRS, SHARED_SPAN_PAIRS, {
+  hasPortrait: (key) => fs.existsSync(path.join(root, 'content', 'portraits', `${key}.webp`)),
+});
 fs.writeFileSync(
   path.join(root, 'content', 'presidents.json'),
   JSON.stringify({ presidents, orderExclusions: SHARED_SPAN_PAIRS }, null, 2) + '\n',

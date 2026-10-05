@@ -60,7 +60,7 @@ export const PRESIDENTS: PresidentEntry[] = [
   { key: 'harding', name: 'Warren G. Harding', aliases: ['Harding', 'Warren Harding'], numbers: [29], startYears: [1921], party: R, era: 'Progressive era & twenties', wikipedia: 'Warren_G._Harding' },
   { key: 'coolidge', name: 'Calvin Coolidge', aliases: ['Coolidge'], numbers: [30], startYears: [1923], party: R, era: 'Progressive era & twenties', wikipedia: 'Calvin_Coolidge' },
   { key: 'hoover', name: 'Herbert Hoover', aliases: ['Hoover'], numbers: [31], startYears: [1929], party: R, era: 'Progressive era & twenties', wikipedia: 'Herbert_Hoover' },
-  { key: 'f-roosevelt', name: 'Franklin D. Roosevelt', aliases: ['Franklin Roosevelt', 'FDR'], numbers: [32], startYears: [1933], party: D, era: 'Depression, war & postwar', wikipedia: 'Franklin_D._Roosevelt' },
+  { key: 'f-roosevelt', name: 'Franklin D. Roosevelt', aliases: ['Franklin Roosevelt', 'FDR'], numbers: [32], startYears: [1933], party: D, era: 'Depression, war & postwar', wikipedia: 'Franklin_D._Roosevelt', commonsFile: 'FDR_in_1933.jpg' },
   { key: 'truman', name: 'Harry S. Truman', aliases: ['Truman', 'Harry Truman'], numbers: [33], startYears: [1945], party: D, era: 'Depression, war & postwar', wikipedia: 'Harry_S._Truman' },
   { key: 'eisenhower', name: 'Dwight D. Eisenhower', aliases: ['Eisenhower', 'Dwight Eisenhower'], numbers: [34], startYears: [1953], party: R, era: 'Depression, war & postwar', wikipedia: 'Dwight_D._Eisenhower' },
   { key: 'kennedy', name: 'John F. Kennedy', aliases: ['Kennedy', 'John Kennedy', 'JFK'], numbers: [35], startYears: [1961], party: D, era: 'Depression, war & postwar', wikipedia: 'John_F._Kennedy' },

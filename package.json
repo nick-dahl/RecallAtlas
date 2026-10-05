@@ -14,7 +14,8 @@
     "test:integration": "vitest run --config vitest.integration.config.mts",
     "test:e2e": "playwright test",
     "db:push": "tsx scripts/db-push.ts",
-    "admin:set-password": "tsx scripts/set-admin-password.ts"
+    "admin:set-password": "tsx scripts/set-admin-password.ts",
+    "content:portraits": "tsx scripts/fetch-portraits.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
@@ -43,6 +44,7 @@
     "flag-icons": "^7.5.0",
     "pg": "^8.23.1",
     "polylabel": "^2.1.0",
+    "sharp": "^0.35.5",
     "svgo": "^4.1.0",
     "tailwindcss": "^4",
     "topojson-client": "^3.1.0",
