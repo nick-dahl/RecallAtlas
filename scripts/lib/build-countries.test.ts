@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import worldCountries from 'world-countries';
 import { describe, expect, it } from 'vitest';
-import { ALIAS_DENYLIST, GROUP_ORDER, SHORT_ALIAS_WHITELIST } from '../content-config';
+import { normalize } from '../../lib/engine/grading';
+import { ALIAS_DENYLIST, GROUP_ORDER, MAP_TERRITORIES, SHORT_ALIAS_WHITELIST } from '../content-config';
 import { buildCountries, type RawCountry } from './build-countries';
 
 const raw = worldCountries as unknown as RawCountry[];
@@ -11,7 +12,7 @@ const byKey = new Map(countries.map((c) => [c.key, c]));
 
 describe('buildCountries (real data)', () => {
   it('selects 193 UN members plus VA, PS, TW, XK', () => {
-    expect(countries).toHaveLength(197);
+    expect(countries.filter((c) => !c.territory)).toHaveLength(197);
     for (const k of ['VA', 'PS', 'TW', 'XK', 'US', 'EC']) expect(byKey.has(k)).toBe(true);
   });
 
@@ -90,6 +91,44 @@ describe('buildCountries (real data)', () => {
     expect(byKey.get('HR')!.flagLookalikes).toContain('SK');
   });
 
+  it('adds the World Map territories, flagged as territories', () => {
+    const territories = countries.filter((c) => c.territory).map((c) => c.key).sort();
+    expect(territories).toEqual([...MAP_TERRITORIES].sort());
+    expect(countries).toHaveLength(197 + MAP_TERRITORIES.length);
+  });
+
+  it('gives every record a capital, applying overrides and aliases', () => {
+    for (const c of countries) expect(c.capital.length).toBeGreaterThan(0);
+    expect(byKey.get('ZA')).toMatchObject({ capital: 'Pretoria' });
+    expect(byKey.get('ZA')!.capitalAliases).toEqual(expect.arrayContaining(['Cape Town', 'Bloemfontein']));
+    expect(byKey.get('NL')!.capitalAliases).not.toContain('The Hague');
+    expect(byKey.get('IL')!.capitalNote).toMatch(/disputed/);
+    expect(byKey.get('UA')!.capitalAliases).toContain('Kiev');
+    expect(byKey.get('GL')!.capital).toBe('Nuuk');
+    expect(byKey.get('PF')!.capital).toBe('Papeete');
+    expect(byKey.get('US')!.capitalAliases).toContain('Washington');
+  });
+
+  it('never lets two records accept the same normalized capital', () => {
+    const owner = new Map<string, string>();
+    for (const c of countries) {
+      for (const n of new Set([c.capital, ...c.capitalAliases].map(normalize))) {
+        expect(owner.get(n) ?? c.key).toBe(c.key);
+        owner.set(n, c.key);
+      }
+    }
+  });
+
+  it('derives neighbours from borders and six nearby records', () => {
+    expect(byKey.get('BO')!.neighbors).toEqual(expect.arrayContaining(['PE', 'BR', 'AR', 'CL', 'PY']));
+    expect(byKey.get('GF')!.neighbors).toEqual(expect.arrayContaining(['BR', 'SR']));
+    for (const c of countries) {
+      expect(c.nearby).toHaveLength(6);
+      expect(c.nearby).not.toContain(c.key);
+      for (const k of [...c.neighbors, ...c.nearby]) expect(byKey.has(k)).toBe(true);
+    }
+  });
+
   it('matches the committed content/countries.json (run `npm run content:build` if this fails)', () => {
     const committed = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content', 'countries.json'), 'utf8'));
     expect(countries, 'content/countries.json is stale — run `npm run content:build` and commit the result').toEqual(
@@ -100,6 +139,11 @@ describe('buildCountries (real data)', () => {
 
 const fake = (over: Partial<RawCountry>): RawCountry => ({
   cca2: 'AA',
+  cca3: 'AAA',
+  ccn3: '999',
+  capital: ['Aland City'],
+  borders: [],
+  latlng: [50, 10],
   unMember: true,
   region: 'Europe',
   subregion: 'Western Europe',
@@ -121,8 +165,10 @@ describe('buildCountries (validation)', () => {
     const r = buildCountries(
       [
         fake({ cca2: 'AA', name: { common: 'Aland', official: 'Aland' }, altSpellings: ['Shared Name'] }),
-        fake({ cca2: 'BB', name: { common: 'Bland', official: 'Bland' }, altSpellings: ['Shared Name'] }),
+        fake({ cca2: 'BB', cca3: 'BBB', name: { common: 'Bland', official: 'Bland' }, altSpellings: ['Shared Name'], capital: ['Bland City'] }),
       ],
+      [],
+      {},
       [],
     );
     expect(r.countries.flatMap((c) => c.aliases)).not.toContain('Shared Name');
@@ -130,6 +176,20 @@ describe('buildCountries (validation)', () => {
   });
 
   it('throws when a look-alike pair references an unknown key', () => {
-    expect(() => buildCountries([fake({})], [['AA', 'ZZ']])).toThrow(/ZZ/);
+    expect(() => buildCountries([fake({})], [['AA', 'ZZ']], {}, [])).toThrow(/ZZ/);
+  });
+
+  it('throws when a record has no capital', () => {
+    expect(() => buildCountries([fake({ capital: [] })], [], {}, [])).toThrow(/capital/);
+  });
+
+  it('throws when two records accept the same capital', () => {
+    expect(() =>
+      buildCountries([fake({ cca2: 'AA' }), fake({ cca2: 'BB', cca3: 'BBB', name: { common: 'Bland', official: 'Bland' } })], [], {}, []),
+    ).toThrow(/aland city/);
+  });
+
+  it('throws on a capital override for an unknown key', () => {
+    expect(() => buildCountries([fake({})], [], { ZZ: { capital: 'X' } }, [])).toThrow(/ZZ/);
   });
 });

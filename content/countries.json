@@ -18,6 +18,29 @@
     "itemOrder": 1,
     "flagLookalikes": [
       "DE"
+    ],
+    "territory": false,
+    "ccn3": "056",
+    "capital": "Brussels",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DE",
+      "FR",
+      "LU",
+      "NL"
+    ],
+    "nearby": [
+      "LU",
+      "NL",
+      "DE",
+      "CH",
+      "GB",
+      "FR"
+    ],
+    "latlng": [
+      50.83333333,
+      4
     ]
   },
   {
@@ -35,6 +58,26 @@
     "itemOrder": 2,
     "flagLookalikes": [
       "NO"
+    ],
+    "territory": false,
+    "ccn3": "208",
+    "capital": "Copenhagen",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DE"
+    ],
+    "nearby": [
+      "NL",
+      "DE",
+      "NO",
+      "BE",
+      "SE",
+      "LU"
+    ],
+    "latlng": [
+      56,
+      10
     ]
   },
   {
@@ -50,7 +93,61 @@
     "group": "Western & Northern Europe",
     "groupOrder": 1,
     "itemOrder": 3,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "233",
+    "capital": "Tallinn",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "LV",
+      "RU"
+    ],
+    "nearby": [
+      "LV",
+      "LT",
+      "FI",
+      "BY",
+      "SE",
+      "PL"
+    ],
+    "latlng": [
+      59,
+      26
+    ]
+  },
+  {
+    "key": "FO",
+    "name": "Faroe Islands",
+    "aliases": [
+      "Føroyar",
+      "Færøerne",
+      "Faeroe Islands"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "group": "Western & Northern Europe",
+    "groupOrder": 1,
+    "itemOrder": 4,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "234",
+    "capital": "Tórshavn",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "IS",
+      "NO",
+      "GB",
+      "IE",
+      "SE",
+      "DK"
+    ],
+    "latlng": [
+      62,
+      -7
+    ]
   },
   {
     "key": "FI",
@@ -65,9 +162,31 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 4,
+    "itemOrder": 5,
     "flagLookalikes": [
       "SE"
+    ],
+    "territory": false,
+    "ccn3": "246",
+    "capital": "Helsinki",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "NO",
+      "RU",
+      "SE"
+    ],
+    "nearby": [
+      "EE",
+      "SE",
+      "LV",
+      "NO",
+      "LT",
+      "BY"
+    ],
+    "latlng": [
+      64,
+      26
     ]
   },
   {
@@ -81,9 +200,36 @@
     "subregion": "Western Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 5,
+    "itemOrder": 6,
     "flagLookalikes": [
       "NL"
+    ],
+    "territory": false,
+    "ccn3": "250",
+    "capital": "Paris",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AD",
+      "BE",
+      "CH",
+      "DE",
+      "ES",
+      "IT",
+      "LU",
+      "MC"
+    ],
+    "nearby": [
+      "AD",
+      "CH",
+      "MC",
+      "LU",
+      "BE",
+      "LI"
+    ],
+    "latlng": [
+      46,
+      2
     ]
   },
   {
@@ -97,9 +243,37 @@
     "subregion": "Western Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 6,
+    "itemOrder": 7,
     "flagLookalikes": [
       "BE"
+    ],
+    "territory": false,
+    "ccn3": "276",
+    "capital": "Berlin",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AT",
+      "BE",
+      "CH",
+      "CZ",
+      "DK",
+      "FR",
+      "LU",
+      "NL",
+      "PL"
+    ],
+    "nearby": [
+      "LU",
+      "NL",
+      "BE",
+      "LI",
+      "CH",
+      "CZ"
+    ],
+    "latlng": [
+      51,
+      9
     ]
   },
   {
@@ -113,9 +287,27 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 7,
+    "itemOrder": 8,
     "flagLookalikes": [
       "NO"
+    ],
+    "territory": false,
+    "ccn3": "352",
+    "capital": "Reykjavik",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "FO",
+      "GL",
+      "NO",
+      "IE",
+      "GB",
+      "SE"
+    ],
+    "latlng": [
+      65,
+      -18
     ]
   },
   {
@@ -130,10 +322,30 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 8,
+    "itemOrder": 9,
     "flagLookalikes": [
       "CI",
       "IT"
+    ],
+    "territory": false,
+    "ccn3": "372",
+    "capital": "Dublin",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GB"
+    ],
+    "nearby": [
+      "GB",
+      "BE",
+      "NL",
+      "FO",
+      "LU",
+      "FR"
+    ],
+    "latlng": [
+      53,
+      -8
     ]
   },
   {
@@ -147,9 +359,32 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 9,
+    "itemOrder": 10,
     "flagLookalikes": [
       "AT"
+    ],
+    "territory": false,
+    "ccn3": "428",
+    "capital": "Riga",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BY",
+      "EE",
+      "LT",
+      "RU"
+    ],
+    "nearby": [
+      "LT",
+      "EE",
+      "BY",
+      "PL",
+      "FI",
+      "SE"
+    ],
+    "latlng": [
+      57,
+      25
     ]
   },
   {
@@ -163,10 +398,33 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 10,
+    "itemOrder": 11,
     "flagLookalikes": [
       "BO",
       "GH"
+    ],
+    "territory": false,
+    "ccn3": "440",
+    "capital": "Vilnius",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BY",
+      "LV",
+      "PL",
+      "RU"
+    ],
+    "nearby": [
+      "LV",
+      "EE",
+      "BY",
+      "PL",
+      "SE",
+      "DK"
+    ],
+    "latlng": [
+      56,
+      24
     ]
   },
   {
@@ -182,9 +440,31 @@
     "subregion": "Western Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 11,
+    "itemOrder": 12,
     "flagLookalikes": [
       "NL"
+    ],
+    "territory": false,
+    "ccn3": "442",
+    "capital": "Luxembourg",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BE",
+      "DE",
+      "FR"
+    ],
+    "nearby": [
+      "BE",
+      "DE",
+      "NL",
+      "CH",
+      "LI",
+      "FR"
+    ],
+    "latlng": [
+      49.75,
+      6.16666666
     ]
   },
   {
@@ -198,10 +478,30 @@
     "subregion": "Western Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 12,
+    "itemOrder": 13,
     "flagLookalikes": [
       "ID",
       "PL"
+    ],
+    "territory": false,
+    "ccn3": "492",
+    "capital": "Monaco",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "FR"
+    ],
+    "nearby": [
+      "CH",
+      "SM",
+      "LI",
+      "IT",
+      "VA",
+      "FR"
+    ],
+    "latlng": [
+      43.73333333,
+      7.4
     ]
   },
   {
@@ -216,11 +516,32 @@
     "subregion": "Western Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 13,
+    "itemOrder": 14,
     "flagLookalikes": [
       "FR",
       "LU",
       "RU"
+    ],
+    "territory": false,
+    "ccn3": "528",
+    "capital": "Amsterdam",
+    "capitalAliases": [],
+    "capitalNote": "The Hague is the seat of government, not the capital.",
+    "neighbors": [
+      "BE",
+      "DE"
+    ],
+    "nearby": [
+      "BE",
+      "DE",
+      "LU",
+      "DK",
+      "GB",
+      "CH"
+    ],
+    "latlng": [
+      52.5,
+      5.75
     ]
   },
   {
@@ -237,10 +558,32 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 14,
+    "itemOrder": 15,
     "flagLookalikes": [
       "DK",
       "IS"
+    ],
+    "territory": false,
+    "ccn3": "578",
+    "capital": "Oslo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "FI",
+      "RU",
+      "SE"
+    ],
+    "nearby": [
+      "SE",
+      "DK",
+      "FI",
+      "FO",
+      "EE",
+      "LV"
+    ],
+    "latlng": [
+      62,
+      10
     ]
   },
   {
@@ -254,9 +597,30 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 15,
+    "itemOrder": 16,
     "flagLookalikes": [
       "FI"
+    ],
+    "territory": false,
+    "ccn3": "752",
+    "capital": "Stockholm",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "FI",
+      "NO"
+    ],
+    "nearby": [
+      "NO",
+      "FI",
+      "EE",
+      "DK",
+      "LV",
+      "LT"
+    ],
+    "latlng": [
+      62,
+      15
     ]
   },
   {
@@ -272,8 +636,28 @@
     "subregion": "Northern Europe",
     "group": "Western & Northern Europe",
     "groupOrder": 1,
-    "itemOrder": 16,
-    "flagLookalikes": []
+    "itemOrder": 17,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "826",
+    "capital": "London",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IE"
+    ],
+    "nearby": [
+      "IE",
+      "BE",
+      "NL",
+      "LU",
+      "DK",
+      "DE"
+    ],
+    "latlng": [
+      54,
+      -2
+    ]
   },
   {
     "key": "AL",
@@ -289,7 +673,30 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "008",
+    "capital": "Tirana",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GR",
+      "ME",
+      "MK",
+      "XK"
+    ],
+    "nearby": [
+      "ME",
+      "MK",
+      "XK",
+      "GR",
+      "RS",
+      "BA"
+    ],
+    "latlng": [
+      41,
+      20
+    ]
   },
   {
     "key": "AD",
@@ -307,6 +714,27 @@
       "MD",
       "RO",
       "TD"
+    ],
+    "territory": false,
+    "ccn3": "020",
+    "capital": "Andorra la Vella",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "ES",
+      "FR"
+    ],
+    "nearby": [
+      "FR",
+      "MC",
+      "ES",
+      "CH",
+      "LI",
+      "PT"
+    ],
+    "latlng": [
+      42.5,
+      1.5
     ]
   },
   {
@@ -323,6 +751,28 @@
     "itemOrder": 3,
     "flagLookalikes": [
       "XK"
+    ],
+    "territory": false,
+    "ccn3": "070",
+    "capital": "Sarajevo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "HR",
+      "ME",
+      "RS"
+    ],
+    "nearby": [
+      "ME",
+      "HR",
+      "RS",
+      "XK",
+      "SI",
+      "HU"
+    ],
+    "latlng": [
+      44,
+      18
     ]
   },
   {
@@ -336,7 +786,31 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "100",
+    "capital": "Sofia",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GR",
+      "MK",
+      "RO",
+      "RS",
+      "TR"
+    ],
+    "nearby": [
+      "MK",
+      "XK",
+      "RO",
+      "RS",
+      "ME",
+      "AL"
+    ],
+    "latlng": [
+      43,
+      25
+    ]
   },
   {
     "key": "HR",
@@ -353,6 +827,30 @@
     "itemOrder": 5,
     "flagLookalikes": [
       "SK"
+    ],
+    "territory": false,
+    "ccn3": "191",
+    "capital": "Zagreb",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BA",
+      "HU",
+      "ME",
+      "RS",
+      "SI"
+    ],
+    "nearby": [
+      "SI",
+      "BA",
+      "SM",
+      "AT",
+      "IT",
+      "HU"
+    ],
+    "latlng": [
+      45.16666666,
+      15.5
     ]
   },
   {
@@ -369,7 +867,25 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 6,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "196",
+    "capital": "Nicosia",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "LB",
+      "PS",
+      "IL",
+      "SY",
+      "TR",
+      "JO"
+    ],
+    "latlng": [
+      35,
+      33
+    ]
   },
   {
     "key": "GR",
@@ -383,7 +899,30 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 7,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "300",
+    "capital": "Athens",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AL",
+      "BG",
+      "MK",
+      "TR"
+    ],
+    "nearby": [
+      "AL",
+      "MK",
+      "XK",
+      "ME",
+      "BG",
+      "RS"
+    ],
+    "latlng": [
+      39,
+      22
+    ]
   },
   {
     "key": "IT",
@@ -400,6 +939,31 @@
     "flagLookalikes": [
       "IE",
       "MX"
+    ],
+    "territory": false,
+    "ccn3": "380",
+    "capital": "Rome",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AT",
+      "CH",
+      "FR",
+      "SI",
+      "SM",
+      "VA"
+    ],
+    "nearby": [
+      "VA",
+      "SM",
+      "HR",
+      "SI",
+      "BA",
+      "MC"
+    ],
+    "latlng": [
+      42.83333333,
+      12.83333333
     ]
   },
   {
@@ -415,6 +979,31 @@
     "itemOrder": 9,
     "flagLookalikes": [
       "BA"
+    ],
+    "territory": false,
+    "ccn3": "",
+    "capital": "Pristina",
+    "capitalAliases": [
+      "Prishtina"
+    ],
+    "capitalNote": null,
+    "neighbors": [
+      "AL",
+      "ME",
+      "MK",
+      "RS"
+    ],
+    "nearby": [
+      "MK",
+      "RS",
+      "ME",
+      "AL",
+      "BA",
+      "BG"
+    ],
+    "latlng": [
+      42.666667,
+      21.166667
     ]
   },
   {
@@ -429,7 +1018,25 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 10,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "470",
+    "capital": "Valletta",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "TN",
+      "VA",
+      "AL",
+      "GR",
+      "IT",
+      "ME"
+    ],
+    "latlng": [
+      35.83333333,
+      14.58333333
+    ]
   },
   {
     "key": "ME",
@@ -442,7 +1049,31 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 11,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "499",
+    "capital": "Podgorica",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AL",
+      "BA",
+      "HR",
+      "RS",
+      "XK"
+    ],
+    "nearby": [
+      "XK",
+      "AL",
+      "BA",
+      "RS",
+      "MK",
+      "HR"
+    ],
+    "latlng": [
+      42.5,
+      19.3
+    ]
   },
   {
     "key": "MK",
@@ -457,7 +1088,31 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 12,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "807",
+    "capital": "Skopje",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AL",
+      "BG",
+      "GR",
+      "RS",
+      "XK"
+    ],
+    "nearby": [
+      "XK",
+      "AL",
+      "ME",
+      "RS",
+      "BG",
+      "GR"
+    ],
+    "latlng": [
+      41.83333333,
+      22
+    ]
   },
   {
     "key": "PT",
@@ -471,7 +1126,27 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 13,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "620",
+    "capital": "Lisbon",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "ES"
+    ],
+    "nearby": [
+      "ES",
+      "AD",
+      "MA",
+      "FR",
+      "MC",
+      "IE"
+    ],
+    "latlng": [
+      39.5,
+      -8
+    ]
   },
   {
     "key": "RO",
@@ -489,6 +1164,30 @@
       "AD",
       "MD",
       "TD"
+    ],
+    "territory": false,
+    "ccn3": "642",
+    "capital": "Bucharest",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BG",
+      "HU",
+      "MD",
+      "RS",
+      "UA"
+    ],
+    "nearby": [
+      "MD",
+      "BG",
+      "RS",
+      "HU",
+      "XK",
+      "SK"
+    ],
+    "latlng": [
+      46,
+      25
     ]
   },
   {
@@ -504,7 +1203,29 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 15,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "674",
+    "capital": "City of San Marino",
+    "capitalAliases": [
+      "San Marino"
+    ],
+    "capitalNote": null,
+    "neighbors": [
+      "IT"
+    ],
+    "nearby": [
+      "IT",
+      "VA",
+      "HR",
+      "SI",
+      "MC",
+      "AT"
+    ],
+    "latlng": [
+      43.76666666,
+      12.41666666
+    ]
   },
   {
     "key": "RS",
@@ -521,6 +1242,33 @@
     "itemOrder": 16,
     "flagLookalikes": [
       "RU"
+    ],
+    "territory": false,
+    "ccn3": "688",
+    "capital": "Belgrade",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BA",
+      "BG",
+      "HR",
+      "HU",
+      "ME",
+      "MK",
+      "RO",
+      "XK"
+    ],
+    "nearby": [
+      "XK",
+      "ME",
+      "BA",
+      "MK",
+      "BG",
+      "HU"
+    ],
+    "latlng": [
+      44,
+      21
     ]
   },
   {
@@ -535,7 +1283,30 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 17,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "724",
+    "capital": "Madrid",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AD",
+      "FR",
+      "MA",
+      "PT"
+    ],
+    "nearby": [
+      "PT",
+      "AD",
+      "FR",
+      "MA",
+      "MC",
+      "CH"
+    ],
+    "latlng": [
+      40,
+      -4
+    ]
   },
   {
     "key": "VA",
@@ -552,7 +1323,27 @@
     "group": "Southern Europe & Balkans",
     "groupOrder": 2,
     "itemOrder": 18,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "336",
+    "capital": "Vatican City",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IT"
+    ],
+    "nearby": [
+      "IT",
+      "SM",
+      "HR",
+      "MC",
+      "SI",
+      "BA"
+    ],
+    "latlng": [
+      41.9,
+      12.45
+    ]
   },
   {
     "key": "AT",
@@ -569,6 +1360,33 @@
     "itemOrder": 1,
     "flagLookalikes": [
       "LV"
+    ],
+    "territory": false,
+    "ccn3": "040",
+    "capital": "Vienna",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CH",
+      "CZ",
+      "DE",
+      "HU",
+      "IT",
+      "LI",
+      "SI",
+      "SK"
+    ],
+    "nearby": [
+      "SI",
+      "LI",
+      "HR",
+      "CZ",
+      "SM",
+      "CH"
+    ],
+    "latlng": [
+      47.33333333,
+      13.33333333
     ]
   },
   {
@@ -583,7 +1401,31 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 2,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "112",
+    "capital": "Minsk",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "LT",
+      "LV",
+      "PL",
+      "RU",
+      "UA"
+    ],
+    "nearby": [
+      "LT",
+      "LV",
+      "UA",
+      "PL",
+      "MD",
+      "EE"
+    ],
+    "latlng": [
+      53,
+      28
+    ]
   },
   {
     "key": "CZ",
@@ -601,6 +1443,29 @@
     "itemOrder": 3,
     "flagLookalikes": [
       "PH"
+    ],
+    "territory": false,
+    "ccn3": "203",
+    "capital": "Prague",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AT",
+      "DE",
+      "PL",
+      "SK"
+    ],
+    "nearby": [
+      "AT",
+      "SK",
+      "PL",
+      "SI",
+      "HU",
+      "DE"
+    ],
+    "latlng": [
+      49.75,
+      15.5
     ]
   },
   {
@@ -612,7 +1477,33 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "348",
+    "capital": "Budapest",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AT",
+      "HR",
+      "RO",
+      "RS",
+      "SI",
+      "SK",
+      "UA"
+    ],
+    "nearby": [
+      "SK",
+      "RS",
+      "BA",
+      "RO",
+      "HR",
+      "SI"
+    ],
+    "latlng": [
+      47,
+      20
+    ]
   },
   {
     "key": "LI",
@@ -628,6 +1519,27 @@
     "itemOrder": 5,
     "flagLookalikes": [
       "HT"
+    ],
+    "territory": false,
+    "ccn3": "438",
+    "capital": "Vaduz",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AT",
+      "CH"
+    ],
+    "nearby": [
+      "CH",
+      "AT",
+      "LU",
+      "DE",
+      "SI",
+      "MC"
+    ],
+    "latlng": [
+      47.26666666,
+      9.53333333
     ]
   },
   {
@@ -646,6 +1558,27 @@
       "AD",
       "RO",
       "TD"
+    ],
+    "territory": false,
+    "ccn3": "498",
+    "capital": "Chișinău",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "RO",
+      "UA"
+    ],
+    "nearby": [
+      "UA",
+      "RO",
+      "BG",
+      "BY",
+      "HU",
+      "RS"
+    ],
+    "latlng": [
+      47,
+      29
     ]
   },
   {
@@ -663,6 +1596,32 @@
     "flagLookalikes": [
       "ID",
       "MC"
+    ],
+    "territory": false,
+    "ccn3": "616",
+    "capital": "Warsaw",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BY",
+      "CZ",
+      "DE",
+      "LT",
+      "RU",
+      "SK",
+      "UA"
+    ],
+    "nearby": [
+      "SK",
+      "CZ",
+      "LT",
+      "BY",
+      "HU",
+      "LV"
+    ],
+    "latlng": [
+      52,
+      20
     ]
   },
   {
@@ -681,6 +1640,39 @@
       "RS",
       "SI",
       "SK"
+    ],
+    "territory": false,
+    "ccn3": "643",
+    "capital": "Moscow",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AZ",
+      "BY",
+      "CN",
+      "EE",
+      "FI",
+      "GE",
+      "KP",
+      "KZ",
+      "LT",
+      "LV",
+      "MN",
+      "NO",
+      "PL",
+      "UA"
+    ],
+    "nearby": [
+      "MN",
+      "KZ",
+      "KG",
+      "CN",
+      "KP",
+      "TJ"
+    ],
+    "latlng": [
+      60,
+      100
     ]
   },
   {
@@ -699,6 +1691,30 @@
       "HR",
       "RU",
       "SI"
+    ],
+    "territory": false,
+    "ccn3": "703",
+    "capital": "Bratislava",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AT",
+      "CZ",
+      "HU",
+      "PL",
+      "UA"
+    ],
+    "nearby": [
+      "HU",
+      "CZ",
+      "PL",
+      "SI",
+      "AT",
+      "HR"
+    ],
+    "latlng": [
+      48.66666666,
+      19.5
     ]
   },
   {
@@ -716,6 +1732,29 @@
     "flagLookalikes": [
       "RU",
       "SK"
+    ],
+    "territory": false,
+    "ccn3": "705",
+    "capital": "Ljubljana",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AT",
+      "HR",
+      "HU",
+      "IT"
+    ],
+    "nearby": [
+      "HR",
+      "AT",
+      "SM",
+      "BA",
+      "IT",
+      "CZ"
+    ],
+    "latlng": [
+      46.11666666,
+      14.81666666
     ]
   },
   {
@@ -733,7 +1772,33 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 11,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "756",
+    "capital": "Bern",
+    "capitalAliases": [
+      "Berne"
+    ],
+    "capitalNote": "Officially the \"federal city\".",
+    "neighbors": [
+      "AT",
+      "DE",
+      "FR",
+      "IT",
+      "LI"
+    ],
+    "nearby": [
+      "LI",
+      "LU",
+      "MC",
+      "AT",
+      "DE",
+      "FR"
+    ],
+    "latlng": [
+      47,
+      8
+    ]
   },
   {
     "key": "UA",
@@ -746,7 +1811,35 @@
     "group": "Central & Eastern Europe",
     "groupOrder": 3,
     "itemOrder": 12,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "804",
+    "capital": "Kyiv",
+    "capitalAliases": [
+      "Kiev"
+    ],
+    "capitalNote": null,
+    "neighbors": [
+      "BY",
+      "HU",
+      "MD",
+      "PL",
+      "RO",
+      "RU",
+      "SK"
+    ],
+    "nearby": [
+      "MD",
+      "BY",
+      "RO",
+      "BG",
+      "PL",
+      "SK"
+    ],
+    "latlng": [
+      49,
+      32
+    ]
   },
   {
     "key": "BZ",
@@ -757,7 +1850,61 @@
     "group": "North & Central America",
     "groupOrder": 4,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "084",
+    "capital": "Belmopan",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GT",
+      "MX"
+    ],
+    "nearby": [
+      "GT",
+      "HN",
+      "SV",
+      "NI",
+      "CR",
+      "CU"
+    ],
+    "latlng": [
+      17.25,
+      -88.75
+    ]
+  },
+  {
+    "key": "BM",
+    "name": "Bermuda",
+    "aliases": [
+      "The Islands of Bermuda",
+      "The Bermudas",
+      "Somers Isles"
+    ],
+    "region": "Americas",
+    "subregion": "North America",
+    "group": "North & Central America",
+    "groupOrder": 4,
+    "itemOrder": 2,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "060",
+    "capital": "Hamilton",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "BS",
+      "PR",
+      "DO",
+      "HT",
+      "KN",
+      "AG"
+    ],
+    "latlng": [
+      32.33333333,
+      -64.75
+    ]
   },
   {
     "key": "CA",
@@ -767,8 +1914,28 @@
     "subregion": "North America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 2,
-    "flagLookalikes": []
+    "itemOrder": 3,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "124",
+    "capital": "Ottawa",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "US"
+    ],
+    "nearby": [
+      "US",
+      "GL",
+      "IS",
+      "BM",
+      "MX",
+      "BS"
+    ],
+    "latlng": [
+      60,
+      -95
+    ]
   },
   {
     "key": "CR",
@@ -781,8 +1948,29 @@
     "subregion": "Central America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 3,
-    "flagLookalikes": []
+    "itemOrder": 4,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "188",
+    "capital": "San José",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "NI",
+      "PA"
+    ],
+    "nearby": [
+      "NI",
+      "PA",
+      "HN",
+      "SV",
+      "GT",
+      "BZ"
+    ],
+    "latlng": [
+      10,
+      -84
+    ]
   },
   {
     "key": "SV",
@@ -795,11 +1983,65 @@
     "subregion": "Central America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 4,
+    "itemOrder": 5,
     "flagLookalikes": [
       "GT",
       "HN",
       "NI"
+    ],
+    "territory": false,
+    "ccn3": "222",
+    "capital": "San Salvador",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GT",
+      "HN"
+    ],
+    "nearby": [
+      "GT",
+      "HN",
+      "BZ",
+      "NI",
+      "CR",
+      "PA"
+    ],
+    "latlng": [
+      13.83333333,
+      -88.91666666
+    ]
+  },
+  {
+    "key": "GL",
+    "name": "Greenland",
+    "aliases": [
+      "Grønland"
+    ],
+    "region": "Americas",
+    "subregion": "North America",
+    "group": "North & Central America",
+    "groupOrder": 4,
+    "itemOrder": 6,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "304",
+    "capital": "Nuuk",
+    "capitalAliases": [
+      "Godthåb"
+    ],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "IS",
+      "FO",
+      "NO",
+      "SE",
+      "IE",
+      "GB"
+    ],
+    "latlng": [
+      72,
+      -40
     ]
   },
   {
@@ -812,9 +2054,32 @@
     "subregion": "Central America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 5,
+    "itemOrder": 7,
     "flagLookalikes": [
       "SV"
+    ],
+    "territory": false,
+    "ccn3": "320",
+    "capital": "Guatemala City",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BZ",
+      "HN",
+      "MX",
+      "SV"
+    ],
+    "nearby": [
+      "SV",
+      "BZ",
+      "HN",
+      "NI",
+      "CR",
+      "CU"
+    ],
+    "latlng": [
+      15.5,
+      -90.25
     ]
   },
   {
@@ -828,10 +2093,32 @@
     "subregion": "Central America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 6,
+    "itemOrder": 8,
     "flagLookalikes": [
       "NI",
       "SV"
+    ],
+    "territory": false,
+    "ccn3": "340",
+    "capital": "Tegucigalpa",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GT",
+      "NI",
+      "SV"
+    ],
+    "nearby": [
+      "NI",
+      "SV",
+      "BZ",
+      "GT",
+      "CR",
+      "PA"
+    ],
+    "latlng": [
+      15,
+      -86.5
     ]
   },
   {
@@ -845,9 +2132,31 @@
     "subregion": "North America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 7,
+    "itemOrder": 9,
     "flagLookalikes": [
       "IT"
+    ],
+    "territory": false,
+    "ccn3": "484",
+    "capital": "Mexico City",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BZ",
+      "GT",
+      "US"
+    ],
+    "nearby": [
+      "GT",
+      "BZ",
+      "SV",
+      "US",
+      "HN",
+      "NI"
+    ],
+    "latlng": [
+      23,
+      -102
     ]
   },
   {
@@ -861,10 +2170,31 @@
     "subregion": "Central America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 8,
+    "itemOrder": 10,
     "flagLookalikes": [
       "HN",
       "SV"
+    ],
+    "territory": false,
+    "ccn3": "558",
+    "capital": "Managua",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CR",
+      "HN"
+    ],
+    "nearby": [
+      "HN",
+      "CR",
+      "SV",
+      "BZ",
+      "GT",
+      "PA"
+    ],
+    "latlng": [
+      13,
+      -85
     ]
   },
   {
@@ -878,8 +2208,29 @@
     "subregion": "Central America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 9,
-    "flagLookalikes": []
+    "itemOrder": 11,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "591",
+    "capital": "Panama City",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CO",
+      "CR"
+    ],
+    "nearby": [
+      "CR",
+      "NI",
+      "HN",
+      "CO",
+      "JM",
+      "SV"
+    ],
+    "latlng": [
+      9,
+      -80
+    ]
   },
   {
     "key": "US",
@@ -894,10 +2245,34 @@
     "subregion": "North America",
     "group": "North & Central America",
     "groupOrder": 4,
-    "itemOrder": 10,
+    "itemOrder": 12,
     "flagLookalikes": [
       "LR",
       "MY"
+    ],
+    "territory": false,
+    "ccn3": "840",
+    "capital": "Washington, D.C.",
+    "capitalAliases": [
+      "Washington",
+      "Washington DC"
+    ],
+    "capitalNote": null,
+    "neighbors": [
+      "CA",
+      "MX"
+    ],
+    "nearby": [
+      "MX",
+      "BZ",
+      "CA",
+      "CU",
+      "BS",
+      "GT"
+    ],
+    "latlng": [
+      38,
+      -97
     ]
   },
   {
@@ -911,7 +2286,54 @@
     "group": "Caribbean",
     "groupOrder": 5,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "028",
+    "capital": "Saint John's",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "KN",
+      "DM",
+      "LC",
+      "VC",
+      "BB",
+      "PR"
+    ],
+    "latlng": [
+      17.05,
+      -61.8
+    ]
+  },
+  {
+    "key": "AW",
+    "name": "Aruba",
+    "aliases": [],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 5,
+    "itemOrder": 2,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "533",
+    "capital": "Oranjestad",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "CW",
+      "VE",
+      "DO",
+      "PR",
+      "HT",
+      "GD"
+    ],
+    "latlng": [
+      12.5,
+      -69.96666666
+    ]
   },
   {
     "key": "BS",
@@ -923,8 +2345,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 2,
-    "flagLookalikes": []
+    "itemOrder": 3,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "044",
+    "capital": "Nassau",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "CU",
+      "JM",
+      "HT",
+      "DO",
+      "PR",
+      "BM"
+    ],
+    "latlng": [
+      24.25,
+      -76
+    ]
   },
   {
     "key": "BB",
@@ -934,8 +2374,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 3,
-    "flagLookalikes": []
+    "itemOrder": 4,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "052",
+    "capital": "Bridgetown",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "LC",
+      "VC",
+      "GD",
+      "TT",
+      "DM",
+      "AG"
+    ],
+    "latlng": [
+      13.16666666,
+      -59.53333333
+    ]
   },
   {
     "key": "CU",
@@ -948,8 +2406,60 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 4,
-    "flagLookalikes": []
+    "itemOrder": 5,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "192",
+    "capital": "Havana",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "JM",
+      "BS",
+      "HT",
+      "HN",
+      "DO",
+      "BZ"
+    ],
+    "latlng": [
+      21.5,
+      -80
+    ]
+  },
+  {
+    "key": "CW",
+    "name": "Curaçao",
+    "aliases": [
+      "Country of Curaçao",
+      "Kòrsou",
+      "Land Curaçao",
+      "Pais Kòrsou"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 5,
+    "itemOrder": 6,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "531",
+    "capital": "Willemstad",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "AW",
+      "VE",
+      "PR",
+      "DO",
+      "GD",
+      "VC"
+    ],
+    "latlng": [
+      12.116667,
+      -68.933333
+    ]
   },
   {
     "key": "DM",
@@ -963,8 +2473,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 5,
-    "flagLookalikes": []
+    "itemOrder": 7,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "212",
+    "capital": "Roseau",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "LC",
+      "AG",
+      "VC",
+      "KN",
+      "BB",
+      "GD"
+    ],
+    "latlng": [
+      15.41666666,
+      -61.33333333
+    ]
   },
   {
     "key": "DO",
@@ -974,8 +2502,28 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 6,
-    "flagLookalikes": []
+    "itemOrder": 8,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "214",
+    "capital": "Santo Domingo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "HT"
+    ],
+    "nearby": [
+      "HT",
+      "PR",
+      "JM",
+      "AW",
+      "CW",
+      "BS"
+    ],
+    "latlng": [
+      19,
+      -70.66666666
+    ]
   },
   {
     "key": "GD",
@@ -985,8 +2533,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 7,
-    "flagLookalikes": []
+    "itemOrder": 9,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "308",
+    "capital": "St. George's",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "VC",
+      "TT",
+      "LC",
+      "BB",
+      "DM",
+      "AG"
+    ],
+    "latlng": [
+      12.11666666,
+      -61.66666666
+    ]
   },
   {
     "key": "HT",
@@ -1000,9 +2566,29 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 8,
+    "itemOrder": 10,
     "flagLookalikes": [
       "LI"
+    ],
+    "territory": false,
+    "ccn3": "332",
+    "capital": "Port-au-Prince",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DO"
+    ],
+    "nearby": [
+      "DO",
+      "JM",
+      "PR",
+      "BS",
+      "AW",
+      "CU"
+    ],
+    "latlng": [
+      19,
+      -72.41666666
     ]
   },
   {
@@ -1013,8 +2599,58 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 9,
-    "flagLookalikes": []
+    "itemOrder": 11,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "388",
+    "capital": "Kingston",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "CU",
+      "HT",
+      "BS",
+      "DO",
+      "NI",
+      "HN"
+    ],
+    "latlng": [
+      18.25,
+      -77.5
+    ]
+  },
+  {
+    "key": "PR",
+    "name": "Puerto Rico",
+    "aliases": [
+      "Commonwealth of Puerto Rico",
+      "Estado Libre Asociado de Puerto Rico"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "group": "Caribbean",
+    "groupOrder": 5,
+    "itemOrder": 12,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "630",
+    "capital": "San Juan",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "KN",
+      "DO",
+      "AG",
+      "HT",
+      "DM",
+      "CW"
+    ],
+    "latlng": [
+      18.25,
+      -66.5
+    ]
   },
   {
     "key": "KN",
@@ -1027,8 +2663,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 10,
-    "flagLookalikes": []
+    "itemOrder": 13,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "659",
+    "capital": "Basseterre",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "AG",
+      "DM",
+      "PR",
+      "LC",
+      "VC",
+      "BB"
+    ],
+    "latlng": [
+      17.33333333,
+      -62.75
+    ]
   },
   {
     "key": "LC",
@@ -1038,8 +2692,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 11,
-    "flagLookalikes": []
+    "itemOrder": 14,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "662",
+    "capital": "Castries",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "VC",
+      "BB",
+      "DM",
+      "GD",
+      "TT",
+      "AG"
+    ],
+    "latlng": [
+      13.88333333,
+      -60.96666666
+    ]
   },
   {
     "key": "VC",
@@ -1051,8 +2723,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 12,
-    "flagLookalikes": []
+    "itemOrder": 15,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "670",
+    "capital": "Kingstown",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "LC",
+      "GD",
+      "BB",
+      "DM",
+      "TT",
+      "AG"
+    ],
+    "latlng": [
+      13.25,
+      -61.2
+    ]
   },
   {
     "key": "TT",
@@ -1065,8 +2755,26 @@
     "subregion": "Caribbean",
     "group": "Caribbean",
     "groupOrder": 5,
-    "itemOrder": 13,
-    "flagLookalikes": []
+    "itemOrder": 16,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "780",
+    "capital": "Port of Spain",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "GD",
+      "VC",
+      "BB",
+      "LC",
+      "DM",
+      "VE"
+    ],
+    "latlng": [
+      11,
+      -61
+    ]
   },
   {
     "key": "AR",
@@ -1080,7 +2788,31 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "032",
+    "capital": "Buenos Aires",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BO",
+      "BR",
+      "CL",
+      "PY",
+      "UY"
+    ],
+    "nearby": [
+      "UY",
+      "CL",
+      "PY",
+      "BO",
+      "FK",
+      "BR"
+    ],
+    "latlng": [
+      -34,
+      -64
+    ]
   },
   {
     "key": "BO",
@@ -1102,6 +2834,32 @@
     "flagLookalikes": [
       "GH",
       "LT"
+    ],
+    "territory": false,
+    "ccn3": "068",
+    "capital": "Sucre",
+    "capitalAliases": [
+      "La Paz"
+    ],
+    "capitalNote": "Sucre is the constitutional capital; La Paz is the seat of government.",
+    "neighbors": [
+      "AR",
+      "BR",
+      "CL",
+      "PE",
+      "PY"
+    ],
+    "nearby": [
+      "PY",
+      "BR",
+      "PE",
+      "CL",
+      "AR",
+      "UY"
+    ],
+    "latlng": [
+      -17,
+      -65
     ]
   },
   {
@@ -1117,7 +2875,36 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 3,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "076",
+    "capital": "Brasília",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AR",
+      "BO",
+      "CO",
+      "GF",
+      "GY",
+      "PE",
+      "PY",
+      "SR",
+      "UY",
+      "VE"
+    ],
+    "nearby": [
+      "BO",
+      "PY",
+      "SR",
+      "GF",
+      "GY",
+      "PE"
+    ],
+    "latlng": [
+      -10,
+      -55
+    ]
   },
   {
     "key": "CL",
@@ -1131,7 +2918,29 @@
     "group": "South America",
     "groupOrder": 6,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "152",
+    "capital": "Santiago",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AR",
+      "BO",
+      "PE"
+    ],
+    "nearby": [
+      "AR",
+      "UY",
+      "PY",
+      "BO",
+      "PE",
+      "FK"
+    ],
+    "latlng": [
+      -30,
+      -71
+    ]
   },
   {
     "key": "CO",
@@ -1148,6 +2957,30 @@
     "flagLookalikes": [
       "EC",
       "VE"
+    ],
+    "territory": false,
+    "ccn3": "170",
+    "capital": "Bogotá",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BR",
+      "EC",
+      "PA",
+      "PE",
+      "VE"
+    ],
+    "nearby": [
+      "VE",
+      "EC",
+      "CW",
+      "AW",
+      "PA",
+      "TT"
+    ],
+    "latlng": [
+      4,
+      -72
     ]
   },
   {
@@ -1165,6 +2998,94 @@
     "flagLookalikes": [
       "CO",
       "VE"
+    ],
+    "territory": false,
+    "ccn3": "218",
+    "capital": "Quito",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CO",
+      "PE"
+    ],
+    "nearby": [
+      "CO",
+      "PE",
+      "PA",
+      "CR",
+      "VE",
+      "AW"
+    ],
+    "latlng": [
+      -2,
+      -77.5
+    ]
+  },
+  {
+    "key": "FK",
+    "name": "Falkland Islands",
+    "aliases": [
+      "Islas Malvinas",
+      "Falkland Islands (Malvinas)"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 6,
+    "itemOrder": 7,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "238",
+    "capital": "Stanley",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "AR",
+      "UY",
+      "CL",
+      "PY",
+      "BO",
+      "BR"
+    ],
+    "latlng": [
+      -51.75,
+      -59
+    ]
+  },
+  {
+    "key": "GF",
+    "name": "French Guiana",
+    "aliases": [
+      "Guiana",
+      "Guyane"
+    ],
+    "region": "Americas",
+    "subregion": "South America",
+    "group": "South America",
+    "groupOrder": 6,
+    "itemOrder": 8,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "254",
+    "capital": "Cayenne",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BR",
+      "SR"
+    ],
+    "nearby": [
+      "SR",
+      "GY",
+      "TT",
+      "BB",
+      "GD",
+      "VC"
+    ],
+    "latlng": [
+      4,
+      -53
     ]
   },
   {
@@ -1177,8 +3098,30 @@
     "subregion": "South America",
     "group": "South America",
     "groupOrder": 6,
-    "itemOrder": 7,
-    "flagLookalikes": []
+    "itemOrder": 9,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "328",
+    "capital": "Georgetown",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BR",
+      "SR",
+      "VE"
+    ],
+    "nearby": [
+      "SR",
+      "GF",
+      "TT",
+      "VE",
+      "GD",
+      "BB"
+    ],
+    "latlng": [
+      5,
+      -59
+    ]
   },
   {
     "key": "PY",
@@ -1192,8 +3135,30 @@
     "subregion": "South America",
     "group": "South America",
     "groupOrder": 6,
-    "itemOrder": 8,
-    "flagLookalikes": []
+    "itemOrder": 10,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "600",
+    "capital": "Asunción",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AR",
+      "BO",
+      "BR"
+    ],
+    "nearby": [
+      "BO",
+      "UY",
+      "AR",
+      "BR",
+      "CL",
+      "PE"
+    ],
+    "latlng": [
+      -23,
+      -58
+    ]
   },
   {
     "key": "PE",
@@ -1206,8 +3171,32 @@
     "subregion": "South America",
     "group": "South America",
     "groupOrder": 6,
-    "itemOrder": 9,
-    "flagLookalikes": []
+    "itemOrder": 11,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "604",
+    "capital": "Lima",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BO",
+      "BR",
+      "CL",
+      "CO",
+      "EC"
+    ],
+    "nearby": [
+      "EC",
+      "BO",
+      "CO",
+      "PA",
+      "CL",
+      "VE"
+    ],
+    "latlng": [
+      -10,
+      -76
+    ]
   },
   {
     "key": "SR",
@@ -1222,8 +3211,30 @@
     "subregion": "South America",
     "group": "South America",
     "groupOrder": 6,
-    "itemOrder": 10,
-    "flagLookalikes": []
+    "itemOrder": 12,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "740",
+    "capital": "Paramaribo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BR",
+      "GF",
+      "GY"
+    ],
+    "nearby": [
+      "GF",
+      "GY",
+      "TT",
+      "BB",
+      "GD",
+      "VC"
+    ],
+    "latlng": [
+      4,
+      -56
+    ]
   },
   {
     "key": "UY",
@@ -1236,8 +3247,29 @@
     "subregion": "South America",
     "group": "South America",
     "groupOrder": 6,
-    "itemOrder": 11,
-    "flagLookalikes": []
+    "itemOrder": 13,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "858",
+    "capital": "Montevideo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AR",
+      "BR"
+    ],
+    "nearby": [
+      "AR",
+      "PY",
+      "CL",
+      "BO",
+      "FK",
+      "BR"
+    ],
+    "latlng": [
+      -33,
+      -56
+    ]
   },
   {
     "key": "VE",
@@ -1250,10 +3282,32 @@
     "subregion": "South America",
     "group": "South America",
     "groupOrder": 6,
-    "itemOrder": 12,
+    "itemOrder": 14,
     "flagLookalikes": [
       "CO",
       "EC"
+    ],
+    "territory": false,
+    "ccn3": "862",
+    "capital": "Caracas",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BR",
+      "CO",
+      "GY"
+    ],
+    "nearby": [
+      "CW",
+      "TT",
+      "GD",
+      "AW",
+      "VC",
+      "CO"
+    ],
+    "latlng": [
+      8,
+      -66
     ]
   },
   {
@@ -1268,7 +3322,30 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "051",
+    "capital": "Yerevan",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AZ",
+      "GE",
+      "IR",
+      "TR"
+    ],
+    "nearby": [
+      "AZ",
+      "GE",
+      "IQ",
+      "SY",
+      "TR",
+      "LB"
+    ],
+    "latlng": [
+      40,
+      45
+    ]
   },
   {
     "key": "AZ",
@@ -1282,7 +3359,31 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 2,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "031",
+    "capital": "Baku",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AM",
+      "GE",
+      "IR",
+      "RU",
+      "TR"
+    ],
+    "nearby": [
+      "AM",
+      "GE",
+      "IQ",
+      "SY",
+      "TM",
+      "IR"
+    ],
+    "latlng": [
+      40.5,
+      47.5
+    ]
   },
   {
     "key": "BH",
@@ -1298,6 +3399,24 @@
     "itemOrder": 3,
     "flagLookalikes": [
       "QA"
+    ],
+    "territory": false,
+    "ccn3": "048",
+    "capital": "Manama",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "QA",
+      "AE",
+      "SA",
+      "KW",
+      "IR",
+      "OM"
+    ],
+    "latlng": [
+      26,
+      50.55
     ]
   },
   {
@@ -1311,7 +3430,30 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "268",
+    "capital": "Tbilisi",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AM",
+      "AZ",
+      "RU",
+      "TR"
+    ],
+    "nearby": [
+      "AM",
+      "AZ",
+      "TR",
+      "SY",
+      "IQ",
+      "LB"
+    ],
+    "latlng": [
+      42,
+      43.5
+    ]
   },
   {
     "key": "IQ",
@@ -1328,6 +3470,31 @@
     "flagLookalikes": [
       "EG",
       "SY"
+    ],
+    "territory": false,
+    "ccn3": "368",
+    "capital": "Baghdad",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IR",
+      "JO",
+      "KW",
+      "SA",
+      "SY",
+      "TR"
+    ],
+    "nearby": [
+      "KW",
+      "SY",
+      "LB",
+      "AM",
+      "JO",
+      "PS"
+    ],
+    "latlng": [
+      33,
+      44
     ]
   },
   {
@@ -1342,7 +3509,31 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 6,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "376",
+    "capital": "Jerusalem",
+    "capitalAliases": [],
+    "capitalNote": "Jerusalem's status is disputed; most embassies are in Tel Aviv.",
+    "neighbors": [
+      "EG",
+      "JO",
+      "LB",
+      "PS",
+      "SY"
+    ],
+    "nearby": [
+      "PS",
+      "JO",
+      "LB",
+      "CY",
+      "SY",
+      "EG"
+    ],
+    "latlng": [
+      31.47,
+      35.13
+    ]
   },
   {
     "key": "JO",
@@ -1358,6 +3549,30 @@
     "itemOrder": 7,
     "flagLookalikes": [
       "PS"
+    ],
+    "territory": false,
+    "ccn3": "400",
+    "capital": "Amman",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IL",
+      "IQ",
+      "PS",
+      "SA",
+      "SY"
+    ],
+    "nearby": [
+      "IL",
+      "PS",
+      "LB",
+      "SY",
+      "CY",
+      "EG"
+    ],
+    "latlng": [
+      31,
+      36
     ]
   },
   {
@@ -1374,7 +3589,33 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 8,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "398",
+    "capital": "Astana",
+    "capitalAliases": [
+      "Nur-Sultan"
+    ],
+    "capitalNote": "Called Nur-Sultan from 2019 to 2022.",
+    "neighbors": [
+      "CN",
+      "KG",
+      "RU",
+      "TM",
+      "UZ"
+    ],
+    "nearby": [
+      "UZ",
+      "KG",
+      "TJ",
+      "TM",
+      "AF",
+      "AZ"
+    ],
+    "latlng": [
+      48,
+      68
+    ]
   },
   {
     "key": "KW",
@@ -1390,6 +3631,27 @@
     "itemOrder": 9,
     "flagLookalikes": [
       "AE"
+    ],
+    "territory": false,
+    "ccn3": "414",
+    "capital": "Kuwait City",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IQ",
+      "SA"
+    ],
+    "nearby": [
+      "IQ",
+      "SA",
+      "BH",
+      "QA",
+      "IR",
+      "SY"
+    ],
+    "latlng": [
+      29.5,
+      45.75
     ]
   },
   {
@@ -1404,7 +3666,30 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 10,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "417",
+    "capital": "Bishkek",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "KZ",
+      "TJ",
+      "UZ"
+    ],
+    "nearby": [
+      "TJ",
+      "UZ",
+      "KZ",
+      "AF",
+      "TM",
+      "PK"
+    ],
+    "latlng": [
+      41,
+      75
+    ]
   },
   {
     "key": "LB",
@@ -1418,7 +3703,28 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 11,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "422",
+    "capital": "Beirut",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IL",
+      "SY"
+    ],
+    "nearby": [
+      "PS",
+      "SY",
+      "IL",
+      "CY",
+      "JO",
+      "TR"
+    ],
+    "latlng": [
+      33.83333333,
+      35.83333333
+    ]
   },
   {
     "key": "OM",
@@ -1432,7 +3738,29 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 12,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "512",
+    "capital": "Muscat",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AE",
+      "SA",
+      "YE"
+    ],
+    "nearby": [
+      "AE",
+      "QA",
+      "BH",
+      "YE",
+      "IR",
+      "SA"
+    ],
+    "latlng": [
+      21,
+      57
+    ]
   },
   {
     "key": "PS",
@@ -1449,6 +3777,28 @@
     "flagLookalikes": [
       "JO",
       "SD"
+    ],
+    "territory": false,
+    "ccn3": "275",
+    "capital": "Ramallah",
+    "capitalAliases": [],
+    "capitalNote": "Ramallah is the administrative centre; East Jerusalem is the claimed capital.",
+    "neighbors": [
+      "EG",
+      "IL",
+      "JO"
+    ],
+    "nearby": [
+      "IL",
+      "JO",
+      "LB",
+      "CY",
+      "SY",
+      "EG"
+    ],
+    "latlng": [
+      31.9,
+      35.2
     ]
   },
   {
@@ -1465,6 +3815,26 @@
     "itemOrder": 14,
     "flagLookalikes": [
       "BH"
+    ],
+    "territory": false,
+    "ccn3": "634",
+    "capital": "Doha",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "SA"
+    ],
+    "nearby": [
+      "BH",
+      "AE",
+      "SA",
+      "KW",
+      "IR",
+      "OM"
+    ],
+    "latlng": [
+      25.5,
+      51.25
     ]
   },
   {
@@ -1480,7 +3850,33 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 15,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "682",
+    "capital": "Riyadh",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AE",
+      "IQ",
+      "JO",
+      "KW",
+      "OM",
+      "QA",
+      "YE"
+    ],
+    "nearby": [
+      "KW",
+      "BH",
+      "QA",
+      "IQ",
+      "AE",
+      "IR"
+    ],
+    "latlng": [
+      25,
+      45
+    ]
   },
   {
     "key": "SY",
@@ -1497,6 +3893,30 @@
     "flagLookalikes": [
       "IQ",
       "YE"
+    ],
+    "territory": false,
+    "ccn3": "760",
+    "capital": "Damascus",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IL",
+      "IQ",
+      "JO",
+      "LB",
+      "TR"
+    ],
+    "nearby": [
+      "LB",
+      "PS",
+      "CY",
+      "IL",
+      "JO",
+      "TR"
+    ],
+    "latlng": [
+      35,
+      38
     ]
   },
   {
@@ -1512,7 +3932,30 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 17,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "762",
+    "capital": "Dushanbe",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AF",
+      "CN",
+      "KG",
+      "UZ"
+    ],
+    "nearby": [
+      "KG",
+      "UZ",
+      "AF",
+      "TM",
+      "PK",
+      "KZ"
+    ],
+    "latlng": [
+      39,
+      71
+    ]
   },
   {
     "key": "TR",
@@ -1528,7 +3971,34 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 18,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "792",
+    "capital": "Ankara",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AM",
+      "AZ",
+      "BG",
+      "GE",
+      "GR",
+      "IQ",
+      "IR",
+      "SY"
+    ],
+    "nearby": [
+      "CY",
+      "SY",
+      "LB",
+      "PS",
+      "GE",
+      "IL"
+    ],
+    "latlng": [
+      39,
+      35
+    ]
   },
   {
     "key": "TM",
@@ -1539,7 +4009,30 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 19,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "795",
+    "capital": "Ashgabat",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AF",
+      "IR",
+      "KZ",
+      "UZ"
+    ],
+    "nearby": [
+      "UZ",
+      "AF",
+      "TJ",
+      "AZ",
+      "IR",
+      "KZ"
+    ],
+    "latlng": [
+      40,
+      60
+    ]
   },
   {
     "key": "AE",
@@ -1555,6 +4048,27 @@
     "itemOrder": 20,
     "flagLookalikes": [
       "KW"
+    ],
+    "territory": false,
+    "ccn3": "784",
+    "capital": "Abu Dhabi",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "OM",
+      "SA"
+    ],
+    "nearby": [
+      "QA",
+      "BH",
+      "OM",
+      "IR",
+      "SA",
+      "KW"
+    ],
+    "latlng": [
+      24,
+      54
     ]
   },
   {
@@ -1569,7 +4083,31 @@
     "group": "Middle East & Central Asia",
     "groupOrder": 7,
     "itemOrder": 21,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "860",
+    "capital": "Tashkent",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AF",
+      "KG",
+      "KZ",
+      "TJ",
+      "TM"
+    ],
+    "nearby": [
+      "TM",
+      "TJ",
+      "KZ",
+      "AF",
+      "KG",
+      "PK"
+    ],
+    "latlng": [
+      41,
+      64
+    ]
   },
   {
     "key": "YE",
@@ -1587,6 +4125,27 @@
     "flagLookalikes": [
       "EG",
       "SY"
+    ],
+    "territory": false,
+    "ccn3": "887",
+    "capital": "Sana'a",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "OM",
+      "SA"
+    ],
+    "nearby": [
+      "SO",
+      "DJ",
+      "ER",
+      "SA",
+      "OM",
+      "AE"
+    ],
+    "latlng": [
+      15,
+      48
     ]
   },
   {
@@ -1601,7 +4160,32 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "004",
+    "capital": "Kabul",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "IR",
+      "PK",
+      "TJ",
+      "TM",
+      "UZ"
+    ],
+    "nearby": [
+      "PK",
+      "TJ",
+      "UZ",
+      "TM",
+      "IR",
+      "KG"
+    ],
+    "latlng": [
+      33,
+      65
+    ]
   },
   {
     "key": "BD",
@@ -1618,6 +4202,27 @@
     "flagLookalikes": [
       "JP",
       "PW"
+    ],
+    "territory": false,
+    "ccn3": "050",
+    "capital": "Dhaka",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IN",
+      "MM"
+    ],
+    "nearby": [
+      "BT",
+      "NP",
+      "MM",
+      "IN",
+      "TH",
+      "LA"
+    ],
+    "latlng": [
+      24,
+      90
     ]
   },
   {
@@ -1631,7 +4236,28 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 3,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "064",
+    "capital": "Thimphu",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "IN"
+    ],
+    "nearby": [
+      "BD",
+      "NP",
+      "MM",
+      "IN",
+      "CN",
+      "TH"
+    ],
+    "latlng": [
+      27.5,
+      90.5
+    ]
   },
   {
     "key": "CN",
@@ -1647,7 +4273,40 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "156",
+    "capital": "Beijing",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AF",
+      "BT",
+      "IN",
+      "KG",
+      "KP",
+      "KZ",
+      "LA",
+      "MM",
+      "MN",
+      "NP",
+      "PK",
+      "RU",
+      "TJ",
+      "VN"
+    ],
+    "nearby": [
+      "MN",
+      "MM",
+      "BT",
+      "LA",
+      "BD",
+      "TW"
+    ],
+    "latlng": [
+      35,
+      105
+    ]
   },
   {
     "key": "IN",
@@ -1664,6 +4323,31 @@
     "itemOrder": 5,
     "flagLookalikes": [
       "NE"
+    ],
+    "territory": false,
+    "ccn3": "356",
+    "capital": "New Delhi",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BD",
+      "BT",
+      "CN",
+      "MM",
+      "NP",
+      "PK"
+    ],
+    "nearby": [
+      "NP",
+      "PK",
+      "BD",
+      "LK",
+      "BT",
+      "AF"
+    ],
+    "latlng": [
+      20,
+      77
     ]
   },
   {
@@ -1678,7 +4362,33 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 6,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "364",
+    "capital": "Tehran",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AF",
+      "AM",
+      "AZ",
+      "IQ",
+      "PK",
+      "TM",
+      "TR"
+    ],
+    "nearby": [
+      "BH",
+      "QA",
+      "KW",
+      "IQ",
+      "AE",
+      "AZ"
+    ],
+    "latlng": [
+      32,
+      53
+    ]
   },
   {
     "key": "JP",
@@ -1695,6 +4405,24 @@
     "flagLookalikes": [
       "BD",
       "PW"
+    ],
+    "territory": false,
+    "ccn3": "392",
+    "capital": "Tokyo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "KR",
+      "KP",
+      "TW",
+      "GU",
+      "MN",
+      "CN"
+    ],
+    "latlng": [
+      36,
+      138
     ]
   },
   {
@@ -1710,7 +4438,25 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 8,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "462",
+    "capital": "Malé",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "LK",
+      "IN",
+      "SC",
+      "OM",
+      "SO",
+      "BD"
+    ],
+    "latlng": [
+      3.25,
+      73
+    ]
   },
   {
     "key": "MN",
@@ -1721,7 +4467,30 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 9,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "496",
+    "capital": "Ulaanbaatar",
+    "capitalAliases": [
+      "Ulan Bator"
+    ],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "RU"
+    ],
+    "nearby": [
+      "CN",
+      "RU",
+      "KP",
+      "KR",
+      "BT",
+      "KG"
+    ],
+    "latlng": [
+      46,
+      105
+    ]
   },
   {
     "key": "NP",
@@ -1735,7 +4504,28 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 10,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "524",
+    "capital": "Kathmandu",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "IN"
+    ],
+    "nearby": [
+      "BT",
+      "BD",
+      "IN",
+      "PK",
+      "MM",
+      "KG"
+    ],
+    "latlng": [
+      28,
+      84
+    ]
   },
   {
     "key": "KP",
@@ -1750,7 +4540,29 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 11,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "408",
+    "capital": "Pyongyang",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "KR",
+      "RU"
+    ],
+    "nearby": [
+      "KR",
+      "JP",
+      "MN",
+      "TW",
+      "CN",
+      "RU"
+    ],
+    "latlng": [
+      40,
+      127
+    ]
   },
   {
     "key": "PK",
@@ -1764,7 +4576,30 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 12,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "586",
+    "capital": "Islamabad",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AF",
+      "CN",
+      "IN",
+      "IR"
+    ],
+    "nearby": [
+      "AF",
+      "TJ",
+      "KG",
+      "IN",
+      "UZ",
+      "NP"
+    ],
+    "latlng": [
+      30,
+      70
+    ]
   },
   {
     "key": "KR",
@@ -1777,7 +4612,27 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 13,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "410",
+    "capital": "Seoul",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "KP"
+    ],
+    "nearby": [
+      "KP",
+      "JP",
+      "TW",
+      "CN",
+      "MN",
+      "PH"
+    ],
+    "latlng": [
+      37,
+      127.5
+    ]
   },
   {
     "key": "LK",
@@ -1791,7 +4646,30 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 14,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "144",
+    "capital": "Sri Jayawardenepura Kotte",
+    "capitalAliases": [
+      "Colombo",
+      "Kotte"
+    ],
+    "capitalNote": "Sri Jayawardenepura Kotte is the legislative capital; Colombo is the executive and commercial capital.",
+    "neighbors": [
+      "IN"
+    ],
+    "nearby": [
+      "MV",
+      "IN",
+      "BD",
+      "TH",
+      "NP",
+      "MM"
+    ],
+    "latlng": [
+      7,
+      81
+    ]
   },
   {
     "key": "TW",
@@ -1807,7 +4685,25 @@
     "group": "South & East Asia",
     "groupOrder": 8,
     "itemOrder": 15,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "158",
+    "capital": "Taipei",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "PH",
+      "VN",
+      "KR",
+      "LA",
+      "KP",
+      "CN"
+    ],
+    "latlng": [
+      23.5,
+      121
+    ]
   },
   {
     "key": "BN",
@@ -1821,7 +4717,27 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "096",
+    "capital": "Bandar Seri Begawan",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "MY"
+    ],
+    "nearby": [
+      "MY",
+      "ID",
+      "PH",
+      "SG",
+      "KH",
+      "VN"
+    ],
+    "latlng": [
+      4.5,
+      114.66666666
+    ]
   },
   {
     "key": "KH",
@@ -1834,7 +4750,29 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 2,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "116",
+    "capital": "Phnom Penh",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "LA",
+      "TH",
+      "VN"
+    ],
+    "nearby": [
+      "VN",
+      "LA",
+      "TH",
+      "MM",
+      "SG",
+      "BN"
+    ],
+    "latlng": [
+      13,
+      105
+    ]
   },
   {
     "key": "ID",
@@ -1851,6 +4789,28 @@
     "flagLookalikes": [
       "MC",
       "PL"
+    ],
+    "territory": false,
+    "ccn3": "360",
+    "capital": "Jakarta",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "MY",
+      "PG",
+      "TL"
+    ],
+    "nearby": [
+      "TL",
+      "MY",
+      "BN",
+      "SG",
+      "PH",
+      "PW"
+    ],
+    "latlng": [
+      -5,
+      120
     ]
   },
   {
@@ -1865,7 +4825,31 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "418",
+    "capital": "Vientiane",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "KH",
+      "MM",
+      "TH",
+      "VN"
+    ],
+    "nearby": [
+      "VN",
+      "KH",
+      "TH",
+      "MM",
+      "BD",
+      "TW"
+    ],
+    "latlng": [
+      18,
+      105
+    ]
   },
   {
     "key": "MY",
@@ -1879,6 +4863,28 @@
     "flagLookalikes": [
       "LR",
       "US"
+    ],
+    "territory": false,
+    "ccn3": "458",
+    "capital": "Kuala Lumpur",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BN",
+      "ID",
+      "TH"
+    ],
+    "nearby": [
+      "BN",
+      "SG",
+      "ID",
+      "KH",
+      "PH",
+      "VN"
+    ],
+    "latlng": [
+      2.5,
+      112.5
     ]
   },
   {
@@ -1894,7 +4900,34 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 6,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "104",
+    "capital": "Naypyidaw",
+    "capitalAliases": [
+      "Nay Pyi Taw",
+      "Naypyitaw"
+    ],
+    "capitalNote": null,
+    "neighbors": [
+      "BD",
+      "CN",
+      "IN",
+      "LA",
+      "TH"
+    ],
+    "nearby": [
+      "TH",
+      "BD",
+      "LA",
+      "BT",
+      "VN",
+      "KH"
+    ],
+    "latlng": [
+      22,
+      98
+    ]
   },
   {
     "key": "PH",
@@ -1910,6 +4943,24 @@
     "itemOrder": 7,
     "flagLookalikes": [
       "CZ"
+    ],
+    "territory": false,
+    "ccn3": "608",
+    "capital": "Manila",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "TW",
+      "BN",
+      "PW",
+      "VN",
+      "MY",
+      "KH"
+    ],
+    "latlng": [
+      13,
+      122
     ]
   },
   {
@@ -1925,7 +4976,25 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 8,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "702",
+    "capital": "Singapore",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "MY",
+      "BN",
+      "KH",
+      "TH",
+      "VN",
+      "LA"
+    ],
+    "latlng": [
+      1.36666666,
+      103.8
+    ]
   },
   {
     "key": "TH",
@@ -1939,7 +5008,30 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 9,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "764",
+    "capital": "Bangkok",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "KH",
+      "LA",
+      "MM",
+      "MY"
+    ],
+    "nearby": [
+      "KH",
+      "LA",
+      "MM",
+      "VN",
+      "BD",
+      "SG"
+    ],
+    "latlng": [
+      15,
+      100
+    ]
   },
   {
     "key": "TL",
@@ -1957,7 +5049,27 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 10,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "626",
+    "capital": "Dili",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "ID"
+    ],
+    "nearby": [
+      "ID",
+      "BN",
+      "MY",
+      "PW",
+      "AU",
+      "PG"
+    ],
+    "latlng": [
+      -8.83333333,
+      125.91666666
+    ]
   },
   {
     "key": "VN",
@@ -1972,7 +5084,29 @@
     "group": "Southeast Asia",
     "groupOrder": 9,
     "itemOrder": 11,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "704",
+    "capital": "Hanoi",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CN",
+      "KH",
+      "LA"
+    ],
+    "nearby": [
+      "LA",
+      "KH",
+      "TH",
+      "MM",
+      "BN",
+      "PH"
+    ],
+    "latlng": [
+      16.16666666,
+      107.83333333
+    ]
   },
   {
     "key": "DZ",
@@ -1987,7 +5121,32 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "012",
+    "capital": "Algiers",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "LY",
+      "MA",
+      "ML",
+      "MR",
+      "NE",
+      "TN"
+    ],
+    "nearby": [
+      "TN",
+      "MA",
+      "MT",
+      "ML",
+      "NE",
+      "LY"
+    ],
+    "latlng": [
+      28,
+      3
+    ]
   },
   {
     "key": "BJ",
@@ -2001,7 +5160,30 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 2,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "204",
+    "capital": "Porto-Novo",
+    "capitalAliases": [],
+    "capitalNote": "Cotonou is the seat of government.",
+    "neighbors": [
+      "BF",
+      "NE",
+      "NG",
+      "TG"
+    ],
+    "nearby": [
+      "TG",
+      "GH",
+      "BF",
+      "NG",
+      "CI",
+      "NE"
+    ],
+    "latlng": [
+      9.5,
+      2.25
+    ]
   },
   {
     "key": "BF",
@@ -2014,7 +5196,32 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 3,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "854",
+    "capital": "Ouagadougou",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BJ",
+      "CI",
+      "GH",
+      "ML",
+      "NE",
+      "TG"
+    ],
+    "nearby": [
+      "ML",
+      "GH",
+      "BJ",
+      "CI",
+      "TG",
+      "GN"
+    ],
+    "latlng": [
+      13,
+      -2
+    ]
   },
   {
     "key": "CV",
@@ -2029,7 +5236,25 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "132",
+    "capital": "Praia",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "GM",
+      "GW",
+      "SN",
+      "MR",
+      "SL",
+      "GN"
+    ],
+    "latlng": [
+      16,
+      -24
+    ]
   },
   {
     "key": "EG",
@@ -2045,6 +5270,29 @@
     "flagLookalikes": [
       "IQ",
       "YE"
+    ],
+    "territory": false,
+    "ccn3": "818",
+    "capital": "Cairo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "IL",
+      "LY",
+      "PS",
+      "SD"
+    ],
+    "nearby": [
+      "IL",
+      "JO",
+      "PS",
+      "CY",
+      "LB",
+      "SY"
+    ],
+    "latlng": [
+      27,
+      30
     ]
   },
   {
@@ -2058,7 +5306,27 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 6,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "270",
+    "capital": "Banjul",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "SN"
+    ],
+    "nearby": [
+      "GW",
+      "SN",
+      "GN",
+      "SL",
+      "CV",
+      "MR"
+    ],
+    "latlng": [
+      13.46666666,
+      -16.56666666
+    ]
   },
   {
     "key": "GH",
@@ -2074,6 +5342,28 @@
     "flagLookalikes": [
       "BO",
       "LT"
+    ],
+    "territory": false,
+    "ccn3": "288",
+    "capital": "Accra",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BF",
+      "CI",
+      "TG"
+    ],
+    "nearby": [
+      "CI",
+      "TG",
+      "BJ",
+      "BF",
+      "LR",
+      "GN"
+    ],
+    "latlng": [
+      8,
+      -2
     ]
   },
   {
@@ -2090,6 +5380,31 @@
     "itemOrder": 8,
     "flagLookalikes": [
       "ML"
+    ],
+    "territory": false,
+    "ccn3": "324",
+    "capital": "Conakry",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CI",
+      "GW",
+      "LR",
+      "ML",
+      "SL",
+      "SN"
+    ],
+    "nearby": [
+      "SL",
+      "LR",
+      "SN",
+      "GW",
+      "CI",
+      "GM"
+    ],
+    "latlng": [
+      11,
+      -10
     ]
   },
   {
@@ -2104,7 +5419,28 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 9,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "624",
+    "capital": "Bissau",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GN",
+      "SN"
+    ],
+    "nearby": [
+      "GM",
+      "SN",
+      "SL",
+      "GN",
+      "LR",
+      "MR"
+    ],
+    "latlng": [
+      12,
+      -15
+    ]
   },
   {
     "key": "CI",
@@ -2121,6 +5457,30 @@
     "itemOrder": 10,
     "flagLookalikes": [
       "IE"
+    ],
+    "territory": false,
+    "ccn3": "384",
+    "capital": "Yamoussoukro",
+    "capitalAliases": [],
+    "capitalNote": "Abidjan is the economic capital and largest city.",
+    "neighbors": [
+      "BF",
+      "GH",
+      "GN",
+      "LR",
+      "ML"
+    ],
+    "nearby": [
+      "GH",
+      "LR",
+      "GN",
+      "BF",
+      "TG",
+      "SL"
+    ],
+    "latlng": [
+      8,
+      -5
     ]
   },
   {
@@ -2137,6 +5497,28 @@
     "flagLookalikes": [
       "MY",
       "US"
+    ],
+    "territory": false,
+    "ccn3": "430",
+    "capital": "Monrovia",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CI",
+      "GN",
+      "SL"
+    ],
+    "nearby": [
+      "SL",
+      "GN",
+      "CI",
+      "GH",
+      "GW",
+      "SN"
+    ],
+    "latlng": [
+      6.5,
+      -9.5
     ]
   },
   {
@@ -2151,7 +5533,32 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 12,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "434",
+    "capital": "Tripoli",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DZ",
+      "EG",
+      "NE",
+      "SD",
+      "TD",
+      "TN"
+    ],
+    "nearby": [
+      "TD",
+      "MT",
+      "TN",
+      "EG",
+      "NE",
+      "DZ"
+    ],
+    "latlng": [
+      25,
+      17
+    ]
   },
   {
     "key": "ML",
@@ -2168,6 +5575,32 @@
     "flagLookalikes": [
       "GN",
       "SN"
+    ],
+    "territory": false,
+    "ccn3": "466",
+    "capital": "Bamako",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BF",
+      "CI",
+      "DZ",
+      "GN",
+      "MR",
+      "NE",
+      "SN"
+    ],
+    "nearby": [
+      "BF",
+      "MR",
+      "GN",
+      "CI",
+      "GH",
+      "BJ"
+    ],
+    "latlng": [
+      17,
+      -4
     ]
   },
   {
@@ -2182,7 +5615,29 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 14,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "478",
+    "capital": "Nouakchott",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DZ",
+      "ML",
+      "SN"
+    ],
+    "nearby": [
+      "SN",
+      "GM",
+      "ML",
+      "GW",
+      "GN",
+      "SL"
+    ],
+    "latlng": [
+      20,
+      -12
+    ]
   },
   {
     "key": "MA",
@@ -2196,7 +5651,28 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 15,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "504",
+    "capital": "Rabat",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DZ",
+      "ES"
+    ],
+    "nearby": [
+      "PT",
+      "DZ",
+      "ES",
+      "AD",
+      "TN",
+      "MR"
+    ],
+    "latlng": [
+      32,
+      -5
+    ]
   },
   {
     "key": "NE",
@@ -2212,6 +5688,32 @@
     "itemOrder": 16,
     "flagLookalikes": [
       "IN"
+    ],
+    "territory": false,
+    "ccn3": "562",
+    "capital": "Niamey",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BF",
+      "BJ",
+      "DZ",
+      "LY",
+      "ML",
+      "NG",
+      "TD"
+    ],
+    "nearby": [
+      "NG",
+      "BJ",
+      "BF",
+      "TG",
+      "TD",
+      "CM"
+    ],
+    "latlng": [
+      16,
+      8
     ]
   },
   {
@@ -2227,7 +5729,30 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 17,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "566",
+    "capital": "Abuja",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BJ",
+      "CM",
+      "NE",
+      "TD"
+    ],
+    "nearby": [
+      "CM",
+      "BJ",
+      "NE",
+      "TG",
+      "GQ",
+      "ST"
+    ],
+    "latlng": [
+      10,
+      8
+    ]
   },
   {
     "key": "SN",
@@ -2244,6 +5769,30 @@
     "flagLookalikes": [
       "CM",
       "ML"
+    ],
+    "territory": false,
+    "ccn3": "686",
+    "capital": "Dakar",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GM",
+      "GN",
+      "GW",
+      "ML",
+      "MR"
+    ],
+    "nearby": [
+      "GW",
+      "GM",
+      "GN",
+      "SL",
+      "MR",
+      "LR"
+    ],
+    "latlng": [
+      14,
+      -14
     ]
   },
   {
@@ -2257,7 +5806,28 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 19,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "694",
+    "capital": "Freetown",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "GN",
+      "LR"
+    ],
+    "nearby": [
+      "LR",
+      "GN",
+      "GW",
+      "SN",
+      "CI",
+      "GM"
+    ],
+    "latlng": [
+      8.5,
+      -11.5
+    ]
   },
   {
     "key": "SD",
@@ -2273,6 +5843,32 @@
     "itemOrder": 20,
     "flagLookalikes": [
       "PS"
+    ],
+    "territory": false,
+    "ccn3": "729",
+    "capital": "Khartoum",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CF",
+      "EG",
+      "ER",
+      "ET",
+      "LY",
+      "SS",
+      "TD"
+    ],
+    "nearby": [
+      "SS",
+      "ER",
+      "ET",
+      "TD",
+      "CF",
+      "EG"
+    ],
+    "latlng": [
+      15,
+      30
     ]
   },
   {
@@ -2287,7 +5883,29 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 21,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "768",
+    "capital": "Lomé",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BF",
+      "BJ",
+      "GH"
+    ],
+    "nearby": [
+      "BJ",
+      "GH",
+      "BF",
+      "CI",
+      "NG",
+      "ST"
+    ],
+    "latlng": [
+      8,
+      1.16666666
+    ]
   },
   {
     "key": "TN",
@@ -2302,7 +5920,28 @@
     "group": "North & West Africa",
     "groupOrder": 10,
     "itemOrder": 22,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "788",
+    "capital": "Tunis",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DZ",
+      "LY"
+    ],
+    "nearby": [
+      "MT",
+      "DZ",
+      "VA",
+      "IT",
+      "MC",
+      "SM"
+    ],
+    "latlng": [
+      34,
+      9
+    ]
   },
   {
     "key": "AO",
@@ -2316,7 +5955,30 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "024",
+    "capital": "Luanda",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CD",
+      "CG",
+      "NA",
+      "ZM"
+    ],
+    "nearby": [
+      "NA",
+      "BW",
+      "ZM",
+      "CG",
+      "GA",
+      "ZW"
+    ],
+    "latlng": [
+      -12.5,
+      18.5
+    ]
   },
   {
     "key": "BW",
@@ -2330,7 +5992,30 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 2,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "072",
+    "capital": "Gaborone",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "NA",
+      "ZA",
+      "ZM",
+      "ZW"
+    ],
+    "nearby": [
+      "ZW",
+      "NA",
+      "ZA",
+      "SZ",
+      "LS",
+      "ZM"
+    ],
+    "latlng": [
+      -22,
+      24
+    ]
   },
   {
     "key": "CM",
@@ -2346,6 +6031,31 @@
     "itemOrder": 3,
     "flagLookalikes": [
       "SN"
+    ],
+    "territory": false,
+    "ccn3": "120",
+    "capital": "Yaoundé",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CF",
+      "CG",
+      "GA",
+      "GQ",
+      "NG",
+      "TD"
+    ],
+    "nearby": [
+      "GQ",
+      "NG",
+      "GA",
+      "ST",
+      "CG",
+      "CF"
+    ],
+    "latlng": [
+      6,
+      12
     ]
   },
   {
@@ -2360,7 +6070,32 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "140",
+    "capital": "Bangui",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CD",
+      "CG",
+      "CM",
+      "SD",
+      "SS",
+      "TD"
+    ],
+    "nearby": [
+      "CD",
+      "TD",
+      "SS",
+      "CM",
+      "CG",
+      "SD"
+    ],
+    "latlng": [
+      7,
+      21
+    ]
   },
   {
     "key": "TD",
@@ -2379,6 +6114,31 @@
       "AD",
       "MD",
       "RO"
+    ],
+    "territory": false,
+    "ccn3": "148",
+    "capital": "N'Djamena",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CF",
+      "CM",
+      "LY",
+      "NE",
+      "NG",
+      "SD"
+    ],
+    "nearby": [
+      "CF",
+      "LY",
+      "SD",
+      "NE",
+      "CM",
+      "NG"
+    ],
+    "latlng": [
+      15,
+      19
     ]
   },
   {
@@ -2395,7 +6155,35 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 6,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "180",
+    "capital": "Kinshasa",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AO",
+      "BI",
+      "CF",
+      "CG",
+      "RW",
+      "SS",
+      "TZ",
+      "UG",
+      "ZM"
+    ],
+    "nearby": [
+      "RW",
+      "BI",
+      "UG",
+      "CF",
+      "SS",
+      "CG"
+    ],
+    "latlng": [
+      0,
+      25
+    ]
   },
   {
     "key": "GQ",
@@ -2411,7 +6199,28 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 7,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "226",
+    "capital": "Malabo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CM",
+      "GA"
+    ],
+    "nearby": [
+      "ST",
+      "GA",
+      "CM",
+      "CG",
+      "NG",
+      "TG"
+    ],
+    "latlng": [
+      2,
+      10
+    ]
   },
   {
     "key": "SZ",
@@ -2429,7 +6238,30 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 8,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "748",
+    "capital": "Mbabane",
+    "capitalAliases": [
+      "Lobamba"
+    ],
+    "capitalNote": "Mbabane is the administrative capital; Lobamba is the royal and legislative capital.",
+    "neighbors": [
+      "MZ",
+      "ZA"
+    ],
+    "nearby": [
+      "LS",
+      "ZW",
+      "ZA",
+      "BW",
+      "MZ",
+      "ZM"
+    ],
+    "latlng": [
+      -26.5,
+      31.5
+    ]
   },
   {
     "key": "GA",
@@ -2443,7 +6275,29 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 9,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "266",
+    "capital": "Libreville",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CG",
+      "CM",
+      "GQ"
+    ],
+    "nearby": [
+      "CG",
+      "GQ",
+      "ST",
+      "CM",
+      "NG",
+      "CF"
+    ],
+    "latlng": [
+      -1,
+      11.75
+    ]
   },
   {
     "key": "LS",
@@ -2457,7 +6311,27 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 10,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "426",
+    "capital": "Maseru",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "ZA"
+    ],
+    "nearby": [
+      "ZA",
+      "SZ",
+      "BW",
+      "ZW",
+      "MZ",
+      "NA"
+    ],
+    "latlng": [
+      -29.5,
+      28.5
+    ]
   },
   {
     "key": "NA",
@@ -2471,7 +6345,30 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 11,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "516",
+    "capital": "Windhoek",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AO",
+      "BW",
+      "ZA",
+      "ZM"
+    ],
+    "nearby": [
+      "BW",
+      "ZA",
+      "AO",
+      "ZW",
+      "LS",
+      "SZ"
+    ],
+    "latlng": [
+      -22,
+      17
+    ]
   },
   {
     "key": "CG",
@@ -2486,7 +6383,31 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 12,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "178",
+    "capital": "Brazzaville",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AO",
+      "CD",
+      "CF",
+      "CM",
+      "GA"
+    ],
+    "nearby": [
+      "GA",
+      "GQ",
+      "CM",
+      "ST",
+      "CF",
+      "CD"
+    ],
+    "latlng": [
+      -1,
+      15
+    ]
   },
   {
     "key": "ST",
@@ -2501,7 +6422,25 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 13,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "678",
+    "capital": "São Tomé",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "GQ",
+      "GA",
+      "CM",
+      "CG",
+      "NG",
+      "TG"
+    ],
+    "latlng": [
+      1,
+      7
+    ]
   },
   {
     "key": "ZA",
@@ -2515,7 +6454,35 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 14,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "710",
+    "capital": "Pretoria",
+    "capitalAliases": [
+      "Bloemfontein",
+      "Cape Town"
+    ],
+    "capitalNote": "South Africa has three capitals: Pretoria (executive), Cape Town (legislative) and Bloemfontein (judicial).",
+    "neighbors": [
+      "BW",
+      "LS",
+      "MZ",
+      "NA",
+      "SZ",
+      "ZW"
+    ],
+    "nearby": [
+      "LS",
+      "BW",
+      "SZ",
+      "NA",
+      "ZW",
+      "MZ"
+    ],
+    "latlng": [
+      -29,
+      24
+    ]
   },
   {
     "key": "SS",
@@ -2528,7 +6495,32 @@
     "group": "Central & Southern Africa",
     "groupOrder": 11,
     "itemOrder": 15,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "728",
+    "capital": "Juba",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CD",
+      "CF",
+      "ET",
+      "KE",
+      "SD",
+      "UG"
+    ],
+    "nearby": [
+      "UG",
+      "ET",
+      "SD",
+      "CD",
+      "CF",
+      "RW"
+    ],
+    "latlng": [
+      7,
+      30
+    ]
   },
   {
     "key": "BI",
@@ -2543,7 +6535,29 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 1,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "108",
+    "capital": "Gitega",
+    "capitalAliases": [],
+    "capitalNote": "Gitega became the political capital in 2019; Bujumbura is the economic capital.",
+    "neighbors": [
+      "CD",
+      "RW",
+      "TZ"
+    ],
+    "nearby": [
+      "RW",
+      "UG",
+      "TZ",
+      "CD",
+      "KE",
+      "SS"
+    ],
+    "latlng": [
+      -3.5,
+      30
+    ]
   },
   {
     "key": "KM",
@@ -2559,7 +6573,25 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 2,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "174",
+    "capital": "Moroni",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "MG",
+      "MW",
+      "MZ",
+      "TZ",
+      "SC",
+      "ZM"
+    ],
+    "latlng": [
+      -12.16666666,
+      44.25
+    ]
   },
   {
     "key": "DJ",
@@ -2577,7 +6609,29 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 3,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "262",
+    "capital": "Djibouti",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "ER",
+      "ET",
+      "SO"
+    ],
+    "nearby": [
+      "ER",
+      "YE",
+      "ET",
+      "SO",
+      "KE",
+      "SD"
+    ],
+    "latlng": [
+      11.5,
+      43
+    ]
   },
   {
     "key": "ER",
@@ -2593,7 +6647,29 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 4,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "232",
+    "capital": "Asmara",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DJ",
+      "ET",
+      "SD"
+    ],
+    "nearby": [
+      "DJ",
+      "ET",
+      "SD",
+      "YE",
+      "SO",
+      "SA"
+    ],
+    "latlng": [
+      15,
+      39
+    ]
   },
   {
     "key": "ET",
@@ -2607,7 +6683,32 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 5,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "231",
+    "capital": "Addis Ababa",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DJ",
+      "ER",
+      "KE",
+      "SD",
+      "SO",
+      "SS"
+    ],
+    "nearby": [
+      "DJ",
+      "KE",
+      "ER",
+      "SS",
+      "UG",
+      "SD"
+    ],
+    "latlng": [
+      8,
+      38
+    ]
   },
   {
     "key": "KE",
@@ -2621,7 +6722,31 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 6,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "404",
+    "capital": "Nairobi",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "ET",
+      "SO",
+      "SS",
+      "TZ",
+      "UG"
+    ],
+    "nearby": [
+      "UG",
+      "ET",
+      "TZ",
+      "RW",
+      "BI",
+      "SS"
+    ],
+    "latlng": [
+      1,
+      38
+    ]
   },
   {
     "key": "MG",
@@ -2636,7 +6761,25 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 7,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "450",
+    "capital": "Antananarivo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "KM",
+      "MU",
+      "MZ",
+      "MW",
+      "SZ",
+      "ZW"
+    ],
+    "latlng": [
+      -20,
+      47
+    ]
   },
   {
     "key": "MW",
@@ -2649,7 +6792,29 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 8,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "454",
+    "capital": "Lilongwe",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "MZ",
+      "TZ",
+      "ZM"
+    ],
+    "nearby": [
+      "ZM",
+      "MZ",
+      "ZW",
+      "TZ",
+      "KM",
+      "BI"
+    ],
+    "latlng": [
+      -13.5,
+      34
+    ]
   },
   {
     "key": "MU",
@@ -2663,7 +6828,25 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 9,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "480",
+    "capital": "Port Louis",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "MG",
+      "KM",
+      "SC",
+      "MZ",
+      "MW",
+      "SZ"
+    ],
+    "latlng": [
+      -20.28333333,
+      57.55
+    ]
   },
   {
     "key": "MZ",
@@ -2677,7 +6860,32 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 10,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "508",
+    "capital": "Maputo",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "MW",
+      "SZ",
+      "TZ",
+      "ZA",
+      "ZM",
+      "ZW"
+    ],
+    "nearby": [
+      "MW",
+      "ZW",
+      "ZM",
+      "SZ",
+      "KM",
+      "BW"
+    ],
+    "latlng": [
+      -18.25,
+      35
+    ]
   },
   {
     "key": "RW",
@@ -2692,7 +6900,30 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 11,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "646",
+    "capital": "Kigali",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BI",
+      "CD",
+      "TZ",
+      "UG"
+    ],
+    "nearby": [
+      "BI",
+      "UG",
+      "CD",
+      "TZ",
+      "KE",
+      "SS"
+    ],
+    "latlng": [
+      -2,
+      30
+    ]
   },
   {
     "key": "SC",
@@ -2707,7 +6938,25 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 12,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "690",
+    "capital": "Victoria",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "KM",
+      "MU",
+      "SO",
+      "MG",
+      "KE",
+      "MV"
+    ],
+    "latlng": [
+      -4.58333333,
+      55.66666666
+    ]
   },
   {
     "key": "SO",
@@ -2723,7 +6972,29 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 13,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "706",
+    "capital": "Mogadishu",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "DJ",
+      "ET",
+      "KE"
+    ],
+    "nearby": [
+      "YE",
+      "DJ",
+      "ER",
+      "ET",
+      "OM",
+      "KE"
+    ],
+    "latlng": [
+      10,
+      49
+    ]
   },
   {
     "key": "TZ",
@@ -2737,7 +7008,34 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 14,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "834",
+    "capital": "Dodoma",
+    "capitalAliases": [],
+    "capitalNote": "Dar es Salaam is the largest city and hosts most government offices.",
+    "neighbors": [
+      "BI",
+      "CD",
+      "KE",
+      "MW",
+      "MZ",
+      "RW",
+      "UG",
+      "ZM"
+    ],
+    "nearby": [
+      "BI",
+      "RW",
+      "MW",
+      "KE",
+      "UG",
+      "ZM"
+    ],
+    "latlng": [
+      -6,
+      35
+    ]
   },
   {
     "key": "UG",
@@ -2751,7 +7049,31 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 15,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "800",
+    "capital": "Kampala",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "CD",
+      "KE",
+      "RW",
+      "SS",
+      "TZ"
+    ],
+    "nearby": [
+      "RW",
+      "BI",
+      "KE",
+      "SS",
+      "CD",
+      "TZ"
+    ],
+    "latlng": [
+      1,
+      32
+    ]
   },
   {
     "key": "ZM",
@@ -2764,7 +7086,34 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 16,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "894",
+    "capital": "Lusaka",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "AO",
+      "BW",
+      "CD",
+      "MW",
+      "MZ",
+      "NA",
+      "TZ",
+      "ZW"
+    ],
+    "nearby": [
+      "MW",
+      "ZW",
+      "MZ",
+      "BW",
+      "TZ",
+      "AO"
+    ],
+    "latlng": [
+      -15,
+      30
+    ]
   },
   {
     "key": "ZW",
@@ -2777,7 +7126,30 @@
     "group": "East Africa",
     "groupOrder": 12,
     "itemOrder": 17,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "716",
+    "capital": "Harare",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "BW",
+      "MZ",
+      "ZA",
+      "ZM"
+    ],
+    "nearby": [
+      "ZM",
+      "MZ",
+      "BW",
+      "SZ",
+      "MW",
+      "LS"
+    ],
+    "latlng": [
+      -20,
+      30
+    ]
   },
   {
     "key": "AU",
@@ -2792,6 +7164,24 @@
     "itemOrder": 1,
     "flagLookalikes": [
       "NZ"
+    ],
+    "territory": false,
+    "ccn3": "036",
+    "capital": "Canberra",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "TL",
+      "PG",
+      "ID",
+      "NC",
+      "SB",
+      "VU"
+    ],
+    "latlng": [
+      -27,
+      133
     ]
   },
   {
@@ -2808,7 +7198,90 @@
     "group": "Oceania",
     "groupOrder": 13,
     "itemOrder": 2,
-    "flagLookalikes": []
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "242",
+    "capital": "Suva",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "VU",
+      "NC",
+      "TO",
+      "TV",
+      "WS",
+      "SB"
+    ],
+    "latlng": [
+      -18,
+      175
+    ]
+  },
+  {
+    "key": "PF",
+    "name": "French Polynesia",
+    "aliases": [
+      "Polynésie française",
+      "Pōrīnetia Farāni"
+    ],
+    "region": "Oceania",
+    "subregion": "Polynesia",
+    "group": "Oceania",
+    "groupOrder": 13,
+    "itemOrder": 3,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "258",
+    "capital": "Papeete",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "WS",
+      "TO",
+      "TV",
+      "FJ",
+      "NZ",
+      "KI"
+    ],
+    "latlng": [
+      -15,
+      -140
+    ]
+  },
+  {
+    "key": "GU",
+    "name": "Guam",
+    "aliases": [
+      "Guåhån"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia",
+    "group": "Oceania",
+    "groupOrder": 13,
+    "itemOrder": 4,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "316",
+    "capital": "Hagåtña",
+    "capitalAliases": [
+      "Agana"
+    ],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "PW",
+      "FM",
+      "PG",
+      "PH",
+      "MH",
+      "JP"
+    ],
+    "latlng": [
+      13.46666666,
+      144.78333333
+    ]
   },
   {
     "key": "KI",
@@ -2822,8 +7295,28 @@
     "subregion": "Micronesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 3,
-    "flagLookalikes": []
+    "itemOrder": 5,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "296",
+    "capital": "South Tarawa",
+    "capitalAliases": [
+      "Tarawa"
+    ],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "NR",
+      "MH",
+      "TV",
+      "FM",
+      "SB",
+      "VU"
+    ],
+    "latlng": [
+      1.41666666,
+      173
+    ]
   },
   {
     "key": "MH",
@@ -2836,8 +7329,26 @@
     "subregion": "Micronesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 4,
-    "flagLookalikes": []
+    "itemOrder": 6,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "584",
+    "capital": "Majuro",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "KI",
+      "NR",
+      "FM",
+      "SB",
+      "TV",
+      "GU"
+    ],
+    "latlng": [
+      9,
+      168
+    ]
   },
   {
     "key": "FM",
@@ -2849,8 +7360,26 @@
     "subregion": "Micronesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 5,
-    "flagLookalikes": []
+    "itemOrder": 7,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "583",
+    "capital": "Palikir",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "MH",
+      "NR",
+      "GU",
+      "SB",
+      "KI",
+      "PG"
+    ],
+    "latlng": [
+      6.91666666,
+      158.25
+    ]
   },
   {
     "key": "NR",
@@ -2865,8 +7394,55 @@
     "subregion": "Micronesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 6,
-    "flagLookalikes": []
+    "itemOrder": 8,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "520",
+    "capital": "Yaren",
+    "capitalAliases": [],
+    "capitalNote": "Nauru has no official capital; Yaren is the seat of government.",
+    "neighbors": [],
+    "nearby": [
+      "KI",
+      "MH",
+      "SB",
+      "FM",
+      "TV",
+      "VU"
+    ],
+    "latlng": [
+      -0.53333333,
+      166.91666666
+    ]
+  },
+  {
+    "key": "NC",
+    "name": "New Caledonia",
+    "aliases": [],
+    "region": "Oceania",
+    "subregion": "Melanesia",
+    "group": "Oceania",
+    "groupOrder": 13,
+    "itemOrder": 9,
+    "flagLookalikes": [],
+    "territory": true,
+    "ccn3": "540",
+    "capital": "Nouméa",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "VU",
+      "FJ",
+      "SB",
+      "TV",
+      "TO",
+      "NZ"
+    ],
+    "latlng": [
+      -21.5,
+      165.5
+    ]
   },
   {
     "key": "NZ",
@@ -2878,9 +7454,27 @@
     "subregion": "Australia and New Zealand",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 7,
+    "itemOrder": 10,
     "flagLookalikes": [
       "AU"
+    ],
+    "territory": false,
+    "ccn3": "554",
+    "capital": "Wellington",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "NC",
+      "TO",
+      "FJ",
+      "VU",
+      "WS",
+      "TV"
+    ],
+    "latlng": [
+      -41,
+      174
     ]
   },
   {
@@ -2894,10 +7488,28 @@
     "subregion": "Micronesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 8,
+    "itemOrder": 11,
     "flagLookalikes": [
       "BD",
       "JP"
+    ],
+    "territory": false,
+    "ccn3": "585",
+    "capital": "Ngerulmud",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "GU",
+      "PH",
+      "PG",
+      "TL",
+      "ID",
+      "BN"
+    ],
+    "latlng": [
+      7.5,
+      134.5
     ]
   },
   {
@@ -2912,8 +7524,28 @@
     "subregion": "Melanesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 9,
-    "flagLookalikes": []
+    "itemOrder": 12,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "598",
+    "capital": "Port Moresby",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [
+      "ID"
+    ],
+    "nearby": [
+      "SB",
+      "FM",
+      "PW",
+      "GU",
+      "NR",
+      "TL"
+    ],
+    "latlng": [
+      -6,
+      147
+    ]
   },
   {
     "key": "WS",
@@ -2926,8 +7558,26 @@
     "subregion": "Polynesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 10,
-    "flagLookalikes": []
+    "itemOrder": 13,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "882",
+    "capital": "Apia",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "TO",
+      "TV",
+      "FJ",
+      "VU",
+      "KI",
+      "NC"
+    ],
+    "latlng": [
+      -13.58333333,
+      -172.33333333
+    ]
   },
   {
     "key": "SB",
@@ -2937,8 +7587,26 @@
     "subregion": "Melanesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 11,
-    "flagLookalikes": []
+    "itemOrder": 14,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "090",
+    "capital": "Honiara",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "NR",
+      "VU",
+      "PG",
+      "NC",
+      "FM",
+      "KI"
+    ],
+    "latlng": [
+      -8,
+      159
+    ]
   },
   {
     "key": "TO",
@@ -2950,8 +7618,26 @@
     "subregion": "Polynesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 12,
-    "flagLookalikes": []
+    "itemOrder": 15,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "776",
+    "capital": "Nuku'alofa",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "WS",
+      "FJ",
+      "TV",
+      "VU",
+      "NC",
+      "NZ"
+    ],
+    "latlng": [
+      -20,
+      -175
+    ]
   },
   {
     "key": "TV",
@@ -2961,8 +7647,26 @@
     "subregion": "Polynesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 13,
-    "flagLookalikes": []
+    "itemOrder": 16,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "798",
+    "capital": "Funafuti",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "FJ",
+      "KI",
+      "WS",
+      "NR",
+      "VU",
+      "TO"
+    ],
+    "latlng": [
+      -8,
+      178
+    ]
   },
   {
     "key": "VU",
@@ -2976,7 +7680,25 @@
     "subregion": "Melanesia",
     "group": "Oceania",
     "groupOrder": 13,
-    "itemOrder": 14,
-    "flagLookalikes": []
+    "itemOrder": 17,
+    "flagLookalikes": [],
+    "territory": false,
+    "ccn3": "548",
+    "capital": "Port Vila",
+    "capitalAliases": [],
+    "capitalNote": null,
+    "neighbors": [],
+    "nearby": [
+      "NC",
+      "FJ",
+      "SB",
+      "TV",
+      "NR",
+      "TO"
+    ],
+    "latlng": [
+      -16,
+      167
+    ]
   }
 ]

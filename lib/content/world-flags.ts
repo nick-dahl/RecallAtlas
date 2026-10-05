@@ -10,7 +10,7 @@ export const WORLD_FLAGS: CourseDef = {
   title: 'World Flags',
   placementPromptType: 'flag_to_name',
   promptTypes: FLAG_PROMPT_TYPES,
-  items: records.map((c) => ({
+  items: records.filter((c) => !c.territory).map((c) => ({
     key: c.key,
     name: c.name,
     aliases: c.aliases,

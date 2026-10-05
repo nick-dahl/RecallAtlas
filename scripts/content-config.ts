@@ -1,6 +1,9 @@
 /** Non-UN-member countries included in the course (spec §2). */
 export const EXTRA_KEYS = ['VA', 'PS', 'TW', 'XK'];
 
+/** Dependent territories taught in World Map only; World Flags filters them out (map spec §3.1). */
+export const MAP_TERRITORIES = ['GL', 'BM', 'PR', 'AW', 'CW', 'GF', 'FK', 'FO', 'NC', 'PF', 'GU'];
+
 /** Learning chunks, in introduction order. */
 export const GROUP_ORDER = [
   'Western & Northern Europe',
