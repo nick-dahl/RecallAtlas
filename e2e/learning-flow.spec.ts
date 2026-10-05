@@ -70,6 +70,7 @@ test('pass the final exam', async ({ page, context }) => {
 // course actions, no /dev-page clicks.
 test.describe('dev sign-in', () => {
   test('signs into the developer account and back out', async ({ page }) => {
+    test.skip(Boolean(process.env.E2E_BASE_URL), 'Dev sign-in only exists under `next dev`.');
     await page.goto('/login');
     const devLink = page.getByRole('link', { name: /^Dev sign-in as /i });
     await expect(devLink).toBeVisible();
@@ -78,5 +79,10 @@ test.describe('dev sign-in', () => {
     await expect(page.getByRole('heading', { name: 'Your atlas' })).toBeVisible();
     await page.getByRole('button', { name: 'Sign out' }).click();
     await expect(page).toHaveURL(/\/login$/);
+  });
+
+  test('is not available on a deployment', async ({ request }) => {
+    test.skip(!process.env.E2E_BASE_URL, 'Only meaningful against a production build.');
+    expect((await request.get('/auth/dev-login', { maxRedirects: 0 })).status()).toBe(404);
   });
 });

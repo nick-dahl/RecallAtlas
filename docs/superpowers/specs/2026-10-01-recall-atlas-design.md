@@ -227,4 +227,7 @@ Passing is permanent. FSRS continues scheduling reviews. **Retention health** = 
 | 20 | Visual direction | Minimal but slick, lightly playful; performance over graphics (no UI/animation libraries, CSS-only motion, lazy images) |
 | 21 | Auth for MVP | Magic links only; Google OAuth deferred |
 | 22 | Deploy timing | Iterate locally until the UI looks right; deploy (Vercel) as a separate follow-up plan |
+| 23 | Hosting (2026-10-05) | GitHub `nick-dahl/RecallAtlas` → Vercel, free `*.vercel.app` domain |
+| 24 | Production database | Reuse the dev Supabase project for now (dev resets/tests share it). Revisit with a separate project when real users arrive |
+| 25 | Email sender | Supabase built-in (rate-limited) for now; revisit (e.g. Resend) when scaling |
 | 18 | Display names | English common names; "Turkey" over "Türkiye" (kept as alias) |
