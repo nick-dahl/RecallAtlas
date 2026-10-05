@@ -2,26 +2,26 @@
 
 import { revalidatePath } from 'next/cache';
 import { notFound, redirect } from 'next/navigation';
-import { WORLD_FLAGS } from '@/lib/content/world-flags';
+import { getCourse } from '@/lib/content/registry';
 import { devToolsEnabled } from '@/lib/dev/dev-tools';
 import { graduate, initialStates, introduce } from '@/lib/engine';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { requireUserId } from '@/lib/supabase/server';
 
-const SLUG = WORLD_FLAGS.slug;
-
-async function guard() {
+async function guard(slug: string) {
   if (!devToolsEnabled()) notFound();
-  return requireUserId();
+  const course = getCourse(slug);
+  if (!course) notFound();
+  return { userId: await requireUserId(), course, SLUG: course.slug };
 }
 
 function check(label: string, error: { message: string } | null) {
   if (error) throw new Error(`${label}: ${error.message}`);
 }
 
-/** DEVELOPMENT ONLY: wipe the signed-in user's World Flags progress (back to not enrolled). */
-export async function resetProgress() {
-  const userId = await guard();
+/** DEVELOPMENT ONLY: wipe the signed-in user's progress in a course (back to not enrolled). */
+export async function resetProgress(slug: string) {
+  const { userId, SLUG } = await guard(slug);
   const admin = createAdminClient();
   // Deleting sessions cascades to answers and exam_attempts.
   for (const table of ['sessions', 'prompt_states', 'confusions', 'enrollments'] as const) {
@@ -33,8 +33,8 @@ export async function resetProgress() {
 }
 
 /** DEVELOPMENT ONLY: enroll, finish placement, and graduate every prompt so the final exam unlocks. */
-export async function makeExamReady() {
-  const userId = await guard();
+export async function makeExamReady(slug: string) {
+  const { userId, course, SLUG } = await guard(slug);
   const admin = createAdminClient();
   const now = new Date();
 
@@ -57,7 +57,7 @@ export async function makeExamReady() {
     .is('completed_at', null);
   check('close sessions', sessions.error);
 
-  const rows = initialStates(WORLD_FLAGS)
+  const rows = initialStates(course)
     .map((s) => graduate({ ...introduce(s), rung: 3 }, now))
     .map((s) => ({
       user_id: userId,

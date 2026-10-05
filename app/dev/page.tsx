@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { SiteHeader } from '@/components/site-header';
 import { buttonClass } from '@/components/ui/button';
+import { listCourses } from '@/lib/content/registry';
 import { devToolsEnabled } from '@/lib/dev/dev-tools';
 import { requireUserId } from '@/lib/supabase/server';
 import { makeExamReady, resetProgress } from './actions';
@@ -14,30 +15,33 @@ export default async function DevPage() {
   return (
     <>
       <SiteHeader />
-      <main className="relative z-10 mx-auto max-w-xl space-y-8 px-6 pb-24">
+      <main className="relative z-10 mx-auto max-w-xl space-y-10 px-6 pb-24">
         <div className="space-y-2">
           <p className="font-mono text-[11px] uppercase tracking-[.15em] text-ink-soft">Development only</p>
           <h1 className="font-display text-4xl tracking-tight">Dev tools</h1>
-          <p className="text-ink-soft">Shortcuts for the signed-in account’s World Flags progress.</p>
+          <p className="text-ink-soft">Shortcuts for the signed-in account’s progress, per course.</p>
         </div>
-        <section className="space-y-3 rounded-2xl bg-raised p-5 ring-1 ring-rule">
-          <h2 className="font-display text-xl">Start over</h2>
-          <p className="text-sm text-ink-soft">
-            Deletes all World Flags progress (enrollment, sessions, answers, confusions). You’ll be a brand-new learner.
-          </p>
-          <form action={resetProgress}>
-            <button className={buttonClass('secondary')}>Reset World Flags progress</button>
-          </form>
-        </section>
-        <section className="space-y-3 rounded-2xl bg-raised p-5 ring-1 ring-rule">
-          <h2 className="font-display text-xl">Jump to the final exam</h2>
-          <p className="text-sm text-ink-soft">
-            Enrolls you, finishes placement, and marks every prompt as learned, so the exam unlocks.
-          </p>
-          <form action={makeExamReady}>
-            <button className={buttonClass('primary')}>Make exam-ready</button>
-          </form>
-        </section>
+        {listCourses().map((course) => (
+          <section key={course.slug} className="space-y-4 rounded-2xl bg-raised p-5 ring-1 ring-rule">
+            <h2 className="font-display text-2xl">{course.title}</h2>
+            <div className="space-y-2">
+              <p className="text-sm text-ink-soft">
+                Start over: deletes all {course.title} progress (enrollment, sessions, answers, confusions).
+              </p>
+              <form action={resetProgress.bind(null, course.slug)}>
+                <button className={buttonClass('secondary')}>Reset {course.title} progress</button>
+              </form>
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm text-ink-soft">
+                Jump to the final exam: enrolls you, finishes placement, and marks every prompt as learned.
+              </p>
+              <form action={makeExamReady.bind(null, course.slug)}>
+                <button className={buttonClass('primary')}>Make {course.title} exam-ready</button>
+              </form>
+            </div>
+          </section>
+        ))}
       </main>
     </>
   );
