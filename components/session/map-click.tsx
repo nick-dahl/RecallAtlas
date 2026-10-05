@@ -23,17 +23,24 @@ export function MapClick({ view, locked, feedback, onAnswer }: RendererProps) {
         correct={feedback?.map?.correct}
         given={feedback?.map?.given}
         disabled={locked}
+        autoFocus
         onPoint={(point) => {
           setMark({ x: point.x, y: point.y });
           onAnswer({ kind: 'point', ...point });
         }}
       />
-      <div className="flex justify-center">
+      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-soft">
+        <span className="flex items-center gap-1.5">
+          Click, or move with <Kbd>←</Kbd>
+          <Kbd>→</Kbd>
+          <Kbd>↑</Kbd>
+          <Kbd>↓</Kbd> and press <Kbd>↵</Kbd>
+        </span>
         <button
           type="button"
           disabled={locked}
           onClick={() => onAnswer({ kind: 'dont-know' })}
-          className="flex items-center gap-2 text-sm text-ink-soft hover:text-ink disabled:opacity-50"
+          className="flex items-center gap-2 hover:text-ink disabled:opacity-50"
         >
           I don’t know <Kbd>Esc</Kbd>
         </button>

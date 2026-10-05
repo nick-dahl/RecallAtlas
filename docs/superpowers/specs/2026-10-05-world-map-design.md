@@ -194,4 +194,4 @@ Decisions made while planning, against the real data:
 - **Map-pick badges:** numbered badges sit on each candidate's interior point, or beside it for small shapes (`candidates[].small`), so they never hide the shape.
 - **Hover summary:** a native `<title>` per country on the mastery map ("Bolivia: Find it learned, Name it learned, Capital learning").
 - **Contrast drill without a shared map:** falls back to the flag pair (contrast choices carry flags as well as names).
-- **Keyboard:** Find at recall needs a pointer; keyboard-only learners can only answer "I don't know" (Esc). Out of scope for now.
+- **Keyboard:** on a click question the map takes focus; arrow keys move a crosshair (Shift for 5% steps, otherwise 0.5% of the width) and Enter or Space clicks at it, graded like a mouse click. Locating countries with a screen reader remains out of scope.

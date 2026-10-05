@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { FeedbackView } from '@/lib/study/types';
-import { candidateState, normalizePoint } from './geometry';
+import { candidateState, moveCursor, normalizePoint } from './geometry';
 
 const rect = { left: 100, top: 50, width: 400, height: 200 };
 
@@ -35,5 +35,26 @@ describe('candidateState', () => {
     expect(candidateState('M1Z', 'a', feedback('M1Z'), 'b')).toBe('correct');
     expect(candidateState('M2Z', 'b', feedback('M1Z'), 'b')).toBe('wrong');
     expect(candidateState('M3Z', 'c', feedback('M1Z'), 'b')).toBe('dim');
+  });
+});
+
+describe('moveCursor', () => {
+  const start = { x: 0.5, y: 0.5 };
+
+  it('moves a fine step per arrow and a coarse step with Shift', () => {
+    expect(moveCursor(start, 'ArrowRight', false, 2)).toEqual({ x: 0.505, y: 0.5 });
+    expect(moveCursor(start, 'ArrowLeft', true, 2)).toEqual({ x: 0.45, y: 0.5 });
+  });
+
+  it('moves the same on-screen distance vertically, whatever the map’s shape', () => {
+    // A map twice as wide as tall: a step of 0.5% of the width is 1% of the height.
+    expect(moveCursor(start, 'ArrowDown', false, 2)).toEqual({ x: 0.5, y: 0.51 });
+    expect(moveCursor(start, 'ArrowUp', true, 0.5)).toEqual({ x: 0.5, y: 0.475 });
+  });
+
+  it('stays on the map and ignores other keys', () => {
+    expect(moveCursor({ x: 0.99, y: 0.01 }, 'ArrowRight', true, 1)).toEqual({ x: 1, y: 0.01 });
+    expect(moveCursor({ x: 0.5, y: 0.01 }, 'ArrowUp', true, 1)).toEqual({ x: 0.5, y: 0 });
+    expect(moveCursor(start, 'a', false, 1)).toBeNull();
   });
 });

@@ -1,10 +1,10 @@
 'use client';
 /* eslint-disable @next/next/no-img-element -- the base map is an immutable static SVG; next/image adds nothing. */
 
-import { useId, type MouseEvent } from 'react';
+import { useEffect, useId, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
 import type { ChoiceState } from '@/components/session/choice-state';
 import type { MapView } from '@/lib/study/types';
-import { normalizePoint } from './geometry';
+import { moveCursor, normalizePoint } from './geometry';
 
 export interface MapCandidate {
   id: string;
@@ -48,6 +48,7 @@ export function MapFrame({
   disabled = false,
   onPoint,
   onCandidate,
+  autoFocus = false,
   className = '',
 }: {
   map: MapView;
@@ -63,24 +64,55 @@ export function MapFrame({
   disabled?: boolean;
   onPoint?: (point: { x: number; y: number; width: number }) => void;
   onCandidate?: (id: string) => void;
+  /** Click mode: take keyboard focus on mount, so the arrow keys work straight away. */
+  autoFocus?: boolean;
   className?: string;
 }) {
   const hatch = `hatch-${useId().replace(/:/g, '')}`;
   const { width: w, height: h } = map;
   const clickable = Boolean(onPoint) && !disabled;
+  const ref = useRef<HTMLDivElement>(null);
+  /** Keyboard crosshair, normalized; shown once an arrow key is used. */
+  const [cursor, setCursor] = useState({ x: 0.5, y: 0.5 });
+  const [keyboard, setKeyboard] = useState(false);
+
+  useEffect(() => {
+    if (autoFocus && clickable) ref.current?.focus({ preventScroll: true });
+  }, [autoFocus, clickable]);
 
   const click = (e: MouseEvent<HTMLDivElement>) => {
     if (!clickable) return;
     onPoint!(normalizePoint(e.clientX, e.clientY, e.currentTarget.getBoundingClientRect()));
   };
 
+  // Arrow keys move a crosshair (Shift for bigger steps); Enter or Space clicks at it.
+  const keyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (!clickable) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const rect = e.currentTarget.getBoundingClientRect();
+      onPoint!(normalizePoint(rect.left + cursor.x * rect.width, rect.top + cursor.y * rect.height, rect));
+      return;
+    }
+    const next = moveCursor(cursor, e.key, e.shiftKey, w / h);
+    if (!next) return;
+    e.preventDefault();
+    setCursor(next);
+    setKeyboard(true);
+  };
+
   return (
     <div
+      ref={ref}
       data-map-frame
       data-viewbox={`${w} ${h}`}
       onClick={click}
+      onKeyDown={keyDown}
+      tabIndex={clickable ? 0 : undefined}
+      role={clickable ? 'application' : undefined}
+      aria-label={clickable ? 'Map. Move the crosshair with the arrow keys (Shift for bigger steps), then press Enter.' : undefined}
       style={{ aspectRatio: `${w} / ${h}`, width: `min(100%, calc(${maxHeight} * ${w / h}))` }}
-      className={`map-plate relative mx-auto select-none overflow-hidden rounded-xl ${clickable ? 'cursor-crosshair' : ''} ${className}`}
+      className={`map-plate relative mx-auto select-none overflow-hidden rounded-xl outline-none focus-visible:ring-4 focus-visible:ring-accent/60 ${clickable ? 'cursor-crosshair' : ''} ${className}`}
     >
       <img src={map.baseUrl} alt="" draggable={false} className="absolute inset-0 h-full w-full" />
       <svg viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" aria-hidden="true" className="absolute inset-0 h-full w-full">
@@ -127,6 +159,18 @@ export function MapFrame({
           />
         )}
       </svg>
+      {keyboard && clickable && (
+        <span
+          aria-hidden="true"
+          data-crosshair
+          style={{ left: `${cursor.x * 100}%`, top: `${cursor.y * 100}%` }}
+          className="pointer-events-none absolute size-7 -translate-x-1/2 -translate-y-1/2"
+        >
+          <span className="absolute inset-0 rounded-full ring-2 ring-accent" />
+          <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-accent" />
+          <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-accent" />
+        </span>
+      )}
       {mark && (
         <span
           aria-hidden="true"

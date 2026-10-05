@@ -9,7 +9,7 @@ const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin']
 
 export const metadata: Metadata = {
   title: { default: 'Recall Atlas', template: '%s · Recall Atlas' },
-  description: 'Learn every flag in the world, and keep them.',
+  description: 'Learn every flag, country and capital in the world, and keep them.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

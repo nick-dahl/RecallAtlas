@@ -1,6 +1,14 @@
 import { expect, test, type Page } from '@playwright/test';
 import { WORLD_MAP } from '@/lib/content/world-map';
-import { answerCorrectly, clickCountry, frameData, pendingOnScreen, practiceAhead, waitForNext } from './support/session';
+import {
+  answerCorrectly,
+  clickCountry,
+  frameData,
+  keyboardClickCountry,
+  pendingOnScreen,
+  practiceAhead,
+  waitForNext,
+} from './support/session';
 import { admin, createTestUser, graduateEverything, nameOf, sessionCookies, type TestUser } from './support/supabase';
 
 test.describe.configure({ mode: 'serial' });
@@ -35,6 +43,9 @@ test.afterAll(async () => {
 
 test('enroll, place by clicking (with one miss), skip ahead, and study', async ({ page, context }) => {
   test.setTimeout(300_000);
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: /Learn the world/ })).toBeVisible();
+  await shot(page, 'landing');
   await context.addCookies(await sessionCookies(user));
 
   await page.goto('/dashboard');
@@ -46,7 +57,14 @@ test('enroll, place by clicking (with one miss), skip ahead, and study', async (
   await shot(page, 'course-home-new');
 
   await page.getByRole('link', { name: 'Start placement' }).click();
-  for (let i = 0; i < 3; i++) await answer(page);
+
+  // Keyboard only: walk the crosshair to the first country and press Enter.
+  const first = await pendingOnScreen(page, user);
+  await shot(page, 'q-find-map-click');
+  await keyboardClickCountry(page, first, first.entry.itemKey, () => shot(page, 'keyboard-crosshair'));
+  await expect(page.getByTestId('feedback')).toHaveAttribute('data-correct', 'true');
+  await waitForNext(page, first.questionId);
+  for (let i = 0; i < 2; i++) await answer(page);
 
   // A deliberate wrong click: a neighbour of the asked country.
   const pending = await pendingOnScreen(page, user);

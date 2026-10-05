@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { expect, type Page } from '@playwright/test';
 import { WORLD_FLAGS } from '@/lib/content/world-flags';
+import { CURSOR_STEP, CURSOR_STEP_COARSE } from '@/components/map/geometry';
 import type { CourseDef } from '@/lib/engine';
 import type { FrameData } from '@/lib/map/types';
 import { itemOf, pendingQuestion, type PendingRow, type TestUser } from './supabase';
@@ -48,6 +49,34 @@ export async function clickCountry(page: Page, pending: PendingRow, key: string)
   await map.scrollIntoViewIfNeeded();
   const box = (await map.boundingBox())!;
   await map.click({ position: { x: (x / frame.width) * box.width, y: (y / frame.height) * box.height } });
+}
+
+/**
+ * Answers a map-click question with the keyboard only: arrow keys (Shift for coarse steps) walk
+ * the crosshair from the centre to `key`'s interior point, then Enter clicks there.
+ */
+export async function keyboardClickCountry(
+  page: Page,
+  pending: PendingRow,
+  key: string,
+  beforeEnter?: () => Promise<void>,
+) {
+  const frame = frameData(pending.frame!);
+  const [lx, ly] = frame.countries[key].label;
+  const aspect = frame.width / frame.height;
+  const map = page.locator('[data-map-frame]');
+  await expect(map).toBeFocused();
+  const walk = async (delta: number, scale: number, plus: string, minus: string) => {
+    const coarse = Math.trunc(delta / (CURSOR_STEP_COARSE * scale));
+    const fine = Math.round((delta - coarse * CURSOR_STEP_COARSE * scale) / (CURSOR_STEP * scale));
+    for (let i = 0; i < Math.abs(coarse); i++) await page.keyboard.press(`Shift+${coarse > 0 ? plus : minus}`);
+    for (let i = 0; i < Math.abs(fine); i++) await page.keyboard.press(fine > 0 ? plus : minus);
+  };
+  await walk(lx / frame.width - 0.5, 1, 'ArrowRight', 'ArrowLeft');
+  await walk(ly / frame.height - 0.5, aspect, 'ArrowDown', 'ArrowUp');
+  await expect(page.locator('[data-crosshair]')).toBeVisible();
+  await beforeEnter?.();
+  await page.keyboard.press('Enter');
 }
 
 /** Answers the on-screen question correctly, looking the answer up server-side. */
