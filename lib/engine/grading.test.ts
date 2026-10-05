@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { editDistance, gradeChoice, gradeTyped, normalize } from './grading';
-import { fixtureItem, ITEMS, TEST_MAP_COURSE } from './test-fixtures';
+import { acceptedAnswers, editDistance, gradeChoice, gradeTyped, normalize } from './grading';
+import { fixtureItem, ITEMS, TEST_MAP_COURSE, TEST_SEQ_COURSE } from './test-fixtures';
 
 describe('normalize', () => {
   it.each([
@@ -107,5 +107,37 @@ describe('gradeTyped with an answer field', () => {
 
   it('never accepts an answer for a field the item lacks', () => {
     expect(gradeTyped('Quito', fixtureItem('EC'), ITEMS, 'capital').correct).toBe(false);
+  });
+});
+
+describe('gradeTyped for sequence courses', () => {
+  const items = TEST_SEQ_COURSE.items;
+  const item = (k: string) => items.find((i) => i.key === k)!;
+
+  it('grades exact answers without typo tolerance, accepting every listed value', () => {
+    expect(gradeTyped('1820', item('s3'), items, 'year', { exact: true }).correct).toBe(true);
+    expect(gradeTyped('1830', item('s3'), items, 'year', { exact: true }).correct).toBe(true);
+    // One transposition away: a typo for a name, a different year here.
+    expect(gradeTyped('1810', item('s1'), items, 'year', { exact: true })).toEqual({ correct: false, typo: false, answeredItemKey: 's2' });
+    expect(gradeTyped('1802', item('s1'), items, 'year', { exact: true })).toEqual({ correct: false, typo: false, answeredItemKey: null });
+  });
+
+  it('accepts a shared year for both owners, and records no mix-up when a wrong year is shared', () => {
+    expect(gradeTyped('1840', item('s6'), items, 'year', { exact: true }).correct).toBe(true);
+    expect(gradeTyped('1840', item('s7'), items, 'year', { exact: true }).correct).toBe(true);
+    expect(gradeTyped('1840', item('s1'), items, 'year', { exact: true })).toEqual({ correct: false, typo: false, answeredItemKey: null });
+  });
+
+  it('never accepts a bare shared surname, and tells the namesakes apart', () => {
+    expect(gradeTyped('Adams', item('s2'), items)).toEqual({ correct: false, typo: false, answeredItemKey: null });
+    expect(gradeTyped('Adams', item('s1'), items)).toEqual({ correct: false, typo: false, answeredItemKey: null });
+    expect(gradeTyped('JQA', item('s2'), items).correct).toBe(true);
+    expect(gradeTyped('John Adams', item('s2'), items)).toEqual({ correct: false, typo: false, answeredItemKey: 's1' });
+  });
+
+  it('lists accepted answers with the displayed one first', () => {
+    expect(acceptedAnswers(item('s3'), 'year')).toEqual(['1820', '1830']);
+    expect(acceptedAnswers(item('s2'), 'name')).toEqual(['John Quincy Adams', 'JQA']);
+    expect(acceptedAnswers(item('s1'), 'missing')).toEqual([]);
   });
 });

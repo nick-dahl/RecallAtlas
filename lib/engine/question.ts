@@ -1,4 +1,5 @@
 import { pickDistractors } from './distractors';
+import { acceptedAnswers } from './grading';
 import { shuffle } from './random';
 import { getItem } from './state';
 import type { Confusion, CourseDef, PromptState, Question, QuestionRung, QueueEntry, Rng } from './types';
@@ -29,6 +30,7 @@ export function buildQuestion(args: {
   if (!spec.choices) return { entry, format: spec.format };
 
   const target = getItem(course, entry.itemKey);
+  const field = promptType.answerField ?? 'name';
   const distractors = pickDistractors({
     target,
     items: course.items,
@@ -37,6 +39,11 @@ export function buildQuestion(args: {
     confusions,
     rng,
     eligible,
+    window: spec.window,
+    exclusions: spec.format === 'order' ? course.orderExclusions : undefined,
+    distinct: promptType.distinctChoices
+      ? { label: (i) => acceptedAnswers(i, field)[0] ?? '', taken: acceptedAnswers(target, field) }
+      : undefined,
   });
   return { entry, format: spec.format, choiceKeys: shuffle([target.key, ...distractors], rng) };
 }

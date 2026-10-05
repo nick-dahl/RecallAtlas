@@ -20,6 +20,11 @@ const RENDERERS: Record<Format, ComponentType<RendererProps>> = {
   contrast: ContrastDrill,
   'map-pick': MapPick,
   'map-click': MapClick,
+  // Interim until the US Presidents renderers land (Plan 8); no presidents course reaches the player yet.
+  'image-grid': FlagGrid,
+  'gap-choice': ChoiceList,
+  'gap-typed': TypedAnswer,
+  order: ChoiceList,
 };
 
 export function QuestionStage(props: RendererProps & { onContinue: () => void }) {

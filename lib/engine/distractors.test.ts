@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { pickDistractors } from './distractors';
 import { seededRng } from './random';
-import { fixtureItem, ITEMS } from './test-fixtures';
+import { fixtureItem, ITEMS, TEST_SEQ_COURSE } from './test-fixtures';
 
 describe('pickDistractors', () => {
   it('hard mode puts personal confusions first, then static lookalikes', () => {
@@ -73,5 +73,49 @@ describe('pickDistractors for maps', () => {
       expect(d.length).toBe(4);
       expect(d.every((k) => allowed.includes(k))).toBe(true);
     }
+  });
+});
+
+describe('pickDistractors for sequence courses', () => {
+  const items = TEST_SEQ_COURSE.items;
+  const item = (k: string) => items.find((i) => i.key === k)!;
+  const exclusions = TEST_SEQ_COURSE.orderExclusions!;
+  const pick = (target: string, extra: Partial<Parameters<typeof pickDistractors>[0]> = {}) =>
+    pickDistractors({ target: item(target), items, count: 3, mode: 'sequence', confusions: [], rng: seededRng(1), exclusions, ...extra });
+
+  it('picks the nearest by number, lower number first on ties', () => {
+    // s6 sits at 7: s5 (6) and s7 (8) are 1 away; s3 (at 5) beats s8 (at 9) on the tie at 2.
+    expect(pick('s6')).toEqual(['s5', 's7', 's3']);
+  });
+
+  it('never pairs items that share a span, with the target or with each other', () => {
+    expect(pick('s3')).not.toContain('s4');
+    expect(pick('s4')).not.toContain('s3');
+    for (const target of ['s1', 's2', 's5']) {
+      const keys = [target, ...pick(target)];
+      expect(keys.includes('s3') && keys.includes('s4')).toBe(false);
+    }
+  });
+
+  it('respects a window', () => {
+    expect(pick('s1', { window: 2, exclusions: [] })).toEqual(['s2', 's3']);
+  });
+
+  it('with distinct labels, never repeats a label or offers one the target accepts', () => {
+    const label = (i: (typeof items)[number]) => i.answers!.party.text;
+    for (const target of items) {
+      const taken = [target.answers!.party.text, ...target.answers!.party.aliases];
+      const picked = pickDistractors({
+        target, items, count: 3, mode: 'sequence', window: 6, confusions: [], rng: seededRng(2), distinct: { label, taken },
+      }).map((k) => label(item(k)));
+      expect(new Set(picked).size).toBe(picked.length);
+      for (const p of picked) expect(taken).not.toContain(p);
+    }
+    // s8 is party B and also accepts C: neither is ever offered.
+    const s8 = pickDistractors({
+      target: item('s8'), items, count: 3, mode: 'sequence', window: 6, confusions: [], rng: seededRng(2),
+      distinct: { label, taken: ['B', 'C'] },
+    });
+    expect(s8.map((k) => label(item(k)))).toEqual(['A']);
   });
 });

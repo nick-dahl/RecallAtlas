@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { buildQuestion, rungForState } from './question';
 import { seededRng } from './random';
 import { newPromptState } from './state';
-import { TEST_COURSE, TEST_MAP_COURSE } from './test-fixtures';
+import { TEST_COURSE, TEST_MAP_COURSE, TEST_SEQ_COURSE } from './test-fixtures';
 
 const base = { course: TEST_COURSE, confusions: [], rng: seededRng(11) };
 
@@ -78,5 +78,45 @@ describe('buildQuestion for maps', () => {
     });
     expect(q.choiceKeys).toHaveLength(6);
     expect(q.choiceKeys).not.toContain('IN');
+  });
+});
+
+describe('buildQuestion for sequence courses', () => {
+  const course = TEST_SEQ_COURSE;
+  const q = (itemKey: string, promptType: string, rung: 1 | 2 | 3, seed = 1) =>
+    buildQuestion({ entry: { kind: 'prompt', itemKey, promptType }, rung, course, confusions: [], rng: seededRng(seed) });
+  const answer = (key: string, field: string) => course.items.find((i) => i.key === key)!.answers![field].text;
+
+  it('builds put-in-order from the target and its 3 nearest, never pairing s3 with s4', () => {
+    for (let seed = 0; seed < 10; seed++) {
+      const order = q('s4', 'sequence', 2, seed);
+      expect(order.format).toBe('order');
+      expect(order.choiceKeys).toHaveLength(4);
+      expect(order.choiceKeys).toContain('s4');
+      expect(order.choiceKeys).not.toContain('s3');
+    }
+  });
+
+  it('gives party questions 2–4 options with distinct labels', () => {
+    for (const item of course.items) {
+      const labels = q(item.key, 'party', 1).choiceKeys!.map((k) => answer(k, 'party'));
+      expect(labels.length).toBeGreaterThanOrEqual(2);
+      expect(labels.length).toBeLessThanOrEqual(4);
+      expect(new Set(labels).size).toBe(labels.length);
+    }
+  });
+
+  it('never repeats a year among the options', () => {
+    for (let seed = 0; seed < 10; seed++) {
+      for (const key of ['s6', 's7']) {
+        const years = q(key, 'year', 2, seed).choiceKeys!.map((k) => answer(k, 'year'));
+        expect(new Set(years).size).toBe(years.length);
+      }
+    }
+  });
+
+  it('issues the gap formats', () => {
+    expect(q('s2', 'sequence', 1).format).toBe('gap-choice');
+    expect(q('s2', 'sequence', 3)).toEqual({ entry: { kind: 'prompt', itemKey: 's2', promptType: 'sequence' }, format: 'gap-typed' });
   });
 });

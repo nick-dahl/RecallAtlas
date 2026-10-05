@@ -40,11 +40,15 @@ function tolerance(normalizedName: string): number {
     : ENGINE_CONFIG.typoLongMax;
 }
 
-/** Accepted spellings of `item` for an answer field ('name' = the item's name and aliases). */
-function namesOf(item: Item, field: string): string[] {
+/** Display values an answer field accepts, the displayed one first ('name' = name + aliases). */
+export function acceptedAnswers(item: Item, field: string): string[] {
   const answer = field === 'name' ? { text: item.name, aliases: item.aliases } : item.answers?.[field];
-  if (!answer) return [];
-  return [answer.text, ...answer.aliases].map(normalize).filter(Boolean);
+  return answer ? [answer.text, ...answer.aliases] : [];
+}
+
+/** Accepted spellings of `item` for an answer field, normalized. */
+function namesOf(item: Item, field: string): string[] {
+  return acceptedAnswers(item, field).map(normalize).filter(Boolean);
 }
 
 /** Smallest edit distance to any of the item's names that is within tolerance, else null. */
@@ -61,15 +65,26 @@ function wrong(answeredItemKey: string | null = null): AnswerGrade {
   return { correct: false, typo: false, answeredItemKey };
 }
 
-/** Grades typed text against `field` ('name', or an `Item.answers` key such as 'capital'). */
-export function gradeTyped(input: string, target: Item, allItems: readonly Item[], field = 'name'): AnswerGrade {
+/**
+ * Grades typed text against `field` ('name', or an `Item.answers` key such as 'capital').
+ * `exact` turns off typo tolerance (years); an exact miss is a mix-up only when the answer
+ * belongs to exactly one other item.
+ */
+export function gradeTyped(
+  input: string,
+  target: Item,
+  allItems: readonly Item[],
+  field = 'name',
+  opts: { exact?: boolean } = {},
+): AnswerGrade {
   const n = normalize(input);
   if (!n) return wrong();
   if (namesOf(target, field).includes(n)) return { correct: true, typo: false, answeredItemKey: null };
 
   const others = allItems.filter((i) => i.key !== target.key);
-  const exactOther = others.find((i) => namesOf(i, field).includes(n));
-  if (exactOther) return wrong(exactOther.key);
+  const exactOthers = others.filter((i) => namesOf(i, field).includes(n));
+  if (opts.exact) return wrong(exactOthers.length === 1 ? exactOthers[0].key : null);
+  if (exactOthers.length > 0) return wrong(exactOthers[0].key);
 
   const targetDistance = typoDistance(n, target, field);
   let closestOther: { key: string; d: number } | null = null;
