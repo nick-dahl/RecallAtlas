@@ -37,7 +37,9 @@ export async function sessionCookies(user: TestUser) {
   });
   const { error } = await client.auth.signInWithPassword({ email: user.email, password: user.password });
   if (error) throw error;
-  return [...jar].map(([name, value]) => ({ name, value, domain: 'localhost', path: '/', sameSite: 'Lax' as const }));
+  // Scope cookies to whichever app the tests target (local dev server or a deployment).
+  const appUrl = process.env.E2E_BASE_URL ?? 'http://localhost:3000';
+  return [...jar].map(([name, value]) => ({ name, value, url: appUrl, sameSite: 'Lax' as const }));
 }
 
 export interface PendingRow {
