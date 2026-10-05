@@ -28,3 +28,16 @@ export function primaryCta(
       return { label: o.dueCount > 0 ? `Study · ${o.dueCount} due` : 'Study', href: `${base}/study` };
   }
 }
+
+/**
+ * Practice ahead (a short retention check of learned material) is offered next to the primary
+ * action whenever something has been learned, unless placement or an exam is underway, or it is
+ * already the primary action.
+ */
+export function offersPracticeAhead(
+  o: Pick<CourseOverview, 'slug' | 'enrolled' | 'status' | 'dueCount' | 'activeSessionKind' | 'readiness'>,
+): boolean {
+  if (!o.enrolled || o.readiness.graduated === 0) return false;
+  if (o.status === 'placement' || o.activeSessionKind === 'exam') return false;
+  return primaryCta(o)?.label !== 'Practice ahead';
+}

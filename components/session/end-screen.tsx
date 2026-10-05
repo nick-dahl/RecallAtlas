@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { buttonClass } from '@/components/ui/button';
 import { Flag } from '@/components/ui/flag';
 import type { EndView, SessionKind } from '@/lib/study/types';
-import { END_COPY } from '@/lib/ui/copy';
+import { END_COPY, practiceSummary } from '@/lib/ui/copy';
 
 export function EndScreen({
   end,
@@ -53,7 +53,7 @@ export function EndScreen({
       ) : (
         <div className="space-y-2">
           <h2 className="font-display text-4xl tracking-tight">{copy.title}</h2>
-          <p className="text-ink-soft">{copy.body}</p>
+          <p className="text-ink-soft">{end.practiceResult ? practiceSummary(end.practiceResult) : copy.body}</p>
         </div>
       )}
       <div className="flex flex-wrap justify-center gap-3">
@@ -64,6 +64,16 @@ export function EndScreen({
           <button type="button" onClick={onRestart} className={buttonClass('secondary')}>
             Another session
           </button>
+        )}
+        {kind === 'study' && end.reason === 'practice_complete' && (
+          <button type="button" onClick={onRestart} className={buttonClass('secondary')}>
+            Another check
+          </button>
+        )}
+        {kind === 'study' && end.reason === 'nothing_to_practice' && (
+          <Link href={`/courses/${slug}/study`} className={buttonClass('secondary')}>
+            Study
+          </Link>
         )}
         {kind === 'study' && end.reason === 'caught_up' && (
           <Link href={`/courses/${slug}/study?mode=practice-ahead`} className={buttonClass('secondary')}>

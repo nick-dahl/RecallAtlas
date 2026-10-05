@@ -21,6 +21,7 @@ export {
 export { applyStudyAnswer, applyIntro, applyContrast, reviewGradeFor, type StudyOutcome } from './answer';
 export { currentEntry, advance, isQueueComplete, type QueueSession } from './queue';
 export { buildPlacementQueue, applyPlacementAnswer } from './placement';
+export { planPractice } from './practice';
 export { isExamReady, buildExamQueue, applyExamAnswer, scoreExam } from './exam';
 export {
   deriveStatus,

@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { answerCorrectly, currentQuestionId, waitForNext } from './support/session';
+import { answerCorrectly, currentQuestionId, practiceAhead, waitForNext } from './support/session';
 import { admin, createTestUser, graduateEverything, sessionCookies, type TestUser } from './support/supabase';
 
 test.describe.configure({ mode: 'serial' });
@@ -62,6 +62,9 @@ test('pass the final exam', async ({ page, context }) => {
   await expect(page.getByText('197/197')).toBeVisible();
   await page.getByRole('link', { name: 'Back to course' }).click();
   await expect(page.getByText('Passed').first()).toBeVisible();
+
+  // A retention check after passing: 20 different flags, then a summary.
+  expect(await practiceAhead(page, user)).toBe(20);
 });
 
 // Separate (non-serial) describe: this signs into the developer's REAL account via the

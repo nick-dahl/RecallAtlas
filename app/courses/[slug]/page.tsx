@@ -13,7 +13,7 @@ import { createServiceContext } from '@/lib/server/context';
 import { getCourseOverview } from '@/lib/study/overview-service';
 import { getMapSupport } from '@/lib/study/presenters';
 import { requireUserId } from '@/lib/supabase/server';
-import { primaryCta } from '@/lib/ui/course-cta';
+import { offersPracticeAhead, primaryCta } from '@/lib/ui/course-cta';
 import { albumSummary, groupTiles, TILE_STYLE } from '@/lib/ui/tiles';
 import { skipPlacementAndStudy } from './actions';
 
@@ -66,7 +66,7 @@ export default async function CoursePage({ params }: Props) {
                 <button className={buttonClass('secondary')}>Skip placement</button>
               </form>
             )}
-            {o.status === 'learning' && o.dueCount === 0 && o.activeSessionKind !== 'study' && (
+            {offersPracticeAhead(o) && (
               <Link href={`/courses/${slug}/study?mode=practice-ahead`} className={buttonClass('ghost')}>
                 Practice ahead
               </Link>

@@ -90,11 +90,15 @@ export type EndReason =
   | 'come_back_later'
   | 'more_new_available'
   | 'placement_complete'
-  | 'exam_finished';
+  | 'exam_finished'
+  | 'practice_complete'
+  | 'nothing_to_practice';
 
 export interface EndView {
   reason: EndReason;
   examResult?: { score: number; total: number; passed: boolean; missed: ItemView[] };
+  /** Practice ahead: how many checked prompts were remembered (misses are back in learning). */
+  practiceResult?: { checked: number; remembered: number };
 }
 
 export interface TurnResult {

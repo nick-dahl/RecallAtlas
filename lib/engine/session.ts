@@ -19,12 +19,16 @@ export interface StudySession {
   lastMissed: Record<string, boolean>;
   newItemsIntroduced: number;
   pending: QueueEntry[];
+  /** Practice ahead: the prompts to check, each asked once, in order (see `planPractice`). */
+  plan?: PromptEntry[];
 }
 
-export function startStudySession(opts: { size?: number; mode?: StudyMode } = {}): StudySession {
+export function startStudySession(opts: { size?: number; mode?: StudyMode; plan?: PromptEntry[] } = {}): StudySession {
+  const size = opts.size ?? ENGINE_CONFIG.sessionSize;
   return {
     mode: opts.mode ?? 'normal',
-    size: opts.size ?? ENGINE_CONFIG.sessionSize,
+    // A practice check is as long as its plan: it never repeats a prompt to fill the session.
+    size: opts.plan ? Math.min(size, opts.plan.length) : size,
     answered: 0,
     turn: 0,
     recentItems: [],
@@ -32,6 +36,7 @@ export function startStudySession(opts: { size?: number; mode?: StudyMode } = {}
     lastMissed: {},
     newItemsIntroduced: 0,
     pending: [],
+    ...(opts.plan ? { plan: opts.plan } : {}),
   };
 }
 
@@ -91,6 +96,9 @@ export function nextEntry(args: {
   const { course, states, session, now } = args;
   if (session.pending.length > 0) return session.pending[0];
   if (isSessionComplete(session)) return null;
+  // Practice ahead checks each planned prompt once. A miss is not re-asked here: it has gone
+  // back into learning and is relearned in regular study.
+  if (session.plan) return session.plan[session.answered] ?? null;
 
   const recent = new Set(session.recentItems);
   const offCooldown = (s: PromptState) => !recent.has(s.itemKey);
@@ -104,10 +112,8 @@ export function nextEntry(args: {
   const freshMiss = pickLearning(freshMisses, session);
   if (freshMiss) return toEntry(freshMiss);
 
-  const reviewable = (s: PromptState) =>
-    session.mode === 'practice-ahead' ? s.phase === 'review' : isDue(s, now);
   const reviews = states
-    .filter((s) => reviewable(s) && offCooldown(s))
+    .filter((s) => isDue(s, now) && offCooldown(s))
     .sort((a, b) => retrievability(a, now) - retrievability(b, now));
   if (reviews.length > 0) return toEntry(reviews[0]);
 

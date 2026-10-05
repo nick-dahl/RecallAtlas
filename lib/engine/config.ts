@@ -2,6 +2,8 @@ export const ENGINE_CONFIG = {
   /** Graded answers per study session. */
   sessionSize: 20,
   maxNewItemsPerSession: 5,
+  /** Practice ahead: added to (1 − recall) when sampling, so well-known items still turn up. */
+  practiceWeightFloor: 0.15,
   /** New items are only introduced while fewer than this many prompts are in learning. */
   maxLearningPrompts: 15,
   /** The last N distinct items served are ineligible for the next pick. */

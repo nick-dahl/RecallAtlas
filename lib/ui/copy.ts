@@ -25,7 +25,20 @@ export const END_COPY: Record<EndReason, { title: string; body: string }> = {
   more_new_available: { title: 'Session complete', body: 'Ready for more? Start another session to meet new ones.' },
   placement_complete: { title: 'Placement done', body: 'We know where you stand. Time to learn the rest.' },
   exam_finished: { title: 'Exam finished', body: '' },
+  practice_complete: { title: 'Check complete', body: '' },
+  nothing_to_practice: {
+    title: 'Nothing to check yet',
+    body: 'Practice ahead checks what you have already learned. Learn a few first, then come back to see what stuck.',
+  },
 };
+
+/** The end-of-check summary for a practice-ahead session. */
+export function practiceSummary({ checked, remembered }: { checked: number; remembered: number }): string {
+  const slipped = checked - remembered;
+  if (slipped === 0) return `You remembered all ${checked}. Everything stuck.`;
+  const back = slipped === 1 ? 'The one that slipped is' : `The ${slipped} that slipped are`;
+  return `You remembered ${remembered} of ${checked}. ${back} back in your learning queue.`;
+}
 
 /** Messages for errors the player can't recover from by itself (stale/unauthorized are handled in code). */
 export function errorMessage(code: ActionError): string {

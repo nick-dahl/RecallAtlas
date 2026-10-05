@@ -111,10 +111,38 @@ describe('nextEntry', () => {
     expect(nextEntry({ course, states, session: startStudySession(), now: NOW })).toBeNull();
   });
 
-  it('practice-ahead mode serves not-yet-due reviews', () => {
+  it('practice-ahead serves its plan in order, each prompt once, sized to the plan', () => {
     const states = initialStates(course).map(toReviewJustNow);
-    const e = nextEntry({ course, states, session: startStudySession({ mode: 'practice-ahead' }), now: days(1) });
-    expect(e?.kind).toBe('prompt');
+    const plan = [
+      { kind: 'prompt' as const, itemKey: 'EC', promptType: 'flag_to_name' },
+      { kind: 'prompt' as const, itemKey: 'TD', promptType: 'name_to_flag' },
+    ];
+    let session = startStudySession({ mode: 'practice-ahead', size: 20, plan });
+    expect(session.size).toBe(2);
+    expect(nextEntry({ course, states, session, now: days(1) })).toEqual(plan[0]);
+    // A miss is not re-asked inside the check: it has gone back into learning.
+    session = recordPromptAnswered(session, plan[0], false);
+    expect(nextEntry({ course, states, session, now: days(1) })).toEqual(plan[1]);
+    session = recordPromptAnswered(session, plan[1], true);
+    expect(isSessionComplete(session)).toBe(true);
+    expect(nextEntry({ course, states, session, now: days(1) })).toBeNull();
+  });
+
+  it('practice-ahead still serves a queued contrast drill before the next planned prompt', () => {
+    const states = initialStates(course).map(toReviewJustNow);
+    const plan = [
+      { kind: 'prompt' as const, itemKey: 'EC', promptType: 'flag_to_name' },
+      { kind: 'prompt' as const, itemKey: 'TD', promptType: 'name_to_flag' },
+    ];
+    let session = recordPromptAnswered(startStudySession({ mode: 'practice-ahead', plan }), plan[0], false);
+    session = queueContrast(session, { kind: 'contrast', itemKey: 'EC', otherKey: 'CO' });
+    expect(nextEntry({ course, states, session, now: days(1) })).toEqual({ kind: 'contrast', itemKey: 'EC', otherKey: 'CO' });
+  });
+
+  it('an empty practice plan has nothing to serve', () => {
+    const states = initialStates(course).map(toReviewJustNow);
+    const session = startStudySession({ mode: 'practice-ahead', plan: [] });
+    expect(nextEntry({ course, states, session, now: days(1) })).toBeNull();
   });
 
   it('falls back to a straggler prompt when only the last-served item remains in learning', () => {

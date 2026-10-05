@@ -144,7 +144,7 @@ Pick order for the next entry:
 
 The engine requires the full set of prompt states (every item × prompt type). Persistence may store only touched rows and must call `hydrateStates` before handing them to the engine.
 
-A natural "working set" of about 4 items forms: new items are introduced only when everything in learning is on cooldown. If a session ends with nothing due, learning or new, the UI shows "All caught up" with **Practice ahead** (review prompts treated as due, lowest retrievability first) and, if unlocked, **Take exam**.
+A natural "working set" of about 4 items forms: new items are introduced only when everything in learning is on cooldown. If a session ends with nothing due, learning or new, the UI shows "All caught up" with **Practice ahead** (amended 2026-10-05: a short retention check. It plans up to the session size of learned items, one prompt each, sampled at random weighted towards low retrievability with a floor so fresh material still appears; each is asked once, misses lapse back into learning, and the end screen reports how many were remembered) and, if unlocked, **Take exam**.
 
 Placement and exam sessions are fixed, pre-built queues (`{ queue, position }`).
 

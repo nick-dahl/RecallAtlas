@@ -39,6 +39,7 @@ export function FeedbackPanel({
   useHotkeys({ Enter: onContinue });
   const { headline, detail } = message(view, feedback);
   const note = view.prompt.asks === 'capital' ? feedback.answer.capitalNote : undefined;
+  const relearn = feedback.outcome === 'lapsed' ? 'It’s back in your learning queue.' : undefined;
   return (
     <div
       data-testid="feedback"
@@ -53,6 +54,7 @@ export function FeedbackPanel({
         <p className={`font-semibold ${feedback.correct ? 'text-good' : 'text-bad'}`}>{headline}</p>
         {detail && <p className="text-ink-soft">{detail}</p>}
         {note && <p className="text-ink-soft">{note}</p>}
+        {relearn && <p className="text-ink-soft">{relearn}</p>}
       </div>
       {!feedback.correct && (
         <button type="button" onClick={onContinue} className={buttonClass('secondary')}>

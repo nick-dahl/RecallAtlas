@@ -1,10 +1,12 @@
 import {
+  ENGINE_CONFIG,
   applyContrast,
   applyIntro,
   applyStudyAnswer,
   hydrateStates,
   newItemsInOrder,
   nextEntry,
+  planPractice,
   rungForState,
   startStudySession,
   stateKey,
@@ -18,6 +20,7 @@ import { answerLog, confusionFor, feedbackFor, gradeAnswer, issue, loadTurn, req
 import {
   ServiceError,
   type EndReason,
+  type EndView,
   type FeedbackView,
   type PendingQuestion,
   type SubmissionInput,
@@ -42,13 +45,22 @@ function issueNext(
 }
 
 function endReason(ctx: ServiceContext, states: PromptState[], session: StudySession): EndReason {
+  if (session.plan) return session.plan.length === 0 ? 'nothing_to_practice' : 'practice_complete';
   if (session.answered >= session.size) return 'complete';
   if (states.some((s) => s.phase === 'learning')) return 'come_back_later';
   if (newItemsInOrder(ctx.course, states).length > 0) return 'more_new_available';
   return 'caught_up';
 }
 
-/** Starts a study session, or resumes a recent one. */
+function endView(ctx: ServiceContext, states: PromptState[], session: StudySession): EndView {
+  const reason = endReason(ctx, states, session);
+  if (reason !== 'practice_complete') return { reason };
+  // Each planned prompt is asked once, so every miss recorded this session is one slipped item.
+  const missed = Object.values(session.lastMissed).filter(Boolean).length;
+  return { reason, practiceResult: { checked: session.answered, remembered: session.answered - missed } };
+}
+
+/** Starts a study session, or resumes a recent one in the same mode. */
 export async function startStudy(
   ctx: ServiceContext,
   opts: { mode?: StudyMode; size?: number } = {},
@@ -61,18 +73,28 @@ async function startStudyAttempt(ctx: ServiceContext, opts: { mode?: StudyMode; 
   const enrollment = await requireEnrollment(ctx);
   if (!enrollment.placementCompletedAt) throw new ServiceError('placement_pending');
 
+  const mode = opts.mode ?? 'normal';
   const active = await store.getActiveSession(course.slug);
   if (active?.kind === 'exam') throw new ServiceError('exam_in_progress');
-  if (active?.kind === 'study' && active.pendingQuestion && now.getTime() - active.updatedAt.getTime() < STUDY_SESSION_STALE_MS) {
+  if (
+    active?.kind === 'study' &&
+    active.pendingQuestion &&
+    (active.state as StudySession).mode === mode &&
+    now.getTime() - active.updatedAt.getTime() < STUDY_SESSION_STALE_MS
+  ) {
     return { next: view(ctx, active.pendingQuestion, active, progressOf(active.state as StudySession)) };
   }
   if (active) await store.completeSession(active.id);
 
   const [stored, confusions] = await Promise.all([store.getPromptStates(course.slug), store.getConfusions(course.slug)]);
   const states = hydrateStates(course, stored);
-  const session = startStudySession(opts);
+  const size = opts.size ?? ENGINE_CONFIG.sessionSize;
+  const session =
+    mode === 'practice-ahead'
+      ? startStudySession({ mode, size, plan: planPractice(states, now, size, ctx.rng) })
+      : startStudySession({ mode, size });
   const pending = issueNext(ctx, states, session, confusions);
-  if (!pending) return { next: null, end: { reason: endReason(ctx, states, session) } };
+  if (!pending) return { next: null, end: endView(ctx, states, session) };
 
   const record = await store.createSession({ courseSlug: course.slug, kind: 'study', state: session, pendingQuestion: pending });
   return { next: view(ctx, pending, record, progressOf(session)) };
@@ -135,7 +157,7 @@ export async function submitStudyAnswer(ctx: ServiceContext, input: SubmissionIn
   return {
     feedback,
     next: nextPending ? view(ctx, nextPending, active, progressOf(session)) : null,
-    end: completed ? { reason: endReason(ctx, states, session) } : undefined,
+    end: completed ? endView(ctx, states, session) : undefined,
   };
 }
 

@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { WORLD_MAP } from '@/lib/content/world-map';
-import { answerCorrectly, clickCountry, frameData, pendingOnScreen, waitForNext } from './support/session';
+import { answerCorrectly, clickCountry, frameData, pendingOnScreen, practiceAhead, waitForNext } from './support/session';
 import { admin, createTestUser, graduateEverything, nameOf, sessionCookies, type TestUser } from './support/supabase';
 
 test.describe.configure({ mode: 'serial' });
@@ -89,4 +89,6 @@ test('pass the final exam by clicking and typing', async ({ page, context }) => 
   await page.getByRole('link', { name: 'Back to course' }).click();
   await expect(page.locator('[data-tile="review"], [data-tile="strong"]')).toHaveCount(WORLD_MAP.items.length);
   await shot(page, 'course-home-passed');
+
+  expect(await practiceAhead(page, user, WORLD_MAP)).toBe(20);
 });

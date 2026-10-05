@@ -152,3 +152,64 @@ describe('endStudy', () => {
     expect(await store.getActiveSession(SLUG)).toBeNull();
   });
 });
+
+describe('practice ahead', () => {
+  const LEARNED = ['US', 'EC', 'CO', 'VE', 'PE', 'TD'];
+  async function practiceStore() {
+    const { store } = await enrolledStore({ placementDone: true });
+    store.seedPromptStates(SLUG, allGraduated(TEST_COURSE, days(-3)).filter((s) => LEARNED.includes(s.itemKey)));
+    return store;
+  }
+
+  it('checks each learned item once, sized to what has been learned, then reports the result', async () => {
+    const store = await practiceStore();
+    const ctx = testContext(store);
+    let turn = await startStudy(ctx, { mode: 'practice-ahead', size: 20 });
+    expect(turn.next!.progress).toEqual({ answered: 0, total: 6 });
+    const asked: string[] = [];
+    while (turn.next) {
+      const pending = await pendingFor(store);
+      asked.push(pending.entry.itemKey);
+      turn = await answer(ctx, turn, correctResponse(pending));
+    }
+    expect(asked.sort()).toEqual([...LEARNED].sort());
+    expect(turn.end).toEqual({ reason: 'practice_complete', practiceResult: { checked: 6, remembered: 6 } });
+  });
+
+  it('puts a miss back into learning without re-asking it during the check', async () => {
+    const store = await practiceStore();
+    const ctx = testContext(store);
+    let turn = await startStudy(ctx, { mode: 'practice-ahead', size: 10 });
+    const missed = await pendingFor(store);
+    turn = await answer(ctx, turn, { kind: 'dont-know' });
+    expect(turn.feedback).toMatchObject({ correct: false, outcome: 'lapsed' });
+    const asked = [missed.entry.itemKey];
+    while (turn.next) {
+      const pending = await pendingFor(store);
+      if (pending.entry.kind === 'prompt') asked.push(pending.entry.itemKey);
+      turn = await answer(ctx, turn, correctResponse(pending));
+    }
+    expect(asked.filter((k) => k === missed.entry.itemKey)).toHaveLength(1);
+    expect(turn.end?.practiceResult).toEqual({ checked: 6, remembered: 5 });
+    const lapsed = (await store.getPromptStates(SLUG)).find(
+      (s) => s.itemKey === missed.entry.itemKey && missed.entry.kind === 'prompt' && s.promptType === missed.entry.promptType,
+    );
+    expect(lapsed?.phase).toBe('learning');
+  });
+
+  it('says there is nothing to practice before anything is learned', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    expect(await startStudy(testContext(store), { mode: 'practice-ahead' })).toEqual({
+      next: null,
+      end: { reason: 'nothing_to_practice' },
+    });
+  });
+
+  it('starts a fresh session when the requested mode differs from the active one', async () => {
+    const store = await practiceStore();
+    const normal = await startStudy(testContext(store));
+    const practice = await startStudy(testContext(store), { mode: 'practice-ahead' });
+    expect(practice.next!.sessionId).not.toBe(normal.next!.sessionId);
+    expect((await startStudy(testContext(store), { mode: 'practice-ahead' })).next!.sessionId).toBe(practice.next!.sessionId);
+  });
+});

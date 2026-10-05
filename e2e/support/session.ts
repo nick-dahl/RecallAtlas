@@ -70,3 +70,19 @@ export async function answerCorrectly(page: Page, user: TestUser, course: Course
   }
   await waitForNext(page, questionId);
 }
+
+/** Runs a practice-ahead check from the course page to its end screen. */
+export async function practiceAhead(page: Page, user: TestUser, course: CourseDef = WORLD_FLAGS) {
+  await page.getByRole('link', { name: 'Practice ahead' }).first().click();
+  await expect(page).toHaveURL(/mode=practice-ahead/);
+  const asked = new Set<string>();
+  while ((await page.locator('[data-question-id]').count()) > 0 || asked.size === 0) {
+    const pending = await pendingOnScreen(page, user);
+    expect(asked.has(pending.entry.itemKey), 'practice ahead repeated an item').toBe(false);
+    asked.add(pending.entry.itemKey);
+    await answerCorrectly(page, user, course);
+  }
+  await expect(page.getByText('Check complete')).toBeVisible();
+  await expect(page.getByText(`You remembered all ${asked.size}.`)).toBeVisible();
+  return asked.size;
+}
