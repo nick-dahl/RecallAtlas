@@ -43,8 +43,11 @@ export function frameData(id: string): FrameData {
 export async function clickCountry(page: Page, pending: PendingRow, key: string) {
   const frame = frameData(pending.frame!);
   const [x, y] = frame.countries[key].label;
-  const box = (await page.locator('[data-map-frame]').boundingBox())!;
-  await page.mouse.click(box.x + (x / frame.width) * box.width, box.y + (y / frame.height) * box.height);
+  // A locator click scrolls the map into view first; a raw mouse click below the fold does nothing.
+  const map = page.locator('[data-map-frame]');
+  await map.scrollIntoViewIfNeeded();
+  const box = (await map.boundingBox())!;
+  await map.click({ position: { x: (x / frame.width) * box.width, y: (y / frame.height) * box.height } });
 }
 
 /** Answers the on-screen question correctly, looking the answer up server-side. */

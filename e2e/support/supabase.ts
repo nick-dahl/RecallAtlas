@@ -50,15 +50,25 @@ export interface PendingRow {
   frame?: string;
 }
 
+/**
+ * The active session's pending question. Callers poll this, so a slow or failed request returns
+ * null (the poll asks again) instead of hanging the test: an un-timed fetch to the hosted dev
+ * database once stalled a whole exam run.
+ */
 export async function pendingQuestion(userId: string): Promise<PendingRow | null> {
-  const { data, error } = await admin
-    .from('sessions')
-    .select('pending_question')
-    .eq('user_id', userId)
-    .is('completed_at', null)
-    .maybeSingle();
-  if (error) throw error;
-  return (data?.pending_question as PendingRow | null) ?? null;
+  try {
+    const { data, error } = await admin
+      .from('sessions')
+      .select('pending_question')
+      .eq('user_id', userId)
+      .is('completed_at', null)
+      .abortSignal(AbortSignal.timeout(5_000))
+      .maybeSingle();
+    if (error) return null;
+    return (data?.pending_question as PendingRow | null) ?? null;
+  } catch {
+    return null;
+  }
 }
 
 export const itemOf = (key: string, course: CourseDef = WORLD_FLAGS) => course.items.find((i) => i.key === key)!;

@@ -187,3 +187,11 @@ Decisions made while planning, against the real data:
 - **Distractors:** rung 1 uses a new `local` mode (same group first, then others). Every map question restricts distractors to items drawn in its frame (`eligible`), so candidates are always visible.
 - **Partially placed items:** `newItemsInOrder` now returns items with *any* new prompt, so a placed item still gets an intro card for its capital. Placement itself only queues items whose prompts are all new.
 - **Course-home map:** `content/maps/world-atlas.json` (paths per key) instead of an SVG with ids, so the course home can render it inline with tile colours.
+
+## 12. Implementation notes (Plan 6)
+
+- **Asked-about country:** drawn with a diagonal survey hatch in the accent colour; marker countries get a hollow ring (overlays fill even-odd) so a speck is easy to spot.
+- **Map-pick badges:** numbered badges sit on each candidate's interior point, or beside it for small shapes (`candidates[].small`), so they never hide the shape.
+- **Hover summary:** a native `<title>` per country on the mastery map ("Bolivia: Find it learned, Name it learned, Capital learning").
+- **Contrast drill without a shared map:** falls back to the flag pair (contrast choices carry flags as well as names).
+- **Keyboard:** Find at recall needs a pointer; keyboard-only learners can only answer "I don't know" (Esc). Out of scope for now.
