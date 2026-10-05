@@ -115,3 +115,21 @@ describe('sequence courses', () => {
     expect(gradeSubmission(p, { kind: 'choice', choiceId: wrong.id }, seq)).toEqual({ correct: false, typo: false, answeredItemKey: null });
   });
 });
+
+describe('choice answers only fit choice questions', () => {
+  it('rejects a single choice sent for a put-in-order question', () => {
+    const p = issueQuestion({
+      entry: { kind: 'prompt', itemKey: 's6', promptType: 'sequence' },
+      rung: 2,
+      course: TEST_SEQ_COURSE,
+      confusions: [],
+      rng: seededRng(1),
+      now: NOW,
+      newId: randomUUID,
+    });
+    const target = p.choices.find((c) => c.itemKey === 's6')!;
+    expect(() => gradeSubmission(p, { kind: 'choice', choiceId: target.id }, TEST_SEQ_COURSE)).toThrow(
+      new ServiceError('invalid_response'),
+    );
+  });
+});

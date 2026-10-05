@@ -17,7 +17,7 @@ export function buildPresidents(
   eras: readonly string[],
   facePairs: readonly [string, string][],
   sharedSpanPairs: readonly [string, string][],
-  opts: { hasPortrait?: (key: string) => boolean } = {},
+  opts: { hasPortrait?: (key: string) => boolean; ambiguous?: readonly string[] } = {},
 ): PresidentRecord[] {
   const keys = new Set(entries.map((e) => e.key));
   if (keys.size !== entries.length) throw new Error('Duplicate president key');
@@ -40,6 +40,10 @@ export function buildPresidents(
       if (prev && prev !== e.key) throw new Error(`Typed name "${n}" accepted by both ${prev} and ${e.key}`);
       nameOwner.set(n, e.key);
     }
+  }
+  for (const a of opts.ambiguous ?? []) {
+    const owner = nameOwner.get(normalize(a));
+    if (owner) throw new Error(`Ambiguous name "${a}" is accepted by ${owner}`);
   }
   for (const [a, b] of [...facePairs, ...sharedSpanPairs]) {
     for (const k of [a, b]) if (!keys.has(k)) throw new Error(`Pair references unknown president ${k}`);

@@ -78,6 +78,8 @@ export interface CourseDef {
   items: Item[];
   /** Pairs never shown together in a put-in-order question (no single chronological order). */
   orderExclusions?: [string, string][];
+  /** Typed names that could mean more than one item ("Adams"): always wrong, never a mix-up. */
+  ambiguousAnswers?: string[];
 }
 
 export interface PromptState {

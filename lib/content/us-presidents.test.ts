@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { gradeTyped } from '@/lib/engine/grading';
 import { getCourse } from './registry';
 import { presidentRecord, US_PRESIDENTS } from './us-presidents';
 
@@ -42,5 +43,47 @@ describe('US_PRESIDENTS', () => {
 
   it('is not registered yet (the dashboard lists every registered course)', () => {
     expect(getCourse('us-presidents')).toBeNull();
+  });
+});
+
+describe('typed names for namesakes (real course)', () => {
+  const grade = (text: string, key: string) =>
+    gradeTyped(text, item(key), US_PRESIDENTS.items, 'name', { ambiguous: US_PRESIDENTS.ambiguousAnswers });
+
+  // Each common form → the president it names. Every form is graded against both namesakes:
+  // right for its owner, wrong (with a mix-up to the owner) for the other.
+  it.each([
+    ['John Q. Adams', 'jq-adams', 'j-adams'],
+    ['J. Q. Adams', 'jq-adams', 'j-adams'],
+    ['John Adams', 'j-adams', 'jq-adams'],
+    ['W. Bush', 'gw-bush', 'hw-bush'],
+    ['George W. Bush', 'gw-bush', 'hw-bush'],
+    ['H. W. Bush', 'hw-bush', 'gw-bush'],
+    ['HW Bush', 'hw-bush', 'gw-bush'],
+    ['T. Roosevelt', 't-roosevelt', 'f-roosevelt'],
+    ['F. D. Roosevelt', 'f-roosevelt', 't-roosevelt'],
+    ['L. B. Johnson', 'l-johnson', 'a-johnson'],
+    ['A. Johnson', 'a-johnson', 'l-johnson'],
+    ['B. Harrison', 'b-harrison', 'wh-harrison'],
+    ['W. H. Harrison', 'wh-harrison', 'b-harrison'],
+  ])('"%s" names %s, not %s', (text, owner, other) => {
+    expect(grade(text, owner).correct).toBe(true);
+    expect(grade(text, other)).toEqual({ correct: false, typo: false, answeredItemKey: owner });
+  });
+
+  it.each([
+    ['Adams', 'j-adams', 'jq-adams'],
+    ['J. Adams', 'j-adams', 'jq-adams'],
+    ['Bush', 'hw-bush', 'gw-bush'],
+    ['George Bush', 'hw-bush', 'gw-bush'],
+    ['Harrison', 'wh-harrison', 'b-harrison'],
+    ['Johnson', 'a-johnson', 'l-johnson'],
+    ['Roosevelt', 't-roosevelt', 'f-roosevelt'],
+  ])('"%s" is ambiguous: wrong for both %s and %s, with no mix-up', (text, a, b) => {
+    for (const key of [a, b]) expect(grade(text, key)).toEqual({ correct: false, typo: false, answeredItemKey: null });
+  });
+
+  it('accepts full given names', () => {
+    expect(grade('Joseph Biden', 'biden').correct).toBe(true);
   });
 });

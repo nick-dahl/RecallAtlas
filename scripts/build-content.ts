@@ -6,7 +6,7 @@ import { GROUP_ORDER } from './content-config';
 import { buildCountries, type RawCountry } from './lib/build-countries';
 import { buildMaps } from './lib/maps/build-maps';
 import { buildPresidents } from './lib/build-presidents';
-import { ERAS, FACE_LOOKALIKE_PAIRS, PRESIDENTS, SHARED_SPAN_PAIRS } from './presidents-data';
+import { AMBIGUOUS_NAMES, ERAS, FACE_LOOKALIKE_PAIRS, PRESIDENTS, SHARED_SPAN_PAIRS } from './presidents-data';
 
 const root = process.cwd();
 const { countries, warnings } = buildCountries(worldCountries as unknown as RawCountry[]);
@@ -68,9 +68,10 @@ console.log(`Wrote ${maps.frames.length} map frames (base SVG sizes: ${sizes.joi
 // Portraits come from `npm run content:portraits` (committed); the build only checks they exist.
 const presidents = buildPresidents(PRESIDENTS, ERAS, FACE_LOOKALIKE_PAIRS, SHARED_SPAN_PAIRS, {
   hasPortrait: (key) => fs.existsSync(path.join(root, 'content', 'portraits', `${key}.webp`)),
+  ambiguous: AMBIGUOUS_NAMES,
 });
 fs.writeFileSync(
   path.join(root, 'content', 'presidents.json'),
-  JSON.stringify({ presidents, orderExclusions: SHARED_SPAN_PAIRS }, null, 2) + '\n',
+  JSON.stringify({ presidents, orderExclusions: SHARED_SPAN_PAIRS, ambiguousAnswers: AMBIGUOUS_NAMES }, null, 2) + '\n',
 );
 console.log(`Wrote ${presidents.length} presidents to content/presidents.json.`);

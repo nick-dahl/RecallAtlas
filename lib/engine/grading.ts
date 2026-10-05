@@ -75,11 +75,13 @@ export function gradeTyped(
   target: Item,
   allItems: readonly Item[],
   field = 'name',
-  opts: { exact?: boolean } = {},
+  opts: { exact?: boolean; ambiguous?: readonly string[] } = {},
 ): AnswerGrade {
   const n = normalize(input);
   if (!n) return wrong();
   if (namesOf(target, field).includes(n)) return { correct: true, typo: false, answeredItemKey: null };
+  // A form that names no one in particular is never right, and never blamed on one namesake.
+  if (opts.ambiguous?.some((a) => normalize(a) === n)) return wrong();
 
   const others = allItems.filter((i) => i.key !== target.key);
   const exactOthers = others.filter((i) => namesOf(i, field).includes(n));

@@ -132,6 +132,7 @@
       "name": "John Quincy Adams",
       "aliases": [
         "J. Q. Adams",
+        "John Q. Adams",
         "JQA",
         "Quincy Adams"
       ],
@@ -435,7 +436,9 @@
     {
       "key": "a-johnson",
       "name": "Andrew Johnson",
-      "aliases": [],
+      "aliases": [
+        "A. Johnson"
+      ],
       "numbers": [
         17
       ],
@@ -605,7 +608,8 @@
       "key": "b-harrison",
       "name": "Benjamin Harrison",
       "aliases": [
-        "Ben Harrison"
+        "Ben Harrison",
+        "B. Harrison"
       ],
       "numbers": [
         23
@@ -659,6 +663,7 @@
       "name": "Theodore Roosevelt",
       "aliases": [
         "Teddy Roosevelt",
+        "T. Roosevelt",
         "TR"
       ],
       "numbers": [
@@ -823,6 +828,8 @@
       "name": "Franklin D. Roosevelt",
       "aliases": [
         "Franklin Roosevelt",
+        "F. D. Roosevelt",
+        "F. Roosevelt",
         "FDR"
       ],
       "numbers": [
@@ -937,6 +944,8 @@
       "name": "Lyndon B. Johnson",
       "aliases": [
         "Lyndon Johnson",
+        "L. B. Johnson",
+        "L. Johnson",
         "LBJ"
       ],
       "numbers": [
@@ -1073,6 +1082,7 @@
       "name": "George H. W. Bush",
       "aliases": [
         "H. W. Bush",
+        "HW Bush",
         "Bush 41"
       ],
       "numbers": [
@@ -1128,6 +1138,7 @@
       "name": "George W. Bush",
       "aliases": [
         "G. W. Bush",
+        "W. Bush",
         "Bush 43"
       ],
       "numbers": [
@@ -1208,7 +1219,8 @@
       "key": "biden",
       "name": "Joe Biden",
       "aliases": [
-        "Biden"
+        "Biden",
+        "Joseph Biden"
       ],
       "numbers": [
         46
@@ -1238,5 +1250,15 @@
       "trump",
       "biden"
     ]
+  ],
+  "ambiguousAnswers": [
+    "Adams",
+    "J. Adams",
+    "Bush",
+    "George Bush",
+    "G. Bush",
+    "Harrison",
+    "Johnson",
+    "Roosevelt"
   ]
 }

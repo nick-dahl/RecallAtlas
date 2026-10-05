@@ -110,7 +110,9 @@ describe('presidentsPresenter', () => {
     expect(v.format).toBe('order');
     expect(v.prompt.question).toBe('Put these in order, earliest first');
     expect(v.choices).toHaveLength(4);
-    expect(JSON.stringify(v)).not.toMatch(/\b1[78]\d\d\b|\d+(st|nd|rd|th)\b/);
+    // Ids are random UUIDs (a segment like 1847 would match), so check the visible text only.
+    const text = JSON.stringify({ prompt: v.prompt, labels: v.choices!.map((c) => c.label) });
+    expect(text).not.toMatch(/\b1[789]\d\d\b|\b20\d\d\b|\d+(st|nd|rd|th)\b/);
     expectNoKeys(v);
     const extra = presenter.feedbackExtra!(pending, { correct: false, typo: false, answeredItemKey: null });
     const firsts = extra.order!.map((n) => course.items.find((i) => i.name === n)!.sequence![0]);

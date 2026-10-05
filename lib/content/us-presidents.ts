@@ -3,7 +3,11 @@ import type { CourseDef } from '@/lib/engine/types';
 import { PRESIDENT_PROMPT_TYPES } from './president-prompts';
 import type { PresidentRecord } from './types';
 
-const { presidents, orderExclusions } = data as { presidents: PresidentRecord[]; orderExclusions: [string, string][] };
+const { presidents, orderExclusions, ambiguousAnswers } = data as {
+  presidents: PresidentRecord[];
+  orderExclusions: [string, string][];
+  ambiguousAnswers: string[];
+};
 const byKey = new Map(presidents.map((p) => [p.key, p]));
 
 /** 45 presidents, one per person (spec §1); Cleveland and Trump carry two numbers. */
@@ -15,6 +19,7 @@ export const US_PRESIDENTS: CourseDef = {
   placementGraduates: ['number_to_name', 'sequence'],
   promptTypes: PRESIDENT_PROMPT_TYPES,
   orderExclusions,
+  ambiguousAnswers,
   items: presidents.map((p) => ({
     key: p.key,
     name: p.name,

@@ -2,10 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { normalize } from '../../lib/engine/grading';
-import { ERAS, FACE_LOOKALIKE_PAIRS, PRESIDENTS, SHARED_SPAN_PAIRS, type PresidentEntry } from '../presidents-data';
+import { AMBIGUOUS_NAMES, ERAS, FACE_LOOKALIKE_PAIRS, PRESIDENTS, SHARED_SPAN_PAIRS, type PresidentEntry } from '../presidents-data';
 import { buildPresidents } from './build-presidents';
 
-const records = buildPresidents(PRESIDENTS, ERAS, FACE_LOOKALIKE_PAIRS, SHARED_SPAN_PAIRS);
+const records = buildPresidents(PRESIDENTS, ERAS, FACE_LOOKALIKE_PAIRS, SHARED_SPAN_PAIRS, { ambiguous: AMBIGUOUS_NAMES });
 const byKey = new Map(records.map((r) => [r.key, r]));
 
 describe('buildPresidents (real data)', () => {
@@ -62,7 +62,7 @@ describe('buildPresidents (real data)', () => {
 
   it('matches the committed content/presidents.json (run `npm run content:build` if this fails)', () => {
     const committed = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content', 'presidents.json'), 'utf8'));
-    expect(committed).toEqual({ presidents: records, orderExclusions: SHARED_SPAN_PAIRS });
+    expect(committed).toEqual({ presidents: records, orderExclusions: SHARED_SPAN_PAIRS, ambiguousAnswers: AMBIGUOUS_NAMES });
   });
 });
 
@@ -101,6 +101,10 @@ describe('buildPresidents (validation)', () => {
   it('throws on an unknown look-alike or exclusion key', () => {
     expect(() => buildPresidents(two, ERAS, [['a', 'zz']], [])).toThrow(/zz/);
     expect(() => buildPresidents(two, ERAS, [], [['a', 'yy']])).toThrow(/yy/);
+  });
+
+  it('throws when an ambiguous name is accepted by a president', () => {
+    expect(() => buildPresidents(two, ERAS, [], [], { ambiguous: ['Alpha One'] })).toThrow(/Ambiguous.*a/);
   });
 
   it('throws on a missing portrait when a portrait check is given', () => {

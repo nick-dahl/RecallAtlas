@@ -43,6 +43,15 @@ export function issueQuestion(args: {
   };
 }
 
+const CHOICE_FORMATS = new Set<PendingQuestion['format']>([
+  'mc-text',
+  'flag-grid',
+  'image-grid',
+  'gap-choice',
+  'map-pick',
+  'contrast',
+]);
+
 /** Two-position items (Cleveland, Trump) are asked about one position at a time, chosen now. */
 function slotFor(sequence: number[] | undefined, rng: Rng): { slot?: number } {
   if (!sequence || sequence.length < 2) return {};
@@ -73,7 +82,10 @@ function gradeResponse(pending: PendingQuestion, response: AnswerResponse, cours
       if (!isTypedFormat(pending.format) || entry.kind !== 'prompt') throw new ServiceError('invalid_response');
       const promptType = course.promptTypes.find((p) => p.id === entry.promptType);
       const field = promptType?.answerField ?? 'name';
-      return gradeTyped(response.text, getItem(course, target), course.items, field, { exact: promptType?.exactAnswer });
+      return gradeTyped(response.text, getItem(course, target), course.items, field, {
+        exact: promptType?.exactAnswer,
+        ambiguous: field === 'name' ? course.ambiguousAnswers : undefined,
+      });
     }
     case 'order': {
       if (pending.format !== 'order') throw new ServiceError('invalid_response');
@@ -89,6 +101,8 @@ function gradeResponse(pending: PendingQuestion, response: AnswerResponse, cours
       if (pending.format !== 'map-click' || !pending.frame || !maps) throw new ServiceError('invalid_response');
       return gradeClick(target, maps.load(pending.frame), response);
     case 'choice': {
+      // A single pick only answers a question that offers one (not put-in-order or typing).
+      if (!CHOICE_FORMATS.has(pending.format)) throw new ServiceError('invalid_response');
       const choice = pending.choices.find((c) => c.id === response.choiceId);
       if (!choice) throw new ServiceError('invalid_response');
       return gradeChoice(choice.itemKey, target);
