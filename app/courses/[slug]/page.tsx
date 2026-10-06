@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { MasteryMap } from '@/components/map/mastery-map';
+import { Timeline } from '@/components/presidents/timeline';
 import { SiteHeader } from '@/components/site-header';
 import { buttonClass } from '@/components/ui/button';
 import { Flag } from '@/components/ui/flag';
@@ -9,6 +10,7 @@ import { ItemImage } from '@/components/ui/item-image';
 import { ReadinessMeter } from '@/components/ui/readiness-meter';
 import { StatusPill } from '@/components/ui/status-pill';
 import { getCourse } from '@/lib/content/registry';
+import { presidentRecord, US_PRESIDENTS } from '@/lib/content/us-presidents';
 import { loadAtlas } from '@/lib/map/atlas';
 import { createServiceContext } from '@/lib/server/context';
 import { getCourseOverview } from '@/lib/study/overview-service';
@@ -110,7 +112,12 @@ export default async function CoursePage({ params }: Props) {
           </section>
         )}
 
-        {isMap ? (
+        {course.slug === US_PRESIDENTS.slug ? (
+          <section className="space-y-5">
+            <h2 className="font-display text-2xl">Your timeline</h2>
+            <Timeline tiles={o.tiles} records={course.items.map((i) => presidentRecord(i.key))} />
+          </section>
+        ) : isMap ? (
           <section className="space-y-5">
             <h2 className="font-display text-2xl">Your map</h2>
             <MasteryMap atlas={loadAtlas()} tiles={o.tiles} />

@@ -13,6 +13,7 @@ export const STATUS_LABEL: Record<EnrollmentStatus, string> = {
 export const COURSE_BLURB: Record<string, string> = {
   'world-flags': 'All 197 flags, from Andorra to Zimbabwe.',
   'world-map': 'Find 208 countries and territories on the map, name them, and learn their capitals.',
+  'us-presidents': 'All 45 presidents: in order, by face, by year and by party.',
 };
 
 export const END_COPY: Record<EndReason, { title: string; body: string }> = {

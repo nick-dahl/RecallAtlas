@@ -41,8 +41,8 @@ describe('US_PRESIDENTS', () => {
     expect(presidentRecord('polk')).toMatchObject({ name: 'James K. Polk', numbers: [11], startYears: [1845] });
   });
 
-  it('is not registered yet (the dashboard lists every registered course)', () => {
-    expect(getCourse('us-presidents')).toBeNull();
+  it('is registered, so the dashboard lists it', () => {
+    expect(getCourse('us-presidents')).toBe(US_PRESIDENTS);
   });
 });
 

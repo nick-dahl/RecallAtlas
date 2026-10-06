@@ -25,7 +25,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ c
       <SiteHeader signedIn={false} />
       <main className="relative z-10 mx-auto grid max-w-5xl gap-14 px-6 pb-24 pt-8 md:grid-cols-[1.1fr_.9fr] md:items-center md:pt-16">
         <div className="animate-rise space-y-6">
-          <p className="font-mono text-xs uppercase tracking-[.2em] text-ink-soft">Flags · maps · capitals</p>
+          <p className="font-mono text-xs uppercase tracking-[.2em] text-ink-soft">Flags · maps · capitals · presidents</p>
           <h1 className="font-display text-5xl leading-[1.02] tracking-tight md:text-6xl">
             Learn the world.
             <br />
