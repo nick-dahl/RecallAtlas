@@ -17,13 +17,15 @@ async function shot(page: Page, name: string) {
   await page.screenshot({ path: `${shots}/${name}.png`, fullPage: true });
 }
 
-/** Answers correctly, screenshotting the first question of each kind; returns its format. */
+/** Answers correctly, screenshotting the first question of each kind; returns the kind (prompt-format). */
 async function answer(page: Page): Promise<string> {
   const pending = await pendingOnScreen(page, user);
   const kind = pending.entry.kind === 'prompt' ? `${pending.entry.promptType}-${pending.format}` : pending.entry.kind;
   await shot(page, `q-${kind}`);
+  // Typed years bring up a numeric keyboard on phones.
+  if (kind === 'start_year-typed') await expect(page.getByRole('textbox')).toHaveAttribute('inputmode', 'numeric');
   await answerCorrectly(page, user, US_PRESIDENTS);
-  return pending.format;
+  return kind;
 }
 
 test.beforeAll(async () => {
@@ -67,11 +69,24 @@ test('enroll, place by typing (with one miss), and study every question type', a
   // Put two presidents mid-ladder so one session reaches level-2 and level-3 formats too.
   await seedLearning(user.id, US_PRESIDENTS, ['monroe'], 2);
   await seedLearning(user.id, US_PRESIDENTS, ['jq-adams'], 3);
+  await seedLearning(user.id, US_PRESIDENTS, ['jackson'], 1, ['sequence']);
   await page.goto('/courses/us-presidents/study?size=40');
   await expect(page.locator('[data-question-id]')).toBeVisible();
-  const formats = new Set<string>();
-  for (let i = 0; i < 60 && (await page.locator('[data-question-id]').count()) > 0; i++) formats.add(await answer(page));
-  for (const f of ['intro', 'mc-text', 'image-grid', 'typed', 'gap-typed', 'order']) expect([...formats]).toContain(f);
+  const kinds = new Set<string>();
+  for (let i = 0; i < 60 && (await page.locator('[data-question-id]').count()) > 0; i++) kinds.add(await answer(page));
+  for (const kind of [
+    'intro',
+    'number_to_name-mc-text',
+    'portrait_to_name-typed',
+    'name_to_portrait-image-grid',
+    'start_year-typed',
+    'party-mc-text',
+    'sequence-gap-choice',
+    'sequence-order',
+    'sequence-gap-typed',
+  ]) {
+    expect([...kinds]).toContain(kind);
+  }
 });
 
 test('pass the final exam, then a practice-ahead check', async ({ page, context }) => {

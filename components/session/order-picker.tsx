@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Kbd } from '@/components/ui/kbd';
 import { ordinal } from '@/lib/ui/president-facts';
-import { isComplete, pick, positionOf, startOrder, undo } from './order-state';
+import { isComplete, pick, positionOf, startOrder, toggle, undo } from './order-state';
 import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
 /**
- * Put in order: tap (or press 1–4) the presidents earliest first; Backspace undoes. Submits once,
+ * Put in order: tap (or press 1–4) the presidents earliest first. Tapping the last-placed card, or
+ * Backspace, takes it back. Submits once,
  * when the last card is placed. Feedback shows each card's right position.
  */
 export function OrderPicker({ view, locked, feedback, onAnswer }: RendererProps) {
@@ -25,6 +26,9 @@ export function OrderPicker({ view, locked, feedback, onAnswer }: RendererProps)
   const place = (id: string) => {
     if (!locked) setState((s) => pick(s, id));
   };
+  const tap = (id: string) => {
+    if (!locked) setState((s) => toggle(s, id));
+  };
   useHotkeys(
     {
       ...Object.fromEntries(choices.map((c, i) => [String(i + 1), () => place(c.id)])),
@@ -38,11 +42,12 @@ export function OrderPicker({ view, locked, feedback, onAnswer }: RendererProps)
     <div className="space-y-8">
       <div className="space-y-1 text-center">
         <h2 className="font-display text-3xl tracking-tight md:text-4xl">{view.prompt.question}</h2>
-        <p className="text-sm text-ink-soft">Tap them earliest first. Backspace undoes.</p>
+        <p className="text-sm text-ink-soft">Tap them earliest first. Tap the last one again to take it back.</p>
       </div>
       <ol className="mx-auto grid max-w-3xl gap-3 sm:grid-cols-2">
         {choices.map((c, i) => {
           const placed = positionOf(state, c.id);
+          const isLast = placed !== null && placed === state.picks.length;
           const right = rightPosition(c.label);
           const tone = !feedback
             ? placed
@@ -56,8 +61,8 @@ export function OrderPicker({ view, locked, feedback, onAnswer }: RendererProps)
               <button
                 type="button"
                 data-choice-id={c.id}
-                disabled={locked || placed !== null}
-                onClick={() => place(c.id)}
+                disabled={locked || (placed !== null && !isLast)}
+                onClick={() => tap(c.id)}
                 className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left font-medium transition duration-150 disabled:cursor-default ${tone}`}
               >
                 <Kbd>{i + 1}</Kbd>
