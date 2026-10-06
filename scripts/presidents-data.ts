@@ -40,7 +40,7 @@ export const PRESIDENTS: PresidentEntry[] = [
   { key: 'van-buren', name: 'Martin Van Buren', aliases: ['Van Buren'], numbers: [8], startYears: [1837], party: D, era: 'Jacksonian era', wikipedia: 'Martin_Van_Buren' },
   { key: 'wh-harrison', name: 'William Henry Harrison', aliases: ['W. H. Harrison', 'William Harrison'], numbers: [9], startYears: [1841], party: 'Whig', era: 'Jacksonian era', wikipedia: 'William_Henry_Harrison' },
   { key: 'tyler', name: 'John Tyler', aliases: ['Tyler'], numbers: [10], startYears: [1841], party: 'Whig', era: 'Jacksonian era', wikipedia: 'John_Tyler' },
-  { key: 'polk', name: 'James K. Polk', aliases: ['Polk', 'James Polk'], numbers: [11], startYears: [1845], party: D, era: 'Jacksonian era', wikipedia: 'James_K._Polk' },
+  { key: 'polk', name: 'James K. Polk', aliases: ['Polk', 'James Polk'], numbers: [11], startYears: [1845], party: D, era: 'Jacksonian era', wikipedia: 'James_K._Polk', commonsFile: 'James_Knox_Polk_by_GPA_Healy,_1858_(cropped).jpg' },
   { key: 'taylor', name: 'Zachary Taylor', aliases: ['Taylor'], numbers: [12], startYears: [1849], party: 'Whig', era: 'Jacksonian era', wikipedia: 'Zachary_Taylor' },
   { key: 'fillmore', name: 'Millard Fillmore', aliases: ['Fillmore'], numbers: [13], startYears: [1850], party: 'Whig', era: 'Civil War era', wikipedia: 'Millard_Fillmore' },
   { key: 'pierce', name: 'Franklin Pierce', aliases: ['Pierce'], numbers: [14], startYears: [1853], party: D, era: 'Civil War era', wikipedia: 'Franklin_Pierce' },

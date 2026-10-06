@@ -12,8 +12,7 @@ All portraits are public domain, from Wikimedia Commons, cropped and resized.
 - Martin Van Buren: [Martin_Van_Buren_by_Mathew_Brady_c1855-58-(4).jpg](https://commons.wikimedia.org/wiki/File:Martin_Van_Buren_by_Mathew_Brady_c1855-58-(4).jpg), Public domain, by Mathew Benjamin Brady
 - William Henry Harrison: [William_Henry_Harrison_crop.jpg](https://commons.wikimedia.org/wiki/File:William_Henry_Harrison_crop.jpg), Public domain, by Albert Gallatin Hoit
 - John Tyler: [Tyler,_John,_by_Healy_(1842,_NPG_2019_13)_(cropped).jpg](https://commons.wikimedia.org/wiki/File:Tyler,_John,_by_Healy_(1842,_NPG_2019_13)_(cropped).jpg), Public domain, by George Peter Alexander Healy
-- James K. Polk: [James_K._Polk_restored_(3x4_cropped).jpg](https://commons.wikimedia.org/wiki/File:James_K._Polk_restored_(3x4_cropped).jpg), Public domain, by James_Polk.jpg: Brady, Mathew B., 1823 (ca.)-1896, photographer.
-derivative work: Superwikifan (talk)
+- James K. Polk: [James_Knox_Polk_by_GPA_Healy,_1858_(cropped).jpg](https://commons.wikimedia.org/wiki/File:James_Knox_Polk_by_GPA_Healy,_1858_(cropped).jpg), Public domain, by George Peter Alexander Healy
 - Zachary Taylor: [Zachary_Taylor_restored_and_cropped_(3.5x4.5_cropped)_(2).jpg](https://commons.wikimedia.org/wiki/File:Zachary_Taylor_restored_and_cropped_(3.5x4.5_cropped)_(2).jpg), Public domain, by Zachary_Taylor_half_plate_daguerreotype_c1843-45.png: unknown, possibly Maguire of New Orleans
 derivative work: Beao
 - Millard Fillmore: [Millard_Fillmore_Better_Crop_(cropped).jpg](https://commons.wikimedia.org/wiki/File:Millard_Fillmore_Better_Crop_(cropped).jpg), Public domain, by Mathew Benjamin Brady
