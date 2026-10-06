@@ -97,3 +97,21 @@ export async function graduateEverything(userId: string, course: CourseDef = WOR
     .eq('user_id', userId)
     .eq('course_slug', course.slug);
 }
+
+/** Puts every prompt of `keys` into learning at `rung`, so a study session reaches that level's formats. */
+export async function seedLearning(userId: string, course: CourseDef, keys: string[], rung: 1 | 2 | 3) {
+  const rows = keys.flatMap((key) =>
+    course.promptTypes.map((pt) => ({
+      user_id: userId,
+      course_slug: course.slug,
+      item_key: key,
+      prompt_type: pt.id,
+      phase: 'learning',
+      rung,
+      streak: 0,
+      fsrs: null,
+    })),
+  );
+  const { error } = await admin.from('prompt_states').upsert(rows);
+  if (error) throw error;
+}

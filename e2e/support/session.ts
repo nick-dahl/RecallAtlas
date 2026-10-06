@@ -86,13 +86,19 @@ export async function answerCorrectly(page: Page, user: TestUser, course: Course
 
   if (entry.kind === 'intro') {
     await page.keyboard.press('Enter');
-  } else if (format === 'typed') {
+  } else if (format === 'typed' || format === 'gap-typed') {
     const field = course.promptTypes.find((p) => p.id === entry.promptType)?.answerField ?? 'name';
     const item = itemOf(entry.itemKey, course);
     await page.getByRole('textbox').fill(field === 'name' ? item.name : item.answers![field].text);
     await page.keyboard.press('Enter');
   } else if (format === 'map-click') {
     await clickCountry(page, pending, entry.itemKey);
+  } else if (format === 'order') {
+    // Tap the cards earliest first; the last tap submits.
+    const first = (key: string) => itemOf(key, course).sequence![0];
+    for (const c of [...choices].sort((a, b) => first(a.itemKey) - first(b.itemKey))) {
+      await page.locator(`[data-choice-id="${c.id}"]`).click();
+    }
   } else {
     if (entry.kind === 'contrast') await page.keyboard.press('Enter');
     await page.locator(`[data-choice-id="${choices.find((c) => c.itemKey === entry.itemKey)!.id}"]`).click();
