@@ -1,13 +1,8 @@
+export { ordinal } from '@/lib/ui/president-facts';
 import { acceptedAnswers, getItem, type CourseDef, type Item } from '@/lib/engine';
+import { ordinal } from '@/lib/ui/president-facts';
 import type { Presenter } from './present';
 import type { PendingQuestion } from './types';
-
-/** 1st, 2nd, 3rd, 4th … 11th, 12th, 13th … 21st, 22nd … */
-export function ordinal(n: number): string {
-  const teen = n % 100 >= 11 && n % 100 <= 13;
-  const suffix = teen ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[n % 10] ?? 'th';
-  return `${n}${suffix}`;
-}
 
 /**
  * US Presidents views (spec §5.8). Leak rules (§5.9): Portrait → Name and Number → Name name nobody

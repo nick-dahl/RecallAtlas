@@ -1,6 +1,8 @@
 import type { ItemView } from '@/lib/study/types';
 
-/** The picture that identifies an item in reference views: its flag, or a president's portrait. */
-export function itemImage(view: Pick<ItemView, 'flag' | 'portrait'>): string {
-  return view.flag ?? view.portrait ?? '';
+/** Which picture identifies an item: a flag stamp, a portrait frame, or nothing. */
+export function imageKind(item: Pick<ItemView, 'flag' | 'portrait'>): 'flag' | 'portrait' | null {
+  if (item.flag) return 'flag';
+  if (item.portrait) return 'portrait';
+  return null;
 }

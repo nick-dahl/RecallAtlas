@@ -1,9 +1,8 @@
 'use client';
 
 import { buttonClass } from '@/components/ui/button';
-import { Flag } from '@/components/ui/flag';
+import { ItemImage } from '@/components/ui/item-image';
 import { Kbd } from '@/components/ui/kbd';
-import { itemImage } from '@/lib/ui/item-image';
 import type { FeedbackView, QuestionView } from '@/lib/study/types';
 import { useHotkeys } from './use-hotkeys';
 
@@ -49,7 +48,7 @@ export function FeedbackPanel({
       className={`animate-rise mx-auto mt-8 flex max-w-xl items-center gap-4 rounded-2xl p-4 ${feedback.correct ? 'bg-good-soft' : 'bg-bad-soft'}`}
     >
       <div className="w-16 shrink-0">
-        <Flag src={itemImage(feedback.answer)} eager />
+        <ItemImage item={feedback.answer} eager />
       </div>
       <div className="flex-1 space-y-0.5 text-sm">
         <p className={`font-semibold ${feedback.correct ? 'text-good' : 'text-bad'}`}>{headline}</p>
