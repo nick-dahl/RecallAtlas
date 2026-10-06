@@ -5,11 +5,27 @@ import { ItemImage } from '@/components/ui/item-image';
 import { Kbd } from '@/components/ui/kbd';
 import type { FeedbackView, QuestionView } from '@/lib/study/types';
 import { useHotkeys } from './use-hotkeys';
+import { presidentFacts } from '@/lib/ui/president-facts';
 
 /** What went right or wrong, in the terms of the question that was asked. */
 function message(view: QuestionView, f: FeedbackView): { headline: string; detail?: string } {
   const { answer, given } = f;
   const onMap = view.format === 'map-click' || view.format === 'map-pick';
+  if (view.format === 'order') {
+    if (f.correct) return { headline: 'Correct order' };
+    return { headline: 'Not quite', detail: `The right order: ${(f.order ?? []).join(' → ')}` };
+  }
+  if (view.prompt.asks === 'year' && answer.startYears) {
+    const years = presidentFacts({ numbers: [], startYears: answer.startYears, party: '' }).years;
+    if (f.correct && !f.typo) return { headline: `Correct: ${answer.name} took office in ${years}` };
+    return {
+      headline: `Not quite: ${answer.name} took office in ${years}`,
+      detail: given?.startYears ? `${given.startYears.join(' & ')} was ${given.name}.` : undefined,
+    };
+  }
+  if (view.prompt.asks === 'party' && answer.party) {
+    return { headline: `${f.correct ? 'Correct' : 'Not quite'}: ${answer.name} was ${answer.party}` };
+  }
   if (view.prompt.asks === 'capital') {
     if (f.correct) return { headline: f.typo ? `Correct. It’s spelled “${answer.capital}”` : `Correct: ${answer.capital}` };
     return {

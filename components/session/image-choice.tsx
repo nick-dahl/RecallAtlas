@@ -1,6 +1,6 @@
 'use client';
 
-import { Flag } from '@/components/ui/flag';
+import { ItemImage } from '@/components/ui/item-image';
 import { Kbd } from '@/components/ui/kbd';
 import type { ChoiceState } from './choice-state';
 
@@ -11,16 +11,17 @@ const STATE: Record<ChoiceState, string> = {
   dim: 'opacity-35',
 };
 
-export function FlagChoice({
+/** One picture option: a flag stamp or a portrait. Unlabelled, so it never names the answer. */
+export function ImageChoice({
   id,
-  flag,
+  image,
   index,
   state,
   disabled,
   onPick,
 }: {
   id: string;
-  flag: string;
+  image: { flag?: string; portrait?: string };
   index: number;
   state: ChoiceState;
   disabled: boolean;
@@ -35,7 +36,7 @@ export function FlagChoice({
       onClick={onPick}
       className={`relative block w-full rounded-md transition duration-150 ${STATE[state]}`}
     >
-      <Flag src={flag} eager />
+      <ItemImage item={{ name: '', ...image }} eager />
       <span className="absolute -left-2 -top-2">
         <Kbd>{index + 1}</Kbd>
       </span>

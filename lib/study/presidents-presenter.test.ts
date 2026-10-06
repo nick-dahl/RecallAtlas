@@ -79,7 +79,7 @@ describe('presidentsPresenter', () => {
   it('shows a portrait for Portrait → Name and names nobody outside the choices', () => {
     for (const rung of [1, 2, 3] as const) {
       const { view: v } = prompt('arthur', 'portrait_to_name', rung);
-      expect(v.prompt).toEqual({ portrait: portrait('arthur'), question: 'Who is this?' });
+      expect(v.prompt).toEqual({ portrait: portrait('arthur'), question: 'Who is this?', asks: 'president' });
       expect(namesOutsideLabels(v)).toEqual([]);
       expectNoKeys(v);
     }
@@ -128,5 +128,19 @@ describe('presidentsPresenter', () => {
       startYears: [1885, 1893],
       party: 'Democratic',
     });
+  });
+});
+
+describe('presidentsPresenter answer hints', () => {
+  it.each([
+    ['number_to_name', 3, 'president'],
+    ['portrait_to_name', 3, 'president'],
+    ['sequence', 3, 'president'],
+    ['sequence', 1, 'president'],
+    ['start_year', 1, 'year'],
+    ['start_year', 3, 'year'],
+    ['party', 1, 'party'],
+  ] as const)('%s at level %i asks for a %s', (promptType, rung, asks) => {
+    expect(prompt('polk', promptType, rung).view.prompt.asks).toBe(asks);
   });
 });

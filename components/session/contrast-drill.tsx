@@ -7,7 +7,7 @@ import { buttonClass } from '@/components/ui/button';
 import { ItemImage } from '@/components/ui/item-image';
 import { Kbd } from '@/components/ui/kbd';
 import { choiceState } from './choice-state';
-import { FlagChoice } from './flag-choice';
+import { ImageChoice } from './image-choice';
 import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
@@ -73,9 +73,9 @@ export function ContrastDrill({ view, locked, feedback, chosenId, onAnswer }: Re
         <ol className="mx-auto grid max-w-xl grid-cols-2 gap-8">
           {choices.map((c, i) => (
             <li key={c.id}>
-              <FlagChoice
+              <ImageChoice
                 id={c.id}
-                flag={c.flag!}
+                image={{ flag: c.flag, portrait: c.portrait }}
                 index={i}
                 state={choiceState(c, feedback, chosenId)}
                 disabled={locked}

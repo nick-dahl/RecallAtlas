@@ -7,10 +7,17 @@ import { Prompt } from './prompt';
 import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
+const INPUT: Record<string, { label: string; placeholder: string; numeric?: boolean }> = {
+  name: { label: 'Country name', placeholder: 'Type the country…' },
+  capital: { label: 'Capital', placeholder: 'Type the capital…' },
+  president: { label: 'President', placeholder: 'Type the president…' },
+  year: { label: 'Year', placeholder: 'Type the year…', numeric: true },
+};
+
 /** Recall: type the country's name (or, for map Capital questions, its capital). Esc = "I don't know". */
 export function TypedAnswer({ view, locked, feedback, onAnswer }: RendererProps) {
   const [text, setText] = useState('');
-  const capital = view.prompt.asks === 'capital';
+  const { label, placeholder, numeric } = INPUT[view.prompt.asks ?? 'name'] ?? INPUT.name;
   useHotkeys({ Escape: () => !locked && onAnswer({ kind: 'dont-know' }) }, !locked);
 
   const submit = (e: FormEvent) => {
@@ -29,14 +36,15 @@ export function TypedAnswer({ view, locked, feedback, onAnswer }: RendererProps)
       <form onSubmit={submit} className="mx-auto flex max-w-md flex-col gap-3">
         <input
           autoFocus
-          aria-label={capital ? 'Capital' : 'Country name'}
+          aria-label={label}
+          inputMode={numeric ? 'numeric' : undefined}
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
           value={text}
           onChange={(e) => setText(e.target.value)}
           disabled={locked}
-          placeholder={capital ? 'Type the capital…' : 'Type the country…'}
+          placeholder={placeholder}
           className={`rounded-2xl bg-raised px-5 py-4 text-lg outline-none ring-2 transition ${tone}`}
         />
         <div className="flex items-center justify-between text-sm text-ink-soft">

@@ -30,15 +30,15 @@ export function presidentsPresenter(course: CourseDef, deps: { portrait: (key: s
       const key = entry.itemKey;
       switch (entry.promptType) {
         case 'number_to_name':
-          return { question: `Who was the ${ordinal(positionOf(key, pending))} president?` };
+          return { question: `Who was the ${ordinal(positionOf(key, pending))} president?`, asks: 'president' };
         case 'portrait_to_name':
-          return { portrait: portrait(key), question: 'Who is this?' };
+          return { portrait: portrait(key), question: 'Who is this?', asks: 'president' };
         case 'name_to_portrait':
           return { name: name(key), question: `Which one is ${name(key)}?` };
         case 'start_year':
           return { name: name(key), question: `When did ${name(key)} take office?`, asks: 'year' };
         case 'party':
-          return { name: name(key), question: `Which party was ${name(key)}?` };
+          return { name: name(key), question: `Which party was ${name(key)}?`, asks: 'party' };
         default: {
           if (pending?.format === 'order') return { question: 'Put these in order, earliest first' };
           const n = positionOf(key, pending);
@@ -46,6 +46,7 @@ export function presidentsPresenter(course: CourseDef, deps: { portrait: (key: s
           const after = byNumber.get(n + 1);
           return {
             question: 'Who fills the gap?',
+            asks: 'president',
             gap: { ...(before ? { before: before.name } : {}), ...(after ? { after: after.name } : {}) },
           };
         }

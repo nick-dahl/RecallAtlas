@@ -21,3 +21,26 @@ describe('choiceState', () => {
     expect(choiceState({ id: '3', label: 'Andorra' }, feedback, '2')).toBe('dim');
   });
 });
+
+describe('choiceState for presidents', () => {
+  const president = {
+    correct: false,
+    typo: false,
+    answer: { name: 'Grover Cleveland', portrait: 'p', startYears: [1885, 1893], party: 'Democratic' },
+  };
+
+  it('marks a year option right when it is any of the answer’s start years', () => {
+    expect(choiceState({ id: '1', label: '1893' }, president, '2')).toBe('correct');
+    expect(choiceState({ id: '2', label: '1889' }, president, '2')).toBe('wrong');
+  });
+
+  it('marks a party option right when it is the answer’s party', () => {
+    expect(choiceState({ id: '1', label: 'Democratic' }, president, '2')).toBe('correct');
+    expect(choiceState({ id: '3', label: 'Whig' }, president, '2')).toBe('dim');
+  });
+
+  it('marks a portrait option by its image', () => {
+    expect(choiceState({ id: '1', portrait: 'p' }, president, '2')).toBe('correct');
+    expect(choiceState({ id: '2', portrait: 'q' }, president, '2')).toBe('wrong');
+  });
+});

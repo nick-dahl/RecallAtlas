@@ -59,7 +59,7 @@ export interface QuestionView {
     flag?: string;
     question?: string;
     /** Typed questions: what the learner answers with. */
-    asks?: 'name' | 'capital' | 'year';
+    asks?: 'name' | 'capital' | 'year' | 'party' | 'president';
     capital?: string;
     capitalNote?: string;
     /** Presidents: the portrait being asked about, or shown on an intro. */
