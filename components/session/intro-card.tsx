@@ -29,7 +29,7 @@ export function IntroCard({ view, locked, onAnswer }: RendererProps) {
         <div className="space-y-4 text-center sm:text-left">
           <p className="font-mono text-xs uppercase tracking-[.2em] text-accent">New president</p>
           <h2 className="font-display text-4xl tracking-tight">{prompt.name}</h2>
-          <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-left text-sm">
+          <dl className="mx-auto grid w-fit grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-left text-sm sm:mx-0">
             <dt className="text-ink-soft">President</dt>
             <dd className="font-semibold">{facts.numbers}</dd>
             <dt className="text-ink-soft">Took office</dt>
