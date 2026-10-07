@@ -3,7 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { seededRng } from '@/lib/engine';
 import { NOW, TEST_COURSE, TEST_SEQ_COURSE } from '@/lib/engine/test-fixtures';
 import { gradeSubmission, issueQuestion } from './issue';
-import { ServiceError } from './types';
+import { ServiceError, type PendingQuestion } from './types';
+import type { CourseDef } from '@/lib/engine';
 
 const issue = (entry: Parameters<typeof issueQuestion>[0]['entry'], rung: 1 | 2 | 3) =>
   issueQuestion({ entry, rung, course: TEST_COURSE, confusions: [], rng: seededRng(7), now: NOW, newId: randomUUID });
@@ -131,5 +132,29 @@ describe('choice answers only fit choice questions', () => {
     expect(() => gradeSubmission(p, { kind: 'choice', choiceId: target.id }, TEST_SEQ_COURSE)).toThrow(
       new ServiceError('invalid_response'),
     );
+  });
+});
+
+describe('per-prompt ambiguous answers', () => {
+  const course: CourseDef = {
+    slug: 'test-art', title: 'Art', placementPromptType: 'artist',
+    promptTypes: [{ id: 'artist', label: 'Artist', answerField: 'artist', distinctChoices: true, ambiguous: ['Anonymous', 'Unknown'],
+      formats: { 1: { format: 'mc-text', choices: 2, distractors: 'random' }, 2: { format: 'mc-text', choices: 2, distractors: 'random' }, 3: { format: 'typed' } } }],
+    items: [
+      { key: 'bar', name: 'A Bar at the Folies-Bergère', aliases: [], group: 'g', groupOrder: 1, itemOrder: 1, lookalikes: [], answers: { artist: { text: 'Édouard Manet', aliases: ['Manet'] } } },
+      { key: 'wilton', name: 'The Wilton Diptych', aliases: [], group: 'g', groupOrder: 1, itemOrder: 2, lookalikes: [], answers: { artist: { text: 'Anonymous', aliases: ['Unknown'] } } },
+    ],
+  };
+  const pending = (format: 'typed' | 'mc-text'): PendingQuestion => ({
+    questionId: 'q', entry: { kind: 'prompt', itemKey: 'bar', promptType: 'artist' }, rung: format === 'typed' ? 3 : 1, format,
+    choices: format === 'typed' ? [] : [{ id: 'c1', itemKey: 'bar' }, { id: 'c2', itemKey: 'wilton' }], issuedAt: new Date(0).toISOString(),
+  });
+
+  it('typing Anonymous for a named work is wrong and blames nobody', () => {
+    expect(gradeSubmission(pending('typed'), { kind: 'typed', text: 'Anonymous' }, course)).toEqual({ correct: false, typo: false, answeredItemKey: null });
+  });
+
+  it('picking Anonymous for a named work is wrong and blames nobody', () => {
+    expect(gradeSubmission(pending('mc-text'), { kind: 'choice', choiceId: 'c2' }, course)).toEqual({ correct: false, typo: false, answeredItemKey: null });
   });
 });

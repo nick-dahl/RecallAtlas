@@ -1,10 +1,12 @@
 import {
+  acceptedAnswers,
   buildQuestion,
   getItem,
   gradeChoice,
   gradeOrder,
   gradeTyped,
   isTypedFormat,
+  normalize,
   type AnswerGrade,
   type Confusion,
   type CourseDef,
@@ -69,7 +71,13 @@ export function gradeSubmission(
   const promptType = entry.kind === 'prompt' ? course.promptTypes.find((p) => p.id === entry.promptType) : undefined;
   const grade = gradeResponse(pending, response, course, maps);
   // Some prompts (party) never count a miss as mixing up two items.
-  return promptType?.recordsConfusions === false ? { ...grade, answeredItemKey: null } : grade;
+  if (promptType?.recordsConfusions === false) return { ...grade, answeredItemKey: null };
+  // Picking "Anonymous" for a named work blames no particular anonymous work.
+  if (promptType?.ambiguous && grade.answeredItemKey) {
+    const label = acceptedAnswers(getItem(course, grade.answeredItemKey), promptType.answerField ?? 'name')[0] ?? '';
+    if (promptType.ambiguous.some((a) => normalize(a) === normalize(label))) return { ...grade, answeredItemKey: null };
+  }
+  return grade;
 }
 
 function gradeResponse(pending: PendingQuestion, response: AnswerResponse, course: CourseDef, maps?: MapSupport): AnswerGrade {
@@ -84,7 +92,7 @@ function gradeResponse(pending: PendingQuestion, response: AnswerResponse, cours
       const field = promptType?.answerField ?? 'name';
       return gradeTyped(response.text, getItem(course, target), course.items, field, {
         exact: promptType?.exactAnswer,
-        ambiguous: field === 'name' ? course.ambiguousAnswers : undefined,
+        ambiguous: promptType?.ambiguous ?? (field === 'name' ? course.ambiguousAnswers : undefined),
       });
     }
     case 'order': {

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { acceptedAnswers, editDistance, gradeChoice, gradeTyped, normalize } from './grading';
 import { fixtureItem, ITEMS, TEST_MAP_COURSE, TEST_SEQ_COURSE } from './test-fixtures';
+import type { Item } from './types';
 
 describe('normalize', () => {
   it.each([
@@ -139,5 +140,45 @@ describe('gradeTyped for sequence courses', () => {
     expect(acceptedAnswers(item('s3'), 'year')).toEqual(['1820', '1830']);
     expect(acceptedAnswers(item('s2'), 'name')).toEqual(['John Quincy Adams', 'JQA']);
     expect(acceptedAnswers(item('s1'), 'missing')).toEqual([]);
+  });
+});
+
+describe('paintings-style grading', () => {
+  const art = (key: string, title: string, artist: string, lookalikes: string[] = []): Item => ({
+    key, name: title, aliases: [], group: 'g', groupOrder: 1, itemOrder: 1, lookalikes,
+    answers: { artist: { text: artist, aliases: artist === 'Anonymous' ? ['Unknown'] : [] } },
+  });
+  const items = [
+    art('milkmaid', 'The Milkmaid', 'Johannes Vermeer', ['courtyard']),
+    art('courtyard', 'The Courtyard of a House in Delft', 'Pieter de Hooch'),
+    art('night-watch', 'The Night Watch', 'Rembrandt'),
+    art('tulp', 'The Anatomy Lesson of Dr Nicolaes Tulp', 'Rembrandt'),
+    art('wilton', 'The Wilton Diptych', 'Anonymous'),
+    art('kells', 'Chi Rho page, Book of Kells', 'Anonymous'),
+    art('bar', 'A Bar at the Folies-Bergère', 'Édouard Manet'),
+  ];
+  const get = (k: string) => items.find((i) => i.key === k)!;
+
+  it('ignores a leading "A" or "An" as well as "The"', () => {
+    expect(normalize('A Bar at the Folies-Bergère')).toBe(normalize('Bar at the Folies Bergere'));
+    expect(normalize('An Old Man and His Grandson')).toBe('old man and his grandson');
+    expect(gradeTyped('bar at the folies bergere', get('bar'), items).correct).toBe(true);
+  });
+
+  it("blames another artist's answer on their only work", () => {
+    expect(gradeTyped('Pieter de Hooch', get('night-watch'), items, 'artist')).toMatchObject({ correct: false, answeredItemKey: 'courtyard' });
+  });
+
+  it('blames an artist with several works on a look-alike of the target, else on nobody', () => {
+    const withLookalike = { ...get('milkmaid'), lookalikes: ['tulp'] };
+    expect(gradeTyped('Rembrandt', withLookalike, items, 'artist').answeredItemKey).toBe('tulp');
+    expect(gradeTyped('Rembrandt', get('milkmaid'), items, 'artist').answeredItemKey).toBeNull();
+  });
+
+  it('accepts Anonymous and Unknown for anonymous works, and blames nobody elsewhere', () => {
+    const ambiguous = ['Anonymous', 'Unknown'];
+    expect(gradeTyped('anonymous', get('wilton'), items, 'artist', { ambiguous }).correct).toBe(true);
+    expect(gradeTyped('Unknown', get('kells'), items, 'artist', { ambiguous }).correct).toBe(true);
+    expect(gradeTyped('Anonymous', get('bar'), items, 'artist', { ambiguous })).toEqual({ correct: false, typo: false, answeredItemKey: null });
   });
 });

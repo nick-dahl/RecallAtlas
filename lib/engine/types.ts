@@ -65,6 +65,8 @@ export interface PromptTypeDef {
   distinctChoices?: boolean;
   /** False: wrong answers are never recorded as mix-ups (e.g. party). Default true. */
   recordsConfusions?: boolean;
+  /** Answers that name no item in particular ("Anonymous"): right only for an item that has them, never a mix-up. */
+  ambiguous?: string[];
   formats: Record<QuestionRung, FormatSpec>;
 }
 
