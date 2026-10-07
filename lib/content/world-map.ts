@@ -4,7 +4,6 @@ import { MAP_PROMPT_TYPES } from './map-prompts';
 import type { CountryRecord } from './types';
 
 const records = countries as CountryRecord[];
-const notes = new Map(records.map((c) => [c.key, c.capitalNote]));
 
 /** 197 countries plus the World Map territories (map spec §3.1). */
 export const WORLD_MAP: CourseDef = {
@@ -24,8 +23,3 @@ export const WORLD_MAP: CourseDef = {
     lookalikes: [...new Set([...c.neighbors, ...c.nearby])],
   })),
 };
-
-/** Context shown with a capital (split or contested capitals), if any. */
-export function capitalNote(key: string): string | null {
-  return notes.get(key) ?? null;
-}
