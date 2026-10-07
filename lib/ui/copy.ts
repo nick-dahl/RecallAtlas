@@ -15,6 +15,7 @@ export const COURSE_BLURB: Record<string, string> = {
   'world-map': 'Find 208 countries and territories on the map, and name them from their shape.',
   'world-capitals': 'The capitals of all 197 countries, both ways round.',
   'us-presidents': 'All 45 presidents: in order, by face, by year and by party.',
+  'great-paintings': "246 of the world's great paintings: title, artist and movement.",
 };
 
 export const END_COPY: Record<EndReason, { title: string; body: string }> = {
