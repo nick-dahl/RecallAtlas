@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { MasteryMap } from '@/components/map/mastery-map';
 import { CapitalList } from '@/components/capitals/capital-list';
+import { GalleryWall } from '@/components/paintings/gallery-wall';
 import { Timeline } from '@/components/presidents/timeline';
 import { SiteHeader } from '@/components/site-header';
 import { buttonClass } from '@/components/ui/button';
@@ -10,6 +11,7 @@ import { Flag } from '@/components/ui/flag';
 import { ItemImage } from '@/components/ui/item-image';
 import { ReadinessMeter } from '@/components/ui/readiness-meter';
 import { StatusPill } from '@/components/ui/status-pill';
+import { GREAT_PAINTINGS, paintingRecord } from '@/lib/content/great-paintings';
 import { getCourse } from '@/lib/content/registry';
 import { presidentRecord, US_PRESIDENTS } from '@/lib/content/us-presidents';
 import { WORLD_CAPITALS } from '@/lib/content/world-capitals';
@@ -19,6 +21,7 @@ import { getCourseOverview } from '@/lib/study/overview-service';
 import { getMapSupport } from '@/lib/study/presenters';
 import { requireUserId } from '@/lib/supabase/server';
 import { offersPracticeAhead, primaryCta } from '@/lib/ui/course-cta';
+import { galleryRooms } from '@/lib/ui/gallery';
 import { albumSummary, groupTiles, TILE_STYLE } from '@/lib/ui/tiles';
 import { skipPlacementAndStudy } from './actions';
 
@@ -114,7 +117,18 @@ export default async function CoursePage({ params }: Props) {
           </section>
         )}
 
-        {course.slug === WORLD_CAPITALS.slug ? (
+        {course.slug === GREAT_PAINTINGS.slug ? (
+          <section className="space-y-5">
+            <h2 className="font-display text-2xl">Your gallery</h2>
+            <GalleryWall slug={course.slug} rooms={galleryRooms(o.tiles, course.items.map((i) => paintingRecord(i.key)))} />
+            <p className="text-sm text-ink-soft">
+              Images are public domain or credited.{' '}
+              <Link href="/credits/paintings" className="underline">
+                Image credits
+              </Link>
+            </p>
+          </section>
+        ) : course.slug === WORLD_CAPITALS.slug ? (
           <section className="space-y-5">
             <h2 className="font-display text-2xl">Your capitals</h2>
             <CapitalList
