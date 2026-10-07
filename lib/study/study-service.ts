@@ -129,7 +129,10 @@ export async function submitStudyAnswer(ctx: ServiceContext, input: SubmissionIn
 
   if (entry.kind === 'intro') {
     if (input.response.kind !== 'ack') throw new ServiceError('invalid_response');
-    const result = applyIntro({ session, itemKey: entry.itemKey, states });
+    // An item placement partly fast-tracked (some prompts already reviewed) starts the rest higher.
+    const partlyPlaced = states.some((s) => s.itemKey === entry.itemKey && s.phase !== 'new');
+    const rung = course.placementHeadStart && partlyPlaced ? course.placementHeadStart : 1;
+    const result = applyIntro({ session, itemKey: entry.itemKey, states, rung });
     session = result.session;
     states = result.states;
     changed = states.filter((s) => s.itemKey === entry.itemKey);
