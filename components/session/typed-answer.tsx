@@ -13,6 +13,8 @@ const INPUT: Record<string, { label: string; placeholder: string; numeric?: bool
   president: { label: 'President', placeholder: 'Type the president…' },
   country: { label: 'Country name', placeholder: 'Type the country…' },
   year: { label: 'Year', placeholder: 'Type the year…', numeric: true },
+  title: { label: 'Painting title', placeholder: 'Type the title…' },
+  artist: { label: 'Artist', placeholder: 'Type the artist…' },
 };
 
 /** Recall: type the country's name (or, for map Capital questions, its capital). Esc = "I don't know". */

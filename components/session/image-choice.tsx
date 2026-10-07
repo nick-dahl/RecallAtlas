@@ -11,7 +11,7 @@ const STATE: Record<ChoiceState, string> = {
   dim: 'opacity-35',
 };
 
-/** One picture option: a flag stamp or a portrait. Unlabelled, so it never names the answer. */
+/** One picture option: a flag stamp, a portrait or a painting. Unlabelled, so it never names the answer. */
 export function ImageChoice({
   id,
   image,
@@ -21,7 +21,7 @@ export function ImageChoice({
   onPick,
 }: {
   id: string;
-  image: { flag?: string; portrait?: string };
+  image: { flag?: string; portrait?: string; painting?: string };
   index: number;
   state: ChoiceState;
   disabled: boolean;

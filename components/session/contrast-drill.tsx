@@ -49,6 +49,11 @@ export function ContrastDrill({ view, locked, feedback, chosenId, onAnswer }: Re
                 <ItemImage item={p} labelled eager />
                 <figcaption>
                   <span className="block font-display text-2xl">{p.name}</span>
+                  {p.artist && (
+                    <span className="block text-ink-soft">
+                      {p.artist}, {p.year}
+                    </span>
+                  )}
                   {p.capital && <span className="block text-ink-soft">Capital: {p.capital}</span>}
                 </figcaption>
               </figure>
@@ -98,7 +103,7 @@ export function ContrastDrill({ view, locked, feedback, chosenId, onAnswer }: Re
             <li key={c.id}>
               <ImageChoice
                 id={c.id}
-                image={{ flag: c.flag, portrait: c.portrait }}
+                image={{ flag: c.flag, portrait: c.portrait, painting: c.painting }}
                 index={i}
                 state={choiceState(c, feedback, chosenId)}
                 disabled={locked}

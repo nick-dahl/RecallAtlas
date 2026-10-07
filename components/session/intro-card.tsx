@@ -4,12 +4,13 @@ import { MapFrame } from '@/components/map/map-frame';
 import { buttonClass } from '@/components/ui/button';
 import { Flag } from '@/components/ui/flag';
 import { Kbd } from '@/components/ui/kbd';
+import { Painting } from '@/components/ui/painting';
 import { Portrait } from '@/components/ui/portrait';
 import { presidentFacts } from '@/lib/ui/president-facts';
 import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
-/** Meet a new flag, or a new country on its region map (ungraded). */
+/** Meet a new flag, a new country on its region map, a president or a painting (ungraded). */
 export function IntroCard({ view, locked, onAnswer }: RendererProps) {
   useHotkeys({ Enter: () => !locked && onAnswer({ kind: 'ack' }) }, !locked);
   const { prompt } = view;
@@ -18,6 +19,27 @@ export function IntroCard({ view, locked, onAnswer }: RendererProps) {
       Got it <Kbd>↵</Kbd>
     </button>
   );
+
+  if (prompt.painting) {
+    return (
+      <div className="mx-auto grid w-full max-w-4xl items-center gap-8 md:grid-cols-[minmax(0,1fr)_16rem]">
+        <Painting src={prompt.painting} alt={prompt.name} detail={prompt.detail} eager maxHeight="60vh" className="mx-auto w-fit max-w-full" />
+        <div className="space-y-4 text-center md:text-left">
+          <p className="text-sm font-medium text-accent">New painting</p>
+          <h2 className="font-display text-4xl tracking-tight">{prompt.name}</h2>
+          <p>
+            {prompt.artist}, {prompt.year}
+          </p>
+          <p className="text-sm text-ink-soft">
+            {prompt.movement}
+            <br />
+            {prompt.museum}
+          </p>
+          {gotIt}
+        </div>
+      </div>
+    );
+  }
 
   if (prompt.portrait && prompt.numbers && prompt.startYears && prompt.party) {
     const facts = presidentFacts({ numbers: prompt.numbers, startYears: prompt.startYears, party: prompt.party });
