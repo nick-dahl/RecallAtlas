@@ -11,6 +11,7 @@ const INPUT: Record<string, { label: string; placeholder: string; numeric?: bool
   name: { label: 'Country name', placeholder: 'Type the country…' },
   capital: { label: 'Capital', placeholder: 'Type the capital…' },
   president: { label: 'President', placeholder: 'Type the president…' },
+  country: { label: 'Country name', placeholder: 'Type the country…' },
   year: { label: 'Year', placeholder: 'Type the year…', numeric: true },
 };
 
