@@ -27,7 +27,7 @@ The set is mostly Western, from about 1300 to 1930. About 30 landmark works come
 | G7 | Course home | Gallery wall by movement, with a click-to-enlarge reference view |
 | G8 | Breadth | Mostly Western, plus about 30 landmark works from other traditions, chosen for fame, relevance and interest |
 | G9 | Anonymous works | Included where significant, with "Anonymous" as the correct artist. At most about 8, with safeguards (§4.3) |
-| G10 | Placement | Typed title. A correct answer fast-tracks both title prompts. Artist and movement start learning at level 2 |
+| G10 | Placement | Typed title. A correct answer fast-tracks both title prompts. Artist and movement are introduced later by intro card, starting at level 2 |
 
 ## 3. Content and data
 
@@ -136,7 +136,7 @@ There are about 24 labels. Each is a gallery-wall "room" on the course home. The
 - **Provenance:** each entry records its source page URL, licence and, for CC BY / CC BY-SA photos, the photographer. A generated `content/paintings/CREDITS.md` lists them, and a public **Credits** page (linked from the course home) shows the same list, so attribution licences are met.
 - **Size budget:** the large image is at most about 150 KB and the thumbnail at most about 30 KB. The build fails if either is exceeded.
 - **In questions**, images are embedded data URIs with empty `alt` text, like flags and portraits, so no URL or file name reveals the answer.
-- **Reference views** (course home, enlarged view) may use a public image route like `portrait-art`. That route is never used inside a question.
+- **Reference views** (course home, enlarged view) may use a public image route like `portrait-art`, addressed by fame rank (`/api/painting-art/17`), not by key: keys such as `mona-lisa` would name paintings the wall shows unlabelled. That route is never used inside a question.
 
 ### 3.5 Look-alikes (hard distractors)
 
@@ -204,8 +204,9 @@ There are about 24 labels. Each is a gallery-wall "room" on the course home. The
 
 - **Format:** the typed title (`image_to_title` at level 3), over a sample of paintings in fame order. This uses the existing placement flow.
 - **A correct answer** graduates `image_to_title` and `title_to_image` (`placementGraduates`).
-- **Engine addition (opt-in):** the item's other prompts, artist and movement, start **learning at level 2**. They skip the intro card and level 1.
-  - This is a new optional course field, e.g. `placementHeadStart: 2`. Courses without it are unchanged.
+- **Engine addition (opt-in):** the item's other prompts, artist and movement, stay new. They come back through the usual intro card, in fame order and under the usual limit on new items per session, but start **learning at level 2** instead of level 1.
+  - This is a new optional course field, `placementHeadStart: 2`. Courses without it are unchanged.
+  - Why not skip the intro: a learner who places 150 paintings would otherwise have 300 prompts in learning at once, with nothing limiting the flood. The intro card is also where they meet the artist and movement.
   - Tests cover the new path and confirm the other courses behave as before.
 - **A wrong answer** leaves the painting new.
 
