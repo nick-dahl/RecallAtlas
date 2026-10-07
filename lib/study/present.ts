@@ -11,7 +11,7 @@ export interface Presenter {
     format: Format,
     promptType?: string,
     pending?: PendingQuestion,
-  ): { label?: string; flag?: string; portrait?: string };
+  ): { label?: string; flag?: string; portrait?: string; painting?: string };
   item(itemKey: string): ItemView;
   /** Map courses: the map shown with a question, if any. */
   map?(pending: PendingQuestion): MapView | undefined;

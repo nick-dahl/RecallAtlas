@@ -1,5 +1,7 @@
 import 'server-only';
 import { flagDataUri } from '@/lib/content/flag-art';
+import { GREAT_PAINTINGS } from '@/lib/content/great-paintings';
+import { paintingDataUri } from '@/lib/content/painting-art';
 import { portraitDataUri } from '@/lib/content/portrait-art';
 import { US_PRESIDENTS } from '@/lib/content/us-presidents';
 import { capitalNote } from '@/lib/content/capitals';
@@ -10,6 +12,7 @@ import { loadFrame } from '@/lib/map/load';
 import { mapSupport, type MapSupport } from '@/lib/map/support';
 import { capitalsPresenter } from './capitals-presenter';
 import { mapPresenter } from './map-presenter';
+import { paintingsPresenter } from './paintings-presenter';
 import { flagPresenter, type Presenter } from './present';
 import { presidentsPresenter } from './presidents-presenter';
 
@@ -34,6 +37,8 @@ export function getPresenter(course: CourseDef): Presenter {
       return capitalsPresenter(course, { flag: flagDataUri, capitalNote, maps: getMapSupport(course)! });
     case US_PRESIDENTS.slug:
       return presidentsPresenter(course, { portrait: portraitDataUri });
+    case GREAT_PAINTINGS.slug:
+      return paintingsPresenter(course, { image: paintingDataUri });
     default:
       throw new Error(`No presenter for course ${course.slug}`);
   }
