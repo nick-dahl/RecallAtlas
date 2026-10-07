@@ -1,7 +1,7 @@
 # Great Paintings course: design spec
 
 **Date:** 2026-10-07
-**Status:** Design agreed in an iterative Q&A with the user. The written spec is pending the user's review.
+**Status:** Design agreed in an iterative Q&A with the user. Spec and painting list (`2026-10-07-great-paintings-list.md`) approved 2026-10-07.
 **Parent spec:** `2026-10-01-recall-atlas-design.md`. Everything there applies unless this spec overrides it. US Presidents (`2026-10-05-us-presidents-design.md`) is the closest precedent: image items, typed names, multiple-choice categories.
 
 ## 1. Summary
@@ -19,7 +19,7 @@ The set is mostly Western, from about 1300 to 1930. About 30 landmark works come
 | # | Decision | Choice |
 |---|---|---|
 | G1 | Goals | Image → title, image → artist, title → image, image → movement. Date and museum are not quizzed |
-| G2 | Copyright | Public domain only: works published before 1931 (US rule), with images from clean public-domain sources |
+| G2 | Copyright | Public-domain works only: published before 1931 (US rule). Images are public domain or CC0, or for works photographed in place (caves, frescoes, murals) CC BY / CC BY-SA with credit on a credits page |
 | G3 | Movements | About 20 Western movements plus about 4 for other traditions (§3.2). Each painting has one label. Boundary labels are never offered as wrong answers |
 | G4 | Typing | Title and artist are both typed at level 3, with forgiving matching (§3.3) |
 | G5 | Selection | Claude drafts a balanced list for the user to edit (§3.1). At most 4 works per named artist |
@@ -41,7 +41,7 @@ The set is mostly Western, from about 1300 to 1930. About 30 landmark works come
   - At least **about 6 works per movement**, so each movement's questions have substance.
   - At most **about 8 anonymous works**.
 - **Sources for fame and significance:** Gombrich's *The Story of Art*, Smarthistory, major museum highlight lists, and how often a work appears in survey texts.
-- **Public domain (G2):** every work was published before 1931. Its image comes from Wikimedia Commons or a museum open-access collection, marked public domain or CC0. A work with no clean source is dropped.
+- **Public domain (G2):** every work was published before 1931. Its image comes from Wikimedia Commons or a museum open-access collection, marked public domain or CC0. Works photographed in place (caves, frescoes, murals on curved walls) may instead use a CC BY or CC BY-SA photo, credited by author and licence on the credits page. A work with no such source is dropped.
 - **Media:**
   - Paintings in any medium are included: panel, canvas, fresco, mural, scroll, album leaf, manuscript painting.
   - Woodblock prints are allowed only within Japanese ukiyo-e (Hokusai, Hiroshige).
@@ -133,7 +133,7 @@ There are about 24 labels. Each is a gallery-wall "room" on the course home. The
   - It writes two webp files per painting: `content/paintings/<key>.webp` at about 900 px on the long side, and `<key>-thumb.webp` at about 320 px.
   - It never runs at request time or in `content:build`.
 - **Detail crops** are only for works too large to read whole, e.g. *The Creation of Adam* from the Sistine ceiling, or one panel of a triptych. Views mark them with a small "Detail" badge.
-- **Provenance:** each entry records its source page URL and licence. A generated `content/paintings/CREDITS.md` lists them.
+- **Provenance:** each entry records its source page URL, licence and, for CC BY / CC BY-SA photos, the photographer. A generated `content/paintings/CREDITS.md` lists them, and a public **Credits** page (linked from the course home) shows the same list, so attribution licences are met.
 - **Size budget:** the large image is at most about 150 KB and the thumbnail at most about 30 KB. The build fails if either is exceeded.
 - **In questions**, images are embedded data URIs with empty `alt` text, like flags and portraits, so no URL or file name reveals the answer.
 - **Reference views** (course home, enlarged view) may use a public image route like `portrait-art`. That route is never used inside a question.
@@ -159,7 +159,7 @@ There are about 24 labels. Each is a gallery-wall "room" on the course home. The
 - **Typed answers:**
   - No title alias equals another painting's title or alias.
   - No artist alias resolves to two different artists unless it is listed as ambiguous.
-- **Copyright:** every image source records a public-domain or CC0 licence, and every work's year is before 1931.
+- **Copyright:** every image source records a licence of public domain, CC0, CC BY or CC BY-SA. CC BY and CC BY-SA sources also record an author. Every work's year is before 1931.
 
 ## 4. Prompts, levels, formats
 

@@ -467,8 +467,8 @@
 - **Cut for balance (easy to swap back in):** Botticelli *Venus and Mars*, Gozzoli *Procession of the Magi*, Perugino *Delivery of the Keys*, van Eyck *Madonna of Chancellor Rolin*, Matsys *The Moneylender and His Wife*, Bellini *Doge Leonardo Loredan*, El Greco *Opening of the Fifth Seal*, Velázquez *The Surrender of Breda*, Jan Steen *The Merry Family*, Hobbema *The Avenue at Middelharnis*, Tiepolo's Würzburg ceiling, Ingres *Monsieur Bertin* and *The Turkish Bath*, Turner *The Slave Ship*, Friedrich *Monk by the Sea*, Goya *The Family of Charles IV*, Repin *Ivan the Terrible and His Son*, Waterhouse *Hylas and the Nymphs*, Boccioni *States of Mind*, Mondrian *The Gray Tree*, Klee *Twittering Machine*.
 - **Possible additions from India:** Raja Ravi Varma (*Shakuntala*, 1870s) and Abanindranath Tagore (*Bharat Mata*, 1905). Both are public domain but would need a movement label we don't have (Academic art, Bengal School).
 
-## Questions for you
+## Decisions (2026-10-07)
 
-1. **Photos of works in place.** Cave paintings, frescoes and murals (Lascaux, Ajanta, Pompeii, the Sistine Chapel) are photographed on curved walls, so the photo itself often carries a Creative Commons licence that asks for credit (CC BY or CC BY-SA) rather than being public domain. Allow those with credit on the credits page, or drop any work without a public-domain photo?
-2. **Near-twin titles.** Caravaggio's *Judith Beheading Holofernes* and Gentileschi's *Judith Slaying Holofernes* are kept deliberately as a pair. Typing the wrong one counts as a mix-up between them. The same goes for the two *Last Supper*s (Leonardo; Tintoretto, labelled *San Giorgio Maggiore*). Keep, or drop one of each pair?
-3. **Judgement calls on movements:** Modigliani under Expressionism, Klee and Hilma af Klint under Abstraction, Whistler and Sargent under Realism, Canaletto and Gainsborough under Rococo, and Waterhouse as a late Pre-Raphaelite. Change any of these?
+1. **Photos of works in place:** allowed under CC BY or CC BY-SA, credited on a credits page.
+2. **Near-twin titles:** both pairs stay, on purpose (*Judith Beheading* / *Judith Slaying Holofernes*; the two *Last Supper*s).
+3. **Movement judgement calls:** kept as drafted.
