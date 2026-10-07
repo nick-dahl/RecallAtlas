@@ -10,3 +10,10 @@ export function isPublicDomain(meta: LicenseMeta): boolean {
     (v) => typeof v === 'string' && /^(pd\b|pd-|public domain|cc0)/i.test(v.trim()),
   );
 }
+
+/** CC BY or CC BY-SA (any version): usable with credit. Never NC or ND. */
+export function isAttribution(meta: LicenseMeta): boolean {
+  return [meta.LicenseShortName, meta.License].some(
+    (v) => typeof v === 'string' && /^cc[ -]by(-sa)?[ -]\d/i.test(v.trim()),
+  );
+}

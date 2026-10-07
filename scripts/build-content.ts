@@ -5,7 +5,9 @@ import worldCountries from 'world-countries';
 import { GROUP_ORDER } from './content-config';
 import { buildCountries, type RawCountry } from './lib/build-countries';
 import { buildMaps } from './lib/maps/build-maps';
+import { buildPaintings } from './lib/build-paintings';
 import { buildPresidents } from './lib/build-presidents';
+import { ARTISTS, MOVEMENTS, PAINTINGS, SUBJECT_PAIRS } from './paintings-data';
 import { AMBIGUOUS_NAMES, ERAS, FACE_LOOKALIKE_PAIRS, PRESIDENTS, SHARED_SPAN_PAIRS } from './presidents-data';
 
 const root = process.cwd();
@@ -75,3 +77,18 @@ fs.writeFileSync(
   JSON.stringify({ presidents, orderExclusions: SHARED_SPAN_PAIRS, ambiguousAnswers: AMBIGUOUS_NAMES }, null, 2) + '\n',
 );
 console.log(`Wrote ${presidents.length} presidents to content/presidents.json.`);
+
+// Painting images come from `npm run content:paintings` (committed); the build checks they exist and fit.
+const paintingDir = path.join(root, 'content', 'paintings');
+const fits = (file: string, budget: number) => {
+  const full = path.join(paintingDir, file);
+  return fs.existsSync(full) && fs.statSync(full).size <= budget;
+};
+const paintings = buildPaintings(PAINTINGS, {
+  movements: MOVEMENTS,
+  artists: ARTISTS,
+  subjectPairs: SUBJECT_PAIRS,
+  hasImage: (key) => fits(`${key}.webp`, 150 * 1024) && fits(`${key}-thumb.webp`, 30 * 1024),
+});
+fs.writeFileSync(path.join(root, 'content', 'paintings.json'), JSON.stringify({ paintings }, null, 2) + '\n');
+console.log(`Wrote ${paintings.length} paintings to content/paintings.json.`);

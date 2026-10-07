@@ -1,0 +1,5613 @@
+{
+  "paintings": [
+    {
+      "key": "mona-lisa",
+      "title": "Mona Lisa",
+      "titleAliases": [
+        "La Gioconda",
+        "La Joconde",
+        "Monna Lisa"
+      ],
+      "artist": "Leonardo da Vinci",
+      "artistAliases": [
+        "Leonardo",
+        "da Vinci"
+      ],
+      "year": "c. 1503–1519",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 1,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "last-supper",
+        "lady-with-an-ermine",
+        "virgin-of-the-rocks"
+      ],
+      "detail": false
+    },
+    {
+      "key": "starry-night",
+      "title": "The Starry Night",
+      "titleAliases": [
+        "Starry Night"
+      ],
+      "artist": "Vincent van Gogh",
+      "artistAliases": [
+        "van Gogh",
+        "Gogh"
+      ],
+      "year": "1889",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Museum of Modern Art, New York",
+      "fame": 2,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "sunflowers",
+        "cafe-terrace-at-night",
+        "self-portrait-bandaged-ear"
+      ],
+      "detail": false
+    },
+    {
+      "key": "last-supper",
+      "title": "The Last Supper",
+      "titleAliases": [
+        "Il Cenacolo",
+        "L'Ultima Cena"
+      ],
+      "artist": "Leonardo da Vinci",
+      "artistAliases": [
+        "Leonardo",
+        "da Vinci"
+      ],
+      "year": "1495–1498",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Santa Maria delle Grazie, Milan",
+      "fame": 3,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "mona-lisa",
+        "lady-with-an-ermine",
+        "virgin-of-the-rocks",
+        "last-supper-tintoretto"
+      ],
+      "detail": false
+    },
+    {
+      "key": "girl-with-a-pearl-earring",
+      "title": "Girl with a Pearl Earring",
+      "titleAliases": [
+        "Girl with the Pearl Earring"
+      ],
+      "artist": "Johannes Vermeer",
+      "artistAliases": [
+        "Vermeer",
+        "Jan Vermeer"
+      ],
+      "year": "c. 1665",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Mauritshuis, The Hague",
+      "fame": 4,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "milkmaid",
+        "view-of-delft",
+        "art-of-painting"
+      ],
+      "detail": false
+    },
+    {
+      "key": "scream",
+      "title": "The Scream",
+      "titleAliases": [
+        "Skrik",
+        "The Cry"
+      ],
+      "artist": "Edvard Munch",
+      "artistAliases": [
+        "Munch"
+      ],
+      "year": "1893",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [
+        "Expressionism"
+      ],
+      "museum": "National Museum, Oslo",
+      "fame": 5,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [
+        "madonna-munch",
+        "death-and-the-maiden"
+      ],
+      "detail": false
+    },
+    {
+      "key": "birth-of-venus",
+      "title": "The Birth of Venus",
+      "titleAliases": [
+        "Birth of Venus",
+        "La nascita di Venere"
+      ],
+      "artist": "Sandro Botticelli",
+      "artistAliases": [
+        "Botticelli"
+      ],
+      "year": "c. 1484–1486",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 6,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "primavera"
+      ],
+      "detail": false
+    },
+    {
+      "key": "creation-of-adam",
+      "title": "The Creation of Adam",
+      "titleAliases": [
+        "Creation of Adam"
+      ],
+      "artist": "Michelangelo",
+      "artistAliases": [
+        "Michelangelo Buonarroti",
+        "Buonarroti"
+      ],
+      "year": "c. 1512",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Sistine Chapel, Vatican",
+      "fame": 7,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "last-judgment",
+        "doni-tondo"
+      ],
+      "detail": false
+    },
+    {
+      "key": "great-wave",
+      "title": "The Great Wave off Kanagawa",
+      "titleAliases": [
+        "The Great Wave",
+        "Great Wave",
+        "Under the Wave off Kanagawa"
+      ],
+      "artist": "Katsushika Hokusai",
+      "artistAliases": [
+        "Hokusai"
+      ],
+      "year": "c. 1831",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Many impressions (e.g. Met, British Museum)",
+      "fame": 8,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [
+        "fine-wind-clear-morning",
+        "sudden-shower"
+      ],
+      "detail": false
+    },
+    {
+      "key": "night-watch",
+      "title": "The Night Watch",
+      "titleAliases": [
+        "Night Watch",
+        "The Militia Company of Captain Frans Banninck Cocq"
+      ],
+      "artist": "Rembrandt",
+      "artistAliases": [
+        "Rembrandt van Rijn",
+        "van Rijn"
+      ],
+      "year": "1642",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Rijksmuseum, Amsterdam",
+      "fame": 9,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "anatomy-lesson",
+        "self-portrait-two-circles",
+        "return-of-the-prodigal-son"
+      ],
+      "detail": false
+    },
+    {
+      "key": "kiss",
+      "title": "The Kiss",
+      "titleAliases": [
+        "Der Kuss"
+      ],
+      "artist": "Gustav Klimt",
+      "artistAliases": [
+        "Klimt"
+      ],
+      "year": "1907–1908",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [],
+      "museum": "Belvedere, Vienna",
+      "fame": 10,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [
+        "portrait-of-adele-bloch-bauer",
+        "judith-i"
+      ],
+      "detail": false
+    },
+    {
+      "key": "las-meninas",
+      "title": "Las Meninas",
+      "titleAliases": [
+        "The Ladies-in-waiting",
+        "The Family of Philip IV"
+      ],
+      "artist": "Diego Velázquez",
+      "artistAliases": [
+        "Velazquez",
+        "Velasquez"
+      ],
+      "year": "1656",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 11,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "rokeby-venus",
+        "innocent-x",
+        "art-of-painting"
+      ],
+      "detail": false
+    },
+    {
+      "key": "water-lilies",
+      "title": "Water Lilies (Orangerie)",
+      "titleAliases": [
+        "Water Lilies",
+        "Nympheas",
+        "Les Nympheas"
+      ],
+      "artist": "Claude Monet",
+      "artistAliases": [
+        "Monet"
+      ],
+      "year": "1914–1926",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Musée de l'Orangerie, Paris",
+      "fame": 12,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "impression-sunrise",
+        "woman-with-a-parasol",
+        "water-lily-pond"
+      ],
+      "detail": true
+    },
+    {
+      "key": "sunflowers",
+      "title": "Sunflowers",
+      "titleAliases": [
+        "Vase with Fifteen Sunflowers",
+        "The Sunflowers"
+      ],
+      "artist": "Vincent van Gogh",
+      "artistAliases": [
+        "van Gogh",
+        "Gogh"
+      ],
+      "year": "1888",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 13,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "starry-night",
+        "cafe-terrace-at-night",
+        "self-portrait-bandaged-ear"
+      ],
+      "detail": false
+    },
+    {
+      "key": "garden-of-earthly-delights",
+      "title": "The Garden of Earthly Delights",
+      "titleAliases": [
+        "Garden of Earthly Delights"
+      ],
+      "artist": "Hieronymus Bosch",
+      "artistAliases": [
+        "Bosch"
+      ],
+      "year": "c. 1490–1510",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 14,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "haywain-triptych",
+        "tower-of-babel"
+      ],
+      "detail": false
+    },
+    {
+      "key": "arnolfini",
+      "title": "The Arnolfini Portrait",
+      "titleAliases": [
+        "Arnolfini Portrait",
+        "The Arnolfini Wedding",
+        "Portrait of Giovanni Arnolfini and His Wife"
+      ],
+      "artist": "Jan van Eyck",
+      "artistAliases": [
+        "van Eyck",
+        "Eyck"
+      ],
+      "year": "1434",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 15,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "ghent-altarpiece",
+        "ambassadors"
+      ],
+      "detail": false
+    },
+    {
+      "key": "school-of-athens",
+      "title": "The School of Athens",
+      "titleAliases": [
+        "School of Athens",
+        "Scuola di Atene"
+      ],
+      "artist": "Raphael",
+      "artistAliases": [
+        "Raffaello",
+        "Raffaello Sanzio",
+        "Sanzio",
+        "Raphael Sanzio"
+      ],
+      "year": "1509–1511",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Vatican Museums",
+      "fame": 16,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "sistine-madonna",
+        "transfiguration",
+        "castiglione"
+      ],
+      "detail": false
+    },
+    {
+      "key": "liberty-leading-the-people",
+      "title": "Liberty Leading the People",
+      "titleAliases": [
+        "La Liberte guidant le peuple",
+        "Liberty"
+      ],
+      "artist": "Eugène Delacroix",
+      "artistAliases": [
+        "Delacroix"
+      ],
+      "year": "1830",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 17,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "death-of-sardanapalus",
+        "raft-of-the-medusa",
+        "third-of-may"
+      ],
+      "detail": false
+    },
+    {
+      "key": "wanderer",
+      "title": "Wanderer above the Sea of Fog",
+      "titleAliases": [
+        "Wanderer above the Mists",
+        "The Wanderer",
+        "Wanderer over the Sea of Fog"
+      ],
+      "artist": "Caspar David Friedrich",
+      "artistAliases": [
+        "Friedrich"
+      ],
+      "year": "c. 1818",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Hamburger Kunsthalle",
+      "fame": 18,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "sea-of-ice",
+        "oxbow"
+      ],
+      "detail": false
+    },
+    {
+      "key": "impression-sunrise",
+      "title": "Impression, Sunrise",
+      "titleAliases": [
+        "Impression Sunrise",
+        "Impression soleil levant"
+      ],
+      "artist": "Claude Monet",
+      "artistAliases": [
+        "Monet"
+      ],
+      "year": "1872",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Musée Marmottan Monet, Paris",
+      "fame": 19,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "water-lilies",
+        "woman-with-a-parasol",
+        "water-lily-pond"
+      ],
+      "detail": false
+    },
+    {
+      "key": "grande-jatte",
+      "title": "A Sunday Afternoon on the Island of La Grande Jatte",
+      "titleAliases": [
+        "A Sunday on La Grande Jatte",
+        "La Grande Jatte",
+        "Sunday Afternoon on the Island of La Grande Jatte"
+      ],
+      "artist": "Georges Seurat",
+      "artistAliases": [
+        "Seurat"
+      ],
+      "year": "1884–1886",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Art Institute of Chicago",
+      "fame": 20,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "bathers-at-asnieres",
+        "bal-du-moulin"
+      ],
+      "detail": false
+    },
+    {
+      "key": "third-of-may",
+      "title": "The Third of May 1808",
+      "titleAliases": [
+        "The Third of May",
+        "The 3rd of May 1808",
+        "Third of May"
+      ],
+      "artist": "Francisco Goya",
+      "artistAliases": [
+        "Goya",
+        "Francisco de Goya"
+      ],
+      "year": "1814",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 21,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "saturn-devouring-his-son",
+        "nude-maja",
+        "liberty-leading-the-people"
+      ],
+      "detail": false
+    },
+    {
+      "key": "raft-of-the-medusa",
+      "title": "The Raft of the Medusa",
+      "titleAliases": [
+        "Raft of the Medusa",
+        "Le Radeau de la Meduse"
+      ],
+      "artist": "Théodore Géricault",
+      "artistAliases": [
+        "Gericault"
+      ],
+      "year": "1818–1819",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 22,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "liberty-leading-the-people",
+        "ninth-wave"
+      ],
+      "detail": false
+    },
+    {
+      "key": "whistlers-mother",
+      "title": "Whistler's Mother",
+      "titleAliases": [
+        "Arrangement in Grey and Black No. 1",
+        "Arrangement in Grey and Black"
+      ],
+      "artist": "James McNeill Whistler",
+      "artistAliases": [
+        "Whistler"
+      ],
+      "year": "1871",
+      "movement": "Realism",
+      "alsoMovements": [
+        "Symbolism & Art Nouveau"
+      ],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 23,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "madame-x"
+      ],
+      "detail": false
+    },
+    {
+      "key": "primavera",
+      "title": "Primavera",
+      "titleAliases": [
+        "Allegory of Spring",
+        "Spring"
+      ],
+      "artist": "Sandro Botticelli",
+      "artistAliases": [
+        "Botticelli"
+      ],
+      "year": "c. 1480",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 24,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "birth-of-venus"
+      ],
+      "detail": false
+    },
+    {
+      "key": "hunters-in-the-snow",
+      "title": "The Hunters in the Snow",
+      "titleAliases": [
+        "Hunters in the Snow",
+        "Winter"
+      ],
+      "artist": "Pieter Bruegel the Elder",
+      "artistAliases": [
+        "Bruegel",
+        "Brueghel",
+        "Pieter Bruegel",
+        "Breughel",
+        "Bruegel the Elder"
+      ],
+      "year": "1565",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Kunsthistorisches Museum, Vienna",
+      "fame": 25,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "tower-of-babel",
+        "netherlandish-proverbs",
+        "peasant-wedding"
+      ],
+      "detail": false
+    },
+    {
+      "key": "milkmaid",
+      "title": "The Milkmaid",
+      "titleAliases": [
+        "The Kitchen Maid",
+        "Milkmaid"
+      ],
+      "artist": "Johannes Vermeer",
+      "artistAliases": [
+        "Vermeer",
+        "Jan Vermeer"
+      ],
+      "year": "c. 1658",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Rijksmuseum, Amsterdam",
+      "fame": 26,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "girl-with-a-pearl-earring",
+        "view-of-delft",
+        "art-of-painting",
+        "courtyard-delft"
+      ],
+      "detail": false
+    },
+    {
+      "key": "ophelia",
+      "title": "Ophelia",
+      "titleAliases": [],
+      "artist": "John Everett Millais",
+      "artistAliases": [
+        "Millais"
+      ],
+      "year": "1851–1852",
+      "movement": "Pre-Raphaelite",
+      "alsoMovements": [],
+      "museum": "Tate Britain, London",
+      "fame": 27,
+      "room": 16,
+      "neighbour": 13,
+      "lookalikes": [
+        "lady-of-shalott"
+      ],
+      "detail": false
+    },
+    {
+      "key": "last-judgment",
+      "title": "The Last Judgment",
+      "titleAliases": [
+        "Last Judgment",
+        "Last Judgement",
+        "The Last Judgement"
+      ],
+      "artist": "Michelangelo",
+      "artistAliases": [
+        "Michelangelo Buonarroti",
+        "Buonarroti"
+      ],
+      "year": "1536–1541",
+      "movement": "High Renaissance",
+      "alsoMovements": [
+        "Mannerism"
+      ],
+      "museum": "Sistine Chapel, Vatican",
+      "fame": 28,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "creation-of-adam",
+        "doni-tondo"
+      ],
+      "detail": false
+    },
+    {
+      "key": "olympia",
+      "title": "Olympia",
+      "titleAliases": [],
+      "artist": "Édouard Manet",
+      "artistAliases": [
+        "Manet"
+      ],
+      "year": "1863",
+      "movement": "Realism",
+      "alsoMovements": [
+        "Impressionism"
+      ],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 29,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "dejeuner-sur-lherbe",
+        "bar-folies-bergere",
+        "venus-of-urbino",
+        "grande-odalisque",
+        "nude-maja"
+      ],
+      "detail": false
+    },
+    {
+      "key": "cafe-terrace-at-night",
+      "title": "Café Terrace at Night",
+      "titleAliases": [
+        "Cafe Terrace",
+        "Terrace of a Cafe at Night"
+      ],
+      "artist": "Vincent van Gogh",
+      "artistAliases": [
+        "van Gogh",
+        "Gogh"
+      ],
+      "year": "1888",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Kröller-Müller Museum, Otterlo",
+      "fame": 30,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "starry-night",
+        "sunflowers",
+        "self-portrait-bandaged-ear"
+      ],
+      "detail": false
+    },
+    {
+      "key": "black-square",
+      "title": "Black Square",
+      "titleAliases": [
+        "Black Suprematic Square"
+      ],
+      "artist": "Kazimir Malevich",
+      "artistAliases": [
+        "Malevich"
+      ],
+      "year": "1915",
+      "movement": "Abstraction",
+      "alsoMovements": [],
+      "museum": "Tretyakov Gallery, Moscow",
+      "fame": 31,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "white-on-white",
+        "mondrian-composition"
+      ],
+      "detail": false
+    },
+    {
+      "key": "mondrian-composition",
+      "title": "Composition with Red, Blue and Yellow",
+      "titleAliases": [
+        "Composition II in Red, Blue, and Yellow",
+        "Composition with Red Blue and Yellow"
+      ],
+      "artist": "Piet Mondrian",
+      "artistAliases": [
+        "Mondrian"
+      ],
+      "year": "1930",
+      "movement": "Abstraction",
+      "alsoMovements": [],
+      "museum": "Kunsthaus Zürich",
+      "fame": 32,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "black-square"
+      ],
+      "detail": false
+    },
+    {
+      "key": "bal-du-moulin",
+      "title": "Bal du moulin de la Galette",
+      "titleAliases": [
+        "Dance at Le Moulin de la Galette",
+        "Moulin de la Galette"
+      ],
+      "artist": "Pierre-Auguste Renoir",
+      "artistAliases": [
+        "Renoir"
+      ],
+      "year": "1876",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 33,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "luncheon-of-the-boating-party",
+        "grande-jatte"
+      ],
+      "detail": false
+    },
+    {
+      "key": "luncheon-of-the-boating-party",
+      "title": "Luncheon of the Boating Party",
+      "titleAliases": [
+        "Le Dejeuner des canotiers"
+      ],
+      "artist": "Pierre-Auguste Renoir",
+      "artistAliases": [
+        "Renoir"
+      ],
+      "year": "1880–1881",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Phillips Collection, Washington",
+      "fame": 34,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "bal-du-moulin"
+      ],
+      "detail": false
+    },
+    {
+      "key": "swing",
+      "title": "The Swing",
+      "titleAliases": [
+        "Les Hasards heureux de l'escarpolette",
+        "The Happy Accidents of the Swing"
+      ],
+      "artist": "Jean-Honoré Fragonard",
+      "artistAliases": [
+        "Fragonard"
+      ],
+      "year": "1767",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "Wallace Collection, London",
+      "fame": 35,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [
+        "pilgrimage-to-cythera"
+      ],
+      "detail": false
+    },
+    {
+      "key": "death-of-marat",
+      "title": "The Death of Marat",
+      "titleAliases": [
+        "Death of Marat",
+        "Marat Assassinated"
+      ],
+      "artist": "Jacques-Louis David",
+      "artistAliases": [
+        "David"
+      ],
+      "year": "1793",
+      "movement": "Neoclassicism",
+      "alsoMovements": [],
+      "museum": "Royal Museums of Fine Arts, Brussels",
+      "fame": 36,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [
+        "napoleon-crossing-the-alps",
+        "oath-of-the-horatii",
+        "coronation-of-napoleon"
+      ],
+      "detail": false
+    },
+    {
+      "key": "napoleon-crossing-the-alps",
+      "title": "Napoleon Crossing the Alps",
+      "titleAliases": [
+        "Bonaparte Crossing the Alps",
+        "Napoleon at the Saint-Bernard Pass"
+      ],
+      "artist": "Jacques-Louis David",
+      "artistAliases": [
+        "David"
+      ],
+      "year": "1801",
+      "movement": "Neoclassicism",
+      "alsoMovements": [
+        "Romanticism"
+      ],
+      "museum": "Château de Malmaison",
+      "fame": 37,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [
+        "death-of-marat",
+        "oath-of-the-horatii",
+        "coronation-of-napoleon"
+      ],
+      "detail": false
+    },
+    {
+      "key": "tower-of-babel",
+      "title": "The Tower of Babel",
+      "titleAliases": [
+        "Tower of Babel"
+      ],
+      "artist": "Pieter Bruegel the Elder",
+      "artistAliases": [
+        "Bruegel",
+        "Brueghel",
+        "Pieter Bruegel",
+        "Breughel",
+        "Bruegel the Elder"
+      ],
+      "year": "1563",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Kunsthistorisches Museum, Vienna",
+      "fame": 38,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "hunters-in-the-snow",
+        "netherlandish-proverbs",
+        "peasant-wedding",
+        "garden-of-earthly-delights"
+      ],
+      "detail": false
+    },
+    {
+      "key": "hay-wain",
+      "title": "The Hay Wain",
+      "titleAliases": [
+        "Hay Wain"
+      ],
+      "artist": "John Constable",
+      "artistAliases": [
+        "Constable"
+      ],
+      "year": "1821",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 39,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "fighting-temeraire",
+      "title": "The Fighting Temeraire",
+      "titleAliases": [
+        "The Fighting Temeraire tugged to her last berth to be broken up",
+        "Fighting Temeraire"
+      ],
+      "artist": "J. M. W. Turner",
+      "artistAliases": [
+        "Turner",
+        "J.M.W. Turner",
+        "Joseph Mallord William Turner",
+        "William Turner"
+      ],
+      "year": "1839",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 40,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "rain-steam-and-speed"
+      ],
+      "detail": false
+    },
+    {
+      "key": "lady-with-an-ermine",
+      "title": "Lady with an Ermine",
+      "titleAliases": [
+        "Portrait of Cecilia Gallerani"
+      ],
+      "artist": "Leonardo da Vinci",
+      "artistAliases": [
+        "Leonardo",
+        "da Vinci"
+      ],
+      "year": "c. 1489–1491",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Czartoryski Museum, Kraków",
+      "fame": 41,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "mona-lisa",
+        "last-supper",
+        "virgin-of-the-rocks"
+      ],
+      "detail": false
+    },
+    {
+      "key": "ambassadors",
+      "title": "The Ambassadors",
+      "titleAliases": [],
+      "artist": "Hans Holbein the Younger",
+      "artistAliases": [
+        "Holbein",
+        "Hans Holbein"
+      ],
+      "year": "1533",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 42,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "portrait-of-henry-viii",
+        "arnolfini"
+      ],
+      "detail": false
+    },
+    {
+      "key": "where-do-we-come-from",
+      "title": "Where Do We Come From? What Are We? Where Are We Going?",
+      "titleAliases": [
+        "Where Do We Come From"
+      ],
+      "artist": "Paul Gauguin",
+      "artistAliases": [
+        "Gauguin"
+      ],
+      "year": "1897–1898",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [
+        "Symbolism & Art Nouveau"
+      ],
+      "museum": "Museum of Fine Arts, Boston",
+      "fame": 43,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "vision-after-the-sermon"
+      ],
+      "detail": false
+    },
+    {
+      "key": "card-players",
+      "title": "The Card Players",
+      "titleAliases": [
+        "Card Players"
+      ],
+      "artist": "Paul Cézanne",
+      "artistAliases": [
+        "Cezanne"
+      ],
+      "year": "1894–1895",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 44,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "mont-sainte-victoire",
+        "large-bathers"
+      ],
+      "detail": false
+    },
+    {
+      "key": "venus-of-urbino",
+      "title": "Venus of Urbino",
+      "titleAliases": [
+        "Venere di Urbino"
+      ],
+      "artist": "Titian",
+      "artistAliases": [
+        "Tiziano",
+        "Tiziano Vecellio",
+        "Vecellio"
+      ],
+      "year": "1538",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 45,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [
+        "bacchus-and-ariadne",
+        "assumption-of-the-virgin",
+        "sacred-and-profane-love",
+        "sleeping-venus",
+        "rokeby-venus",
+        "olympia"
+      ],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-bandaged-ear",
+      "title": "Self-Portrait with Bandaged Ear",
+      "titleAliases": [
+        "Self-Portrait with Bandaged Ear and Pipe"
+      ],
+      "artist": "Vincent van Gogh",
+      "artistAliases": [
+        "van Gogh",
+        "Gogh"
+      ],
+      "year": "1889",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Courtauld Gallery, London",
+      "fame": 46,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "starry-night",
+        "sunflowers",
+        "cafe-terrace-at-night",
+        "self-portrait-two-circles"
+      ],
+      "detail": false
+    },
+    {
+      "key": "saturn-devouring-his-son",
+      "title": "Saturn Devouring His Son",
+      "titleAliases": [
+        "Saturn",
+        "Saturn Devouring One of His Sons"
+      ],
+      "artist": "Francisco Goya",
+      "artistAliases": [
+        "Goya",
+        "Francisco de Goya"
+      ],
+      "year": "c. 1819–1823",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 47,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "third-of-may",
+        "nude-maja"
+      ],
+      "detail": false
+    },
+    {
+      "key": "dance-matisse",
+      "title": "The Dance",
+      "titleAliases": [
+        "Dance",
+        "La Danse",
+        "Dance (II)"
+      ],
+      "artist": "Henri Matisse",
+      "artistAliases": [
+        "Matisse"
+      ],
+      "year": "1910",
+      "movement": "Fauvism",
+      "alsoMovements": [],
+      "museum": "Hermitage, St Petersburg",
+      "fame": 48,
+      "room": 20,
+      "neighbour": 17,
+      "lookalikes": [
+        "woman-with-a-hat",
+        "joy-of-life",
+        "harmony-in-red",
+        "large-blue-horses"
+      ],
+      "detail": false
+    },
+    {
+      "key": "composition-vii",
+      "title": "Composition VII",
+      "titleAliases": [],
+      "artist": "Wassily Kandinsky",
+      "artistAliases": [
+        "Kandinsky",
+        "Vasily Kandinsky"
+      ],
+      "year": "1913",
+      "movement": "Abstraction",
+      "alsoMovements": [
+        "Expressionism"
+      ],
+      "museum": "Tretyakov Gallery, Moscow",
+      "fame": 49,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "several-circles",
+        "composition-viii",
+        "senecio"
+      ],
+      "detail": false
+    },
+    {
+      "key": "qingming",
+      "title": "Along the River During the Qingming Festival",
+      "titleAliases": [
+        "Qingming Shanghe Tu",
+        "Along the River",
+        "Qingming Scroll"
+      ],
+      "artist": "Zhang Zeduan",
+      "artistAliases": [],
+      "year": "early 12th c.",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "Palace Museum, Beijing",
+      "fame": 50,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [
+        "inwang-clearing"
+      ],
+      "detail": true
+    },
+    {
+      "key": "lascaux",
+      "title": "Hall of the Bulls, Lascaux",
+      "titleAliases": [
+        "Lascaux",
+        "Hall of the Bulls",
+        "Lascaux cave paintings"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 17,000 BCE",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "Lascaux cave, Dordogne",
+      "fame": 51,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "lamentation-giotto",
+      "title": "Lamentation (The Mourning of Christ)",
+      "titleAliases": [
+        "Lamentation",
+        "The Mourning of Christ",
+        "Lamentation of Christ"
+      ],
+      "artist": "Giotto",
+      "artistAliases": [
+        "Giotto di Bondone"
+      ],
+      "year": "c. 1305",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "Scrovegni Chapel, Padua",
+      "fame": 52,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [
+        "ognissanti-madonna",
+        "lamentation-mantegna"
+      ],
+      "detail": false
+    },
+    {
+      "key": "holy-trinity",
+      "title": "The Holy Trinity",
+      "titleAliases": [
+        "Holy Trinity",
+        "Trinity (Masaccio)"
+      ],
+      "artist": "Masaccio",
+      "artistAliases": [],
+      "year": "c. 1427",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Santa Maria Novella, Florence",
+      "fame": 53,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "tribute-money",
+        "rublev-trinity"
+      ],
+      "detail": false
+    },
+    {
+      "key": "ghent-altarpiece",
+      "title": "The Ghent Altarpiece",
+      "titleAliases": [
+        "Ghent Altarpiece",
+        "Adoration of the Mystic Lamb",
+        "The Adoration of the Mystic Lamb"
+      ],
+      "artist": "Jan van Eyck",
+      "artistAliases": [
+        "van Eyck",
+        "Eyck"
+      ],
+      "year": "1432",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "St Bavo's Cathedral, Ghent",
+      "fame": 54,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "arnolfini"
+      ],
+      "detail": false
+    },
+    {
+      "key": "travelers-mountains",
+      "title": "Travelers Among Mountains and Streams",
+      "titleAliases": [
+        "Travellers Among Mountains and Streams",
+        "Travelers amid Mountains and Streams"
+      ],
+      "artist": "Fan Kuan",
+      "artistAliases": [],
+      "year": "c. 1000",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "National Palace Museum, Taipei",
+      "fame": 55,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [
+        "early-spring"
+      ],
+      "detail": false
+    },
+    {
+      "key": "virgin-of-the-rocks",
+      "title": "Virgin of the Rocks",
+      "titleAliases": [
+        "Madonna of the Rocks",
+        "The Virgin of the Rocks"
+      ],
+      "artist": "Leonardo da Vinci",
+      "artistAliases": [
+        "Leonardo",
+        "da Vinci"
+      ],
+      "year": "c. 1483–1486",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 56,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "mona-lisa",
+        "last-supper",
+        "lady-with-an-ermine"
+      ],
+      "detail": false
+    },
+    {
+      "key": "bacchus-and-ariadne",
+      "title": "Bacchus and Ariadne",
+      "titleAliases": [],
+      "artist": "Titian",
+      "artistAliases": [
+        "Tiziano",
+        "Tiziano Vecellio",
+        "Vecellio"
+      ],
+      "year": "1520–1523",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 57,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [
+        "venus-of-urbino",
+        "assumption-of-the-virgin",
+        "sacred-and-profane-love"
+      ],
+      "detail": false
+    },
+    {
+      "key": "court-of-gayumars",
+      "title": "The Court of Gayumars",
+      "titleAliases": [
+        "Court of Gayumars",
+        "The Court of Kayumars"
+      ],
+      "artist": "Sultan Muhammad",
+      "artistAliases": [],
+      "year": "c. 1522–1525",
+      "movement": "Persian & Mughal miniature",
+      "alsoMovements": [],
+      "museum": "Aga Khan Museum, Toronto",
+      "fame": 58,
+      "room": 7,
+      "neighbour": 103,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "madonna-with-the-long-neck",
+      "title": "Madonna with the Long Neck",
+      "titleAliases": [
+        "Madonna dal collo lungo",
+        "Madonna of the Long Neck"
+      ],
+      "artist": "Parmigianino",
+      "artistAliases": [],
+      "year": "c. 1535–1540",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 59,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [
+        "self-portrait-convex-mirror"
+      ],
+      "detail": false
+    },
+    {
+      "key": "three-beauties",
+      "title": "Three Beauties of the Present Day",
+      "titleAliases": [
+        "Three Beauties"
+      ],
+      "artist": "Kitagawa Utamaro",
+      "artistAliases": [
+        "Utamaro"
+      ],
+      "year": "c. 1793",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Many impressions (e.g. Museum of Fine Arts, Boston)",
+      "fame": 60,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "calling-of-st-matthew",
+      "title": "The Calling of Saint Matthew",
+      "titleAliases": [],
+      "artist": "Caravaggio",
+      "artistAliases": [
+        "Michelangelo Merisi da Caravaggio",
+        "Merisi"
+      ],
+      "year": "1599–1600",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "San Luigi dei Francesi, Rome",
+      "fame": 61,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "judith-caravaggio",
+        "supper-at-emmaus",
+        "cheat-ace-of-diamonds"
+      ],
+      "detail": false
+    },
+    {
+      "key": "anatomy-lesson",
+      "title": "The Anatomy Lesson of Dr Nicolaes Tulp",
+      "titleAliases": [
+        "The Anatomy Lesson",
+        "Anatomy Lesson of Dr. Tulp",
+        "The Anatomy Lesson of Dr Tulp"
+      ],
+      "artist": "Rembrandt",
+      "artistAliases": [
+        "Rembrandt van Rijn",
+        "van Rijn"
+      ],
+      "year": "1632",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Mauritshuis, The Hague",
+      "fame": 62,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "night-watch",
+        "self-portrait-two-circles",
+        "return-of-the-prodigal-son",
+        "gross-clinic"
+      ],
+      "detail": false
+    },
+    {
+      "key": "pilgrimage-to-cythera",
+      "title": "Pilgrimage to Cythera",
+      "titleAliases": [
+        "The Embarkation for Cythera",
+        "Embarkation for Cythera"
+      ],
+      "artist": "Antoine Watteau",
+      "artistAliases": [
+        "Watteau"
+      ],
+      "year": "1717",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 63,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [
+        "pierrot",
+        "swing"
+      ],
+      "detail": false
+    },
+    {
+      "key": "oath-of-the-horatii",
+      "title": "Oath of the Horatii",
+      "titleAliases": [
+        "The Oath of the Horatii"
+      ],
+      "artist": "Jacques-Louis David",
+      "artistAliases": [
+        "David"
+      ],
+      "year": "1784",
+      "movement": "Neoclassicism",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 64,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [
+        "death-of-marat",
+        "napoleon-crossing-the-alps",
+        "coronation-of-napoleon"
+      ],
+      "detail": false
+    },
+    {
+      "key": "sea-of-ice",
+      "title": "The Sea of Ice",
+      "titleAliases": [],
+      "artist": "Caspar David Friedrich",
+      "artistAliases": [
+        "Friedrich"
+      ],
+      "year": "1823–1824",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Hamburger Kunsthalle",
+      "fame": 65,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "wanderer"
+      ],
+      "detail": false
+    },
+    {
+      "key": "burial-at-ornans",
+      "title": "A Burial at Ornans",
+      "titleAliases": [
+        "Burial at Ornans"
+      ],
+      "artist": "Gustave Courbet",
+      "artistAliases": [
+        "Courbet"
+      ],
+      "year": "1849–1850",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 66,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "painters-studio",
+        "gleaners"
+      ],
+      "detail": false
+    },
+    {
+      "key": "lady-of-shalott",
+      "title": "The Lady of Shalott",
+      "titleAliases": [
+        "Lady of Shalott"
+      ],
+      "artist": "John William Waterhouse",
+      "artistAliases": [
+        "Waterhouse"
+      ],
+      "year": "1888",
+      "movement": "Pre-Raphaelite",
+      "alsoMovements": [],
+      "museum": "Tate Britain, London",
+      "fame": 67,
+      "room": 16,
+      "neighbour": 13,
+      "lookalikes": [
+        "ophelia"
+      ],
+      "detail": false
+    },
+    {
+      "key": "woman-with-a-parasol",
+      "title": "Woman with a Parasol",
+      "titleAliases": [
+        "Woman with a Parasol – Madame Monet and Her Son",
+        "The Stroll",
+        "The Promenade"
+      ],
+      "artist": "Claude Monet",
+      "artistAliases": [
+        "Monet"
+      ],
+      "year": "1875",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "National Gallery of Art, Washington",
+      "fame": 68,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "water-lilies",
+        "impression-sunrise",
+        "water-lily-pond"
+      ],
+      "detail": false
+    },
+    {
+      "key": "mont-sainte-victoire",
+      "title": "Mont Sainte-Victoire",
+      "titleAliases": [
+        "Mont Sainte-Victoire and the Viaduct of the Arc River Valley",
+        "Mont Sainte Victoire",
+        "Montagne Sainte-Victoire"
+      ],
+      "artist": "Paul Cézanne",
+      "artistAliases": [
+        "Cezanne"
+      ],
+      "year": "c. 1882–1885",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 69,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "card-players",
+        "large-bathers"
+      ],
+      "detail": false
+    },
+    {
+      "key": "portrait-of-adele-bloch-bauer",
+      "title": "Portrait of Adele Bloch-Bauer I",
+      "titleAliases": [
+        "Adele Bloch-Bauer I",
+        "The Woman in Gold",
+        "Woman in Gold",
+        "The Lady in Gold"
+      ],
+      "artist": "Gustav Klimt",
+      "artistAliases": [
+        "Klimt"
+      ],
+      "year": "1907",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [],
+      "museum": "Neue Galerie, New York",
+      "fame": 70,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [
+        "kiss",
+        "judith-i"
+      ],
+      "detail": false
+    },
+    {
+      "key": "woman-with-a-hat",
+      "title": "Woman with a Hat",
+      "titleAliases": [],
+      "artist": "Henri Matisse",
+      "artistAliases": [
+        "Matisse"
+      ],
+      "year": "1905",
+      "movement": "Fauvism",
+      "alsoMovements": [],
+      "museum": "San Francisco Museum of Modern Art",
+      "fame": 71,
+      "room": 20,
+      "neighbour": 17,
+      "lookalikes": [
+        "dance-matisse",
+        "joy-of-life",
+        "harmony-in-red",
+        "posters-trouville"
+      ],
+      "detail": false
+    },
+    {
+      "key": "street-dresden",
+      "title": "Street, Dresden",
+      "titleAliases": [
+        "Street Dresden"
+      ],
+      "artist": "Ernst Ludwig Kirchner",
+      "artistAliases": [
+        "Kirchner"
+      ],
+      "year": "1908",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Museum of Modern Art, New York",
+      "fame": 72,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [
+        "berlin-street-scene"
+      ],
+      "detail": false
+    },
+    {
+      "key": "portrait-of-picasso",
+      "title": "Portrait of Pablo Picasso",
+      "titleAliases": [],
+      "artist": "Juan Gris",
+      "artistAliases": [
+        "Gris"
+      ],
+      "year": "1912",
+      "movement": "Cubism & Futurism",
+      "alsoMovements": [],
+      "museum": "Art Institute of Chicago",
+      "fame": 73,
+      "room": 22,
+      "neighbour": 19,
+      "lookalikes": [
+        "still-life-with-checked-tablecloth",
+        "man-on-a-balcony"
+      ],
+      "detail": false
+    },
+    {
+      "key": "several-circles",
+      "title": "Several Circles",
+      "titleAliases": [
+        "Einige Kreise"
+      ],
+      "artist": "Wassily Kandinsky",
+      "artistAliases": [
+        "Kandinsky",
+        "Vasily Kandinsky"
+      ],
+      "year": "1926",
+      "movement": "Abstraction",
+      "alsoMovements": [],
+      "museum": "Guggenheim Museum, New York",
+      "fame": 74,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "composition-vii",
+        "composition-viii",
+        "ten-largest-adulthood"
+      ],
+      "detail": false
+    },
+    {
+      "key": "tomb-of-nebamun",
+      "title": "Fowling in the Marshes (Tomb of Nebamun)",
+      "titleAliases": [
+        "Nebamun Hunting in the Marshes",
+        "Nebamun hunting birds",
+        "Tomb of Nebamun"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 1350 BCE",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "British Museum, London",
+      "fame": 75,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "maesta",
+      "title": "Maestà",
+      "titleAliases": [
+        "Maesta",
+        "Duccio Maesta"
+      ],
+      "artist": "Duccio",
+      "artistAliases": [
+        "Duccio di Buoninsegna"
+      ],
+      "year": "1308–1311",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "Museo dell'Opera del Duomo, Siena",
+      "fame": 76,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [
+        "ognissanti-madonna"
+      ],
+      "detail": false
+    },
+    {
+      "key": "annunciation-angelico",
+      "title": "The Annunciation (San Marco)",
+      "titleAliases": [],
+      "artist": "Fra Angelico",
+      "artistAliases": [
+        "Angelico",
+        "Guido di Pietro"
+      ],
+      "year": "c. 1440–1445",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Convent of San Marco, Florence",
+      "fame": 77,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "annunciation-martini"
+      ],
+      "detail": false
+    },
+    {
+      "key": "descent-from-the-cross",
+      "title": "The Descent from the Cross",
+      "titleAliases": [
+        "Descent from the Cross",
+        "Deposition",
+        "The Deposition"
+      ],
+      "artist": "Rogier van der Weyden",
+      "artistAliases": [
+        "van der Weyden",
+        "Weyden"
+      ],
+      "year": "c. 1435",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 78,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "doni-tondo",
+      "title": "Doni Tondo",
+      "titleAliases": [
+        "Holy Family (Doni Tondo)",
+        "The Holy Family",
+        "Doni Madonna"
+      ],
+      "artist": "Michelangelo",
+      "artistAliases": [
+        "Michelangelo Buonarroti",
+        "Buonarroti"
+      ],
+      "year": "c. 1507",
+      "movement": "High Renaissance",
+      "alsoMovements": [
+        "Mannerism"
+      ],
+      "museum": "Uffizi, Florence",
+      "fame": 79,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "creation-of-adam",
+        "last-judgment"
+      ],
+      "detail": false
+    },
+    {
+      "key": "assumption-of-the-virgin",
+      "title": "Assumption of the Virgin",
+      "titleAliases": [
+        "Assunta",
+        "Assumption of the Virgin (Frari)"
+      ],
+      "artist": "Titian",
+      "artistAliases": [
+        "Tiziano",
+        "Tiziano Vecellio",
+        "Vecellio"
+      ],
+      "year": "1516–1518",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "Frari, Venice",
+      "fame": 80,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [
+        "venus-of-urbino",
+        "bacchus-and-ariadne",
+        "sacred-and-profane-love"
+      ],
+      "detail": false
+    },
+    {
+      "key": "allegory-with-venus-and-cupid",
+      "title": "An Allegory with Venus and Cupid",
+      "titleAliases": [
+        "Venus, Cupid, Folly and Time",
+        "Allegory with Venus and Cupid",
+        "Allegory of Venus and Cupid"
+      ],
+      "artist": "Bronzino",
+      "artistAliases": [
+        "Agnolo Bronzino"
+      ],
+      "year": "c. 1545",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 81,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [
+        "eleonora-of-toledo"
+      ],
+      "detail": false
+    },
+    {
+      "key": "irises-korin",
+      "title": "Irises",
+      "titleAliases": [
+        "Irises Screens",
+        "Irises (Korin)"
+      ],
+      "artist": "Ogata Kōrin",
+      "artistAliases": [
+        "Korin"
+      ],
+      "year": "c. 1701–1705",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Nezu Museum, Tokyo",
+      "fame": 82,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [
+        "plum-park"
+      ],
+      "detail": false
+    },
+    {
+      "key": "judith-caravaggio",
+      "title": "Judith Beheading Holofernes",
+      "titleAliases": [],
+      "artist": "Caravaggio",
+      "artistAliases": [
+        "Michelangelo Merisi da Caravaggio",
+        "Merisi"
+      ],
+      "year": "c. 1599",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Palazzo Barberini, Rome",
+      "fame": 83,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "calling-of-st-matthew",
+        "supper-at-emmaus",
+        "judith-gentileschi",
+        "judith-i"
+      ],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-two-circles",
+      "title": "Self-Portrait with Two Circles",
+      "titleAliases": [
+        "Self-Portrait with Two Circles (Kenwood)"
+      ],
+      "artist": "Rembrandt",
+      "artistAliases": [
+        "Rembrandt van Rijn",
+        "van Rijn"
+      ],
+      "year": "c. 1665–1669",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Kenwood House, London",
+      "fame": 84,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "night-watch",
+        "anatomy-lesson",
+        "return-of-the-prodigal-son",
+        "self-portrait-durer",
+        "self-portrait-bandaged-ear"
+      ],
+      "detail": false
+    },
+    {
+      "key": "mr-and-mrs-andrews",
+      "title": "Mr and Mrs Andrews",
+      "titleAliases": [
+        "Mr. and Mrs. Andrews"
+      ],
+      "artist": "Thomas Gainsborough",
+      "artistAliases": [
+        "Gainsborough"
+      ],
+      "year": "c. 1750",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 85,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [
+        "blue-boy"
+      ],
+      "detail": false
+    },
+    {
+      "key": "coronation-of-napoleon",
+      "title": "The Coronation of Napoleon",
+      "titleAliases": [
+        "Coronation of Napoleon",
+        "The Consecration of the Emperor Napoleon"
+      ],
+      "artist": "Jacques-Louis David",
+      "artistAliases": [
+        "David"
+      ],
+      "year": "1805–1807",
+      "movement": "Neoclassicism",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 86,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [
+        "death-of-marat",
+        "napoleon-crossing-the-alps",
+        "oath-of-the-horatii"
+      ],
+      "detail": false
+    },
+    {
+      "key": "death-of-sardanapalus",
+      "title": "The Death of Sardanapalus",
+      "titleAliases": [
+        "Death of Sardanapalus"
+      ],
+      "artist": "Eugène Delacroix",
+      "artistAliases": [
+        "Delacroix"
+      ],
+      "year": "1827",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 87,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "liberty-leading-the-people"
+      ],
+      "detail": false
+    },
+    {
+      "key": "gleaners",
+      "title": "The Gleaners",
+      "titleAliases": [
+        "Gleaners",
+        "Des glaneuses"
+      ],
+      "artist": "Jean-François Millet",
+      "artistAliases": [
+        "Millet"
+      ],
+      "year": "1857",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 88,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "angelus",
+        "burial-at-ornans"
+      ],
+      "detail": false
+    },
+    {
+      "key": "light-of-the-world",
+      "title": "The Light of the World",
+      "titleAliases": [
+        "Light of the World"
+      ],
+      "artist": "William Holman Hunt",
+      "artistAliases": [
+        "Holman Hunt",
+        "Hunt"
+      ],
+      "year": "1851–1853",
+      "movement": "Pre-Raphaelite",
+      "alsoMovements": [],
+      "museum": "Keble College, Oxford",
+      "fame": 89,
+      "room": 16,
+      "neighbour": 13,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "water-lily-pond",
+      "title": "The Water-Lily Pond",
+      "titleAliases": [
+        "Water-Lily Pond",
+        "The Japanese Footbridge",
+        "Bridge over a Pond of Water Lilies"
+      ],
+      "artist": "Claude Monet",
+      "artistAliases": [
+        "Monet"
+      ],
+      "year": "1899",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 90,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "water-lilies",
+        "impression-sunrise",
+        "woman-with-a-parasol"
+      ],
+      "detail": false
+    },
+    {
+      "key": "large-bathers",
+      "title": "The Large Bathers",
+      "titleAliases": [
+        "Les Grandes Baigneuses",
+        "Large Bathers"
+      ],
+      "artist": "Paul Cézanne",
+      "artistAliases": [
+        "Cezanne"
+      ],
+      "year": "1898–1905",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Philadelphia Museum of Art",
+      "fame": 91,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "card-players",
+        "mont-sainte-victoire"
+      ],
+      "detail": false
+    },
+    {
+      "key": "isle-of-the-dead",
+      "title": "Isle of the Dead",
+      "titleAliases": [
+        "Die Toteninsel",
+        "The Isle of the Dead"
+      ],
+      "artist": "Arnold Böcklin",
+      "artistAliases": [
+        "Bocklin",
+        "Boecklin"
+      ],
+      "year": "1880",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [],
+      "museum": "Kunstmuseum Basel",
+      "fame": 92,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "joy-of-life",
+      "title": "The Joy of Life",
+      "titleAliases": [
+        "Le Bonheur de vivre",
+        "Joy of Life"
+      ],
+      "artist": "Henri Matisse",
+      "artistAliases": [
+        "Matisse"
+      ],
+      "year": "1905–1906",
+      "movement": "Fauvism",
+      "alsoMovements": [],
+      "museum": "Barnes Foundation, Philadelphia",
+      "fame": 93,
+      "room": 20,
+      "neighbour": 17,
+      "lookalikes": [
+        "dance-matisse",
+        "woman-with-a-hat",
+        "harmony-in-red"
+      ],
+      "detail": false
+    },
+    {
+      "key": "large-blue-horses",
+      "title": "The Large Blue Horses",
+      "titleAliases": [
+        "Large Blue Horses",
+        "Die grossen blauen Pferde"
+      ],
+      "artist": "Franz Marc",
+      "artistAliases": [
+        "Marc"
+      ],
+      "year": "1911",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Walker Art Center, Minneapolis",
+      "fame": 94,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [
+        "fate-of-the-animals",
+        "dance-matisse"
+      ],
+      "detail": false
+    },
+    {
+      "key": "city-rises",
+      "title": "The City Rises",
+      "titleAliases": [
+        "City Rises",
+        "La citta che sale"
+      ],
+      "artist": "Umberto Boccioni",
+      "artistAliases": [
+        "Boccioni"
+      ],
+      "year": "1910",
+      "movement": "Cubism & Futurism",
+      "alsoMovements": [],
+      "museum": "Museum of Modern Art, New York",
+      "fame": 95,
+      "room": 22,
+      "neighbour": 19,
+      "lookalikes": [
+        "the-city-leger"
+      ],
+      "detail": false
+    },
+    {
+      "key": "white-on-white",
+      "title": "White on White",
+      "titleAliases": [
+        "Suprematist Composition: White on White",
+        "White on White (Malevich)"
+      ],
+      "artist": "Kazimir Malevich",
+      "artistAliases": [
+        "Malevich"
+      ],
+      "year": "1918",
+      "movement": "Abstraction",
+      "alsoMovements": [],
+      "museum": "Museum of Modern Art, New York",
+      "fame": 96,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "black-square"
+      ],
+      "detail": false
+    },
+    {
+      "key": "fayum-portrait",
+      "title": "Portrait of a Young Woman in Red (Fayum)",
+      "titleAliases": [
+        "Fayum portrait",
+        "Fayum mummy portrait",
+        "Portrait of a Young Woman in Red"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 90–120",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 97,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "tres-riches-heures",
+      "title": "Très Riches Heures du Duc de Berry",
+      "titleAliases": [
+        "Tres Riches Heures",
+        "Les Tres Riches Heures"
+      ],
+      "artist": "Limbourg brothers",
+      "artistAliases": [
+        "Limbourg",
+        "the Limbourg brothers",
+        "Limbourg Brothers"
+      ],
+      "year": "c. 1412–1416",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "Musée Condé, Chantilly",
+      "fame": 98,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "flagellation-of-christ",
+      "title": "The Flagellation of Christ",
+      "titleAliases": [],
+      "artist": "Piero della Francesca",
+      "artistAliases": [
+        "della Francesca",
+        "Piero"
+      ],
+      "year": "c. 1455–1460",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Galleria Nazionale delle Marche, Urbino",
+      "fame": 99,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "duke-and-duchess-of-urbino"
+      ],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-durer",
+      "title": "Self-Portrait at Twenty-Eight",
+      "titleAliases": [
+        "Self-Portrait (1500)",
+        "Self-Portrait in a Fur-Collared Robe",
+        "Self-Portrait with Fur-Trimmed Robe"
+      ],
+      "artist": "Albrecht Dürer",
+      "artistAliases": [
+        "Durer",
+        "Duerer"
+      ],
+      "year": "1500",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Alte Pinakothek, Munich",
+      "fame": 100,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "young-hare",
+        "self-portrait-two-circles"
+      ],
+      "detail": false
+    },
+    {
+      "key": "sistine-madonna",
+      "title": "Sistine Madonna",
+      "titleAliases": [
+        "Madonna di San Sisto"
+      ],
+      "artist": "Raphael",
+      "artistAliases": [
+        "Raffaello",
+        "Raffaello Sanzio",
+        "Sanzio",
+        "Raphael Sanzio"
+      ],
+      "year": "1512",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Gemäldegalerie Alte Meister, Dresden",
+      "fame": 101,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "school-of-athens",
+        "transfiguration",
+        "castiglione"
+      ],
+      "detail": false
+    },
+    {
+      "key": "tempest",
+      "title": "The Tempest",
+      "titleAliases": [
+        "La Tempesta",
+        "Tempest"
+      ],
+      "artist": "Giorgione",
+      "artistAliases": [],
+      "year": "c. 1508",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "Gallerie dell'Accademia, Venice",
+      "fame": 102,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [
+        "sleeping-venus"
+      ],
+      "detail": false
+    },
+    {
+      "key": "burial-of-count-orgaz",
+      "title": "The Burial of the Count of Orgaz",
+      "titleAliases": [
+        "Burial of the Count of Orgaz"
+      ],
+      "artist": "El Greco",
+      "artistAliases": [
+        "Greco",
+        "Domenikos Theotokopoulos"
+      ],
+      "year": "1586–1588",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "Santo Tomé, Toledo",
+      "fame": 103,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [
+        "view-of-toledo"
+      ],
+      "detail": false
+    },
+    {
+      "key": "fine-wind-clear-morning",
+      "title": "Fine Wind, Clear Morning (Red Fuji)",
+      "titleAliases": [
+        "Red Fuji",
+        "Fine Wind Clear Morning",
+        "South Wind, Clear Sky"
+      ],
+      "artist": "Katsushika Hokusai",
+      "artistAliases": [
+        "Hokusai"
+      ],
+      "year": "c. 1831",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Many impressions (e.g. Met, British Museum)",
+      "fame": 104,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [
+        "great-wave"
+      ],
+      "detail": false
+    },
+    {
+      "key": "judith-gentileschi",
+      "title": "Judith Slaying Holofernes",
+      "titleAliases": [],
+      "artist": "Artemisia Gentileschi",
+      "artistAliases": [
+        "Gentileschi",
+        "Artemisia"
+      ],
+      "year": "c. 1620",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 105,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "self-portrait-allegory-painting",
+        "judith-caravaggio",
+        "judith-i"
+      ],
+      "detail": false
+    },
+    {
+      "key": "return-of-the-prodigal-son",
+      "title": "The Return of the Prodigal Son",
+      "titleAliases": [
+        "Return of the Prodigal Son",
+        "The Prodigal Son"
+      ],
+      "artist": "Rembrandt",
+      "artistAliases": [
+        "Rembrandt van Rijn",
+        "van Rijn"
+      ],
+      "year": "c. 1668",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Hermitage, St Petersburg",
+      "fame": 106,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "night-watch",
+        "anatomy-lesson",
+        "self-portrait-two-circles"
+      ],
+      "detail": false
+    },
+    {
+      "key": "blue-boy",
+      "title": "The Blue Boy",
+      "titleAliases": [
+        "Blue Boy"
+      ],
+      "artist": "Thomas Gainsborough",
+      "artistAliases": [
+        "Gainsborough"
+      ],
+      "year": "c. 1770",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "Huntington Library, San Marino",
+      "fame": 107,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [
+        "mr-and-mrs-andrews",
+        "charles-i-hunt"
+      ],
+      "detail": false
+    },
+    {
+      "key": "grande-odalisque",
+      "title": "La Grande Odalisque",
+      "titleAliases": [
+        "Grande Odalisque",
+        "Une Odalisque"
+      ],
+      "artist": "Jean-Auguste-Dominique Ingres",
+      "artistAliases": [
+        "Ingres"
+      ],
+      "year": "1814",
+      "movement": "Neoclassicism",
+      "alsoMovements": [
+        "Romanticism"
+      ],
+      "museum": "Louvre, Paris",
+      "fame": 108,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [
+        "olympia"
+      ],
+      "detail": false
+    },
+    {
+      "key": "nude-maja",
+      "title": "The Nude Maja",
+      "titleAliases": [
+        "La maja desnuda",
+        "Nude Maja"
+      ],
+      "artist": "Francisco Goya",
+      "artistAliases": [
+        "Goya",
+        "Francisco de Goya"
+      ],
+      "year": "c. 1797–1800",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 109,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "third-of-may",
+        "saturn-devouring-his-son",
+        "olympia"
+      ],
+      "detail": false
+    },
+    {
+      "key": "angelus",
+      "title": "The Angelus",
+      "titleAliases": [
+        "L'Angelus",
+        "Angelus"
+      ],
+      "artist": "Jean-François Millet",
+      "artistAliases": [
+        "Millet"
+      ],
+      "year": "1857–1859",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 110,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "gleaners"
+      ],
+      "detail": false
+    },
+    {
+      "key": "ballet-class",
+      "title": "The Ballet Class",
+      "titleAliases": [
+        "Ballet Class",
+        "The Dance Class"
+      ],
+      "artist": "Edgar Degas",
+      "artistAliases": [
+        "Degas"
+      ],
+      "year": "c. 1871–1874",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 111,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "absinthe"
+      ],
+      "detail": false
+    },
+    {
+      "key": "vision-after-the-sermon",
+      "title": "Vision after the Sermon",
+      "titleAliases": [
+        "Jacob Wrestling with the Angel",
+        "The Vision after the Sermon"
+      ],
+      "artist": "Paul Gauguin",
+      "artistAliases": [
+        "Gauguin"
+      ],
+      "year": "1888",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [
+        "Symbolism & Art Nouveau"
+      ],
+      "museum": "Scottish National Gallery, Edinburgh",
+      "fame": 112,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "where-do-we-come-from"
+      ],
+      "detail": false
+    },
+    {
+      "key": "death-and-the-maiden",
+      "title": "Death and the Maiden",
+      "titleAliases": [],
+      "artist": "Egon Schiele",
+      "artistAliases": [
+        "Schiele"
+      ],
+      "year": "1915",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Belvedere, Vienna",
+      "fame": 113,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [
+        "self-portrait-physalis",
+        "scream"
+      ],
+      "detail": false
+    },
+    {
+      "key": "ten-largest-adulthood",
+      "title": "The Ten Largest, No. 7, Adulthood",
+      "titleAliases": [
+        "The Ten Largest",
+        "Adulthood",
+        "The Ten Largest No. 7"
+      ],
+      "artist": "Hilma af Klint",
+      "artistAliases": [
+        "af Klint",
+        "Klint"
+      ],
+      "year": "1907",
+      "movement": "Abstraction",
+      "alsoMovements": [],
+      "museum": "Hilma af Klint Foundation, Stockholm",
+      "fame": 114,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "several-circles"
+      ],
+      "detail": false
+    },
+    {
+      "key": "book-of-kells",
+      "title": "Chi Rho page, Book of Kells",
+      "titleAliases": [
+        "Book of Kells",
+        "Chi Rho page"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 800",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "Trinity College Library, Dublin",
+      "fame": 115,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "battle-of-san-romano",
+      "title": "The Battle of San Romano",
+      "titleAliases": [
+        "Battle of San Romano"
+      ],
+      "artist": "Paolo Uccello",
+      "artistAliases": [
+        "Uccello"
+      ],
+      "year": "c. 1438–1440",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 116,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "young-hare",
+      "title": "Young Hare",
+      "titleAliases": [
+        "Hare",
+        "A Young Hare"
+      ],
+      "artist": "Albrecht Dürer",
+      "artistAliases": [
+        "Durer",
+        "Duerer"
+      ],
+      "year": "1502",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Albertina, Vienna",
+      "fame": 117,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "self-portrait-durer"
+      ],
+      "detail": false
+    },
+    {
+      "key": "transfiguration",
+      "title": "The Transfiguration",
+      "titleAliases": [],
+      "artist": "Raphael",
+      "artistAliases": [
+        "Raffaello",
+        "Raffaello Sanzio",
+        "Sanzio",
+        "Raphael Sanzio"
+      ],
+      "year": "1516–1520",
+      "movement": "High Renaissance",
+      "alsoMovements": [
+        "Mannerism"
+      ],
+      "museum": "Vatican Museums",
+      "fame": 118,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "school-of-athens",
+        "sistine-madonna",
+        "castiglione"
+      ],
+      "detail": false
+    },
+    {
+      "key": "wedding-at-cana",
+      "title": "The Wedding at Cana",
+      "titleAliases": [
+        "Wedding at Cana",
+        "Wedding Feast at Cana"
+      ],
+      "artist": "Paolo Veronese",
+      "artistAliases": [
+        "Veronese"
+      ],
+      "year": "1563",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 119,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "view-of-toledo",
+      "title": "View of Toledo",
+      "titleAliases": [],
+      "artist": "El Greco",
+      "artistAliases": [
+        "Greco",
+        "Domenikos Theotokopoulos"
+      ],
+      "year": "c. 1599–1600",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 120,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [
+        "burial-of-count-orgaz"
+      ],
+      "detail": false
+    },
+    {
+      "key": "sudden-shower",
+      "title": "Sudden Shower over Shin-Ōhashi Bridge and Atake",
+      "titleAliases": [
+        "Sudden Shower over Shin-Ohashi Bridge",
+        "Sudden Shower at Atake",
+        "Ohashi Bridge in the Rain"
+      ],
+      "artist": "Utagawa Hiroshige",
+      "artistAliases": [
+        "Hiroshige",
+        "Ando Hiroshige"
+      ],
+      "year": "1857",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Many impressions (e.g. Brooklyn Museum)",
+      "fame": 121,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [
+        "plum-park",
+        "great-wave"
+      ],
+      "detail": false
+    },
+    {
+      "key": "rokeby-venus",
+      "title": "The Rokeby Venus",
+      "titleAliases": [
+        "Rokeby Venus",
+        "The Toilet of Venus",
+        "Venus at Her Mirror"
+      ],
+      "artist": "Diego Velázquez",
+      "artistAliases": [
+        "Velazquez",
+        "Velasquez"
+      ],
+      "year": "1647–1651",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 122,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "las-meninas",
+        "innocent-x",
+        "venus-of-urbino"
+      ],
+      "detail": false
+    },
+    {
+      "key": "view-of-delft",
+      "title": "View of Delft",
+      "titleAliases": [],
+      "artist": "Johannes Vermeer",
+      "artistAliases": [
+        "Vermeer",
+        "Jan Vermeer"
+      ],
+      "year": "c. 1660–1661",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Mauritshuis, The Hague",
+      "fame": 123,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "girl-with-a-pearl-earring",
+        "milkmaid",
+        "art-of-painting",
+        "windmill-wijk"
+      ],
+      "detail": false
+    },
+    {
+      "key": "bird-in-the-air-pump",
+      "title": "An Experiment on a Bird in the Air Pump",
+      "titleAliases": [
+        "Experiment on a Bird in the Air Pump",
+        "The Air Pump"
+      ],
+      "artist": "Joseph Wright of Derby",
+      "artistAliases": [
+        "Wright of Derby",
+        "Joseph Wright"
+      ],
+      "year": "1768",
+      "movement": "Neoclassicism",
+      "alsoMovements": [
+        "Romanticism"
+      ],
+      "museum": "National Gallery, London",
+      "fame": 124,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "rain-steam-and-speed",
+      "title": "Rain, Steam and Speed",
+      "titleAliases": [
+        "Rain Steam and Speed",
+        "Rain, Steam and Speed – The Great Western Railway"
+      ],
+      "artist": "J. M. W. Turner",
+      "artistAliases": [
+        "Turner",
+        "J.M.W. Turner",
+        "Joseph Mallord William Turner",
+        "William Turner"
+      ],
+      "year": "1844",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 125,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "fighting-temeraire"
+      ],
+      "detail": false
+    },
+    {
+      "key": "dejeuner-sur-lherbe",
+      "title": "Le Déjeuner sur l'herbe",
+      "titleAliases": [
+        "The Luncheon on the Grass",
+        "Luncheon on the Grass",
+        "Dejeuner sur l herbe"
+      ],
+      "artist": "Édouard Manet",
+      "artistAliases": [
+        "Manet"
+      ],
+      "year": "1863",
+      "movement": "Realism",
+      "alsoMovements": [
+        "Impressionism"
+      ],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 126,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "olympia",
+        "bar-folies-bergere"
+      ],
+      "detail": false
+    },
+    {
+      "key": "absinthe",
+      "title": "L'Absinthe",
+      "titleAliases": [
+        "In a Cafe",
+        "The Absinthe Drinker",
+        "Absinthe"
+      ],
+      "artist": "Edgar Degas",
+      "artistAliases": [
+        "Degas"
+      ],
+      "year": "1875–1876",
+      "movement": "Impressionism",
+      "alsoMovements": [
+        "Realism"
+      ],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 127,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "ballet-class",
+        "bar-folies-bergere"
+      ],
+      "detail": false
+    },
+    {
+      "key": "at-the-moulin-rouge",
+      "title": "At the Moulin Rouge",
+      "titleAliases": [],
+      "artist": "Henri de Toulouse-Lautrec",
+      "artistAliases": [
+        "Toulouse-Lautrec",
+        "Lautrec"
+      ],
+      "year": "1892–1895",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Art Institute of Chicago",
+      "fame": 128,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "rublev-trinity",
+      "title": "The Trinity",
+      "titleAliases": [
+        "Trinity",
+        "Old Testament Trinity",
+        "Rublev Trinity"
+      ],
+      "artist": "Andrei Rublev",
+      "artistAliases": [
+        "Rublev",
+        "Andrei Rublyov"
+      ],
+      "year": "c. 1411–1425",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "Tretyakov Gallery, Moscow",
+      "fame": 129,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [
+        "holy-trinity"
+      ],
+      "detail": false
+    },
+    {
+      "key": "lamentation-mantegna",
+      "title": "Lamentation over the Dead Christ",
+      "titleAliases": [
+        "The Dead Christ",
+        "Dead Christ",
+        "Dead Christ and Three Mourners"
+      ],
+      "artist": "Andrea Mantegna",
+      "artistAliases": [
+        "Mantegna"
+      ],
+      "year": "c. 1480",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Pinacoteca di Brera, Milan",
+      "fame": 130,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "camera-degli-sposi",
+        "lamentation-giotto"
+      ],
+      "detail": false
+    },
+    {
+      "key": "portrait-of-henry-viii",
+      "title": "Portrait of Henry VIII",
+      "titleAliases": [],
+      "artist": "Hans Holbein the Younger",
+      "artistAliases": [
+        "Holbein",
+        "Hans Holbein"
+      ],
+      "year": "c. 1537",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Thyssen-Bornemisza Museum, Madrid",
+      "fame": 131,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "ambassadors"
+      ],
+      "detail": false
+    },
+    {
+      "key": "vertumnus",
+      "title": "Vertumnus",
+      "titleAliases": [],
+      "artist": "Giuseppe Arcimboldo",
+      "artistAliases": [
+        "Arcimboldo"
+      ],
+      "year": "c. 1590–1591",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "Skokloster Castle, Sweden",
+      "fame": 132,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "innocent-x",
+      "title": "Portrait of Pope Innocent X",
+      "titleAliases": [
+        "Pope Innocent X",
+        "Innocent X"
+      ],
+      "artist": "Diego Velázquez",
+      "artistAliases": [
+        "Velazquez",
+        "Velasquez"
+      ],
+      "year": "c. 1650",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Galleria Doria Pamphilj, Rome",
+      "fame": 133,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "las-meninas",
+        "rokeby-venus",
+        "castiglione"
+      ],
+      "detail": false
+    },
+    {
+      "key": "art-of-painting",
+      "title": "The Art of Painting",
+      "titleAliases": [],
+      "artist": "Johannes Vermeer",
+      "artistAliases": [
+        "Vermeer",
+        "Jan Vermeer"
+      ],
+      "year": "c. 1666–1668",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Kunsthistorisches Museum, Vienna",
+      "fame": 134,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "girl-with-a-pearl-earring",
+        "milkmaid",
+        "view-of-delft",
+        "las-meninas"
+      ],
+      "detail": false
+    },
+    {
+      "key": "george-washington",
+      "title": "George Washington (The Athenaeum Portrait)",
+      "titleAliases": [
+        "The Athenaeum Portrait",
+        "Athenaeum Portrait",
+        "George Washington"
+      ],
+      "artist": "Gilbert Stuart",
+      "artistAliases": [
+        "Stuart"
+      ],
+      "year": "1796",
+      "movement": "Neoclassicism",
+      "alsoMovements": [],
+      "museum": "National Portrait Gallery, Washington",
+      "fame": 135,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "nightmare",
+      "title": "The Nightmare",
+      "titleAliases": [
+        "Nightmare"
+      ],
+      "artist": "Henry Fuseli",
+      "artistAliases": [
+        "Fuseli",
+        "Fussli"
+      ],
+      "year": "1781",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Detroit Institute of Arts",
+      "fame": 136,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "bar-folies-bergere",
+      "title": "A Bar at the Folies-Bergère",
+      "titleAliases": [
+        "Bar at the Folies-Bergere",
+        "Un bar aux Folies Bergere"
+      ],
+      "artist": "Édouard Manet",
+      "artistAliases": [
+        "Manet"
+      ],
+      "year": "1882",
+      "movement": "Realism",
+      "alsoMovements": [
+        "Impressionism"
+      ],
+      "museum": "Courtauld Gallery, London",
+      "fame": 137,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "olympia",
+        "dejeuner-sur-lherbe",
+        "absinthe"
+      ],
+      "detail": false
+    },
+    {
+      "key": "paris-street-rainy-day",
+      "title": "Paris Street; Rainy Day",
+      "titleAliases": [
+        "Paris Street Rainy Day",
+        "Paris Street in Rainy Weather"
+      ],
+      "artist": "Gustave Caillebotte",
+      "artistAliases": [
+        "Caillebotte"
+      ],
+      "year": "1877",
+      "movement": "Impressionism",
+      "alsoMovements": [
+        "Realism"
+      ],
+      "museum": "Art Institute of Chicago",
+      "fame": 138,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "floor-scrapers",
+        "boulevard-montmartre"
+      ],
+      "detail": false
+    },
+    {
+      "key": "sleeping-gypsy",
+      "title": "The Sleeping Gypsy",
+      "titleAliases": [
+        "Sleeping Gypsy",
+        "La Bohemienne endormie"
+      ],
+      "artist": "Henri Rousseau",
+      "artistAliases": [
+        "Rousseau",
+        "Le Douanier Rousseau"
+      ],
+      "year": "1897",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "Museum of Modern Art, New York",
+      "fame": 139,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "tiger-in-a-tropical-storm"
+      ],
+      "detail": false
+    },
+    {
+      "key": "netherlandish-proverbs",
+      "title": "Netherlandish Proverbs",
+      "titleAliases": [
+        "The Netherlandish Proverbs",
+        "Flemish Proverbs",
+        "The Blue Cloak"
+      ],
+      "artist": "Pieter Bruegel the Elder",
+      "artistAliases": [
+        "Bruegel",
+        "Brueghel",
+        "Pieter Bruegel",
+        "Breughel",
+        "Bruegel the Elder"
+      ],
+      "year": "1559",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Gemäldegalerie, Berlin",
+      "fame": 140,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "hunters-in-the-snow",
+        "tower-of-babel",
+        "peasant-wedding"
+      ],
+      "detail": false
+    },
+    {
+      "key": "laughing-cavalier",
+      "title": "The Laughing Cavalier",
+      "titleAliases": [
+        "Laughing Cavalier"
+      ],
+      "artist": "Frans Hals",
+      "artistAliases": [
+        "Hals"
+      ],
+      "year": "1624",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Wallace Collection, London",
+      "fame": 141,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "self-portrait-leyster"
+      ],
+      "detail": false
+    },
+    {
+      "key": "ninth-wave",
+      "title": "The Ninth Wave",
+      "titleAliases": [
+        "Ninth Wave"
+      ],
+      "artist": "Ivan Aivazovsky",
+      "artistAliases": [
+        "Aivazovsky"
+      ],
+      "year": "1850",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Russian Museum, St Petersburg",
+      "fame": 142,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "raft-of-the-medusa"
+      ],
+      "detail": false
+    },
+    {
+      "key": "gross-clinic",
+      "title": "The Gross Clinic",
+      "titleAliases": [
+        "Portrait of Dr. Samuel D. Gross",
+        "Gross Clinic"
+      ],
+      "artist": "Thomas Eakins",
+      "artistAliases": [
+        "Eakins"
+      ],
+      "year": "1875",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Philadelphia Museum of Art",
+      "fame": 143,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "anatomy-lesson"
+      ],
+      "detail": false
+    },
+    {
+      "key": "isenheim-altarpiece",
+      "title": "The Isenheim Altarpiece",
+      "titleAliases": [
+        "Isenheim Altarpiece"
+      ],
+      "artist": "Matthias Grünewald",
+      "artistAliases": [
+        "Grunewald"
+      ],
+      "year": "1512–1516",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Unterlinden Museum, Colmar",
+      "fame": 144,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "goldfinch",
+      "title": "The Goldfinch",
+      "titleAliases": [
+        "Goldfinch"
+      ],
+      "artist": "Carel Fabritius",
+      "artistAliases": [
+        "Fabritius"
+      ],
+      "year": "1654",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Mauritshuis, The Hague",
+      "fame": 145,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "madame-x",
+      "title": "Madame X",
+      "titleAliases": [
+        "Portrait of Madame X",
+        "Madame Gautreau"
+      ],
+      "artist": "John Singer Sargent",
+      "artistAliases": [
+        "Sargent"
+      ],
+      "year": "1884",
+      "movement": "Realism",
+      "alsoMovements": [
+        "Impressionism"
+      ],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 146,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "whistlers-mother"
+      ],
+      "detail": false
+    },
+    {
+      "key": "villa-of-the-mysteries-frieze",
+      "title": "Villa of the Mysteries frieze",
+      "titleAliases": [
+        "Villa of the Mysteries",
+        "Dionysiac frieze"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 60–50 BCE",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "Villa of the Mysteries, Pompeii",
+      "fame": 147,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "ognissanti-madonna",
+      "title": "Ognissanti Madonna",
+      "titleAliases": [],
+      "artist": "Giotto",
+      "artistAliases": [
+        "Giotto di Bondone"
+      ],
+      "year": "c. 1310",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 148,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [
+        "lamentation-giotto",
+        "maesta"
+      ],
+      "detail": false
+    },
+    {
+      "key": "tribute-money",
+      "title": "The Tribute Money",
+      "titleAliases": [],
+      "artist": "Masaccio",
+      "artistAliases": [],
+      "year": "c. 1425",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Brancacci Chapel, Florence",
+      "fame": 149,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "holy-trinity"
+      ],
+      "detail": false
+    },
+    {
+      "key": "haywain-triptych",
+      "title": "The Haywain Triptych",
+      "titleAliases": [
+        "Haywain",
+        "The Haywain"
+      ],
+      "artist": "Hieronymus Bosch",
+      "artistAliases": [
+        "Bosch"
+      ],
+      "year": "c. 1516",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 150,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "garden-of-earthly-delights"
+      ],
+      "detail": false
+    },
+    {
+      "key": "admonitions-scroll",
+      "title": "Admonitions of the Instructress to the Court Ladies",
+      "titleAliases": [
+        "Admonitions Scroll",
+        "The Admonitions Scroll"
+      ],
+      "artist": "Gu Kaizhi",
+      "artistAliases": [],
+      "year": "5th–8th c. (Tang copy)",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "British Museum, London",
+      "fame": 151,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "castiglione",
+      "title": "Portrait of Baldassare Castiglione",
+      "titleAliases": [],
+      "artist": "Raphael",
+      "artistAliases": [
+        "Raffaello",
+        "Raffaello Sanzio",
+        "Sanzio",
+        "Raphael Sanzio"
+      ],
+      "year": "c. 1514–1515",
+      "movement": "High Renaissance",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 152,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [
+        "school-of-athens",
+        "sistine-madonna",
+        "transfiguration",
+        "innocent-x"
+      ],
+      "detail": false
+    },
+    {
+      "key": "sacred-and-profane-love",
+      "title": "Sacred and Profane Love",
+      "titleAliases": [],
+      "artist": "Titian",
+      "artistAliases": [
+        "Tiziano",
+        "Tiziano Vecellio",
+        "Vecellio"
+      ],
+      "year": "c. 1514",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "Galleria Borghese, Rome",
+      "fame": 153,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [
+        "venus-of-urbino",
+        "bacchus-and-ariadne",
+        "assumption-of-the-virgin"
+      ],
+      "detail": false
+    },
+    {
+      "key": "seduction-of-yusuf",
+      "title": "The Seduction of Yusuf",
+      "titleAliases": [
+        "Seduction of Yusuf",
+        "Yusuf and Zulaikha"
+      ],
+      "artist": "Behzad",
+      "artistAliases": [
+        "Kamal ud-Din Behzad",
+        "Bihzad",
+        "Kamaleddin Behzad"
+      ],
+      "year": "1488",
+      "movement": "Persian & Mughal miniature",
+      "alsoMovements": [],
+      "museum": "National Library and Archives, Cairo",
+      "fame": 154,
+      "room": 7,
+      "neighbour": 103,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-convex-mirror",
+      "title": "Self-Portrait in a Convex Mirror",
+      "titleAliases": [],
+      "artist": "Parmigianino",
+      "artistAliases": [],
+      "year": "c. 1524",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "Kunsthistorisches Museum, Vienna",
+      "fame": 155,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [
+        "madonna-with-the-long-neck"
+      ],
+      "detail": false
+    },
+    {
+      "key": "winter-landscape",
+      "title": "Winter Landscape",
+      "titleAliases": [],
+      "artist": "Sesshū Tōyō",
+      "artistAliases": [
+        "Sesshu",
+        "Sesshu Toyo"
+      ],
+      "year": "c. 1470s",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Tokyo National Museum",
+      "fame": 156,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [],
+      "detail": true
+    },
+    {
+      "key": "supper-at-emmaus",
+      "title": "Supper at Emmaus",
+      "titleAliases": [],
+      "artist": "Caravaggio",
+      "artistAliases": [
+        "Michelangelo Merisi da Caravaggio",
+        "Merisi"
+      ],
+      "year": "1601",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 157,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "calling-of-st-matthew",
+        "judith-caravaggio"
+      ],
+      "detail": false
+    },
+    {
+      "key": "courtyard-delft",
+      "title": "The Courtyard of a House in Delft",
+      "titleAliases": [],
+      "artist": "Pieter de Hooch",
+      "artistAliases": [
+        "de Hooch",
+        "Hooch"
+      ],
+      "year": "1658",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 158,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "milkmaid"
+      ],
+      "detail": false
+    },
+    {
+      "key": "pierrot",
+      "title": "Pierrot (Gilles)",
+      "titleAliases": [
+        "Pierrot",
+        "Gilles"
+      ],
+      "artist": "Antoine Watteau",
+      "artistAliases": [
+        "Watteau"
+      ],
+      "year": "c. 1718–1719",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 159,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [
+        "pilgrimage-to-cythera"
+      ],
+      "detail": false
+    },
+    {
+      "key": "death-of-general-wolfe",
+      "title": "The Death of General Wolfe",
+      "titleAliases": [],
+      "artist": "Benjamin West",
+      "artistAliases": [
+        "West"
+      ],
+      "year": "1770",
+      "movement": "Neoclassicism",
+      "alsoMovements": [],
+      "museum": "National Gallery of Canada, Ottawa",
+      "fame": 160,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [
+        "watson-and-the-shark"
+      ],
+      "detail": false
+    },
+    {
+      "key": "oxbow",
+      "title": "The Oxbow",
+      "titleAliases": [
+        "View from Mount Holyoke",
+        "Oxbow"
+      ],
+      "artist": "Thomas Cole",
+      "artistAliases": [
+        "Cole"
+      ],
+      "year": "1836",
+      "movement": "Romanticism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 161,
+      "room": 14,
+      "neighbour": 11,
+      "lookalikes": [
+        "wanderer"
+      ],
+      "detail": false
+    },
+    {
+      "key": "painters-studio",
+      "title": "The Painter's Studio",
+      "titleAliases": [
+        "The Artist's Studio",
+        "L'Atelier du peintre"
+      ],
+      "artist": "Gustave Courbet",
+      "artistAliases": [
+        "Courbet"
+      ],
+      "year": "1855",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 162,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [
+        "burial-at-ornans"
+      ],
+      "detail": false
+    },
+    {
+      "key": "proserpine",
+      "title": "Proserpine",
+      "titleAliases": [],
+      "artist": "Dante Gabriel Rossetti",
+      "artistAliases": [
+        "Rossetti"
+      ],
+      "year": "1874",
+      "movement": "Pre-Raphaelite",
+      "alsoMovements": [
+        "Symbolism & Art Nouveau"
+      ],
+      "museum": "Tate Britain, London",
+      "fame": 163,
+      "room": 16,
+      "neighbour": 13,
+      "lookalikes": [
+        "beata-beatrix"
+      ],
+      "detail": false
+    },
+    {
+      "key": "boulevard-montmartre",
+      "title": "Boulevard Montmartre at Night",
+      "titleAliases": [],
+      "artist": "Camille Pissarro",
+      "artistAliases": [
+        "Pissarro"
+      ],
+      "year": "1897",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 164,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "paris-street-rainy-day"
+      ],
+      "detail": false
+    },
+    {
+      "key": "bathers-at-asnieres",
+      "title": "Bathers at Asnières",
+      "titleAliases": [
+        "Bathers at Asnieres",
+        "Une Baignade, Asnieres"
+      ],
+      "artist": "Georges Seurat",
+      "artistAliases": [
+        "Seurat"
+      ],
+      "year": "1884",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 165,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "grande-jatte"
+      ],
+      "detail": false
+    },
+    {
+      "key": "madonna-munch",
+      "title": "Madonna",
+      "titleAliases": [],
+      "artist": "Edvard Munch",
+      "artistAliases": [
+        "Munch"
+      ],
+      "year": "1894",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [
+        "Expressionism"
+      ],
+      "museum": "Munch Museum, Oslo",
+      "fame": 166,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [
+        "scream"
+      ],
+      "detail": false
+    },
+    {
+      "key": "harmony-in-red",
+      "title": "Harmony in Red",
+      "titleAliases": [
+        "The Red Room",
+        "La Desserte"
+      ],
+      "artist": "Henri Matisse",
+      "artistAliases": [
+        "Matisse"
+      ],
+      "year": "1908",
+      "movement": "Fauvism",
+      "alsoMovements": [],
+      "museum": "Hermitage, St Petersburg",
+      "fame": 167,
+      "room": 20,
+      "neighbour": 17,
+      "lookalikes": [
+        "dance-matisse",
+        "woman-with-a-hat",
+        "joy-of-life"
+      ],
+      "detail": false
+    },
+    {
+      "key": "berlin-street-scene",
+      "title": "Berlin Street Scene",
+      "titleAliases": [],
+      "artist": "Ernst Ludwig Kirchner",
+      "artistAliases": [
+        "Kirchner"
+      ],
+      "year": "1913",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Neue Galerie, New York",
+      "fame": 168,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [
+        "street-dresden"
+      ],
+      "detail": false
+    },
+    {
+      "key": "still-life-with-checked-tablecloth",
+      "title": "Still Life with Checked Tablecloth",
+      "titleAliases": [],
+      "artist": "Juan Gris",
+      "artistAliases": [
+        "Gris"
+      ],
+      "year": "1915",
+      "movement": "Cubism & Futurism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 169,
+      "room": 22,
+      "neighbour": 19,
+      "lookalikes": [
+        "portrait-of-picasso"
+      ],
+      "detail": false
+    },
+    {
+      "key": "composition-viii",
+      "title": "Composition VIII",
+      "titleAliases": [],
+      "artist": "Wassily Kandinsky",
+      "artistAliases": [
+        "Kandinsky",
+        "Vasily Kandinsky"
+      ],
+      "year": "1923",
+      "movement": "Abstraction",
+      "alsoMovements": [],
+      "museum": "Guggenheim Museum, New York",
+      "fame": 170,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "composition-vii",
+        "several-circles"
+      ],
+      "detail": false
+    },
+    {
+      "key": "ajanta-padmapani",
+      "title": "Bodhisattva Padmapani (Ajanta Cave 1)",
+      "titleAliases": [
+        "Padmapani",
+        "Ajanta Padmapani",
+        "Bodhisattva Padmapani"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 450–490",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "Ajanta Caves, Maharashtra",
+      "fame": 171,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "annunciation-martini",
+      "title": "Annunciation with Saint Margaret and Saint Ansanus",
+      "titleAliases": [],
+      "artist": "Simone Martini",
+      "artistAliases": [
+        "Martini"
+      ],
+      "year": "1333",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 172,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [
+        "annunciation-angelico"
+      ],
+      "detail": false
+    },
+    {
+      "key": "duke-and-duchess-of-urbino",
+      "title": "Portraits of the Duke and Duchess of Urbino",
+      "titleAliases": [],
+      "artist": "Piero della Francesca",
+      "artistAliases": [
+        "della Francesca",
+        "Piero"
+      ],
+      "year": "c. 1473–1475",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 173,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "flagellation-of-christ"
+      ],
+      "detail": false
+    },
+    {
+      "key": "peasant-wedding",
+      "title": "The Peasant Wedding",
+      "titleAliases": [],
+      "artist": "Pieter Bruegel the Elder",
+      "artistAliases": [
+        "Bruegel",
+        "Brueghel",
+        "Pieter Bruegel",
+        "Breughel",
+        "Bruegel the Elder"
+      ],
+      "year": "1567",
+      "movement": "Northern Renaissance",
+      "alsoMovements": [],
+      "museum": "Kunsthistorisches Museum, Vienna",
+      "fame": 174,
+      "room": 3,
+      "neighbour": 3,
+      "lookalikes": [
+        "hunters-in-the-snow",
+        "tower-of-babel",
+        "netherlandish-proverbs"
+      ],
+      "detail": false
+    },
+    {
+      "key": "night-shining-white",
+      "title": "Night-Shining White",
+      "titleAliases": [
+        "Night Shining White"
+      ],
+      "artist": "Han Gan",
+      "artistAliases": [],
+      "year": "c. 750",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 175,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "jupiter-and-io",
+      "title": "Jupiter and Io",
+      "titleAliases": [],
+      "artist": "Correggio",
+      "artistAliases": [
+        "Antonio Allegri"
+      ],
+      "year": "c. 1530–1532",
+      "movement": "High Renaissance",
+      "alsoMovements": [
+        "Mannerism"
+      ],
+      "museum": "Kunsthistorisches Museum, Vienna",
+      "fame": 176,
+      "room": 5,
+      "neighbour": 4,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "sleeping-venus",
+      "title": "Sleeping Venus",
+      "titleAliases": [],
+      "artist": "Giorgione",
+      "artistAliases": [],
+      "year": "c. 1510",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "Gemäldegalerie Alte Meister, Dresden",
+      "fame": 177,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [
+        "tempest",
+        "venus-of-urbino"
+      ],
+      "detail": false
+    },
+    {
+      "key": "squirrels-in-a-plane-tree",
+      "title": "Squirrels in a Plane Tree",
+      "titleAliases": [],
+      "artist": "Abu'l Hasan",
+      "artistAliases": [
+        "Abul Hasan",
+        "Abu al-Hasan"
+      ],
+      "year": "c. 1610",
+      "movement": "Persian & Mughal miniature",
+      "alsoMovements": [],
+      "museum": "British Library, London",
+      "fame": 178,
+      "room": 7,
+      "neighbour": 103,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "eleonora-of-toledo",
+      "title": "Eleonora of Toledo with Her Son Giovanni",
+      "titleAliases": [],
+      "artist": "Bronzino",
+      "artistAliases": [
+        "Agnolo Bronzino"
+      ],
+      "year": "c. 1545",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 179,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [
+        "allegory-with-venus-and-cupid"
+      ],
+      "detail": false
+    },
+    {
+      "key": "pine-trees",
+      "title": "Pine Trees",
+      "titleAliases": [
+        "Pine Trees Screen",
+        "Shorin-zu"
+      ],
+      "artist": "Hasegawa Tōhaku",
+      "artistAliases": [
+        "Tohaku"
+      ],
+      "year": "c. 1595",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Tokyo National Museum",
+      "fame": 180,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-allegory-painting",
+      "title": "Self-Portrait as the Allegory of Painting",
+      "titleAliases": [],
+      "artist": "Artemisia Gentileschi",
+      "artistAliases": [
+        "Gentileschi",
+        "Artemisia"
+      ],
+      "year": "c. 1638–1639",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Royal Collection, London",
+      "fame": 181,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "judith-gentileschi",
+        "self-portrait-straw-hat"
+      ],
+      "detail": false
+    },
+    {
+      "key": "windmill-wijk",
+      "title": "The Windmill at Wijk bij Duurstede",
+      "titleAliases": [],
+      "artist": "Jacob van Ruisdael",
+      "artistAliases": [
+        "Ruisdael",
+        "van Ruisdael"
+      ],
+      "year": "c. 1668–1670",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "Rijksmuseum, Amsterdam",
+      "fame": 182,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "view-of-delft"
+      ],
+      "detail": false
+    },
+    {
+      "key": "madame-de-pompadour",
+      "title": "Madame de Pompadour",
+      "titleAliases": [
+        "Portrait of Madame de Pompadour"
+      ],
+      "artist": "François Boucher",
+      "artistAliases": [
+        "Boucher"
+      ],
+      "year": "1756",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "Alte Pinakothek, Munich",
+      "fame": 183,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "watson-and-the-shark",
+      "title": "Watson and the Shark",
+      "titleAliases": [],
+      "artist": "John Singleton Copley",
+      "artistAliases": [
+        "Copley"
+      ],
+      "year": "1778",
+      "movement": "Neoclassicism",
+      "alsoMovements": [
+        "Romanticism"
+      ],
+      "museum": "National Gallery of Art, Washington",
+      "fame": 184,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [
+        "death-of-general-wolfe"
+      ],
+      "detail": false
+    },
+    {
+      "key": "third-class-carriage",
+      "title": "The Third-Class Carriage",
+      "titleAliases": [],
+      "artist": "Honoré Daumier",
+      "artistAliases": [
+        "Daumier"
+      ],
+      "year": "c. 1862–1864",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 185,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "beata-beatrix",
+      "title": "Beata Beatrix",
+      "titleAliases": [],
+      "artist": "Dante Gabriel Rossetti",
+      "artistAliases": [
+        "Rossetti"
+      ],
+      "year": "c. 1864–1870",
+      "movement": "Pre-Raphaelite",
+      "alsoMovements": [
+        "Symbolism & Art Nouveau"
+      ],
+      "museum": "Tate Britain, London",
+      "fame": 186,
+      "room": 16,
+      "neighbour": 13,
+      "lookalikes": [
+        "proserpine"
+      ],
+      "detail": false
+    },
+    {
+      "key": "flood-at-port-marly",
+      "title": "Flood at Port-Marly",
+      "titleAliases": [],
+      "artist": "Alfred Sisley",
+      "artistAliases": [
+        "Sisley"
+      ],
+      "year": "1876",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 187,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "tiger-in-a-tropical-storm",
+      "title": "Tiger in a Tropical Storm (Surprised!)",
+      "titleAliases": [
+        "Surprised!",
+        "Tiger in a Tropical Storm"
+      ],
+      "artist": "Henri Rousseau",
+      "artistAliases": [
+        "Rousseau",
+        "Le Douanier Rousseau"
+      ],
+      "year": "1891",
+      "movement": "Post-Impressionism",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 188,
+      "room": 18,
+      "neighbour": 15,
+      "lookalikes": [
+        "sleeping-gypsy"
+      ],
+      "detail": false
+    },
+    {
+      "key": "judith-i",
+      "title": "Judith I",
+      "titleAliases": [
+        "Judith and the Head of Holofernes"
+      ],
+      "artist": "Gustav Klimt",
+      "artistAliases": [
+        "Klimt"
+      ],
+      "year": "1901",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [],
+      "museum": "Belvedere, Vienna",
+      "fame": 189,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [
+        "kiss",
+        "portrait-of-adele-bloch-bauer",
+        "judith-caravaggio",
+        "judith-gentileschi"
+      ],
+      "detail": false
+    },
+    {
+      "key": "charing-cross-bridge",
+      "title": "Charing Cross Bridge",
+      "titleAliases": [],
+      "artist": "André Derain",
+      "artistAliases": [
+        "Derain"
+      ],
+      "year": "1906",
+      "movement": "Fauvism",
+      "alsoMovements": [],
+      "museum": "National Gallery of Art, Washington",
+      "fame": 190,
+      "room": 20,
+      "neighbour": 17,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "fate-of-the-animals",
+      "title": "Fate of the Animals",
+      "titleAliases": [
+        "The Fate of the Animals",
+        "Tierschicksale"
+      ],
+      "artist": "Franz Marc",
+      "artistAliases": [
+        "Marc"
+      ],
+      "year": "1913",
+      "movement": "Expressionism",
+      "alsoMovements": [
+        "Cubism & Futurism"
+      ],
+      "museum": "Kunstmuseum Basel",
+      "fame": 191,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [
+        "large-blue-horses"
+      ],
+      "detail": false
+    },
+    {
+      "key": "the-city-leger",
+      "title": "The City",
+      "titleAliases": [],
+      "artist": "Fernand Léger",
+      "artistAliases": [
+        "Leger"
+      ],
+      "year": "1919",
+      "movement": "Cubism & Futurism",
+      "alsoMovements": [],
+      "museum": "Philadelphia Museum of Art",
+      "fame": 192,
+      "room": 22,
+      "neighbour": 19,
+      "lookalikes": [
+        "city-rises"
+      ],
+      "detail": false
+    },
+    {
+      "key": "senecio",
+      "title": "Senecio",
+      "titleAliases": [],
+      "artist": "Paul Klee",
+      "artistAliases": [
+        "Klee"
+      ],
+      "year": "1922",
+      "movement": "Abstraction",
+      "alsoMovements": [
+        "Expressionism"
+      ],
+      "museum": "Kunstmuseum Basel",
+      "fame": 193,
+      "room": 23,
+      "neighbour": 20,
+      "lookalikes": [
+        "composition-vii"
+      ],
+      "detail": false
+    },
+    {
+      "key": "our-lady-of-vladimir",
+      "title": "Our Lady of Vladimir",
+      "titleAliases": [
+        "Theotokos of Vladimir",
+        "Vladimir Mother of God",
+        "Virgin of Vladimir"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 1130",
+      "movement": "Ancient & Medieval",
+      "alsoMovements": [],
+      "museum": "Tretyakov Gallery, Moscow",
+      "fame": 194,
+      "room": 0,
+      "neighbour": 0,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "allegory-of-good-government",
+      "title": "Allegory of Good Government",
+      "titleAliases": [
+        "Effects of Good Government",
+        "The Allegory of Good and Bad Government",
+        "Good Government"
+      ],
+      "artist": "Ambrogio Lorenzetti",
+      "artistAliases": [
+        "Lorenzetti"
+      ],
+      "year": "1338–1339",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "Palazzo Pubblico, Siena",
+      "fame": 195,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "camera-degli-sposi",
+      "title": "Camera degli Sposi",
+      "titleAliases": [],
+      "artist": "Andrea Mantegna",
+      "artistAliases": [
+        "Mantegna"
+      ],
+      "year": "1465–1474",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Palazzo Ducale, Mantua",
+      "fame": 196,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [
+        "lamentation-mantegna"
+      ],
+      "detail": true
+    },
+    {
+      "key": "early-spring",
+      "title": "Early Spring",
+      "titleAliases": [
+        "Early Spring (Guo Xi)"
+      ],
+      "artist": "Guo Xi",
+      "artistAliases": [],
+      "year": "1072",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "National Palace Museum, Taipei",
+      "fame": 197,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [
+        "travelers-mountains",
+        "fuchun-mountains"
+      ],
+      "detail": false
+    },
+    {
+      "key": "saint-francis-in-the-desert",
+      "title": "Saint Francis in the Desert",
+      "titleAliases": [
+        "St Francis in Ecstasy",
+        "St. Francis in the Desert",
+        "Saint Francis in Ecstasy"
+      ],
+      "artist": "Giovanni Bellini",
+      "artistAliases": [
+        "Bellini"
+      ],
+      "year": "c. 1476–1478",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [],
+      "museum": "Frick Collection, New York",
+      "fame": 198,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "turkey-cock",
+      "title": "Turkey Cock",
+      "titleAliases": [],
+      "artist": "Ustad Mansur",
+      "artistAliases": [
+        "Mansur"
+      ],
+      "year": "c. 1612",
+      "movement": "Persian & Mughal miniature",
+      "alsoMovements": [],
+      "museum": "Victoria and Albert Museum, London",
+      "fame": 199,
+      "room": 7,
+      "neighbour": 103,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "deposition-from-the-cross",
+      "title": "The Deposition from the Cross",
+      "titleAliases": [],
+      "artist": "Pontormo",
+      "artistAliases": [
+        "Jacopo da Pontormo"
+      ],
+      "year": "1525–1528",
+      "movement": "Mannerism",
+      "alsoMovements": [],
+      "museum": "Santa Felicita, Florence",
+      "fame": 200,
+      "room": 8,
+      "neighbour": 6,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "wind-god-and-thunder-god",
+      "title": "Wind God and Thunder God",
+      "titleAliases": [
+        "Fujin and Raijin",
+        "Fujin Raijin-zu"
+      ],
+      "artist": "Tawaraya Sōtatsu",
+      "artistAliases": [
+        "Sotatsu"
+      ],
+      "year": "early 17th c.",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Kennin-ji, Kyoto",
+      "fame": 201,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "elevation-of-the-cross",
+      "title": "The Elevation of the Cross",
+      "titleAliases": [],
+      "artist": "Peter Paul Rubens",
+      "artistAliases": [
+        "Rubens"
+      ],
+      "year": "1610–1611",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Antwerp Cathedral",
+      "fame": 202,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "three-graces"
+      ],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-leyster",
+      "title": "Self-Portrait at the Easel",
+      "titleAliases": [],
+      "artist": "Judith Leyster",
+      "artistAliases": [
+        "Leyster"
+      ],
+      "year": "c. 1630",
+      "movement": "Dutch Golden Age",
+      "alsoMovements": [],
+      "museum": "National Gallery of Art, Washington",
+      "fame": 203,
+      "room": 11,
+      "neighbour": 8,
+      "lookalikes": [
+        "laughing-cavalier"
+      ],
+      "detail": false
+    },
+    {
+      "key": "stonemasons-yard",
+      "title": "The Stonemason's Yard",
+      "titleAliases": [],
+      "artist": "Canaletto",
+      "artistAliases": [
+        "Giovanni Antonio Canal"
+      ],
+      "year": "c. 1725",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 204,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "cornelia-mother-of-the-gracchi",
+      "title": "Cornelia, Mother of the Gracchi",
+      "titleAliases": [],
+      "artist": "Angelica Kauffman",
+      "artistAliases": [
+        "Kauffman",
+        "Kauffmann"
+      ],
+      "year": "c. 1785",
+      "movement": "Neoclassicism",
+      "alsoMovements": [],
+      "museum": "Virginia Museum of Fine Arts, Richmond",
+      "fame": 205,
+      "room": 13,
+      "neighbour": 10,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "barge-haulers-on-the-volga",
+      "title": "Barge Haulers on the Volga",
+      "titleAliases": [
+        "Barge Haulers",
+        "The Volga Boatmen"
+      ],
+      "artist": "Ilya Repin",
+      "artistAliases": [
+        "Repin"
+      ],
+      "year": "1870–1873",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Russian Museum, St Petersburg",
+      "fame": 206,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "last-of-england",
+      "title": "The Last of England",
+      "titleAliases": [
+        "Last of England"
+      ],
+      "artist": "Ford Madox Brown",
+      "artistAliases": [
+        "Madox Brown"
+      ],
+      "year": "1852–1855",
+      "movement": "Pre-Raphaelite",
+      "alsoMovements": [],
+      "museum": "Birmingham Museum and Art Gallery",
+      "fame": 207,
+      "room": 16,
+      "neighbour": 13,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "cradle",
+      "title": "The Cradle",
+      "titleAliases": [
+        "Le Berceau"
+      ],
+      "artist": "Berthe Morisot",
+      "artistAliases": [
+        "Morisot"
+      ],
+      "year": "1872",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 208,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "apparition",
+      "title": "The Apparition",
+      "titleAliases": [],
+      "artist": "Gustave Moreau",
+      "artistAliases": [
+        "Moreau"
+      ],
+      "year": "1876",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 209,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "posters-trouville",
+      "title": "The Posters at Trouville",
+      "titleAliases": [],
+      "artist": "Raoul Dufy",
+      "artistAliases": [
+        "Dufy"
+      ],
+      "year": "1906",
+      "movement": "Fauvism",
+      "alsoMovements": [],
+      "museum": "Centre Pompidou, Paris",
+      "fame": 210,
+      "room": 20,
+      "neighbour": 17,
+      "lookalikes": [
+        "woman-with-a-hat"
+      ],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-physalis",
+      "title": "Self-Portrait with Physalis",
+      "titleAliases": [
+        "Self-Portrait with Chinese Lantern Plant"
+      ],
+      "artist": "Egon Schiele",
+      "artistAliases": [
+        "Schiele"
+      ],
+      "year": "1912",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Leopold Museum, Vienna",
+      "fame": 211,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [
+        "death-and-the-maiden",
+        "self-portrait-modersohn-becker"
+      ],
+      "detail": false
+    },
+    {
+      "key": "red-tower",
+      "title": "Champ de Mars: The Red Tower",
+      "titleAliases": [
+        "The Red Tower",
+        "Red Eiffel Tower",
+        "Champ de Mars"
+      ],
+      "artist": "Robert Delaunay",
+      "artistAliases": [
+        "Delaunay"
+      ],
+      "year": "1911",
+      "movement": "Cubism & Futurism",
+      "alsoMovements": [],
+      "museum": "Art Institute of Chicago",
+      "fame": 212,
+      "room": 22,
+      "neighbour": 19,
+      "lookalikes": [
+        "homage-to-bleriot"
+      ],
+      "detail": false
+    },
+    {
+      "key": "wilton-diptych",
+      "title": "The Wilton Diptych",
+      "titleAliases": [
+        "Wilton Diptych"
+      ],
+      "artist": "Anonymous",
+      "artistAliases": [
+        "Unknown",
+        "Anon"
+      ],
+      "year": "c. 1395–1399",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 213,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "saint-jerome-in-his-study",
+      "title": "Saint Jerome in His Study",
+      "titleAliases": [],
+      "artist": "Antonello da Messina",
+      "artistAliases": [
+        "Antonello"
+      ],
+      "year": "c. 1475",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 214,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "auspicious-cranes",
+      "title": "Auspicious Cranes",
+      "titleAliases": [
+        "Cranes of Good Omen"
+      ],
+      "artist": "Emperor Huizong",
+      "artistAliases": [
+        "Huizong",
+        "Emperor Huizong of Song"
+      ],
+      "year": "1112",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "Liaoning Provincial Museum, Shenyang",
+      "fame": 215,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "last-supper-tintoretto",
+      "title": "The Last Supper (San Giorgio Maggiore)",
+      "titleAliases": [],
+      "artist": "Tintoretto",
+      "artistAliases": [
+        "Jacopo Tintoretto"
+      ],
+      "year": "1592–1594",
+      "movement": "Venetian Renaissance",
+      "alsoMovements": [
+        "Mannerism"
+      ],
+      "museum": "San Giorgio Maggiore, Venice",
+      "fame": 216,
+      "room": 6,
+      "neighbour": 5,
+      "lookalikes": [
+        "last-supper"
+      ],
+      "detail": false
+    },
+    {
+      "key": "jahangir-preferring-a-sufi-shaikh",
+      "title": "Jahangir Preferring a Sufi Shaikh to Kings",
+      "titleAliases": [
+        "Jahangir Preferring a Sufi Shaikh"
+      ],
+      "artist": "Bichitr",
+      "artistAliases": [],
+      "year": "c. 1615–1618",
+      "movement": "Persian & Mughal miniature",
+      "alsoMovements": [],
+      "museum": "Freer Gallery of Art, Washington",
+      "fame": 217,
+      "room": 7,
+      "neighbour": 103,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "rooster-hen-and-hydrangea",
+      "title": "Rooster, Hen and Hydrangea",
+      "titleAliases": [
+        "Rooster and Hen with Hydrangeas"
+      ],
+      "artist": "Itō Jakuchū",
+      "artistAliases": [
+        "Jakuchu"
+      ],
+      "year": "c. 1757–1766",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Museum of the Imperial Collections, Tokyo",
+      "fame": 218,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "three-graces",
+      "title": "The Three Graces",
+      "titleAliases": [],
+      "artist": "Peter Paul Rubens",
+      "artistAliases": [
+        "Rubens"
+      ],
+      "year": "c. 1630–1635",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Prado, Madrid",
+      "fame": 219,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "elevation-of-the-cross"
+      ],
+      "detail": false
+    },
+    {
+      "key": "marriage-a-la-mode",
+      "title": "Marriage A-la-Mode: The Tête à Tête",
+      "titleAliases": [
+        "Marriage A-la-Mode",
+        "The Tete a Tete",
+        "Marriage a la Mode"
+      ],
+      "artist": "William Hogarth",
+      "artistAliases": [
+        "Hogarth"
+      ],
+      "year": "c. 1743",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 220,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "horse-fair",
+      "title": "The Horse Fair",
+      "titleAliases": [
+        "Horse Fair"
+      ],
+      "artist": "Rosa Bonheur",
+      "artistAliases": [
+        "Bonheur"
+      ],
+      "year": "1852–1855",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 221,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "golden-stairs",
+      "title": "The Golden Stairs",
+      "titleAliases": [],
+      "artist": "Edward Burne-Jones",
+      "artistAliases": [
+        "Burne-Jones"
+      ],
+      "year": "1880",
+      "movement": "Pre-Raphaelite",
+      "alsoMovements": [
+        "Symbolism & Art Nouveau"
+      ],
+      "museum": "Tate Britain, London",
+      "fame": 222,
+      "room": 16,
+      "neighbour": 13,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "childs-bath",
+      "title": "The Child's Bath",
+      "titleAliases": [
+        "The Bath"
+      ],
+      "artist": "Mary Cassatt",
+      "artistAliases": [
+        "Cassatt"
+      ],
+      "year": "1893",
+      "movement": "Impressionism",
+      "alsoMovements": [],
+      "museum": "Art Institute of Chicago",
+      "fame": 223,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "cyclops",
+      "title": "The Cyclops",
+      "titleAliases": [],
+      "artist": "Odilon Redon",
+      "artistAliases": [
+        "Redon"
+      ],
+      "year": "c. 1914",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [],
+      "museum": "Kröller-Müller Museum, Otterlo",
+      "fame": 224,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-modersohn-becker",
+      "title": "Self-Portrait on Her Sixth Wedding Anniversary",
+      "titleAliases": [],
+      "artist": "Paula Modersohn-Becker",
+      "artistAliases": [
+        "Modersohn-Becker"
+      ],
+      "year": "1906",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Paula Modersohn-Becker Museum, Bremen",
+      "fame": 225,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [
+        "self-portrait-physalis"
+      ],
+      "detail": false
+    },
+    {
+      "key": "homage-to-bleriot",
+      "title": "Homage to Blériot",
+      "titleAliases": [
+        "Homage to Bleriot",
+        "Hommage a Bleriot"
+      ],
+      "artist": "Robert Delaunay",
+      "artistAliases": [
+        "Delaunay"
+      ],
+      "year": "1914",
+      "movement": "Cubism & Futurism",
+      "alsoMovements": [
+        "Abstraction"
+      ],
+      "museum": "Kunstmuseum Basel",
+      "fame": 226,
+      "room": 22,
+      "neighbour": 19,
+      "lookalikes": [
+        "red-tower"
+      ],
+      "detail": false
+    },
+    {
+      "key": "adoration-of-the-magi",
+      "title": "Adoration of the Magi",
+      "titleAliases": [],
+      "artist": "Gentile da Fabriano",
+      "artistAliases": [
+        "Gentile"
+      ],
+      "year": "1423",
+      "movement": "Gothic & Proto-Renaissance",
+      "alsoMovements": [],
+      "museum": "Uffizi, Florence",
+      "fame": 227,
+      "room": 1,
+      "neighbour": 1,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "old-man-and-his-grandson",
+      "title": "An Old Man and His Grandson",
+      "titleAliases": [],
+      "artist": "Domenico Ghirlandaio",
+      "artistAliases": [
+        "Ghirlandaio"
+      ],
+      "year": "c. 1490",
+      "movement": "Early Renaissance",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 228,
+      "room": 2,
+      "neighbour": 2,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "fuchun-mountains",
+      "title": "Dwelling in the Fuchun Mountains",
+      "titleAliases": [
+        "Fuchun Mountains",
+        "Dwelling in the Fuchun Mountains scroll"
+      ],
+      "artist": "Huang Gongwang",
+      "artistAliases": [],
+      "year": "1347–1350",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "National Palace Museum, Taipei",
+      "fame": 229,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [
+        "early-spring"
+      ],
+      "detail": true
+    },
+    {
+      "key": "two-lovers",
+      "title": "Two Lovers",
+      "titleAliases": [],
+      "artist": "Reza Abbasi",
+      "artistAliases": [
+        "Riza Abbasi",
+        "Abbasi",
+        "Riza-yi Abbasi"
+      ],
+      "year": "1630",
+      "movement": "Persian & Mughal miniature",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 230,
+      "room": 7,
+      "neighbour": 103,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "plum-park",
+      "title": "Plum Park in Kameido",
+      "titleAliases": [
+        "Plum Garden in Kameido",
+        "Plum Estate, Kameido"
+      ],
+      "artist": "Utagawa Hiroshige",
+      "artistAliases": [
+        "Hiroshige",
+        "Ando Hiroshige"
+      ],
+      "year": "1857",
+      "movement": "Japanese painting & ukiyo-e",
+      "alsoMovements": [],
+      "museum": "Many impressions (e.g. Brooklyn Museum)",
+      "fame": 231,
+      "room": 9,
+      "neighbour": 102,
+      "lookalikes": [
+        "sudden-shower",
+        "irises-korin"
+      ],
+      "detail": false
+    },
+    {
+      "key": "charles-i-hunt",
+      "title": "Charles I at the Hunt",
+      "titleAliases": [],
+      "artist": "Anthony van Dyck",
+      "artistAliases": [
+        "van Dyck",
+        "Dyck"
+      ],
+      "year": "c. 1635",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 232,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "blue-boy"
+      ],
+      "detail": false
+    },
+    {
+      "key": "self-portrait-straw-hat",
+      "title": "Self-Portrait in a Straw Hat",
+      "titleAliases": [],
+      "artist": "Élisabeth Vigée Le Brun",
+      "artistAliases": [
+        "Vigee Le Brun",
+        "Vigee-Lebrun",
+        "Le Brun"
+      ],
+      "year": "1782",
+      "movement": "Rococo",
+      "alsoMovements": [
+        "Neoclassicism"
+      ],
+      "museum": "National Gallery, London",
+      "fame": 233,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [
+        "self-portrait-allegory-painting"
+      ],
+      "detail": false
+    },
+    {
+      "key": "gulf-stream",
+      "title": "The Gulf Stream",
+      "titleAliases": [
+        "Gulf Stream"
+      ],
+      "artist": "Winslow Homer",
+      "artistAliases": [
+        "Homer"
+      ],
+      "year": "1899",
+      "movement": "Realism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 234,
+      "room": 15,
+      "neighbour": 12,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "floor-scrapers",
+      "title": "The Floor Scrapers",
+      "titleAliases": [],
+      "artist": "Gustave Caillebotte",
+      "artistAliases": [
+        "Caillebotte"
+      ],
+      "year": "1875",
+      "movement": "Impressionism",
+      "alsoMovements": [
+        "Realism"
+      ],
+      "museum": "Musée d'Orsay, Paris",
+      "fame": 235,
+      "room": 17,
+      "neighbour": 14,
+      "lookalikes": [
+        "paris-street-rainy-day"
+      ],
+      "detail": false
+    },
+    {
+      "key": "demon-seated",
+      "title": "The Demon Seated",
+      "titleAliases": [
+        "Demon Seated",
+        "Seated Demon"
+      ],
+      "artist": "Mikhail Vrubel",
+      "artistAliases": [
+        "Vrubel"
+      ],
+      "year": "1890",
+      "movement": "Symbolism & Art Nouveau",
+      "alsoMovements": [],
+      "museum": "Tretyakov Gallery, Moscow",
+      "fame": 236,
+      "room": 19,
+      "neighbour": 16,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "night",
+      "title": "The Night",
+      "titleAliases": [
+        "Die Nacht",
+        "Night"
+      ],
+      "artist": "Max Beckmann",
+      "artistAliases": [
+        "Beckmann"
+      ],
+      "year": "1918–1919",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Kunstsammlung Nordrhein-Westfalen, Düsseldorf",
+      "fame": 237,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "man-on-a-balcony",
+      "title": "Man on a Balcony",
+      "titleAliases": [],
+      "artist": "Albert Gleizes",
+      "artistAliases": [
+        "Gleizes"
+      ],
+      "year": "1912",
+      "movement": "Cubism & Futurism",
+      "alsoMovements": [],
+      "museum": "Philadelphia Museum of Art",
+      "fame": 238,
+      "room": 22,
+      "neighbour": 19,
+      "lookalikes": [
+        "portrait-of-picasso"
+      ],
+      "detail": false
+    },
+    {
+      "key": "inwang-clearing",
+      "title": "Clearing after Rain on Mount Inwang",
+      "titleAliases": [
+        "Inwang Jesaekdo",
+        "After Rain at Mount Inwang"
+      ],
+      "artist": "Jeong Seon",
+      "artistAliases": [
+        "Gyeomjae"
+      ],
+      "year": "1751",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "Leeum Museum of Art, Seoul",
+      "fame": 239,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [
+        "qingming"
+      ],
+      "detail": false
+    },
+    {
+      "key": "et-in-arcadia-ego",
+      "title": "Et in Arcadia ego",
+      "titleAliases": [
+        "The Arcadian Shepherds",
+        "Les Bergers d Arcadie"
+      ],
+      "artist": "Nicolas Poussin",
+      "artistAliases": [
+        "Poussin"
+      ],
+      "year": "1637–1638",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 240,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "soap-bubbles",
+      "title": "Soap Bubbles",
+      "titleAliases": [
+        "Soap Bubbles (Chardin)"
+      ],
+      "artist": "Jean-Siméon Chardin",
+      "artistAliases": [
+        "Chardin"
+      ],
+      "year": "c. 1733–1734",
+      "movement": "Rococo",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 241,
+      "room": 12,
+      "neighbour": 9,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "carcass-of-beef",
+      "title": "Carcass of Beef",
+      "titleAliases": [
+        "Le Boeuf",
+        "Side of Beef"
+      ],
+      "artist": "Chaïm Soutine",
+      "artistAliases": [
+        "Soutine",
+        "Chaim Soutine"
+      ],
+      "year": "c. 1925",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Buffalo AKG Art Museum",
+      "fame": 242,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "ssireum",
+      "title": "Ssireum (Wrestling)",
+      "titleAliases": [
+        "Ssireum",
+        "Wrestling"
+      ],
+      "artist": "Kim Hong-do",
+      "artistAliases": [
+        "Kim Hongdo",
+        "Danwon"
+      ],
+      "year": "late 18th c.",
+      "movement": "Chinese & Korean painting",
+      "alsoMovements": [],
+      "museum": "National Museum of Korea, Seoul",
+      "fame": 243,
+      "room": 4,
+      "neighbour": 101,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "embarkation-queen-of-sheba",
+      "title": "Seaport with the Embarkation of the Queen of Sheba",
+      "titleAliases": [],
+      "artist": "Claude Lorrain",
+      "artistAliases": [
+        "Lorrain"
+      ],
+      "year": "1648",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "National Gallery, London",
+      "fame": 244,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "jeanne-hebuterne",
+      "title": "Jeanne Hébuterne",
+      "titleAliases": [],
+      "artist": "Amedeo Modigliani",
+      "artistAliases": [
+        "Modigliani"
+      ],
+      "year": "1919",
+      "movement": "Expressionism",
+      "alsoMovements": [],
+      "museum": "Metropolitan Museum of Art, New York",
+      "fame": 245,
+      "room": 21,
+      "neighbour": 18,
+      "lookalikes": [],
+      "detail": false
+    },
+    {
+      "key": "cheat-ace-of-diamonds",
+      "title": "The Cheat with the Ace of Diamonds",
+      "titleAliases": [],
+      "artist": "Georges de La Tour",
+      "artistAliases": [
+        "de La Tour",
+        "La Tour"
+      ],
+      "year": "c. 1636–1638",
+      "movement": "Baroque",
+      "alsoMovements": [],
+      "museum": "Louvre, Paris",
+      "fame": 246,
+      "room": 10,
+      "neighbour": 7,
+      "lookalikes": [
+        "calling-of-st-matthew"
+      ],
+      "detail": false
+    }
+  ]
+}
