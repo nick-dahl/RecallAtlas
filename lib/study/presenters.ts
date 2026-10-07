@@ -2,7 +2,7 @@ import 'server-only';
 import { flagDataUri } from '@/lib/content/flag-art';
 import { portraitDataUri } from '@/lib/content/portrait-art';
 import { US_PRESIDENTS } from '@/lib/content/us-presidents';
-import { capitalNote, WORLD_MAP } from '@/lib/content/world-map';
+import { WORLD_MAP } from '@/lib/content/world-map';
 import type { CourseDef } from '@/lib/engine';
 import { loadFrame } from '@/lib/map/load';
 import { mapSupport, type MapSupport } from '@/lib/map/support';
@@ -19,7 +19,7 @@ export function getPresenter(course: CourseDef): Presenter {
     case 'world-flags':
       return flagPresenter(course, flagDataUri);
     case WORLD_MAP.slug:
-      return mapPresenter(course, { flag: flagDataUri, capitalNote, maps: getMapSupport(course)! });
+      return mapPresenter(course, { flag: flagDataUri, maps: getMapSupport(course)! });
     case US_PRESIDENTS.slug:
       return presidentsPresenter(course, { portrait: portraitDataUri });
     default:

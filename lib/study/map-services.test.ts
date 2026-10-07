@@ -92,7 +92,7 @@ describe('World Map-style services', () => {
       questionId: turn.next!.questionId,
       response: correctResponse(await pendingFor(store, SLUG), course, maps),
     });
-    expect(turn.feedback).toMatchObject({ correct: true, answer: { name: 'United States', capital: 'Washington, D.C.' } });
+    expect(turn.feedback).toMatchObject({ correct: true, answer: { name: 'United States' } });
     expect(turn.feedback!.map!.correct).toBeDefined();
     const us = (await store.getPromptStates(SLUG)).filter((s) => s.itemKey === 'US');
     expect(Object.fromEntries(us.map((s) => [s.promptType, s.phase]))).toMatchObject({ find: 'review', name: 'review' });
@@ -114,7 +114,7 @@ describe('World Map-style services', () => {
     let turn = await startPlacement(testContext(store, { course, maps })).catch(() => null);
     expect(turn).toBeNull(); // placement already done
     turn = await startStudy(ctx);
-    expect(turn.next).toMatchObject({ format: 'intro', prompt: { name: 'United States', capital: 'Washington, D.C.' } });
+    expect(turn.next).toMatchObject({ format: 'intro', prompt: { name: 'United States' } });
     expect(turn.next!.map!.highlight).toBeDefined();
     turn = await submitStudyAnswer(ctx, { sessionId: turn.next!.sessionId, questionId: turn.next!.questionId, response: { kind: 'ack' } });
     expect(turn.next).toBeTruthy();

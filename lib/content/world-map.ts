@@ -22,7 +22,6 @@ export const WORLD_MAP: CourseDef = {
     groupOrder: c.groupOrder,
     itemOrder: c.itemOrder,
     lookalikes: [...new Set([...c.neighbors, ...c.nearby])],
-    answers: { capital: { text: c.capital, aliases: c.capitalAliases } },
   })),
 };
 

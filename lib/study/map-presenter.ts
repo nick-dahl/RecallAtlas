@@ -4,8 +4,8 @@ import type { Presenter } from './present';
 import type { MapView } from './types';
 
 /**
- * World Map views (map spec §7). Leak rules: a Find question names only its target; Name and
- * Capital questions name no country except in choice labels, which always include distractors.
+ * World Map views (map spec §7). Leak rules: a Find question names only its target; a Name
+ * question names no country except in choice labels, which always include distractors.
  * Map overlays are bare path data; candidates are keyed by opaque choice ids.
  */
 /** Candidates smaller than this (viewBox units) get their badge beside them, not on top. */
@@ -13,11 +13,10 @@ const SMALL_CANDIDATE = 40;
 
 export function mapPresenter(
   course: CourseDef,
-  deps: { flag: (key: string) => string; capitalNote: (key: string) => string | null; maps: MapSupport },
+  deps: { flag: (key: string) => string; maps: MapSupport },
 ): Presenter {
-  const { flag, capitalNote, maps } = deps;
+  const { flag, maps } = deps;
   const name = (key: string) => getItem(course, key).name;
-  const capital = (key: string) => getItem(course, key).answers?.capital?.text;
   const base = (frame: string): MapView => {
     const { width, height } = maps.load(frame);
     return { baseUrl: `/maps/${frame}.svg`, width, height };
@@ -28,22 +27,17 @@ export function mapPresenter(
     prompt: (entry) =>
       entry.promptType === 'find'
         ? { name: name(entry.itemKey) }
-        : entry.promptType === 'capital'
-          ? { question: "What's its capital?", asks: 'capital' }
-          : { question: 'Which country is this?', asks: 'name' },
+        : { question: 'Which country is this?', asks: 'name' },
 
     // Map-pick options are outlines on the map; a label would give the answer away. Contrast
     // drills also carry flags, for when no frame shows both countries.
-    choice: (key, format, promptType) => {
+    choice: (key, format) => {
       if (format === 'map-pick') return {};
       if (format === 'contrast') return { label: name(key), flag: flag(key) };
-      return { label: promptType === 'capital' ? capital(key) : name(key) };
+      return { label: name(key) };
     },
 
-    item: (key) => {
-      const note = capitalNote(key);
-      return { name: name(key), flag: flag(key), capital: capital(key), ...(note ? { capitalNote: note } : {}) };
-    },
+    item: (key) => ({ name: name(key), flag: flag(key) }),
 
     map(pending) {
       const { frame, entry } = pending;

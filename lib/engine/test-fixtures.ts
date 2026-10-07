@@ -1,5 +1,6 @@
 import { FLAG_PROMPT_TYPES } from '@/lib/content/flag-prompts';
 import { MAP_PROMPT_TYPES } from '@/lib/content/map-prompts';
+import type { PromptTypeDef } from './types';
 import type { CourseDef, Item } from './types';
 
 function item(
@@ -62,13 +63,28 @@ const CAPITALS: Record<string, [string, ...string[]]> = {
   MG: ['Antananarivo'],
 };
 
+/**
+ * A third prompt, as World Map had before capitals got their own course: keeps the engine's
+ * partial-placement tests (placementGraduates leaving one prompt new) meaningful.
+ */
+const FIXTURE_CAPITAL_PROMPT: PromptTypeDef = {
+  id: 'capital',
+  label: 'Capital',
+  answerField: 'capital',
+  formats: {
+    1: { format: 'mc-text', choices: 4, distractors: 'local' },
+    2: { format: 'mc-text', choices: 6, distractors: 'hard' },
+    3: { format: 'typed' },
+  },
+};
+
 /** The fixture items as a map course: Find / Name / Capital, placement graduating Find + Name. */
 export const TEST_MAP_COURSE: CourseDef = {
   slug: 'test-map',
   title: 'Test Map',
   placementPromptType: 'find',
   placementGraduates: ['find', 'name'],
-  promptTypes: MAP_PROMPT_TYPES,
+  promptTypes: [...MAP_PROMPT_TYPES, FIXTURE_CAPITAL_PROMPT],
   items: ITEMS.map((i) => {
     const [text, ...aliases] = CAPITALS[i.key];
     return { ...i, answers: { capital: { text, aliases } } };

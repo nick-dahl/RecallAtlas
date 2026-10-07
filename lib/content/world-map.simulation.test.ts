@@ -17,15 +17,15 @@ import { days } from '@/lib/engine/test-fixtures';
 import { WORLD_MAP } from './world-map';
 
 const course = WORLD_MAP;
+const PLACED_REGIONS = 6;
 
 /**
- * A learner who already knows where every country is (perfect placement) and learns every
- * capital first time, except Bolivia's: they answer "Lima" (Peru's) the first 2 times.
- * Two 20-answer sessions a day.
+ * A learner who already knows the first six regions (placed by clicking) and nothing after, and
+ * names Bolivia "Peru" the first 2 times. Two 20-answer sessions a day.
  */
 function simulate(totalDays: number) {
   let states: PromptState[] = initialStates(course);
-  for (const item of course.items) {
+  for (const item of course.items.filter((i) => i.groupOrder <= PLACED_REGIONS)) {
     states = applyPlacementAnswer({ course, states, itemKey: item.key, correct: true, now: days(-1) });
   }
   const afterPlacement = states;
@@ -33,7 +33,6 @@ function simulate(totalDays: number) {
   let boliviaMissesLeft = 2;
   const intros: string[] = [];
   const contrasts: string[] = [];
-  const asked: { day: number; itemKey: string; promptType: string }[] = [];
 
   for (let day = 0; day < totalDays; day++) {
     for (const hour of [0, 8]) {
@@ -52,8 +51,7 @@ function simulate(totalDays: number) {
           session = applyContrast(session);
           continue;
         }
-        asked.push({ day, itemKey: entry.itemKey, promptType: entry.promptType });
-        const miss = entry.itemKey === 'BO' && entry.promptType === 'capital' && boliviaMissesLeft > 0;
+        const miss = entry.itemKey === 'BO' && entry.promptType === 'name' && boliviaMissesLeft > 0;
         if (miss) boliviaMissesLeft--;
         const grade: AnswerGrade = miss
           ? { correct: false, typo: false, answeredItemKey: 'PE' }
@@ -68,38 +66,35 @@ function simulate(totalDays: number) {
       }
     }
   }
-  return { afterPlacement, states, confusions, intros, contrasts, asked };
+  return { afterPlacement, states, confusions, intros, contrasts };
 }
 
-describe('World Map learner simulation', () => {
+describe('World Map learner simulation (Find and Name only)', () => {
   const result = simulate(30);
-  const phases = (states: PromptState[], promptType: string) =>
-    states.filter((s) => s.promptType === promptType).map((s) => s.phase);
+  const placedKeys = new Set(course.items.filter((i) => i.groupOrder <= PLACED_REGIONS).map((i) => i.key));
+  const learnedItems = (states: PromptState[]) =>
+    course.items.filter((i) => states.filter((s) => s.itemKey === i.key).every((s) => s.phase === 'review')).length;
 
-  it('graduates Find and Name in placement and leaves every Capital new', () => {
-    expect(new Set(phases(result.afterPlacement, 'find'))).toEqual(new Set(['review']));
-    expect(new Set(phases(result.afterPlacement, 'name'))).toEqual(new Set(['review']));
-    expect(new Set(phases(result.afterPlacement, 'capital'))).toEqual(new Set(['new']));
+  it('places whole items: both prompts of every placed country are learned, the rest untouched', () => {
+    for (const s of result.afterPlacement) expect(s.phase).toBe(placedKeys.has(s.itemKey) ? 'review' : 'new');
   });
 
-  it('introduces each placed item once, for its capital, in course order', () => {
+  it('introduces only unplaced countries, once each, in course order', () => {
+    expect(result.intros.every((k) => !placedKeys.has(k))).toBe(true);
     expect(new Set(result.intros).size).toBe(result.intros.length);
-    expect(result.intros.slice(0, 3)).toEqual(course.items.slice(0, 3).map((i) => i.key));
+    const unplaced = course.items
+      .filter((i) => !placedKeys.has(i.key))
+      .sort((a, b) => a.groupOrder - b.groupOrder || a.itemOrder - b.itemOrder);
+    expect(result.intros.slice(0, 3)).toEqual(unplaced.slice(0, 3).map((i) => i.key));
   });
 
-  it('records the Bolivia → Peru capital confusion and runs a contrast drill', () => {
+  it('records the Bolivia → Peru mix-up and runs a contrast drill', () => {
     expect(result.confusions).toContainEqual({ asked: 'BO', answered: 'PE', count: 2 });
     expect(result.contrasts).toContain('BO>PE');
   });
 
-  it('keeps reviewing placed Find and Name prompts while capitals are learned', () => {
-    expect(result.asked.some((a) => a.promptType === 'find')).toBe(true);
-    expect(result.asked.some((a) => a.promptType === 'name')).toBe(true);
-  });
-
-  it('steadily learns capitals: over half in review within 30 days', () => {
-    // Observed: 111 of 208 (2 x 20-answer sessions a day) with the engine config when written.
-    const learned = phases(result.states, 'capital').filter((p) => p === 'review').length;
-    expect(learned).toBeGreaterThanOrEqual(100);
+  it('keeps learning the unplaced regions', () => {
+    // Observed when written: 77 of the 119 unplaced countries fully learned (both prompts) in 30 days.
+    expect(learnedItems(result.states) - placedKeys.size).toBeGreaterThanOrEqual(65);
   });
 });

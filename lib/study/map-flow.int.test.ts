@@ -76,13 +76,13 @@ describe('World Map end to end on Supabase', () => {
 
     const overview = await getCourseOverview(ctx());
     expect(overview.status).toBe('learning');
-    // Find + Name for every item but the missed one; capitals are learned in study.
-    expect(overview.readiness).toEqual({ graduated: 2 * (WORLD_MAP.items.length - 1), total: 3 * WORLD_MAP.items.length });
+    // Find + Name for every item but the missed one, which is learned in study.
+    expect(overview.readiness).toEqual({ graduated: 2 * (WORLD_MAP.items.length - 1), total: 2 * WORLD_MAP.items.length });
     expect(await store.getConfusions(SLUG)).toEqual([{ asked: first.entry.itemKey, answered: neighbour, count: 1 }]);
   }, 600_000);
 
   it('passes the final exam by clicking and typing', async () => {
-    // Fast-forward the capitals (studying 208 of them is the simulation's job, not this test's).
+    // Fast-forward the missed country (studying it is the simulation's job, not this test's).
     const seed = await store.createSession({ courseSlug: SLUG, kind: 'study', state: {}, pendingQuestion: null });
     await store.commitTurn(SLUG, {
       sessionId: seed.id,
