@@ -24,3 +24,15 @@ describe('mapSupport (real frames)', () => {
     expect(maps.frameFor({ kind: 'contrast', itemKey: 'PT', otherKey: 'NZ' }, 1)).toBeUndefined();
   });
 });
+
+describe('mapSupport with mapless entries', () => {
+  it('gives no frame to mapless entries and the region frame to the rest', async () => {
+    const { WORLD_CAPITALS } = await import('@/lib/content/world-capitals');
+    const capitals = mapSupport(WORLD_CAPITALS, loadFrame, {
+      mapless: (entry) => entry.kind === 'prompt' && entry.promptType === 'capital_to_country',
+    });
+    expect(capitals.frameFor({ kind: 'prompt', itemKey: 'PE', promptType: 'capital_to_country' }, 3)).toBeUndefined();
+    expect(capitals.frameFor({ kind: 'prompt', itemKey: 'PE', promptType: 'country_to_capital' }, 3)).toBe('south-america');
+    expect(capitals.frameFor({ kind: 'intro', itemKey: 'PE' }, 1)).toBe('south-america');
+  });
+});

@@ -41,6 +41,8 @@ export interface MapView {
   height: number;
   /** Outline of the country being asked about (Name, Capital, intro). */
   highlight?: string;
+  /** A small locator map rather than the question's main picture (World Capitals). */
+  locator?: true;
   /** Outlined options; `id` is the opaque choice id. */
   /** `small`: the shape is tiny, so its badge sits beside it rather than on top. */
   candidates?: { id: string; d: string; labelX: number; labelY: number; small?: boolean }[];
@@ -59,7 +61,7 @@ export interface QuestionView {
     flag?: string;
     question?: string;
     /** Typed questions: what the learner answers with. */
-    asks?: 'name' | 'capital' | 'year' | 'party' | 'president';
+    asks?: 'name' | 'capital' | 'year' | 'party' | 'president' | 'country';
     capital?: string;
     capitalNote?: string;
     /** Presidents: the portrait being asked about, or shown on an intro. */
