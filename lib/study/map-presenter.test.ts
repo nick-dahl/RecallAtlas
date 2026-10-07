@@ -10,7 +10,7 @@ import { getMapSupport, getPresenter } from './presenters';
 import { fakeFlag, fixtureMaps } from './test-helpers';
 
 const maps = fixtureMaps();
-const presenter = mapPresenter(TEST_MAP_COURSE, { flag: fakeFlag, capitalNote: (k) => (k === 'EC' ? 'A note.' : null), maps });
+const presenter = mapPresenter(TEST_MAP_COURSE, { flag: fakeFlag, maps });
 const session = { id: 'session-1', kind: 'study' as const, progress: { answered: 0, total: 20 } };
 const NAMES = TEST_MAP_COURSE.items.map((i) => i.name);
 const KEYS = TEST_MAP_COURSE.items.map((i) => i.key);
@@ -57,35 +57,28 @@ describe('mapPresenter', () => {
     expect(namesOutsideLabels(v, NAMES)).toEqual(['Ecuador']);
   });
 
-  it.each(['name', 'capital'])('%s shows a highlight and names no country outside choice labels', (promptType) => {
+  it.each(['name'])('%s shows a highlight and names no country outside choice labels', (promptType) => {
     for (const rung of [1, 2, 3] as const) {
       const { view: v } = view({ kind: 'prompt', itemKey: 'EC', promptType }, rung);
       expect(v.map!.highlight).toBe(maps.load('fx-region').countries.EC.outline);
-      expect(v.prompt.question).toBe(promptType === 'capital' ? "What's its capital?" : 'Which country is this?');
+      expect(v.prompt.question).toBe('Which country is this?');
       expect(v.prompt.name).toBeUndefined();
       expect(namesOutsideLabels(v, NAMES)).toEqual([]);
       expectNoKeys(v, KEYS);
     }
   });
 
-  it('labels Capital choices with capitals and Name choices with names', () => {
-    const capital = view({ kind: 'prompt', itemKey: 'EC', promptType: 'capital' }, 1).view;
-    expect(capital.choices!.map((c) => c.label)).toContain('Quito');
-    expect(capital.choices!.map((c) => c.label)).not.toContain('Ecuador');
-    const name = view({ kind: 'prompt', itemKey: 'EC', promptType: 'name' }, 1).view;
-    expect(name.choices!.map((c) => c.label)).toContain('Ecuador');
-  });
 
   it('typed recall shows no names at all', () => {
-    const { view: v } = view({ kind: 'prompt', itemKey: 'EC', promptType: 'capital' }, 3);
+    const { view: v } = view({ kind: 'prompt', itemKey: 'EC', promptType: 'name' }, 3);
     expect(v.format).toBe('typed');
     expect(v.choices).toBeUndefined();
     expect(NAMES.filter((n) => JSON.stringify(v).includes(n))).toEqual([]);
   });
 
-  it('introduces an item with its name, flag, capital, note and highlight', () => {
+  it('introduces an item with its name, flag and highlight', () => {
     const { view: v } = view({ kind: 'intro', itemKey: 'EC' }, 1);
-    expect(v.prompt).toEqual({ name: 'Ecuador', flag: fakeFlag('EC'), capital: 'Quito', capitalNote: 'A note.' });
+    expect(v.prompt).toEqual({ name: 'Ecuador', flag: fakeFlag('EC') });
     expect(v.map!.highlight).toBeDefined();
   });
 
@@ -104,14 +97,15 @@ describe('mapPresenter with real World Map data', () => {
   const names = WORLD_MAP.items.map((i) => i.name);
   const keys = WORLD_MAP.items.map((i) => i.key);
 
-  it('asks for the capital of Bolivia without naming Bolivia or leaking keys', () => {
-    const { pending, view: v } = view({ kind: 'prompt', itemKey: 'BO', promptType: 'capital' }, 2, WORLD_MAP, real, realMaps);
+  it('asks to name Bolivia without naming it or leaking keys', () => {
+    const { pending, view: v } = view({ kind: 'prompt', itemKey: 'BO', promptType: 'name' }, 2, WORLD_MAP, real, realMaps);
     expect(pending.frame).toBe('south-america');
-    expect(v.map!.baseUrl).toBe('/maps/south-america.svg');
-    expect(v.choices!.map((c) => c.label)).toContain('Sucre');
+    expect(v.prompt).toEqual({ question: 'Which country is this?', asks: 'name' });
+    expect(v.choices!.map((c) => c.label)).toContain('Bolivia');
     expect(namesOutsideLabels(v, names)).toEqual([]);
     expectNoKeys(v, keys);
   });
+
 
   it('keeps map-pick candidates inside the region frame', () => {
     const { pending } = view({ kind: 'prompt', itemKey: 'FR', promptType: 'find' }, 2, WORLD_MAP, real, realMaps);

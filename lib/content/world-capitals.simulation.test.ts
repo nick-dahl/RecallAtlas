@@ -14,14 +14,14 @@ import {
   type PromptState,
 } from '@/lib/engine';
 import { days } from '@/lib/engine/test-fixtures';
-import { WORLD_MAP } from './world-map';
+import { WORLD_CAPITALS } from './world-capitals';
 
-const course = WORLD_MAP;
-const PLACED_REGIONS = 6;
+const course = WORLD_CAPITALS;
+const PLACED_REGIONS = 3;
 
 /**
- * A learner who already knows the first six regions (placed by clicking) and nothing after, and
- * names Bolivia "Peru" the first 2 times. Two 20-answer sessions a day.
+ * A learner who knows the first three regions' capitals at placement and nothing after, and
+ * answers "Slovenia" for Bratislava the first 2 times. Two 20-answer sessions a day.
  */
 function simulate(totalDays: number) {
   let states: PromptState[] = initialStates(course);
@@ -30,7 +30,7 @@ function simulate(totalDays: number) {
   }
   const afterPlacement = states;
   let confusions: Confusion[] = [];
-  let boliviaMissesLeft = 2;
+  let slovakiaMissesLeft = 2;
   const intros: string[] = [];
   const contrasts: string[] = [];
 
@@ -51,10 +51,10 @@ function simulate(totalDays: number) {
           session = applyContrast(session);
           continue;
         }
-        const miss = entry.itemKey === 'BO' && entry.promptType === 'name' && boliviaMissesLeft > 0;
-        if (miss) boliviaMissesLeft--;
+        const miss = entry.itemKey === 'SK' && entry.promptType === 'capital_to_country' && slovakiaMissesLeft > 0;
+        if (miss) slovakiaMissesLeft--;
         const grade: AnswerGrade = miss
-          ? { correct: false, typo: false, answeredItemKey: 'PE' }
+          ? { correct: false, typo: false, answeredItemKey: 'SI' }
           : { correct: true, typo: false, answeredItemKey: null };
         const key = stateKey(entry.itemKey, entry.promptType);
         const current = states.find((s) => stateKey(s.itemKey, s.promptType) === key)!;
@@ -69,13 +69,13 @@ function simulate(totalDays: number) {
   return { afterPlacement, states, confusions, intros, contrasts };
 }
 
-describe('World Map learner simulation (Find and Name only)', () => {
+describe('World Capitals learner simulation', () => {
   const result = simulate(30);
   const placedKeys = new Set(course.items.filter((i) => i.groupOrder <= PLACED_REGIONS).map((i) => i.key));
   const learnedItems = (states: PromptState[]) =>
     course.items.filter((i) => states.filter((s) => s.itemKey === i.key).every((s) => s.phase === 'review')).length;
 
-  it('places whole items: both prompts of every placed country are learned, the rest untouched', () => {
+  it('places whole items: both directions of every placed country are learned, the rest untouched', () => {
     for (const s of result.afterPlacement) expect(s.phase).toBe(placedKeys.has(s.itemKey) ? 'review' : 'new');
   });
 
@@ -88,13 +88,14 @@ describe('World Map learner simulation (Find and Name only)', () => {
     expect(result.intros.slice(0, 3)).toEqual(unplaced.slice(0, 3).map((i) => i.key));
   });
 
-  it('records the Bolivia → Peru mix-up and runs a contrast drill', () => {
-    expect(result.confusions).toContainEqual({ asked: 'BO', answered: 'PE', count: 2 });
-    expect(result.contrasts).toContain('BO>PE');
+  it('records the Bratislava → Slovenia mix-up and runs a contrast drill', () => {
+    expect(result.confusions).toContainEqual({ asked: 'SK', answered: 'SI', count: 2 });
+    expect(result.contrasts).toContain('SK>SI');
   });
 
   it('keeps learning the unplaced regions', () => {
-    // Observed when written: 77 of the 119 unplaced countries fully learned (both prompts) in 30 days.
-    expect(learnedItems(result.states) - placedKeys.size).toBeGreaterThanOrEqual(65);
+    // Observed when written: 92 of the 151 unplaced countries fully learned (both directions) in 30 days.
+    expect(learnedItems(result.states) - placedKeys.size).toBeGreaterThanOrEqual(80);
   });
+
 });

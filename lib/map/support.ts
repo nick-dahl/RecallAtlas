@@ -9,10 +9,16 @@ export interface MapSupport {
   load(frameId: string): FrameData;
 }
 
-export function mapSupport(course: CourseDef, load: (frameId: string) => FrameData): MapSupport {
+export function mapSupport(
+  course: CourseDef,
+  load: (frameId: string) => FrameData,
+  opts: { mapless?: (entry: QueueEntry) => boolean } = {},
+): MapSupport {
   return {
     load,
     frameFor(entry, rung) {
+      // Some questions must not show a map (it would reveal the answer).
+      if (opts.mapless?.(entry)) return undefined;
       const item = getItem(course, entry.itemKey);
       if (entry.kind !== 'contrast') return frameFor(item, entry.kind === 'prompt' ? entry.promptType : null, rung);
       // A confusion can span regions (a click on the continent map): use the first frame

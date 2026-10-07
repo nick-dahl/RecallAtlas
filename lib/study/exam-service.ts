@@ -10,7 +10,7 @@ import {
   type QueueSession,
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
-import { answerLog, confusionFor, gradeAnswer, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
+import { answerLog, confusionFor, getLiveSession, gradeAnswer, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
 import { ServiceError, type EndView, type SubmissionInput, type TurnResult } from './types';
 
 export interface ExamState extends QueueSession {
@@ -27,7 +27,7 @@ export async function startExam(ctx: ServiceContext): Promise<TurnResult> {
 async function startExamAttempt(ctx: ServiceContext): Promise<TurnResult> {
   const { store, course, rng } = ctx;
   await requireEnrollment(ctx);
-  let active = await store.getActiveSession(course.slug);
+  let active = await getLiveSession(ctx);
   if (active?.kind === 'exam' && active.pendingQuestion) {
     return { next: view(ctx, active.pendingQuestion, active, progressOf(active.state as ExamState)) };
   }

@@ -1,5 +1,6 @@
 'use client';
 
+import { MapFrame } from '@/components/map/map-frame';
 import { buttonClass } from '@/components/ui/button';
 import { ItemImage } from '@/components/ui/item-image';
 import { Kbd } from '@/components/ui/kbd';
@@ -21,6 +22,14 @@ function message(view: QuestionView, f: FeedbackView): { headline: string; detai
     return {
       headline: `Not quite: ${answer.name} took office in ${years}`,
       detail: given?.startYears ? `${given.startYears.join(' & ')} was ${given.name}.` : undefined,
+    };
+  }
+  if (view.prompt.asks === 'country' && answer.capital) {
+    const pair = `${answer.capital} is the capital of ${answer.name}`;
+    if (f.correct) return { headline: `Correct: ${pair}` };
+    return {
+      headline: `Not quite: ${pair}`,
+      detail: given?.capital ? `${given.capital} is the capital of ${given.name}.` : undefined,
     };
   }
   if (view.prompt.asks === 'party' && answer.party) {
@@ -54,29 +63,43 @@ export function FeedbackPanel({
 }) {
   useHotkeys({ Enter: onContinue });
   const { headline, detail } = message(view, feedback);
-  const note = view.prompt.asks === 'capital' ? feedback.answer.capitalNote : undefined;
+  const note = view.prompt.asks === 'capital' || view.prompt.asks === 'country' ? feedback.answer.capitalNote : undefined;
+  // A question with no map of its own (capital → country) shows where the country is here.
+  const map = !view.map && feedback.map ? feedback.map : undefined;
   const relearn = feedback.outcome === 'lapsed' ? 'It’s back in your learning queue.' : undefined;
   return (
-    <div
-      data-testid="feedback"
-      data-correct={feedback.correct}
-      role="status"
-      className={`animate-rise mx-auto mt-8 flex max-w-xl items-center gap-4 rounded-2xl p-4 ${feedback.correct ? 'bg-good-soft' : 'bg-bad-soft'}`}
-    >
-      <div className="w-16 shrink-0">
-        <ItemImage item={feedback.answer} eager />
+    <>
+      <div
+        data-testid="feedback"
+        data-correct={feedback.correct}
+        role="status"
+        className={`animate-rise mx-auto mt-8 flex max-w-xl items-center gap-4 rounded-2xl p-4 ${feedback.correct ? 'bg-good-soft' : 'bg-bad-soft'}`}
+      >
+        <div className="w-16 shrink-0">
+          <ItemImage item={feedback.answer} eager />
+        </div>
+        <div className="flex-1 space-y-0.5 text-sm">
+          <p className={`font-semibold ${feedback.correct ? 'text-good' : 'text-bad'}`}>{headline}</p>
+          {detail && <p className="text-ink-soft">{detail}</p>}
+          {note && <p className="text-ink-soft">{note}</p>}
+          {relearn && <p className="text-ink-soft">{relearn}</p>}
+        </div>
+        {!feedback.correct && (
+          <button type="button" onClick={onContinue} className={buttonClass('secondary')}>
+            Continue <Kbd>↵</Kbd>
+          </button>
+        )}
       </div>
-      <div className="flex-1 space-y-0.5 text-sm">
-        <p className={`font-semibold ${feedback.correct ? 'text-good' : 'text-bad'}`}>{headline}</p>
-        {detail && <p className="text-ink-soft">{detail}</p>}
-        {note && <p className="text-ink-soft">{note}</p>}
-        {relearn && <p className="text-ink-soft">{relearn}</p>}
-      </div>
-      {!feedback.correct && (
-        <button type="button" onClick={onContinue} className={buttonClass('secondary')}>
-          Continue <Kbd>↵</Kbd>
-        </button>
+      {map && (
+        <div className="animate-rise mx-auto mt-3 max-w-xl">
+          <MapFrame
+            map={{ baseUrl: map.baseUrl, width: map.width, height: map.height }}
+            maxHeight="24vh"
+            correct={map.correct}
+            given={map.given}
+          />
+        </div>
       )}
-    </div>
+    </>
   );
 }

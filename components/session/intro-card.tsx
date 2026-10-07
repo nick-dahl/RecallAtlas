@@ -55,7 +55,7 @@ export function IntroCard({ view, locked, onAnswer }: RendererProps) {
           <h2 className="font-display text-4xl tracking-tight">{prompt.name}</h2>
           {prompt.capital && (
             <p>
-              <span className="text-ink-soft">Capital</span> <span className="font-semibold">{prompt.capital}</span>
+              <span className="font-semibold">{prompt.capital}</span> <span className="text-ink-soft">is the capital of {prompt.name}</span>
             </p>
           )}
           {prompt.capitalNote && <p className="text-sm text-ink-soft">{prompt.capitalNote}</p>}

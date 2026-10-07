@@ -15,7 +15,7 @@ export function Prompt({ view, feedback = null }: { view: QuestionView; feedback
       <div className="space-y-5 text-center">
         <MapFrame
           map={view.map}
-          maxHeight="44vh"
+          maxHeight={view.map.locator ? '28vh' : '44vh'}
           highlight={view.map.highlight}
           correct={feedback && !feedback.correct ? feedback.map?.correct : undefined}
           given={feedback?.map?.given}

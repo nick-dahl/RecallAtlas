@@ -21,7 +21,7 @@ export function testContext(
   return {
     store,
     course,
-    presenter: maps ? mapPresenter(course, { flag: fakeFlag, capitalNote: () => null, maps }) : flagPresenter(course, fakeFlag),
+    presenter: maps ? mapPresenter(course, { flag: fakeFlag, maps }) : flagPresenter(course, fakeFlag),
     ...(maps ? { maps } : {}),
     now: opts.now ?? NOW,
     rng: seededRng(opts.seed ?? 1),

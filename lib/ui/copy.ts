@@ -12,7 +12,8 @@ export const STATUS_LABEL: Record<EnrollmentStatus, string> = {
 /** Dashboard card copy for courses not yet started. */
 export const COURSE_BLURB: Record<string, string> = {
   'world-flags': 'All 197 flags, from Andorra to Zimbabwe.',
-  'world-map': 'Find 208 countries and territories on the map, name them, and learn their capitals.',
+  'world-map': 'Find 208 countries and territories on the map, and name them from their shape.',
+  'world-capitals': 'The capitals of all 197 countries, both ways round.',
   'us-presidents': 'All 45 presidents: in order, by face, by year and by party.',
 };
 

@@ -52,7 +52,7 @@ test('enroll, place by clicking (with one miss), skip ahead, and study', async (
   await shot(page, 'dashboard');
   await page.locator('article', { hasText: 'World Map' }).getByRole('button', { name: 'Start course' }).click();
   await expect(page).toHaveURL(/\/courses\/world-map$/);
-  await expect(page.getByText('0 / 624 prompts learned')).toBeVisible();
+  await expect(page.getByText('0 / 416 prompts learned')).toBeVisible();
   await expect(page.locator('[data-tile]')).toHaveCount(WORLD_MAP.items.length);
   await shot(page, 'course-home-new');
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { MasteryMap } from '@/components/map/mastery-map';
+import { CapitalList } from '@/components/capitals/capital-list';
 import { Timeline } from '@/components/presidents/timeline';
 import { SiteHeader } from '@/components/site-header';
 import { buttonClass } from '@/components/ui/button';
@@ -11,6 +12,7 @@ import { ReadinessMeter } from '@/components/ui/readiness-meter';
 import { StatusPill } from '@/components/ui/status-pill';
 import { getCourse } from '@/lib/content/registry';
 import { presidentRecord, US_PRESIDENTS } from '@/lib/content/us-presidents';
+import { WORLD_CAPITALS } from '@/lib/content/world-capitals';
 import { loadAtlas } from '@/lib/map/atlas';
 import { createServiceContext } from '@/lib/server/context';
 import { getCourseOverview } from '@/lib/study/overview-service';
@@ -112,7 +114,15 @@ export default async function CoursePage({ params }: Props) {
           </section>
         )}
 
-        {course.slug === US_PRESIDENTS.slug ? (
+        {course.slug === WORLD_CAPITALS.slug ? (
+          <section className="space-y-5">
+            <h2 className="font-display text-2xl">Your capitals</h2>
+            <CapitalList
+              tiles={o.tiles}
+              capitals={Object.fromEntries(course.items.map((i) => [i.key, i.answers!.capital.text]))}
+            />
+          </section>
+        ) : course.slug === US_PRESIDENTS.slug ? (
           <section className="space-y-5">
             <h2 className="font-display text-2xl">Your timeline</h2>
             <Timeline tiles={o.tiles} records={course.items.map((i) => presidentRecord(i.key))} />
