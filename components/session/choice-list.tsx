@@ -6,7 +6,7 @@ import { Prompt } from './prompt';
 import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
-const STATE: Record<ChoiceState, string> = {
+export const CHOICE_STATE: Record<ChoiceState, string> = {
   idle: 'bg-raised ring-1 ring-rule motion-safe:hover:-translate-y-0.5 hover:ring-ink-soft',
   correct: 'bg-good-soft ring-2 ring-good animate-pop',
   wrong: 'bg-bad-soft ring-2 ring-bad animate-shake',
@@ -33,7 +33,7 @@ export function ChoiceList({ view, locked, feedback, chosenId, onAnswer }: Rende
               data-choice-id={c.id}
               disabled={locked}
               onClick={() => pick(i)}
-              className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left font-medium transition duration-150 ${STATE[choiceState(c, feedback, chosenId)]}`}
+              className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left font-medium transition duration-150 ${CHOICE_STATE[choiceState(c, feedback, chosenId)]}`}
             >
               <Kbd>{i + 1}</Kbd>
               <span>{c.label}</span>

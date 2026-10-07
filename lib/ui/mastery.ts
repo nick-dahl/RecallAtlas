@@ -20,7 +20,7 @@ export const MASTERY_LEGEND: { tile: TileState; label: string }[] = (
 
 const PHASE_WORD: Record<Phase, string> = { new: 'not started', learning: 'learning', review: 'learned' };
 
-/** Hover summary, e.g. "Bolivia: Find it learned, Name it learned, Capital learning". */
+/** Hover summary, e.g. "Bolivia: Find it learned, Name it learning". */
 export function masterySummary(name: string, prompts: readonly { label: string; phase: Phase }[]): string {
   return `${name}: ${prompts.map((p) => `${p.label} ${PHASE_WORD[p.phase]}`).join(', ')}`;
 }

@@ -60,6 +60,13 @@ describe('capitalsPresenter leak rules (every country × direction × level)', (
     }
   });
 
+  it('drills a mix-up by capital: the pair shows both capitals, and the choices are the two capitals', () => {
+    const v = view(issue({ kind: 'contrast', itemKey: 'SK', otherKey: 'SI' }, 1));
+    expect(v.pair!.map((p) => p.capital)).toEqual(['Bratislava', 'Ljubljana']);
+    expect(v.choices!.map((c) => c.label).sort()).toEqual(['Bratislava', 'Ljubljana']);
+    expect(v.choices!.every((c) => !c.flag)).toBe(true);
+  });
+
   it('labels country → capital choices with capitals and capital → country choices with countries', () => {
     expect(ask('PE', 'country_to_capital', 1).view.choices!.map((c) => c.label)).toContain('Lima');
     expect(ask('PE', 'capital_to_country', 1).view.choices!.map((c) => c.label)).toContain('Peru');

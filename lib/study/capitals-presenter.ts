@@ -35,7 +35,8 @@ export function capitalsPresenter(
         : { name: name(entry.itemKey), question: `What's the capital of ${name(entry.itemKey)}?`, asks: 'capital' },
 
     choice: (key, format, promptType) => {
-      if (format === 'contrast') return { label: name(key), flag: flag(key) };
+      // A mix-up is drilled by capital: "What's the capital of Slovakia?" Bratislava or Ljubljana.
+      if (format === 'contrast') return { label: capital(key) };
       return { label: promptType === 'country_to_capital' ? capital(key) : name(key) };
     },
 

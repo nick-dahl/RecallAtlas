@@ -66,7 +66,7 @@ export function MasteryMap({ atlas, tiles }: { atlas: AtlasData; tiles: readonly
             {label}
           </span>
         ))}
-        <span>Hover a country for its Find, Name and Capital progress.</span>
+        <span>Hover a country for its Find and Name progress.</span>
       </figcaption>
     </figure>
   );

@@ -16,6 +16,22 @@ import {
 /** Answers more than this stale are from a resumed, long-idle question; their timing is noise. */
 const RESPONSE_MS_CAP = 5 * 60 * 1000;
 
+/**
+ * The course's active session, unless it was saved before the course dropped a prompt type it
+ * still refers to (World Map's old "capital" prompt): that one can never be asked or graded, so
+ * it is closed and treated as gone.
+ */
+export async function getLiveSession(ctx: ServiceContext): Promise<SessionRecord | null> {
+  const active = await ctx.store.getActiveSession(ctx.course.slug);
+  if (!active) return null;
+  const known = new Set(ctx.course.promptTypes.map((p) => p.id));
+  const state = active.state as { plan?: QueueEntry[]; queue?: QueueEntry[] };
+  const entries = [active.pendingQuestion?.entry, ...(state.plan ?? []), ...(state.queue ?? [])];
+  if (entries.every((e) => e?.kind !== 'prompt' || known.has(e.promptType))) return active;
+  await ctx.store.completeSession(active.id);
+  return null;
+}
+
 export async function requireEnrollment(ctx: ServiceContext): Promise<EnrollmentRecord> {
   const enrollment = await ctx.store.getEnrollment(ctx.course.slug);
   if (!enrollment) throw new ServiceError('not_enrolled');
@@ -43,7 +59,7 @@ export async function loadTurn(
   input: SubmissionInput,
   kind: SessionKind,
 ): Promise<{ active: SessionRecord; pending: PendingQuestion }> {
-  const active = await ctx.store.getActiveSession(ctx.course.slug);
+  const active = await getLiveSession(ctx);
   if (!active || active.id !== input.sessionId || active.kind !== kind) throw new ServiceError('no_active_session');
   const pending = active.pendingQuestion;
   if (!pending || pending.questionId !== input.questionId) throw new ServiceError('stale_question');

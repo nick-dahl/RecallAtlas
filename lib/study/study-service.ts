@@ -16,7 +16,18 @@ import {
   type StudySession,
 } from '@/lib/engine';
 import type { ServiceContext } from './context';
-import { answerLog, confusionFor, feedbackFor, gradeAnswer, issue, loadTurn, requireEnrollment, view, withConflictRetry } from './turn';
+import {
+  answerLog,
+  confusionFor,
+  feedbackFor,
+  getLiveSession,
+  gradeAnswer,
+  issue,
+  loadTurn,
+  requireEnrollment,
+  view,
+  withConflictRetry,
+} from './turn';
 import {
   ServiceError,
   type EndReason,
@@ -74,7 +85,7 @@ async function startStudyAttempt(ctx: ServiceContext, opts: { mode?: StudyMode; 
   if (!enrollment.placementCompletedAt) throw new ServiceError('placement_pending');
 
   const mode = opts.mode ?? 'normal';
-  const active = await store.getActiveSession(course.slug);
+  const active = await getLiveSession(ctx);
   if (active?.kind === 'exam') throw new ServiceError('exam_in_progress');
   if (
     active?.kind === 'study' &&
