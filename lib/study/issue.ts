@@ -1,10 +1,13 @@
 import {
+  acceptedAnswers,
+  blameFor,
   buildQuestion,
   getItem,
   gradeChoice,
   gradeOrder,
   gradeTyped,
   isTypedFormat,
+  normalize,
   type AnswerGrade,
   type Confusion,
   type CourseDef,
@@ -69,7 +72,16 @@ export function gradeSubmission(
   const promptType = entry.kind === 'prompt' ? course.promptTypes.find((p) => p.id === entry.promptType) : undefined;
   const grade = gradeResponse(pending, response, course, maps);
   // Some prompts (party) never count a miss as mixing up two items.
-  return promptType?.recordsConfusions === false ? { ...grade, answeredItemKey: null } : grade;
+  if (promptType?.recordsConfusions === false) return { ...grade, answeredItemKey: null };
+  if (!promptType || !grade.answeredItemKey || response.kind !== 'choice' || !promptType.distinctChoices) return grade;
+  // A picked option shows a label several items may share (an artist with four works). As with a typed
+  // answer, the mix-up is with its only owner, else a look-alike of the target, else nobody; and
+  // "Anonymous" names no particular work at all.
+  const field = promptType.answerField ?? 'name';
+  const label = normalize(acceptedAnswers(getItem(course, grade.answeredItemKey), field)[0] ?? '');
+  if (promptType.ambiguous?.some((a) => normalize(a) === label)) return { ...grade, answeredItemKey: null };
+  const owners = course.items.filter((i) => normalize(acceptedAnswers(i, field)[0] ?? '') === label);
+  return { ...grade, answeredItemKey: blameFor(owners, getItem(course, entry.itemKey), promptType.exactAnswer) };
 }
 
 function gradeResponse(pending: PendingQuestion, response: AnswerResponse, course: CourseDef, maps?: MapSupport): AnswerGrade {
@@ -84,7 +96,7 @@ function gradeResponse(pending: PendingQuestion, response: AnswerResponse, cours
       const field = promptType?.answerField ?? 'name';
       return gradeTyped(response.text, getItem(course, target), course.items, field, {
         exact: promptType?.exactAnswer,
-        ambiguous: field === 'name' ? course.ambiguousAnswers : undefined,
+        ambiguous: promptType?.ambiguous ?? (field === 'name' ? course.ambiguousAnswers : undefined),
       });
     }
     case 'order': {

@@ -1,4 +1,5 @@
 import type { CourseDef } from '@/lib/engine/types';
+import { GREAT_PAINTINGS } from './great-paintings';
 import { US_PRESIDENTS } from './us-presidents';
 import { WORLD_CAPITALS } from './world-capitals';
 import { WORLD_FLAGS } from './world-flags';
@@ -9,6 +10,7 @@ const COURSES: Record<string, CourseDef> = {
   [WORLD_MAP.slug]: WORLD_MAP,
   [US_PRESIDENTS.slug]: US_PRESIDENTS,
   [WORLD_CAPITALS.slug]: WORLD_CAPITALS,
+  [GREAT_PAINTINGS.slug]: GREAT_PAINTINGS,
 };
 
 export function getCourse(slug: string): CourseDef | null {

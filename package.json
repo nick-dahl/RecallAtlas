@@ -15,7 +15,8 @@
     "test:e2e": "playwright test",
     "db:push": "tsx scripts/db-push.ts",
     "admin:set-password": "tsx scripts/set-admin-password.ts",
-    "content:portraits": "tsx scripts/fetch-portraits.ts"
+    "content:portraits": "tsx scripts/fetch-portraits.ts",
+    "content:paintings": "tsx scripts/fetch-paintings.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

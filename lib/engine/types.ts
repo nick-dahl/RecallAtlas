@@ -65,6 +65,13 @@ export interface PromptTypeDef {
   distinctChoices?: boolean;
   /** False: wrong answers are never recorded as mix-ups (e.g. party). Default true. */
   recordsConfusions?: boolean;
+  /** Answers that name no item in particular ("Anonymous"): right only for an item that has them, never a mix-up. */
+  ambiguous?: string[];
+  /**
+   * An answer several items share ("Anonymous"). Kept out of the ordinary draw, then shown as a
+   * wrong option at a rate that makes an option carrying it right about 1 time in N.
+   */
+  sharedAnswer?: string;
   formats: Record<QuestionRung, FormatSpec>;
 }
 
@@ -74,6 +81,8 @@ export interface CourseDef {
   placementPromptType: string;
   /** Prompt types a correct placement answer graduates (default: all). */
   placementGraduates?: string[];
+  /** When an item partly fast-tracked by placement is introduced, its other prompts start at this level. */
+  placementHeadStart?: 2;
   promptTypes: PromptTypeDef[];
   items: Item[];
   /** Pairs never shown together in a put-in-order question (no single chronological order). */

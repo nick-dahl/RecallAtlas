@@ -44,3 +44,33 @@ export interface PresidentRecord {
   wikipedia: string;
   commonsFile?: string;
 }
+
+export interface PaintingRecord {
+  key: string;
+  title: string;
+  titleAliases: string[];
+  artist: string;
+  artistAliases: string[];
+  /** Display text, e.g. "c. 1503–1519". */
+  year: string;
+  movement: string;
+  /** Boundary movements never offered as wrong answers. */
+  alsoMovements: string[];
+  museum: string;
+  /** 1 = introduced first. Also the reference-view address (/api/painting-art/<fame>). */
+  fame: number;
+  /** Index of the movement in room order (course home). */
+  room: number;
+  /** Movement position for "neighbouring movement" distractors. */
+  neighbour: number;
+  /** Same-artist works, then subject look-alikes. */
+  lookalikes: string[];
+  detail: boolean;
+}
+
+export interface PaintingSource {
+  file: string;
+  page: string;
+  license: string;
+  author?: string;
+}

@@ -6,12 +6,14 @@ import { ItemImage } from '@/components/ui/item-image';
 import { Kbd } from '@/components/ui/kbd';
 import type { FeedbackView, QuestionView } from '@/lib/study/types';
 import { useHotkeys } from './use-hotkeys';
+import { paintingFeedback } from '@/lib/ui/painting-feedback';
 import { presidentFacts } from '@/lib/ui/president-facts';
 
 /** What went right or wrong, in the terms of the question that was asked. */
 function message(view: QuestionView, f: FeedbackView): { headline: string; detail?: string } {
   const { answer, given } = f;
   const onMap = view.format === 'map-click' || view.format === 'map-pick';
+  if (answer.painting) return paintingFeedback(view.prompt.asks, f);
   if (view.format === 'order') {
     if (f.correct) return { headline: 'Correct order' };
     return { headline: 'Not quite', detail: `The right order: ${(f.order ?? []).join(' → ')}` };

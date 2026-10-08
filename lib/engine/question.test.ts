@@ -3,6 +3,7 @@ import { buildQuestion, rungForState } from './question';
 import { seededRng } from './random';
 import { newPromptState } from './state';
 import { TEST_COURSE, TEST_MAP_COURSE, TEST_SEQ_COURSE } from './test-fixtures';
+import type { CourseDef, Item } from './types';
 
 const base = { course: TEST_COURSE, confusions: [], rng: seededRng(11) };
 
@@ -118,5 +119,46 @@ describe('buildQuestion for sequence courses', () => {
   it('issues the gap formats', () => {
     expect(q('s2', 'sequence', 1).format).toBe('gap-choice');
     expect(q('s2', 'sequence', 3)).toEqual({ entry: { kind: 'prompt', itemKey: 's2', promptType: 'sequence' }, format: 'gap-typed' });
+  });
+});
+
+describe('shared answers (Anonymous) are balanced', () => {
+  const N = 40;
+  const ANON = 4;
+  const items: Item[] = Array.from({ length: N }, (_, i) => ({
+    // Anonymous works sit in a group of their own, as in the real course, so an ordinary draw rarely shows them.
+    key: `p${i}`, name: `Painting ${i}`, aliases: [], group: i < ANON ? 'ancient' : `g${i % 3}`, groupOrder: 1, itemOrder: i, lookalikes: [],
+    answers: { artist: { text: i < ANON ? 'Anonymous' : `Artist ${i}`, aliases: [] } },
+  }));
+  const course: CourseDef = {
+    slug: 'test-shared', title: 'Shared', placementPromptType: 'artist', items,
+    promptTypes: [{ id: 'artist', label: 'Artist', answerField: 'artist', distinctChoices: true, sharedAnswer: 'Anonymous',
+      formats: { 1: { format: 'mc-text', choices: 4, distractors: 'local' }, 2: { format: 'mc-text', choices: 6, distractors: 'hard' }, 3: { format: 'typed' } } }],
+  };
+  const isAnon = (k: string) => Number(k.slice(1)) < ANON;
+
+  it('shows Anonymous on named works often enough that it is right about 1 time in 4', () => {
+    let shownOnNamed = 0;
+    let named = 0;
+    for (let seed = 0; seed < 200; seed++) {
+      for (const [i, item] of items.filter((it) => !isAnon(it.key)).entries()) {
+        // A seed per question: reusing one seed across items would make them one draw, not 36.
+        const q = buildQuestion({ entry: { kind: 'prompt', itemKey: item.key, promptType: 'artist' }, rung: 1, course, confusions: [], rng: seededRng(seed * 1000 + i) });
+        const anons = q.choiceKeys!.filter(isAnon).length;
+        expect(anons).toBeLessThanOrEqual(1);
+        shownOnNamed += anons;
+        named++;
+      }
+    }
+    // Expected rate q = (4 - 1) × 4 / 36 = 1/3 per named question, so P(right | shown) = 4 / (4 + 36q) = 1/4.
+    expect(shownOnNamed / named).toBeGreaterThan(0.29);
+    expect(shownOnNamed / named).toBeLessThan(0.38);
+  });
+
+  it('never shows a second Anonymous on an anonymous work', () => {
+    for (let seed = 0; seed < 50; seed++) {
+      const q = buildQuestion({ entry: { kind: 'prompt', itemKey: 'p0', promptType: 'artist' }, rung: 2, course, confusions: [], rng: seededRng(seed) });
+      expect(q.choiceKeys!.filter(isAnon)).toEqual(['p0']);
+    }
   });
 });

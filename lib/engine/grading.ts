@@ -6,6 +6,9 @@ export function normalize(input: string): string {
     .normalize('NFD')
     .replace(/\p{M}/gu, '')
     .toLowerCase()
+    .trim()
+    // A leading article, but not an initial: "A Bar at…" loses "A"; "A. Johnson" and "A Johnson" keep it.
+    .replace(/^(an?)\s+(?=\S+\s+\S)/, '')
     .replace(/&/g, ' and ')
     .replace(/['‘’ʼ´`]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
@@ -66,6 +69,17 @@ function wrong(answeredItemKey: string | null = null): AnswerGrade {
 }
 
 /**
+ * Who an exact wrong answer is a mix-up with. It's the answer's only owner if there's one;
+ * otherwise (an artist with several works) a look-alike of the target among them; otherwise
+ * nobody. Exact-match fields (years) never guess between owners.
+ */
+export function blameFor(owners: readonly Item[], target: Item, exact?: boolean): string | null {
+  if (owners.length === 1) return owners[0].key;
+  if (exact) return null;
+  return target.lookalikes.find((k) => owners.some((o) => o.key === k)) ?? null;
+}
+
+/**
  * Grades typed text against `field` ('name', or an `Item.answers` key such as 'capital').
  * `exact` turns off typo tolerance (years); an exact miss is a mix-up only when the answer
  * belongs to exactly one other item.
@@ -83,10 +97,13 @@ export function gradeTyped(
   // A form that names no one in particular is never right, and never blamed on one namesake.
   if (opts.ambiguous?.some((a) => normalize(a) === n)) return wrong();
 
-  const others = allItems.filter((i) => i.key !== target.key);
+  // An item that accepts one of the target's own answers (another work by the same artist) gives the
+  // same answer, so it is not a rival: it must neither win a typo tie nor be blamed for a miss.
+  const targetNames = new Set(namesOf(target, field));
+  const others = allItems.filter((i) => i.key !== target.key && !namesOf(i, field).some((n) => targetNames.has(n)));
   const exactOthers = others.filter((i) => namesOf(i, field).includes(n));
-  if (opts.exact) return wrong(exactOthers.length === 1 ? exactOthers[0].key : null);
-  if (exactOthers.length > 0) return wrong(exactOthers[0].key);
+  if (exactOthers.length > 0) return wrong(blameFor(exactOthers, target, opts.exact));
+  if (opts.exact) return wrong();
 
   const targetDistance = typoDistance(n, target, field);
   let closestOther: { key: string; d: number } | null = null;

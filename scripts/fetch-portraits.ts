@@ -7,47 +7,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
+import { fileInfo, leadImage, USER_AGENT } from './lib/commons';
 import { isPublicDomain } from './lib/portrait-license';
 import { PRESIDENTS, type PresidentEntry } from './presidents-data';
 
-const USER_AGENT = 'RecallAtlas content build (nicholasryandahl@gmail.com)';
 const OUT = path.join(process.cwd(), 'content', 'portraits');
 export const PORTRAIT_SIZE = { width: 240, height: 320 };
-
-async function api(host: string, params: Record<string, string>) {
-  const url = `https://${host}/w/api.php?${new URLSearchParams({ format: 'json', formatversion: '2', ...params })}`;
-  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
-  if (!res.ok) throw new Error(`${host} ${res.status}`);
-  return res.json();
-}
-
-const strip = (html?: string) => (html ?? '').replace(/<[^>]+>/g, '').trim();
-
-async function leadImage(article: string): Promise<string> {
-  const data = await api('en.wikipedia.org', { action: 'query', prop: 'pageimages', piprop: 'name', titles: article });
-  const name = data.query.pages[0]?.pageimage;
-  if (!name) throw new Error(`no lead image on ${article}`);
-  return name;
-}
-
-async function fileInfo(file: string) {
-  const data = await api('commons.wikimedia.org', {
-    action: 'query',
-    prop: 'imageinfo',
-    iiprop: 'url|extmetadata',
-    iiurlwidth: '900',
-    titles: `File:${file}`,
-  });
-  const info = data.query.pages[0]?.imageinfo?.[0];
-  if (!info) throw new Error(`File:${file} not found on Commons`);
-  const meta = info.extmetadata ?? {};
-  return {
-    thumb: info.thumburl as string,
-    page: info.descriptionurl as string,
-    license: { LicenseShortName: meta.LicenseShortName?.value, License: meta.License?.value },
-    artist: strip(meta.Artist?.value),
-  };
-}
 
 async function fetchOne(p: PresidentEntry) {
   const file = p.commonsFile ?? (await leadImage(p.wikipedia));

@@ -1,5 +1,6 @@
 import { MapFrame } from '@/components/map/map-frame';
 import { Flag } from '@/components/ui/flag';
+import { Painting } from '@/components/ui/painting';
 import { Portrait } from '@/components/ui/portrait';
 import { GapChain } from './gap-chain';
 import type { FeedbackView, QuestionView } from '@/lib/study/types';
@@ -24,11 +25,12 @@ export function Prompt({ view, feedback = null }: { view: QuestionView; feedback
       </div>
     );
   }
-  const { question, portrait, gap } = view.prompt;
+  const { question, portrait, gap, painting } = view.prompt;
   if (question !== undefined) {
-    // US Presidents: a portrait to name, a name to find, or a gap in the sequence.
+    // US Presidents: a portrait to name, a name to find, or a gap in the sequence. Paintings: a painting to name.
     return (
       <div className="space-y-5 text-center">
+        {painting && <Painting src={painting} detail={view.prompt.detail} eager maxHeight="50vh" className="mx-auto w-fit max-w-full" />}
         {portrait && (
           <div className="mx-auto w-36 sm:w-44">
             <Portrait src={portrait} eager />

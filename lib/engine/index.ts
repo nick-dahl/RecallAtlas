@@ -2,7 +2,7 @@ export * from './types';
 export { ENGINE_CONFIG } from './config';
 export { seededRng, shuffle, randInt } from './random';
 export { newPromptState, initialStates, hydrateStates, stateKey, indexStates, getItem } from './state';
-export { normalize, editDistance, gradeTyped, gradeChoice, acceptedAnswers } from './grading';
+export { normalize, editDistance, gradeTyped, gradeChoice, acceptedAnswers, blameFor } from './grading';
 export { gradeOrder } from './order';
 export { introduce, applyLearningAnswer, type LadderOutcome } from './ladder';
 export { graduate, applyReview, isDue, retrievability, type ReviewGrade } from './scheduler';

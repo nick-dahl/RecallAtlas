@@ -73,10 +73,15 @@ export function applyIntro(args: {
   session: StudySession;
   itemKey: string;
   states: readonly PromptState[];
+  /** Level the item's new prompts start at (placement head start); default 1. */
+  rung?: 1 | 2;
 }): { session: StudySession; states: PromptState[] } {
   return {
     session: recordIntroServed(args.session, args.itemKey),
-    states: args.states.map((s) => (s.itemKey === args.itemKey ? introduce(s) : s)),
+    states: args.states.map((s) => {
+      if (s.itemKey !== args.itemKey || s.phase !== 'new') return s;
+      return { ...introduce(s), rung: args.rung ?? 1 };
+    }),
   };
 }
 

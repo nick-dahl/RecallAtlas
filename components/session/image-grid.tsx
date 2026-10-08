@@ -6,10 +6,11 @@ import { Prompt } from './prompt';
 import type { RendererProps } from './types';
 import { useHotkeys } from './use-hotkeys';
 
-/** Name → Flag and Name → Portrait: pick the picture from a grid of 4–8 (keys 1–8). */
+/** Name → Flag, Name → Portrait and Title → Painting: pick the picture from a grid of 4–8 (keys 1–8). */
 export function ImageGrid({ view, locked, feedback, chosenId, onAnswer }: RendererProps) {
   const choices = view.choices ?? [];
   const portraits = choices.some((c) => c.portrait);
+  const paintings = choices.some((c) => c.painting);
   const pick = (i: number) => {
     const c = choices[i];
     if (c && !locked) onAnswer({ kind: 'choice', choiceId: c.id }, c.id);
@@ -20,13 +21,13 @@ export function ImageGrid({ view, locked, feedback, chosenId, onAnswer }: Render
     <div className="space-y-10">
       <Prompt view={view} feedback={feedback} />
       <ol
-        className={`mx-auto grid gap-6 ${portraits ? 'max-w-2xl grid-cols-2 sm:grid-cols-4' : 'max-w-3xl grid-cols-2 sm:grid-cols-4'}`}
+        className={`mx-auto grid gap-6 ${paintings ? 'max-w-3xl grid-cols-2 sm:grid-cols-3 md:grid-cols-4' : portraits ? 'max-w-2xl grid-cols-2 sm:grid-cols-4' : 'max-w-3xl grid-cols-2 sm:grid-cols-4'}`}
       >
         {choices.map((c, i) => (
           <li key={c.id}>
             <ImageChoice
               id={c.id}
-              image={{ flag: c.flag, portrait: c.portrait }}
+              image={{ flag: c.flag, portrait: c.portrait, painting: c.painting }}
               index={i}
               state={choiceState(c, feedback, chosenId)}
               disabled={locked}

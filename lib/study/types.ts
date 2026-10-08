@@ -61,7 +61,7 @@ export interface QuestionView {
     flag?: string;
     question?: string;
     /** Typed questions: what the learner answers with. */
-    asks?: 'name' | 'capital' | 'year' | 'party' | 'president' | 'country';
+    asks?: 'name' | 'capital' | 'year' | 'party' | 'president' | 'country' | 'title' | 'artist' | 'movement';
     capital?: string;
     capitalNote?: string;
     /** Presidents: the portrait being asked about, or shown on an intro. */
@@ -71,8 +71,15 @@ export interface QuestionView {
     numbers?: number[];
     startYears?: number[];
     party?: string;
+    /** Great Paintings: the painting asked about (or introduced), and whether it is a detail. */
+    painting?: string;
+    detail?: boolean;
+    artist?: string;
+    year?: string;
+    movement?: string;
+    museum?: string;
   };
-  choices?: { id: string; label?: string; flag?: string; portrait?: string }[];
+  choices?: { id: string; label?: string; flag?: string; portrait?: string; painting?: string }[];
   /** Contrast drills: the two confused items side by side, labelled. */
   pair?: ItemView[];
   map?: MapView;
@@ -89,6 +96,13 @@ export interface ItemView {
   numbers?: number[];
   startYears?: number[];
   party?: string;
+  /** Great Paintings. */
+  painting?: string;
+  detail?: boolean;
+  artist?: string;
+  year?: string;
+  movement?: string;
+  museum?: string;
 }
 
 export interface FeedbackView {

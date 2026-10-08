@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { days, TEST_COURSE } from '@/lib/engine/test-fixtures';
+import { applyPlacementAnswer, initialStates } from '@/lib/engine';
+import { days, NOW, TEST_COURSE } from '@/lib/engine/test-fixtures';
 import { endStudy, startStudy, submitStudyAnswer } from './study-service';
 import { allGraduated, correctResponse, enrolledStore, pendingFor, testContext, wrongChoice } from './test-helpers';
 import { ServiceError, type TurnResult } from './types';
@@ -211,5 +212,33 @@ describe('practice ahead', () => {
     const practice = await startStudy(testContext(store), { mode: 'practice-ahead' });
     expect(practice.next!.sessionId).not.toBe(normal.next!.sessionId);
     expect((await startStudy(testContext(store), { mode: 'practice-ahead' })).next!.sessionId).toBe(practice.next!.sessionId);
+  });
+});
+
+describe('placement head start', () => {
+  it('introduces a placed item’s remaining prompts at level 2, through the intro card', async () => {
+    const [first, ...rest] = TEST_COURSE.promptTypes.map((p) => p.id);
+    const course = { ...TEST_COURSE, placementGraduates: [first], placementHeadStart: 2 as const };
+    const { store } = await enrolledStore({ placementDone: true, course });
+    const placed = applyPlacementAnswer({ course, states: initialStates(course), itemKey: course.items[0].key, correct: true, now: NOW });
+    store.seedPromptStates(course.slug, placed.filter((s) => s.itemKey === course.items[0].key));
+    const ctx = testContext(store, { course });
+
+    const turn = await startStudy(ctx);
+    expect(turn.next).toMatchObject({ format: 'intro' });
+    await submitStudyAnswer(ctx, { sessionId: turn.next!.sessionId, questionId: turn.next!.questionId, response: { kind: 'ack' } });
+
+    const states = (await store.getPromptStates(course.slug)).filter((s) => s.itemKey === course.items[0].key);
+    for (const id of rest) expect(states.find((s) => s.promptType === id)).toMatchObject({ phase: 'learning', rung: 2 });
+    expect(states.find((s) => s.promptType === first)).toMatchObject({ phase: 'review' });
+  });
+
+  it('leaves courses without it introducing at level 1', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    const ctx = testContext(store);
+    const turn = await startStudy(ctx);
+    await submitStudyAnswer(ctx, { sessionId: turn.next!.sessionId, questionId: turn.next!.questionId, response: { kind: 'ack' } });
+    const states = await store.getPromptStates(SLUG);
+    expect(states.filter((s) => s.phase === 'learning').every((s) => s.rung === 1)).toBe(true);
   });
 });
