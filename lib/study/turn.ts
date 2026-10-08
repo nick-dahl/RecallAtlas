@@ -132,9 +132,11 @@ export function confusionFor(pending: PendingQuestion, grade: AnswerGrade): { as
 
 export function feedbackFor(ctx: ServiceContext, pending: PendingQuestion, grade: AnswerGrade): FeedbackView {
   const map = ctx.presenter.feedbackMap?.(pending, grade);
+  const answerChoice = pending.choices.find((c) => c.itemKey === pending.entry.itemKey);
   return {
     correct: grade.correct,
     typo: grade.typo,
+    ...(answerChoice ? { answerChoiceId: answerChoice.id } : {}),
     answer: ctx.presenter.item(pending.entry.itemKey),
     given: grade.answeredItemKey ? ctx.presenter.item(grade.answeredItemKey) : undefined,
     ...(map ? { map } : {}),

@@ -242,3 +242,20 @@ describe('placement head start', () => {
     expect(states.filter((s) => s.phase === 'learning').every((s) => s.rung === 1)).toBe(true);
   });
 });
+
+describe('feedback names the right option (paintings regression)', () => {
+  it('carries the id of the correct choice, also after a wrong pick', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    const ctx = testContext(store);
+    let turn = await startStudy(ctx);
+    while (turn.next && !turn.next.choices) {
+      turn = await answer(ctx, turn, correctResponse(await pendingFor(store)));
+    }
+    const pending = await pendingFor(store);
+    const right = pending.choices.find((c) => c.itemKey === pending.entry.itemKey)!.id;
+    const wrong = wrongChoice(pending);
+    const result = await answer(ctx, turn, { kind: 'choice', choiceId: wrong.choiceId });
+    expect(result.feedback).toMatchObject({ correct: false, answerChoiceId: right });
+  });
+});
+

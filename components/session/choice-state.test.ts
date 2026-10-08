@@ -44,3 +44,28 @@ describe('choiceState for presidents', () => {
     expect(choiceState({ id: '2', portrait: 'q' }, president, '2')).toBe('wrong');
   });
 });
+
+describe('choiceState from the server’s answer choice (paintings regression)', () => {
+  const painting = {
+    correct: true,
+    typo: false,
+    answerChoiceId: 'c2',
+    answer: { name: 'The Night Watch', painting: 'data:nw', artist: 'Rembrandt', movement: 'Dutch Golden Age' },
+  };
+
+  it('marks a correctly picked painting right, never red', () => {
+    expect(choiceState({ id: 'c2', painting: 'thumb:nw' }, painting, 'c2')).toBe('correct');
+    expect(choiceState({ id: 'c1', painting: 'thumb:x' }, painting, 'c2')).toBe('dim');
+  });
+
+  it('marks a correct artist or movement label right, though it is not the painting’s name', () => {
+    expect(choiceState({ id: 'c2', label: 'Rembrandt' }, painting, 'c2')).toBe('correct');
+    expect(choiceState({ id: 'c2', label: 'Dutch Golden Age' }, painting, 'c2')).toBe('correct');
+  });
+
+  it('on a miss, marks the pick wrong and the server’s answer right', () => {
+    const miss = { ...painting, correct: false };
+    expect(choiceState({ id: 'c1', label: 'Vermeer' }, miss, 'c1')).toBe('wrong');
+    expect(choiceState({ id: 'c2', label: 'Rembrandt' }, miss, 'c1')).toBe('correct');
+  });
+});
