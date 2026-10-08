@@ -43,7 +43,7 @@ function simulate(totalDays: number) {
         if (!entry) break;
         if (entry.kind === 'intro') {
           intros.push(entry.itemKey);
-          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states }));
+          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states, course }));
           continue;
         }
         if (entry.kind === 'contrast') {
@@ -94,8 +94,8 @@ describe('World Capitals learner simulation', () => {
   });
 
   it('keeps learning the unplaced regions', () => {
-    // Observed when written: 92 of the 151 unplaced countries fully learned (both directions) in 30 days.
-    expect(learnedItems(result.states) - placedKeys.size).toBeGreaterThanOrEqual(80);
+    // Observed with quick start: 145 of the 151 unplaced countries fully learned (both directions) in 30 days (92 before).
+    expect(learnedItems(result.states) - placedKeys.size).toBeGreaterThanOrEqual(123);
   });
 
 });

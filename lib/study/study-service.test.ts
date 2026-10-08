@@ -215,10 +215,21 @@ describe('practice ahead', () => {
   });
 });
 
-describe('placement head start', () => {
-  it('introduces a placed item’s remaining prompts at level 2, through the intro card', async () => {
+describe('quick start for new prompts', () => {
+  it('introduces every new prompt at level 2 with one correct answer banked', async () => {
+    const { store } = await enrolledStore({ placementDone: true });
+    const ctx = testContext(store);
+    const turn = await startStudy(ctx);
+    expect(turn.next).toMatchObject({ format: 'intro' });
+    await submitStudyAnswer(ctx, { sessionId: turn.next!.sessionId, questionId: turn.next!.questionId, response: { kind: 'ack' } });
+    const learning = (await store.getPromptStates(SLUG)).filter((s) => s.phase === 'learning');
+    expect(learning.length).toBeGreaterThan(0);
+    expect(learning.every((s) => s.rung === 2 && s.streak === 1)).toBe(true);
+  });
+
+  it('starts a placed item’s remaining prompts the same way, through the intro card', async () => {
     const [first, ...rest] = TEST_COURSE.promptTypes.map((p) => p.id);
-    const course = { ...TEST_COURSE, placementGraduates: [first], placementHeadStart: 2 as const };
+    const course = { ...TEST_COURSE, placementGraduates: [first] };
     const { store } = await enrolledStore({ placementDone: true, course });
     const placed = applyPlacementAnswer({ course, states: initialStates(course), itemKey: course.items[0].key, correct: true, now: NOW });
     store.seedPromptStates(course.slug, placed.filter((s) => s.itemKey === course.items[0].key));
@@ -229,17 +240,8 @@ describe('placement head start', () => {
     await submitStudyAnswer(ctx, { sessionId: turn.next!.sessionId, questionId: turn.next!.questionId, response: { kind: 'ack' } });
 
     const states = (await store.getPromptStates(course.slug)).filter((s) => s.itemKey === course.items[0].key);
-    for (const id of rest) expect(states.find((s) => s.promptType === id)).toMatchObject({ phase: 'learning', rung: 2 });
+    for (const id of rest) expect(states.find((s) => s.promptType === id)).toMatchObject({ phase: 'learning', rung: 2, streak: 1 });
     expect(states.find((s) => s.promptType === first)).toMatchObject({ phase: 'review' });
-  });
-
-  it('leaves courses without it introducing at level 1', async () => {
-    const { store } = await enrolledStore({ placementDone: true });
-    const ctx = testContext(store);
-    const turn = await startStudy(ctx);
-    await submitStudyAnswer(ctx, { sessionId: turn.next!.sessionId, questionId: turn.next!.questionId, response: { kind: 'ack' } });
-    const states = await store.getPromptStates(SLUG);
-    expect(states.filter((s) => s.phase === 'learning').every((s) => s.rung === 1)).toBe(true);
   });
 });
 

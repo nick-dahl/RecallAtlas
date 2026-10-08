@@ -47,9 +47,7 @@ function simulate(totalDays: number) {
         if (!entry) break;
         if (entry.kind === 'intro') {
           intros.push(entry.itemKey);
-          // As the study service does: an item placement partly fast-tracked starts its other prompts higher.
-          const partlyPlaced = states.some((s) => s.itemKey === entry.itemKey && s.phase !== 'new');
-          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states, rung: partlyPlaced ? 2 : 1 }));
+          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states, course }));
         } else if (entry.kind === 'contrast') {
           contrasts.push(`${entry.itemKey}>${entry.otherKey}`);
           session = applyContrast(session);
@@ -101,11 +99,11 @@ describe('Great Paintings learner simulation', () => {
     expect(result.intros.slice(0, 3)).toEqual(['mona-lisa', 'starry-night', 'last-supper']);
   });
 
-  it('starts the placed paintings’ artist and movement at level 2, the others at level 1', () => {
+  it('starts every new prompt at level 2 (quick start), placed or not', () => {
     expect(result.firstRungOf('mona-lisa', 'image_to_artist')).toBe(2);
     expect(result.firstRungOf('mona-lisa', 'image_to_movement')).toBe(2);
     const unplaced = result.intros.find((k) => !result.placed.has(k))!;
-    expect(result.firstRungOf(unplaced, 'image_to_title')).toBe(1);
+    expect(result.firstRungOf(unplaced, 'image_to_title')).toBe(2);
   });
 
   it('never floods learning after a generous placement (Review Focus 5)', () => {
@@ -118,7 +116,7 @@ describe('Great Paintings learner simulation', () => {
   });
 
   it('keeps learning paintings', () => {
-    // Observed when written: 42 paintings fully learned (all four prompts) in 14 days.
-    expect(learnedItems(result.states)).toBeGreaterThanOrEqual(36);
+    // Observed with quick start (new prompts start at level 2): 57 paintings fully learned in 14 days (42 before).
+    expect(learnedItems(result.states)).toBeGreaterThanOrEqual(48);
   });
 });

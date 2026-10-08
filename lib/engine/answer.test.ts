@@ -4,7 +4,7 @@ import { graduate } from './scheduler';
 import { queueContrast, startStudySession } from './session';
 import { initialStates, newPromptState } from './state';
 import { NOW } from './test-fixtures';
-import type { AnswerGrade, Confusion, PromptState, Rung } from './types';
+import type { AnswerGrade, Confusion, CourseDef, PromptState, Rung } from './types';
 
 const RIGHT: AnswerGrade = { correct: true, typo: false, answeredItemKey: null };
 const TYPO: AnswerGrade = { correct: true, typo: true, answeredItemKey: null };
@@ -87,21 +87,36 @@ describe('applyStudyAnswer', () => {
 });
 
 describe('applyIntro', () => {
-  it('introduces every prompt of the item and counts the intro', () => {
-    const states = initialStates({
-      slug: 't',
-      title: 't',
-      placementPromptType: 'flag_to_name',
-      promptTypes: [
-        { id: 'flag_to_name', label: '', formats: { 1: { format: 'typed' }, 2: { format: 'typed' }, 3: { format: 'typed' } } },
-        { id: 'name_to_flag', label: '', formats: { 1: { format: 'typed' }, 2: { format: 'typed' }, 3: { format: 'typed' } } },
-      ],
-      items: [{ key: 'TD', name: 'Chad', aliases: [], group: 'g', groupOrder: 1, itemOrder: 1, lookalikes: [] }],
-    });
-    const r = applyIntro({ session: startStudySession(), itemKey: 'TD', states });
-    expect(r.states.every((s) => s.phase === 'learning' && s.rung === 1)).toBe(true);
+  const course = {
+    slug: 't',
+    title: 't',
+    placementPromptType: 'flag_to_name',
+    promptTypes: [
+      { id: 'flag_to_name', label: '', formats: { 1: { format: 'typed' }, 2: { format: 'typed' }, 3: { format: 'typed' } } },
+      { id: 'sequence', label: '', fullLadder: true, formats: { 1: { format: 'typed' }, 2: { format: 'typed' }, 3: { format: 'typed' } } },
+    ],
+    items: [{ key: 'TD', name: 'Chad', aliases: [], group: 'g', groupOrder: 1, itemOrder: 1, lookalikes: [] }],
+  } satisfies CourseDef;
+  const intro = () => applyIntro({ session: startStudySession(), itemKey: 'TD', states: initialStates(course), course });
+  const stateOf = (states: PromptState[], id: string) => states.find((s) => s.promptType === id)!;
+
+  it('starts a new prompt at level 2 with one correct answer banked, and counts the intro', () => {
+    const r = intro();
+    expect(stateOf(r.states, 'flag_to_name')).toMatchObject({ phase: 'learning', rung: 2, streak: 1 });
     expect(r.session.newItemsIntroduced).toBe(1);
     expect(r.session.answered).toBe(0);
+  });
+
+  it('keeps the full ladder (level 1, nothing banked) for prompt types that opt out', () => {
+    expect(stateOf(intro().states, 'sequence')).toMatchObject({ phase: 'learning', rung: 1, streak: 0 });
+  });
+
+  it('right first time goes straight to the top level; wrong first time drops to level 1 as before', () => {
+    const fresh = stateOf(intro().states, 'flag_to_name');
+    const right = applyStudyAnswer({ session: startStudySession(), state: fresh, confusions: [], grade: RIGHT, now: NOW });
+    expect(right.state).toMatchObject({ rung: 3, streak: 0 });
+    const wrong = applyStudyAnswer({ session: startStudySession(), state: fresh, confusions: [], grade: WRONG_RO, now: NOW });
+    expect(wrong.state).toMatchObject({ rung: 1, streak: 0 });
   });
 });
 

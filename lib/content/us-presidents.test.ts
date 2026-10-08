@@ -6,6 +6,10 @@ import { presidentRecord, US_PRESIDENTS } from './us-presidents';
 const item = (key: string) => US_PRESIDENTS.items.find((i) => i.key === key)!;
 
 describe('US_PRESIDENTS', () => {
+  it('keeps the full ladder (fill the gap first) only for Sequence', () => {
+    expect(US_PRESIDENTS.promptTypes.filter((p) => p.fullLadder).map((p) => p.id)).toEqual(['sequence']);
+  });
+
   it('has 45 items, six prompt types, and places on Number → Name graduating Number → Name and Sequence', () => {
     expect(US_PRESIDENTS.items).toHaveLength(45);
     expect(US_PRESIDENTS.promptTypes.map((p) => p.id)).toEqual([

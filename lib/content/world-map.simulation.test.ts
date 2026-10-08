@@ -43,7 +43,7 @@ function simulate(totalDays: number) {
         if (!entry) break;
         if (entry.kind === 'intro') {
           intros.push(entry.itemKey);
-          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states }));
+          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states, course }));
           continue;
         }
         if (entry.kind === 'contrast') {
@@ -94,7 +94,7 @@ describe('World Map learner simulation (Find and Name only)', () => {
   });
 
   it('keeps learning the unplaced regions', () => {
-    // Observed when written: 77 of the 119 unplaced countries fully learned (both prompts) in 30 days.
-    expect(learnedItems(result.states) - placedKeys.size).toBeGreaterThanOrEqual(65);
+    // Observed with quick start: all 119 unplaced countries fully learned (both prompts) in 30 days (77 before).
+    expect(learnedItems(result.states) - placedKeys.size).toBeGreaterThanOrEqual(101);
   });
 });

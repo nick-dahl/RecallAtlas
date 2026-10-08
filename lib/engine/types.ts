@@ -72,6 +72,11 @@ export interface PromptTypeDef {
    * wrong option at a rate that makes an option carrying it right about 1 time in N.
    */
   sharedAnswer?: string;
+  /**
+   * New prompts normally start at level 2 with one correct answer banked (quick start). True keeps
+   * the full ladder from level 1 (e.g. Presidents' Sequence, which starts with fill-the-gap).
+   */
+  fullLadder?: true;
   formats: Record<QuestionRung, FormatSpec>;
 }
 
@@ -81,8 +86,6 @@ export interface CourseDef {
   placementPromptType: string;
   /** Prompt types a correct placement answer graduates (default: all). */
   placementGraduates?: string[];
-  /** When an item partly fast-tracked by placement is introduced, its other prompts start at this level. */
-  placementHeadStart?: 2;
   promptTypes: PromptTypeDef[];
   items: Item[];
   /** Pairs never shown together in a put-in-order question (no single chronological order). */

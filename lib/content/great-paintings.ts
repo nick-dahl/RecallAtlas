@@ -22,9 +22,8 @@ export const GREAT_PAINTINGS: CourseDef = {
   slug: 'great-paintings',
   title: 'Great Paintings',
   placementPromptType: 'image_to_title',
-  // Knowing the title shows the painting is known; its artist and movement are still taught, from level 2.
+  // Knowing the title shows the painting is known; its artist and movement are still taught.
   placementGraduates: ['image_to_title', 'title_to_image'],
-  placementHeadStart: 2,
   promptTypes: PAINTING_PROMPT_TYPES,
   items: paintings.map((p) => ({
     key: p.key,
