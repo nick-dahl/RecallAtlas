@@ -58,4 +58,12 @@ describe('GREAT_PAINTINGS', () => {
   it('has a blurb with the real count', () => {
     expect(COURSE_BLURB['great-paintings']).toBe(`${course.items.length} of the world's great paintings: title, artist and movement.`);
   });
+
+  it('passes a misspelled artist with several works as a typo, blaming nobody (review fix)', () => {
+    const grade = (text: string, key: string) =>
+      gradeTyped(text, item(key), course.items, 'artist', { ambiguous: course.promptTypes[1].ambiguous });
+    for (const [text, key] of [['Rembrant', 'night-watch'], ['Vermer', 'milkmaid'], ['van Gough', 'starry-night'], ['Caravagio', 'calling-of-st-matthew'], ['Anonymus', 'lascaux']] as const) {
+      expect(grade(text, key), `${text} on ${key}`).toEqual({ correct: true, typo: true, answeredItemKey: null });
+    }
+  });
 });

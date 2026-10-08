@@ -15,4 +15,11 @@ describe('paintingFeedback', () => {
     expect(paintingFeedback('movement', { correct: true, typo: false, answer }).headline).toBe('Correct: The Night Watch is Dutch Golden Age');
     expect(paintingFeedback(undefined, { correct: false, typo: false, answer }).headline).toBe('Not quite: that’s The Night Watch');
   });
+
+  it('notes the spelling when a misspelled artist passes (review fix)', () => {
+    expect(paintingFeedback('artist', { correct: true, typo: true, answer })).toEqual({
+      headline: 'Correct: The Night Watch is by Rembrandt (1642)',
+      detail: 'It’s spelled “Rembrandt”.',
+    });
+  });
 });

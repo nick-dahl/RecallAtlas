@@ -31,7 +31,8 @@ function textOutsideLabels(v: ReturnType<typeof view>): string {
   return JSON.stringify({ ...rest, prompt: promptRest, choices: choices?.map((c) => ({ ...c, label: undefined })) });
 }
 
-describe('capitalsPresenter leak rules (every country × direction × level)', () => {
+// Whole-course sweeps: seconds of work, more under a full parallel suite.
+describe('capitalsPresenter leak rules (every country × direction × level)', { timeout: 60_000 }, () => {
   it('country → capital names only the country, shows a locator map, and no capital outside choices', () => {
     for (const item of course.items) {
       for (const rung of [1, 2, 3] as const) {

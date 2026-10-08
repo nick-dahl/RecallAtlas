@@ -23,7 +23,8 @@ function text(v: ReturnType<typeof view>): string {
 }
 const lower = (s: string) => s.toLowerCase();
 
-describe('paintings leak rules (every painting × prompt × level)', () => {
+// Whole-course sweeps (246 paintings × 4 prompts × 3 levels): seconds of work, more under a full parallel suite.
+describe('paintings leak rules (every painting × prompt × level)', { timeout: 60_000 }, () => {
   const PROMPTS = ['image_to_title', 'image_to_artist', 'image_to_movement', 'title_to_image'];
   it('image questions name no title, artist or movement; title → image names only the title', () => {
     for (const item of course.items) {
@@ -81,5 +82,17 @@ describe('grading', () => {
     expect(presenter.item('night-watch')).toMatchObject({
       name: 'The Night Watch', artist: 'Rembrandt', year: '1642', movement: 'Dutch Golden Age', museum: 'Rijksmuseum, Amsterdam',
     });
+  });
+
+  it('resolves a picked artist like a typed one: their only work, else a look-alike, else nobody (review fix)', () => {
+    const pending: PendingQuestion = {
+      questionId: 'q', entry: { kind: 'prompt', itemKey: 'milkmaid', promptType: 'image_to_artist' }, rung: 1, format: 'mc-text',
+      choices: [{ id: 'own', itemKey: 'milkmaid' }, { id: 'rembrandt', itemKey: 'anatomy-lesson' }, { id: 'hooch', itemKey: 'courtyard-delft' }],
+      issuedAt: NOW.toISOString(),
+    };
+    // Rembrandt has four works, none a look-alike of The Milkmaid: no particular painting was confused.
+    expect(gradeSubmission(pending, { kind: 'choice', choiceId: 'rembrandt' }, course)).toEqual({ correct: false, typo: false, answeredItemKey: null });
+    // De Hooch's only work in the set is the one confused.
+    expect(gradeSubmission(pending, { kind: 'choice', choiceId: 'hooch' }, course)).toMatchObject({ correct: false, answeredItemKey: 'courtyard-delft' });
   });
 });

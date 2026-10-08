@@ -1,5 +1,6 @@
 import {
   acceptedAnswers,
+  blameFor,
   buildQuestion,
   getItem,
   gradeChoice,
@@ -72,12 +73,15 @@ export function gradeSubmission(
   const grade = gradeResponse(pending, response, course, maps);
   // Some prompts (party) never count a miss as mixing up two items.
   if (promptType?.recordsConfusions === false) return { ...grade, answeredItemKey: null };
-  // Picking "Anonymous" for a named work blames no particular anonymous work.
-  if (promptType?.ambiguous && grade.answeredItemKey) {
-    const label = acceptedAnswers(getItem(course, grade.answeredItemKey), promptType.answerField ?? 'name')[0] ?? '';
-    if (promptType.ambiguous.some((a) => normalize(a) === normalize(label))) return { ...grade, answeredItemKey: null };
-  }
-  return grade;
+  if (!promptType || !grade.answeredItemKey || response.kind !== 'choice' || !promptType.distinctChoices) return grade;
+  // A picked option shows a label several items may share (an artist with four works). As with a typed
+  // answer, the mix-up is with its only owner, else a look-alike of the target, else nobody; and
+  // "Anonymous" names no particular work at all.
+  const field = promptType.answerField ?? 'name';
+  const label = normalize(acceptedAnswers(getItem(course, grade.answeredItemKey), field)[0] ?? '');
+  if (promptType.ambiguous?.some((a) => normalize(a) === label)) return { ...grade, answeredItemKey: null };
+  const owners = course.items.filter((i) => normalize(acceptedAnswers(i, field)[0] ?? '') === label);
+  return { ...grade, answeredItemKey: blameFor(owners, getItem(course, entry.itemKey), promptType.exactAnswer) };
 }
 
 function gradeResponse(pending: PendingQuestion, response: AnswerResponse, course: CourseDef, maps?: MapSupport): AnswerGrade {

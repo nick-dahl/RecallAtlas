@@ -64,6 +64,8 @@ describe('typed names for namesakes (real course)', () => {
     ['F. D. Roosevelt', 'f-roosevelt', 't-roosevelt'],
     ['L. B. Johnson', 'l-johnson', 'a-johnson'],
     ['A. Johnson', 'a-johnson', 'l-johnson'],
+    // An initial without its dot is not an article (review fix: "A Johnson" must stay Andrew).
+    ['A Johnson', 'a-johnson', 'l-johnson'],
     ['B. Harrison', 'b-harrison', 'wh-harrison'],
     ['W. H. Harrison', 'wh-harrison', 'b-harrison'],
   ])('"%s" names %s, not %s', (text, owner, other) => {

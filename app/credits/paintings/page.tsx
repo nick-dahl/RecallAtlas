@@ -3,6 +3,7 @@ import sources from '@/content/paintings/sources.json';
 import { SiteHeader } from '@/components/site-header';
 import { GREAT_PAINTINGS, paintingRecord } from '@/lib/content/great-paintings';
 import type { PaintingSource } from '@/lib/content/types';
+import { licenseUrl } from '@/lib/ui/license-link';
 
 export const metadata: Metadata = { title: 'Painting image credits' };
 
@@ -31,7 +32,14 @@ export default function PaintingCreditsPage() {
                     <a href={s.page} className="break-all underline" rel="noopener noreferrer">
                       {s.file}
                     </a>
-                    , {s.license}
+                    ,{' '}
+                    {licenseUrl(s.license) ? (
+                      <a href={licenseUrl(s.license)!} className="underline" rel="noopener noreferrer license">
+                        {s.license}
+                      </a>
+                    ) : (
+                      s.license
+                    )}
                     {s.author ? `, photo by ${s.author}` : ''}
                   </>
                 ) : (

@@ -10,7 +10,7 @@ export function paintingFeedback(
   if (asks === 'artist') {
     return {
       headline: `${f.correct ? 'Correct' : 'Not quite'}: ${a.name} is by ${a.artist} (${a.year})`,
-      detail: given ? `${given.artist} painted ${given.name}.` : undefined,
+      detail: f.correct && f.typo ? `It’s spelled “${a.artist}”.` : given ? `${given.artist} painted ${given.name}.` : undefined,
     };
   }
   if (asks === 'movement') return { headline: `${f.correct ? 'Correct' : 'Not quite'}: ${a.name} is ${a.movement}`, detail: `${a.artist}, ${a.year}` };
