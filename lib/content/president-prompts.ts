@@ -22,7 +22,8 @@ export const PRESIDENT_PROMPT_TYPES: PromptTypeDef[] = [
       1: { format: 'mc-text', choices: 4, distractors: 'sequence', window: 6 },
       2: { format: 'mc-text', choices: 4, distractors: 'sequence', window: 6 },
       3: { format: 'mc-text', choices: 4, distractors: 'sequence', window: 6 } } },
-  { id: 'sequence', label: 'Sequence', formats: {
+  // Keeps the full ladder: fill the gap first, then put in order (no quick start).
+  { id: 'sequence', label: 'Sequence', fullLadder: true, formats: {
       1: { format: 'gap-choice', choices: 4, distractors: 'local' },
       2: { format: 'order', choices: 4, distractors: 'sequence' },
       3: { format: 'gap-typed' } } },

@@ -108,6 +108,8 @@ export interface ItemView {
 export interface FeedbackView {
   correct: boolean;
   typo: boolean;
+  /** Choice questions: the id of the right option, so the screen never has to guess it from labels or pictures. */
+  answerChoiceId?: string;
   answer: ItemView;
   /** The other item the learner's answer resolved to, if any. */
   given?: ItemView;

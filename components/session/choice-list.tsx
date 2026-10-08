@@ -31,6 +31,7 @@ export function ChoiceList({ view, locked, feedback, chosenId, onAnswer }: Rende
             <button
               type="button"
               data-choice-id={c.id}
+              data-state={choiceState(c, feedback, chosenId)}
               disabled={locked}
               onClick={() => pick(i)}
               className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left font-medium transition duration-150 ${CHOICE_STATE[choiceState(c, feedback, chosenId)]}`}

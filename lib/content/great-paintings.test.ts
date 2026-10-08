@@ -8,11 +8,10 @@ const course = GREAT_PAINTINGS;
 const item = (key: string) => course.items.find((i) => i.key === key)!;
 
 describe('GREAT_PAINTINGS', () => {
-  it('has four prompts and places on typed title, fast-tracking both title prompts with a head start', () => {
+  it('has four prompts and places on typed title, fast-tracking both title prompts', () => {
     expect(course.promptTypes.map((p) => p.id)).toEqual(['image_to_title', 'image_to_artist', 'title_to_image', 'image_to_movement']);
     expect(course.placementPromptType).toBe('image_to_title');
     expect(course.placementGraduates).toEqual(['image_to_title', 'title_to_image']);
-    expect(course.placementHeadStart).toBe(2);
     expect(getCourse('great-paintings')).toBe(course);
   });
 

@@ -101,7 +101,15 @@ export async function answerCorrectly(page: Page, user: TestUser, course: Course
     }
   } else {
     if (entry.kind === 'contrast') await page.keyboard.press('Enter');
-    await page.locator(`[data-choice-id="${choices.find((c) => c.itemKey === entry.itemKey)!.id}"]`).click();
+    const choice = page.locator(`[data-choice-id="${choices.find((c) => c.itemKey === entry.itemKey)!.id}"]`);
+    await choice.click();
+    // A right pick must be drawn as right while its feedback shows (regression: paintings drew it red).
+    // Exams show no feedback; map-pick outlines are coloured by their own code (candidateState).
+    if (!page.url().includes('/exam') && format !== 'map-pick') {
+      const feedback = page.getByTestId('feedback');
+      await feedback.waitFor({ timeout: 5_000 }).catch(() => {});
+      if (await feedback.isVisible()) await expect(choice).toHaveAttribute('data-state', 'correct', { timeout: 500 });
+    }
   }
   await waitForNext(page, questionId);
 }

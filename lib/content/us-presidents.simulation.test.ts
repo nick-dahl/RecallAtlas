@@ -45,7 +45,7 @@ function simulate(totalDays: number) {
         if (!entry) break;
         if (entry.kind === 'intro') {
           intros.push(entry.itemKey);
-          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states }));
+          ({ session, states } = applyIntro({ session, itemKey: entry.itemKey, states, course }));
           continue;
         }
         if (entry.kind === 'contrast') {

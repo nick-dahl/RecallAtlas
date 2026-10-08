@@ -31,6 +31,7 @@ export function ImageChoice({
     <button
       type="button"
       data-choice-id={id}
+      data-state={state}
       aria-label={`Option ${index + 1}`}
       disabled={disabled}
       onClick={onPick}
