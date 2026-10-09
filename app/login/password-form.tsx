@@ -16,7 +16,7 @@ export function PasswordForm({ next, email }: { next: string; email?: string }) 
       <label htmlFor="signin-email" className="text-sm font-medium">
         Email
       </label>
-      <input id="signin-email" name="email" type="email" required autoComplete="username" defaultValue={email} autoFocus={!email} className={FIELD} />
+      <input id="signin-email" name="email" type="email" required autoComplete="username" defaultValue={state.email ?? email} autoFocus={!email} className={FIELD} />
       <div className="flex items-baseline justify-between">
         <label htmlFor="signin-password" className="text-sm font-medium">
           Password

@@ -17,7 +17,9 @@ test.afterAll(async () => {
 test('signed-out visitors are sent to sign in', async ({ page }) => {
   await page.goto('/dashboard');
   await expect(page).toHaveURL(/\/login\?next=%2Fdashboard/);
-  await expect(page.getByRole('button', { name: /sign-in link/i })).toBeVisible();
+  // Password sign-in first; the emailed link is the secondary option.
+  await expect(page.getByRole('button', { name: 'Sign in' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Email me a sign-in link instead' })).toBeVisible();
 });
 
 test('enroll, run placement, skip ahead, and study', async ({ page, context }) => {

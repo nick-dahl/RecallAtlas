@@ -9,6 +9,8 @@ import { createSessionClient } from '@/lib/supabase/server';
 export interface LoginState {
   status: 'idle' | 'sent' | 'error';
   message?: string;
+  /** Echoed back so the form keeps it: React resets a form after its action runs. */
+  email?: string;
 }
 
 /** Never show the learner Supabase's raw error message; it can leak internal details. */
@@ -38,13 +40,13 @@ export async function signInWithPassword(_previous: LoginState, formData: FormDa
   const email = normalizeEmail(String(formData.get('email') ?? ''));
   const password = String(formData.get('password') ?? '');
   const next = safeNext(String(formData.get('next') ?? ''));
-  if (!email || !password) return { status: 'error', message: MESSAGES.signInFailed };
+  if (!email || !password) return { status: 'error', message: MESSAGES.signInFailed, email };
 
   const supabase = await createSessionClient();
   const { error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) {
     if (!isRateLimited(error) && error.code !== 'invalid_credentials') console.error('signInWithPassword failed:', error.status, error.code);
-    return { status: 'error', message: signInErrorMessage(error) };
+    return { status: 'error', message: signInErrorMessage(error), email };
   }
   redirect(next);
 }
