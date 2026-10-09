@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { MasteryMap } from '@/components/map/mastery-map';
+import { ConfirmBanner } from '@/components/auth/confirm-banner';
 import { CapitalList } from '@/components/capitals/capital-list';
 import { GalleryWall } from '@/components/paintings/gallery-wall';
 import { Timeline } from '@/components/presidents/timeline';
@@ -47,6 +48,9 @@ export default async function CoursePage({ params }: Props) {
   return (
     <>
       <SiteHeader />
+      <div className="px-6">
+        <ConfirmBanner />
+      </div>
       <main className="relative z-10 mx-auto max-w-5xl space-y-14 px-6 pb-24">
         <section className="animate-rise space-y-5">
           <div className="flex items-center gap-3">
