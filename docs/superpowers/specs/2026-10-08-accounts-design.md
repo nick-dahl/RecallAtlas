@@ -84,7 +84,7 @@ This also fixes today's bug: a new email's link fails when opened in a different
 ## 6. One-time Supabase setup (manual, by the user)
 
 The plan's hand-off gives exact click-by-click steps:
-1. Authentication → Providers → Email: turn **"Confirm email" off**.
+1. ~~Turn "Confirm email" off.~~ **Not needed** (Plan 11 ruling): accounts are created on the server, already confirmed in Supabase's terms, so the setting can stay as it is.
 2. Authentication → Email Templates: replace the **Magic Link**, **Reset Password** and **Confirm Signup** templates with the provided HTML, so their links use `/auth/confirm` with a token hash.
 3. Authentication → URL Configuration: make sure `/auth/confirm` on the live site (and `http://localhost:3000/auth/confirm` for development) is on the redirect allow-list.
 
