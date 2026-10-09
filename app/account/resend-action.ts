@@ -1,6 +1,6 @@
 'use server';
 
-import { isRateLimited, MESSAGES } from '@/lib/auth/account';
+import { isRateLimited, sendResultMessage } from '@/lib/auth/account';
 import { siteUrl } from '@/lib/env';
 import { createSessionClient } from '@/lib/supabase/server';
 
@@ -13,7 +13,6 @@ export async function resendConfirmation(): Promise<{ message?: string }> {
     email: data.user.email,
     options: { shouldCreateUser: false, emailRedirectTo: `${siteUrl()}/auth/callback?next=%2Fdashboard` },
   });
-  if (isRateLimited(error)) return { message: MESSAGES.wait };
-  if (error) console.error('resendConfirmation failed:', error.status, error.code);
-  return { message: 'Sent.' };
+  if (error && !isRateLimited(error)) console.error('resendConfirmation failed:', error.status, error.code);
+  return { message: sendResultMessage(error) };
 }

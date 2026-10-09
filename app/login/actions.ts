@@ -1,7 +1,7 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { isRateLimited, MESSAGES, normalizeEmail, PASSWORD_MIN, validateCredentials } from '@/lib/auth/account';
+import { isRateLimited, MESSAGES, normalizeEmail, PASSWORD_MIN, signInErrorMessage, validateCredentials } from '@/lib/auth/account';
 import { safeNext } from '@/lib/auth/safe-next';
 import { siteUrl } from '@/lib/env';
 import { createSessionClient } from '@/lib/supabase/server';
@@ -43,8 +43,8 @@ export async function signInWithPassword(_previous: LoginState, formData: FormDa
   const supabase = await createSessionClient();
   const { error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) {
-    if (!isRateLimited(error)) console.error('signInWithPassword failed:', error.status, error.code);
-    return { status: 'error', message: MESSAGES.signInFailed };
+    if (!isRateLimited(error) && error.code !== 'invalid_credentials') console.error('signInWithPassword failed:', error.status, error.code);
+    return { status: 'error', message: signInErrorMessage(error) };
   }
   redirect(next);
 }

@@ -1,5 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { confirmDestination, isEmailConfirmed, isRateLimited, MESSAGES, newPasswordError, normalizeEmail, signUpErrorMessage, validateCredentials } from './account';
+import {
+  confirmDestination,
+  isEmailConfirmed,
+  isRateLimited,
+  MESSAGES,
+  newPasswordError,
+  normalizeEmail,
+  sendResultMessage,
+  signInErrorMessage,
+  signUpErrorMessage,
+  updatePasswordErrorMessage,
+  validateCredentials,
+} from './account';
 
 describe('validateCredentials', () => {
   it('accepts a real email and an 8+ character password', () => {
@@ -33,14 +45,29 @@ describe('isRateLimited', () => {
   });
 });
 
-describe('isEmailConfirmed (Review Focus 5)', () => {
-  const cutoff = new Date('2026-10-08T20:00:00Z');
-  it('counts accounts created before the cutoff as confirmed', () => {
-    expect(isEmailConfirmed({ created_at: '2026-10-01T00:00:00Z' }, cutoff)).toBe(true);
+describe('isEmailConfirmed (Review Focus 5, review fix: no clock)', () => {
+  it('only asks accounts made by password sign-up, until an emailed link is used', () => {
+    expect(isEmailConfirmed({})).toBe(true);
+    expect(isEmailConfirmed({ app_metadata: { provider: 'email' } })).toBe(true);
+    expect(isEmailConfirmed({ app_metadata: { confirm_pending: true } })).toBe(false);
+    expect(isEmailConfirmed({ app_metadata: { confirm_pending: true, email_verified_at: '2030-01-01T01:00:00Z' } })).toBe(true);
   });
-  it('needs our own mark for accounts created after it', () => {
-    expect(isEmailConfirmed({ created_at: '2026-10-09T00:00:00Z' }, cutoff)).toBe(false);
-    expect(isEmailConfirmed({ created_at: '2026-10-09T00:00:00Z', app_metadata: { email_verified_at: '2026-10-09T01:00:00Z' } }, cutoff)).toBe(true);
+});
+
+describe('error wording after the review', () => {
+  it('says a rate-limited sign-in is a rate limit, not a wrong password', () => {
+    expect(signInErrorMessage({ status: 429 })).toBe(MESSAGES.tooMany);
+    expect(signInErrorMessage({ status: 400, code: 'invalid_credentials' })).toBe(MESSAGES.signInFailed);
+  });
+  it('never claims an email was sent when sending failed', () => {
+    expect(sendResultMessage(null)).toBe(MESSAGES.sent);
+    expect(sendResultMessage({ status: 429 })).toBe(MESSAGES.wait);
+    expect(sendResultMessage({ status: 500, code: 'unexpected_failure' })).toBe(MESSAGES.sendFailed);
+  });
+  it('explains a reused or too-weak new password instead of "try again"', () => {
+    expect(updatePasswordErrorMessage({ code: 'same_password' })).toBe(MESSAGES.samePassword);
+    expect(updatePasswordErrorMessage({ code: 'weak_password' })).toBe(MESSAGES.weakPassword);
+    expect(updatePasswordErrorMessage({ status: 500 })).toBe(MESSAGES.updateFailed);
   });
 });
 

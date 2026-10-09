@@ -7,7 +7,12 @@ import { createAdminClient } from '@/lib/supabase/admin';
 describe('markEmailVerified on Supabase', () => {
   it('sets email_verified_at once and keeps the first date', async () => {
     const admin = createAdminClient();
-    const { data } = await admin.auth.admin.createUser({ email: `verify-${randomUUID()}@example.com`, password: randomUUID(), email_confirm: true });
+    const { data } = await admin.auth.admin.createUser({
+      email: `verify-${randomUUID()}@example.com`,
+      password: randomUUID(),
+      email_confirm: true,
+      app_metadata: { confirm_pending: true },
+    });
     const id = data.user!.id;
     try {
       expect(isEmailConfirmed(data.user!)).toBe(false);

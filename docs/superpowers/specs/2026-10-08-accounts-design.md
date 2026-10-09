@@ -71,7 +71,7 @@ This also fixes today's bug: a new email's link fails when opened in a different
 - **Our own confirmation record:** the account is confirmed when its server-only `app_metadata.email_verified_at` is set. The learner can't write `app_metadata`; only the server (secret key) can.
   - **At sign-up,** the server sends the confirmation email with `signInWithOtp` (a magic-link email). Opening it proves the inbox belongs to the learner.
   - **The confirm route** (below) sets `email_verified_at` when a `magiclink` or `email` token verifies for an account that hasn't confirmed yet.
-  - **Accounts created before this change** count as confirmed: their only way in was an emailed link, so they have already proved their inbox. They're treated as confirmed when `email_verified_at` is absent but `created_at` is before a fixed cutoff, `ACCOUNTS_CUTOFF`, set to the deploy date in code. Accounts created after the cutoff are auto-confirmed by Supabase ("Confirm email" is off), so Supabase's own `email_confirmed_at` proves nothing for them.
+  - **Only password sign-ups are asked to confirm** (review fix: no clock). They're created with `app_metadata.confirm_pending: true`. Older accounts and email-link accounts proved their inbox to get in, so they never see the banner.
 - **One route for every emailed link:** `GET /auth/confirm?token_hash=…&type=…&next=…`.
   - **Steps:** it calls `verifyOtp({ token_hash, type })`, then records the confirmation when relevant, then redirects.
   - **Where it redirects:** `type=recovery` goes to `/account/password`. Others go to `next` (safe-listed by the existing `safeNext`), defaulting to `/dashboard`.

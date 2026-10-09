@@ -25,7 +25,13 @@ export async function signUp(_previous: SignUpState, formData: FormData): Promis
   const invalid = validateCredentials(email, password);
   if (invalid) return { status: 'error', message: invalid, email };
 
-  const { error: createError } = await createAdminClient().auth.admin.createUser({ email, password, email_confirm: true });
+  const { error: createError } = await createAdminClient().auth.admin.createUser({
+    email,
+    password,
+    email_confirm: true,
+    // Asks this account to confirm its email (banner) until an emailed link is used.
+    app_metadata: { confirm_pending: true },
+  });
   if (createError) {
     const message = signUpErrorMessage(createError);
     if (message !== MESSAGES.exists) console.error('signUp createUser failed:', createError.status, createError.code);

@@ -1,7 +1,7 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { MESSAGES, newPasswordError } from '@/lib/auth/account';
+import { newPasswordError, updatePasswordErrorMessage } from '@/lib/auth/account';
 import { createSessionClient } from '@/lib/supabase/server';
 
 /** Sets the signed-in account's password (after a reset link, or a first password for an email-link account). */
@@ -12,8 +12,8 @@ export async function updatePassword(_previous: { message?: string }, formData: 
   const supabase = await createSessionClient();
   const { error } = await supabase.auth.updateUser({ password });
   if (error) {
-    console.error('updatePassword failed:', error.status, error.code);
-    return { message: MESSAGES.updateFailed };
+    if (error.code !== 'same_password') console.error('updatePassword failed:', error.status, error.code);
+    return { message: updatePasswordErrorMessage(error) };
   }
   redirect('/dashboard?notice=password');
 }
