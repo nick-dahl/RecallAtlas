@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { confirmDestination, isEmailConfirmed, isRateLimited, MESSAGES, normalizeEmail, signUpErrorMessage, validateCredentials } from './account';
+import { confirmDestination, isEmailConfirmed, isRateLimited, MESSAGES, newPasswordError, normalizeEmail, signUpErrorMessage, validateCredentials } from './account';
 
 describe('validateCredentials', () => {
   it('accepts a real email and an 8+ character password', () => {
@@ -54,5 +54,13 @@ describe('confirmDestination (Review Focus 4)', () => {
     expect(confirmDestination(p('type=email&redirect_to=https%3A%2F%2Fsite.example%2Fauth%2Fcallback%3Fnext%3D%252Fdashboard'))).toBe('/dashboard');
     expect(confirmDestination(p('type=email&next=https%3A%2F%2Fevil.example'))).toBe('/dashboard');
     expect(confirmDestination(p(''))).toBe('/dashboard');
+  });
+});
+
+describe('password confirmation', () => {
+  it('checks the two entries match before length', () => {
+    expect(newPasswordError('abcdefgh', 'abcdefgx')).toBe(MESSAGES.mismatch);
+    expect(newPasswordError('short', 'short')).toBe(MESSAGES.shortPassword);
+    expect(newPasswordError('abcdefgh', 'abcdefgh')).toBeNull();
   });
 });

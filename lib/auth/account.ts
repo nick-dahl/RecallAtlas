@@ -68,3 +68,9 @@ export function confirmDestination(params: URLSearchParams): string {
   }
   return safeNext(null);
 }
+
+export function newPasswordError(password: string, confirm: string): string | null {
+  if (password !== confirm) return MESSAGES.mismatch;
+  if (password.length < PASSWORD_MIN) return MESSAGES.shortPassword;
+  return null;
+}
