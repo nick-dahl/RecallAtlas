@@ -17,7 +17,9 @@ test.afterAll(async () => {
 test('signed-out visitors are sent to sign in', async ({ page }) => {
   await page.goto('/dashboard');
   await expect(page).toHaveURL(/\/login\?next=%2Fdashboard/);
-  await expect(page.getByRole('button', { name: /sign-in link/i })).toBeVisible();
+  // Password sign-in first; the emailed link is the secondary option.
+  await expect(page.getByRole('button', { name: 'Sign in' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Email me a sign-in link instead' })).toBeVisible();
 });
 
 test('enroll, run placement, skip ahead, and study', async ({ page, context }) => {
@@ -84,20 +86,23 @@ test.describe('dev sign-in', () => {
     await expect(page).toHaveURL(/\/login$/);
   });
 
-  test('admin password sign-in works for ADMIN_EMAIL only', async ({ page }) => {
-    test.skip(!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD, 'Needs ADMIN_EMAIL and ADMIN_PASSWORD in .env.local.');
-    await page.goto('/login?method=password');
-    await page.getByLabel('Email').fill('not-the-admin@example.com');
-    await page.getByLabel('Password').fill(process.env.ADMIN_PASSWORD!);
-    await page.getByRole('button', { name: 'Sign in' }).click();
-    await expect(page.getByText("Couldn't sign in with that email and password.")).toBeVisible();
+  test('password sign-in works for any account', async ({ page }) => {
+    const account = await createTestUser();
+    try {
+      await page.goto('/login');
+      await page.getByLabel('Email').fill(account.email);
+      await page.getByLabel('Password').fill('not-the-password');
+      await page.getByRole('button', { name: 'Sign in' }).click();
+      await expect(page.getByText("Couldn't sign in with that email and password.")).toBeVisible();
 
-    await page.getByLabel('Email').fill(process.env.ADMIN_EMAIL!);
-    await page.getByLabel('Password').fill(process.env.ADMIN_PASSWORD!);
-    await page.getByRole('button', { name: 'Sign in' }).click();
-    await expect(page).toHaveURL(/\/dashboard$/);
-    await page.getByRole('button', { name: 'Sign out' }).click();
-    await expect(page).toHaveURL(/\/login$/);
+      await page.getByLabel('Password').fill(account.password);
+      await page.getByRole('button', { name: 'Sign in' }).click();
+      await expect(page).toHaveURL(/\/dashboard$/);
+      await page.getByRole('button', { name: 'Sign out' }).click();
+      await expect(page).toHaveURL(/\/login$/);
+    } finally {
+      await admin.auth.admin.deleteUser(account.id);
+    }
   });
 
   test('is not available on a deployment', async ({ request }) => {

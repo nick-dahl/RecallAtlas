@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { SignUpForm } from '@/components/auth/signup-form';
 import { SiteHeader } from '@/components/site-header';
-import { buttonClass } from '@/components/ui/button';
 import { MapFrame } from '@/components/map/map-frame';
 import { Flag } from '@/components/ui/flag';
 import { loadFrame } from '@/lib/map/load';
@@ -35,9 +34,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ c
             Every flag, every country on the map, and its capital. Recall Atlas spends your time on what you mix
             up (Chad or Romania? Peru or Bolivia?) and quietly retires what you already know.
           </p>
-          <Link href="/login" className={buttonClass('primary', 'px-7 py-3 text-base')}>
-            Start learning
-          </Link>
+          <SignUpForm />
         </div>
         <div className="relative mx-auto w-full max-w-sm pb-10 pl-10" aria-hidden>
           <div className="animate-rise rotate-2" style={{ animationDelay: '120ms' }}>
